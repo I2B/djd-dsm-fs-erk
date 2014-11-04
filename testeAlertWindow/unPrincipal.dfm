@@ -10,7 +10,10 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  FormStyle = fsMDIForm
   OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon1: TdxRibbon
@@ -23,7 +26,7 @@ object Form1: TForm1
     ColorSchemeAccent = rcsaBlue
     ColorSchemeName = 'Office2013White'
     Contexts = <>
-    TabOrder = 3
+    TabOrder = 2
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
@@ -223,6 +226,7 @@ object Form1: TForm1
       Category = 0
       Hint = 'Clientes'
       Visible = ivAlways
+      OnClick = dxBarLargeButton4Click
     end
     object dxBarLargeButton5: TdxBarLargeButton
       Caption = 'Fornecedores'
@@ -496,5 +500,20 @@ object Form1: TForm1
     object este31: TMenuItem
       Caption = 'Teste 3'
     end
+  end
+  object ActionManager1: TActionManager
+    Left = 440
+    Top = 224
+    StyleName = 'Platform Default'
+  end
+  object dxTabbedMDIManager1: TdxTabbedMDIManager
+    Active = True
+    TabProperties.AllowTabDragDrop = True
+    TabProperties.CloseButtonMode = cbmActiveTab
+    TabProperties.CloseTabWithMiddleClick = True
+    TabProperties.CustomButtons.Buttons = <>
+    TabProperties.MultiLine = True
+    Left = 560
+    Top = 304
   end
 end

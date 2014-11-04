@@ -9,7 +9,8 @@ uses
   cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, dxRibbonSkins,
   dxSkinsdxRibbonPainter, dxRibbonCustomizationForm, dxBar, dxRibbon, cxClasses,
   dxSkinsForm, Vcl.Menus, Vcl.StdCtrls, cxButtons, dxAlertWindow, Vcl.ImgList,
-  dxRibbonRadialMenu;
+  dxRibbonRadialMenu, cxPC, dxSkinscxPCPainter, dxBarBuiltInMenu, dxTabbedMDI, Vcl.PlatformDefaultStyleActnCtrls,
+  System.Actions, Vcl.ActnList, Vcl.ActnMan;
 
 type
   TForm1 = class(TForm)
@@ -44,10 +45,13 @@ type
     este21: TMenuItem;
     este31: TMenuItem;
     dxBarLargeButton13: TdxBarLargeButton;
+    ActionManager1: TActionManager;
+    dxTabbedMDIManager1: TdxTabbedMDIManager;
     procedure cxButton1Click(Sender: TObject);
     procedure dxAlertWindowManager1ButtonClick(Sender: TObject;
       AAlertWindow: TdxAlertWindow; AButtonIndex: Integer);
     procedure dxBarLargeButton13Click(Sender: TObject);
+    procedure dxBarLargeButton4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses unTileControl;
+uses unTileControl, unTeste;
 
 procedure TForm1.cxButton1Click(Sender: TObject);
 begin
@@ -81,6 +85,13 @@ end;
 procedure TForm1.dxBarLargeButton13Click(Sender: TObject);
 begin
   frmTileControl.ShowModal;
+end;
+
+procedure TForm1.dxBarLargeButton4Click(Sender: TObject);
+begin
+  dxTabbedMDIManager1.Active := True;
+
+  Form2 := TForm2.Create(Application);
 end;
 
 end.
