@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/10/30 15:57:07.000.282,=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/10/30 15:57:21.000.589,C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\unPrincipal.dfm=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2014/10/30 15:57:21.000.589,C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\unPrincipal.pas=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/10/30 15:57:26.000.875,C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\prjTeste.dproj=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2014/10/30 17:12:30.000.764,=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\Unit2.pas</Transaction>
+    <Transaction>2014/10/30 17:13:27.000.275,C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\Unit2.dfm=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\unTileControl.dfm</Transaction>
+    <Transaction>2014/10/30 17:13:27.000.275,C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\Unit2.pas=C:\Users\Elisandro\Documents\Embarcadero\Studio\Projects\testeAlertWindow\unTileControl.pas</Transaction>
+  </Transactions>
+</BorlandProject>
