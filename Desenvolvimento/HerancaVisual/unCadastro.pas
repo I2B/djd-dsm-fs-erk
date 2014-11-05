@@ -19,6 +19,7 @@ uses
 
 type
   TfrmCadastro = class(TfrmGrid)
+    procedure FormClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,5 +32,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadastro.FormClick(Sender: TObject);
+begin
+  inherited;
+  ShowMessage(Usuario);
+end;
 
 end.

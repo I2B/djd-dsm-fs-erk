@@ -9,30 +9,26 @@ inherited frmGrid: TfrmGrid
   PixelsPerInch = 96
   TextHeight = 25
   inherited dxLayoutControl: TdxLayoutControl
-    Left = 272
-    Top = 120
-    Width = 369
-    Height = 185
-    ExplicitLeft = 272
-    ExplicitTop = 120
-    ExplicitWidth = 369
-    ExplicitHeight = 185
+    Width = 900
+    Height = 400
+    ExplicitWidth = 900
+    ExplicitHeight = 400
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
     end
   end
   object dts: TDataSource
     AutoEdit = False
-    Left = 192
-    Top = 216
+    Left = 128
+    Top = 352
   end
   object imgSideBar: TImageList
     Height = 32
     Width = 32
-    Left = 200
-    Top = 72
+    Left = 16
+    Top = 352
     Bitmap = {
-      494C010101000800140020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010101000800180020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC5C5
@@ -569,8 +565,8 @@ inherited frmGrid: TfrmGrid
   end
   object ActionList: TActionList
     Images = imgSideBar
-    Left = 200
-    Top = 136
+    Left = 72
+    Top = 352
     object acImprimir: TAction
       Caption = 'Imprimir'
       ImageIndex = 0
