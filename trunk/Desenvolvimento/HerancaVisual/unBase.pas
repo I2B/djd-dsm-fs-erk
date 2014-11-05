@@ -23,6 +23,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    var Usuario : String;
   end;
 
 var

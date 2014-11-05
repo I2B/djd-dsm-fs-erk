@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9F26F660-2918-4B25-8531-FBA0CA3E262E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="i2bServer\i2bServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="i2bCadastro\i2bCadastro.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="i2bServer">
+        <MSBuild Projects="i2bServer\i2bServer.dproj"/>
+    </Target>
+    <Target Name="i2bServer:Clean">
+        <MSBuild Projects="i2bServer\i2bServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="i2bServer:Make">
+        <MSBuild Projects="i2bServer\i2bServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="i2bCadastro">
+        <MSBuild Projects="i2bCadastro\i2bCadastro.dproj"/>
+    </Target>
+    <Target Name="i2bCadastro:Clean">
+        <MSBuild Projects="i2bCadastro\i2bCadastro.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="i2bCadastro:Make">
+        <MSBuild Projects="i2bCadastro\i2bCadastro.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="i2bServer;i2bCadastro"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="i2bServer:Clean;i2bCadastro:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="i2bServer:Make;i2bCadastro:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

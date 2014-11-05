@@ -52,6 +52,7 @@ type
       AAlertWindow: TdxAlertWindow; AButtonIndex: Integer);
     procedure dxBarLargeButton13Click(Sender: TObject);
     procedure dxBarLargeButton4Click(Sender: TObject);
+    procedure dxBarLargeButton5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,7 +66,7 @@ implementation
 
 {$R *.dfm}
 
-uses unTileControl, unTeste;
+uses unTileControl, unTeste, unTesteInsercao;
 
 procedure TForm1.cxButton1Click(Sender: TObject);
 begin
@@ -92,6 +93,13 @@ begin
   dxTabbedMDIManager1.Active := True;
 
   Form2 := TForm2.Create(Application);
+end;
+
+procedure TForm1.dxBarLargeButton5Click(Sender: TObject);
+begin
+  Form3 := TForm3.Create(Application);
+  Form3.ShowModal;
+  FreeAndNil(Form3);
 end;
 
 end.

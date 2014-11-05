@@ -26,7 +26,7 @@ object Form1: TForm1
     ColorSchemeAccent = rcsaBlue
     ColorSchemeName = 'Office2013White'
     Contexts = <>
-    TabOrder = 2
+    TabOrder = 1
     TabStop = False
     object dxRibbon1Tab1: TdxRibbonTab
       Active = True
@@ -233,6 +233,7 @@ object Form1: TForm1
       Category = 0
       Hint = 'Fornecedores'
       Visible = ivAlways
+      OnClick = dxBarLargeButton5Click
     end
     object dxBarLargeButton6: TdxBarLargeButton
       Caption = 'Transportador'

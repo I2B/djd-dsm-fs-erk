@@ -2,8 +2,8 @@ object frmBase: TfrmBase
   Left = 0
   Top = 0
   Caption = 'frmBase'
-  ClientHeight = 201
-  ClientWidth = 447
+  ClientHeight = 437
+  ClientWidth = 735
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,17 +11,14 @@ object frmBase: TfrmBase
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  DesignSize = (
-    447
-    201)
   PixelsPerInch = 96
   TextHeight = 13
   object dxLayoutControl: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 447
-    Height = 201
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 735
+    Height = 437
+    Align = alClient
     TabOrder = 0
     object dxLayoutControlGroup_Root: TdxLayoutGroup
       AlignHorz = ahLeft
