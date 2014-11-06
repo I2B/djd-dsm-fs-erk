@@ -1,10 +1,12 @@
 object ServerContainer: TServerContainer
   OldCreateOrder = False
-  DisplayName = 'ServerContainer'
+  DisplayName = 'i2bServer'
   OnStart = ServiceStart
+  OnStop = ServiceStop
   Height = 271
   Width = 415
   object DSServer1: TDSServer
+    AutoStart = False
     Left = 96
     Top = 11
   end

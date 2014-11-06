@@ -30,6 +30,7 @@ type
       const Protocol, Context, User, Password: string; var valid: Boolean;
       UserRoles: TStrings);
     procedure ServiceStart(Sender: TService; var Started: Boolean);
+    procedure ServiceStop(Sender: TService; var Stopped: Boolean);
   private
     { Private declarations }
   protected
@@ -49,12 +50,12 @@ implementation
 
 {$R *.dfm}
 
-uses Winapi.Windows, ServerMethodsUnit1;
+uses Winapi.Windows, unServerMethods;
 
 procedure TServerContainer.DSServerClass1GetClass(
   DSServerClass: TDSServerClass; var PersistentClass: TPersistentClass);
 begin
-  PersistentClass := ServerMethodsUnit1.TServerMethods1;
+  PersistentClass := unServerMethods.TServerMethods;
 end;
 
 procedure TServerContainer.DSAuthenticationManager1UserAuthenticate(
@@ -115,5 +116,10 @@ procedure TServerContainer.ServiceStart(Sender: TService; var Started: Boolean);
 begin
   DSServer1.Start;
 end;
+procedure TServerContainer.ServiceStop(Sender: TService; var Stopped: Boolean);
+begin
+  DSServer1.Stop;
+end;
+
 end.
 
