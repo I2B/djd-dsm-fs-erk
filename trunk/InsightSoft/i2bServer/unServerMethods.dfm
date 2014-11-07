@@ -6,10 +6,9 @@ object ServerMethods: TServerMethods
     Params.Strings = (
       'Database=i2bdb'
       'User_Name=postgres'
-      'Password=defd'
+      'Password=postgres'
       'Server=127.0.0.1'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 176
     Top = 8
