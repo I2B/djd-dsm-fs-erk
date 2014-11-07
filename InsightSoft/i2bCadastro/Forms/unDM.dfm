@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Height = 271
-  Width = 415
+  Height = 232
+  Width = 384
   object conServer: TSQLConnection
     DriverName = 'DataSnap'
     LoginPrompt = False
@@ -10,19 +10,16 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 40
     Top = 40
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 128
     Top = 40
   end
   object cdsPais: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspPais'
