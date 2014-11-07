@@ -15,10 +15,15 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   dxLayoutContainer, dxLayoutControl, Data.DB, dxSkinsdxBarPainter, cxClasses, dxBar, dxSkinsdxNavBarPainter,
   dxNavBarCollns, dxNavBarBase, dxNavBar, Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ActnMan,
-  Vcl.ImgList;
+  Vcl.ImgList, cxContainer, cxEdit, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData,
+  cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses,
+  cxImage, Vcl.ExtCtrls, Vcl.StdCtrls, dxBarBuiltInMenu, cxPC, dxScreenTip, dxCustomHint, cxHint, dxRibbonRadialMenu;
 
 type
   TfrmCadastro = class(TfrmGrid)
+    btnInserir: TcxImage;
+    btnEditar: TcxImage;
+    imgInativar: TcxImage;
     procedure FormClick(Sender: TObject);
   private
     { Private declarations }

@@ -19,7 +19,7 @@ uses
   dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
   dxSkinsdxBarPainter, cxClasses, dxBar, dxRibbon, cxLookAndFeels, dxSkinsForm,
   cxLookAndFeelPainters, cxGraphics, dxAlertWindow, cxControls, dxRibbonSkins,
-  dxSkinsdxRibbonPainter, dxRibbonCustomizationForm, dxRibbonRadialMenu;
+  dxSkinsdxRibbonPainter, dxRibbonCustomizationForm, dxRibbonRadialMenu, cxContainer, cxEdit, dxGDIPlusClasses, cxImage;
 
 type
   TfrmPrincipal = class(TForm)
@@ -32,12 +32,10 @@ type
     dxRibbon: TdxRibbon;
     btnCliente: TdxBarLargeButton;
     dxRibbonRadialMenu1: TdxRibbonRadialMenu;
-    btnClienteNovo: TdxBarButton;
-    btnClienteAltera: TdxBarButton;
-    subExportar: TdxBarSubItem;
-    dxBarLargeButton1: TdxBarLargeButton;
-    dxBarLargeButton2: TdxBarLargeButton;
-    dxBarLargeButton3: TdxBarLargeButton;
+    btnExcel: TdxBarButton;
+    btnWord: TdxBarButton;
+    btnPDF: TdxBarButton;
+    barCopiar: TdxBarButton;
     procedure btnClienteClick(Sender: TObject);
   private
     { Private declarations }
