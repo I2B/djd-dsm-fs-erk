@@ -196,6 +196,7 @@ type
     { Public declarations }
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
+	
   end;
 
 implementation
