@@ -13,12 +13,11 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp,
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
-  dxLayoutContainer, dxLayoutControl;
+  dxLayoutContainer, dxLayoutControl, dxScreenTip, cxClasses, dxCustomHint, cxHint;
 
 type
   TfrmBase = class(TForm)
-    dxLayoutControlGroup_Root: TdxLayoutGroup;
-    dxLayoutControl: TdxLayoutControl;
+    cxHintStyleController: TcxHintStyleController;
   private
     { Private declarations }
   public

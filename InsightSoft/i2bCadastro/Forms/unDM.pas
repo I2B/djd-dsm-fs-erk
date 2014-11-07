@@ -3,9 +3,10 @@ unit unDM;
 interface
 
 uses
-  System.SysUtils, System.Classes, ClientClassesUnit1, Data.DBXDataSnap,
+  System.SysUtils, System.Classes, Data.DBXDataSnap,
   IPPeerClient, Data.DBXCommon, Datasnap.DBClient, Datasnap.DSConnect, Data.DB,
   Data.SqlExpr;
+  //ClientClassesUnit1
 
 type
   TDM = class(TDataModule)
@@ -17,14 +18,14 @@ type
     cdsPaisnome: TWideStringField;
   private
     FInstanceOwner: Boolean;
-    FServerMethodsClient: TServerMethodsClient;
-    function GetServerMethodsClient: TServerMethodsClient;
+//    FServerMethodsClient: TServerMethodsClient;
+//    function GetServerMethodsClient: TServerMethodsClient;
     { Private declarations }
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
     property InstanceOwner: Boolean read FInstanceOwner write FInstanceOwner;
-    property ServerMethodsClient: TServerMethodsClient read GetServerMethodsClient write FServerMethodsClient;
+//    property ServerMethodsClient: TServerMethodsClient read GetServerMethodsClient write FServerMethodsClient;
 
 end;
 
@@ -45,11 +46,11 @@ end;
 
 destructor TDM.Destroy;
 begin
-  FServerMethodsClient.Free;
+//  FServerMethodsClient.Free;
   inherited;
 end;
 
-function TDM.GetServerMethodsClient: TServerMethodsClient;
+{function TDM.GetServerMethodsClient: TServerMethodsClient;
 begin
   if FServerMethodsClient = nil then
   begin
@@ -57,6 +58,6 @@ begin
     FServerMethodsClient:= TServerMethodsClient.Create(conServer.DBXConnection, FInstanceOwner);
   end;
   Result := FServerMethodsClient;
-end;
+end;}
 
 end.

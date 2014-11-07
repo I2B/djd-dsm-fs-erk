@@ -13,20 +13,21 @@ object frmBase: TfrmBase
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object dxLayoutControl: TdxLayoutControl
-    Left = 0
-    Top = 0
-    Width = 735
-    Height = 437
-    Align = alClient
-    TabOrder = 0
-    object dxLayoutControlGroup_Root: TdxLayoutGroup
-      AlignHorz = ahLeft
-      AlignVert = avTop
-      ButtonOptions.Buttons = <>
-      Hidden = True
-      ShowBorder = False
-      Index = -1
-    end
+  object cxHintStyleController: TcxHintStyleController
+    HintStyleClassName = 'TcxHintStyle'
+    HintStyle.Animate = cxhaFadeIn
+    HintStyle.CallOutPosition = cxbpAuto
+    HintStyle.CaptionFont.Charset = DEFAULT_CHARSET
+    HintStyle.CaptionFont.Color = clWindowText
+    HintStyle.CaptionFont.Height = -11
+    HintStyle.CaptionFont.Name = 'Tahoma'
+    HintStyle.CaptionFont.Style = []
+    HintStyle.Font.Charset = DEFAULT_CHARSET
+    HintStyle.Font.Color = clWindowText
+    HintStyle.Font.Height = -11
+    HintStyle.Font.Name = 'Tahoma'
+    HintStyle.Font.Style = []
+    Left = 398
+    Top = 190
   end
 end
