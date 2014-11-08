@@ -41,6 +41,7 @@ type
     cxLevel: TcxGridLevel;
     cxTabCadastro: TcxTabSheet;
     pnlTop: TPanel;
+    SaveDialog: TSaveDialog;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -49,7 +50,6 @@ type
     procedure barBtnExcelClick(Sender: TObject);
     procedure barBtnWordClick(Sender: TObject);
     procedure acImprimirExecute(Sender: TObject);
-    procedure imgImprimirClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -90,8 +90,14 @@ end;
 
 procedure TfrmGrid.barBtnWordClick(Sender: TObject);
 begin
-  inherited;
-  ShowMessage('Em desenvolvimento...');
+  SaveDialog.Filter := 'Word (*.doc) |*.doc';
+  SaveDialog.Title := 'Exportar Dados';
+  SaveDialog.DefaultExt:= 'doc';
+  if SaveDialog.Execute then
+  begin
+    ExportGrid4ToExcel(SaveDialog.FileName,Grade, False);
+    ShellExecute(Handle, 'open', pchar(SaveDialog.FileName), nil, nil, SW_SHOW);
+  end;
 end;
 
 procedure TfrmGrid.dtsDataChange(Sender: TObject; Field: TField);
@@ -116,12 +122,6 @@ procedure TfrmGrid.imgExportarClick(Sender: TObject);
 begin
   inherited;
   RadialMenuExportar.PopupFromCursorPos;
-end;
-
-procedure TfrmGrid.imgImprimirClick(Sender: TObject);
-begin
-  inherited;
-  acImprimirExecute(Sender);
 end;
 
 end.
