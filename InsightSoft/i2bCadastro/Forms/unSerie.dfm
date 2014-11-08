@@ -45,16 +45,18 @@ inherited frmSerie: TfrmSerie
       Height = 411
       ExplicitWidth = 832
       ExplicitHeight = 411
-      ClientRectBottom = 409
-      ClientRectRight = 830
+      ClientRectBottom = 407
+      ClientRectRight = 828
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 828
-        ExplicitHeight = 379
+        ExplicitLeft = 4
+        ExplicitTop = 26
+        ExplicitWidth = 824
+        ExplicitHeight = 381
         inherited cxGrid: TcxGrid
-          Width = 828
-          Height = 379
-          ExplicitWidth = 828
-          ExplicitHeight = 379
+          Width = 824
+          Height = 381
+          ExplicitWidth = 824
+          ExplicitHeight = 381
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidserie: TcxGridDBColumn
               DataBinding.FieldName = 'idserie'
@@ -70,56 +72,11 @@ inherited frmSerie: TfrmSerie
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 828
-        ExplicitHeight = 379
+        ExplicitWidth = 824
+        ExplicitHeight = 381
         inherited pnlCadastro: TPanel
-          Height = 379
-          ExplicitHeight = 379
-        end
-        inline FrameSerie: TFrameSerie
-          Left = 60
-          Top = 0
-          Width = 768
-          Height = 379
-          Align = alClient
-          Color = clWindow
-          ParentBackground = False
-          ParentColor = False
-          TabOrder = 1
-          ExplicitLeft = 60
-          ExplicitWidth = 768
-          ExplicitHeight = 379
-          inherited dxLayoutControl: TdxLayoutControl
-            Width = 768
-            Height = 379
-            ExplicitWidth = 768
-            ExplicitHeight = 379
-            inherited cxDBTextEdit1: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited cxDBTextEdit2: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited cxDBTextEdit3: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited dxLayoutControlGroup_Root: TdxLayoutGroup
-              Index = -1
-            end
-            inherited dxLayoutControlItem1: TdxLayoutItem
-              Index = 0
-            end
-            inherited dxLayoutControlItem2: TdxLayoutItem
-              Index = 0
-            end
-            inherited dxLayoutControlItem3: TdxLayoutItem
-              Index = 1
-            end
-            inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
-              Index = 1
-              AutoCreated = True
-            end
-          end
+          Height = 381
+          ExplicitHeight = 381
         end
       end
     end

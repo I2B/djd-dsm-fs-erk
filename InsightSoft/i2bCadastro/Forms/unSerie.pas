@@ -23,7 +23,6 @@ type
     cxGridDBidserie: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBnumeracao: TcxGridDBColumn;
-    FrameSerie: TFrameSerie;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }

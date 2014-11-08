@@ -14,9 +14,10 @@ inherited frmCadastro: TfrmCadastro
     Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
-    ExplicitHeight = 0
+    ExplicitHeight = 399
     inherited lblRegistros: TLabel
       Top = 382
+      ExplicitTop = 382
     end
     inherited imgImprimir: TcxImage
       Top = 268
@@ -24,7 +25,7 @@ inherited frmCadastro: TfrmCadastro
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitTop = -131
+      ExplicitTop = 268
     end
     inherited imgExportar: TcxImage
       Top = 325
@@ -32,7 +33,7 @@ inherited frmCadastro: TfrmCadastro
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitTop = -74
+      ExplicitTop = 325
     end
     object imgNovo: TcxImage
       Left = 0
@@ -260,21 +261,24 @@ inherited frmCadastro: TfrmCadastro
       Width = 842
       Height = 371
       ExplicitWidth = 64
+      ExplicitHeight = 371
       ClientRectBottom = 369
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 60
+        ExplicitHeight = 0
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 339
           ExplicitWidth = 60
+          ExplicitHeight = 339
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
-        ExplicitWidth = 60
-        ExplicitHeight = 340
+        ExplicitWidth = 834
+        ExplicitHeight = 341
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
@@ -289,7 +293,7 @@ inherited frmCadastro: TfrmCadastro
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 340
+          ExplicitHeight = 341
           object cxImage3: TcxImage
             Left = 0
             Top = 0

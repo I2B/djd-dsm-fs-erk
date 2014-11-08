@@ -110,8 +110,8 @@
             <Form>frmSerie</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Frames\unFrameSerie.pas">
-            <Form>FrameSerie</Form>
+        <DCCReference Include="..\Framework\HerancaVisual\unFramePai.pas">
+            <Form>FramePai</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
