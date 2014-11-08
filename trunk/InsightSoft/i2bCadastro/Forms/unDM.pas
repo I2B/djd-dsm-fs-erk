@@ -107,7 +107,6 @@ type
     cdsAuditoriadataregistro: TDateField;
     cdsAuditoriahoraregistro: TTimeField;
     cdsAuditoriaacao: TWideStringField;
-    cdsAuditoriadescricao: TWideMemoField;
     cdsBancoidbanco: TWideStringField;
     cdsBanconome: TWideStringField;
     cdsCargoidcargo: TIntegerField;
@@ -987,6 +986,7 @@ type
     cdsUnidadeNegocioidempresa: TIntegerField;
     cdsUnidadeNegociocnpj: TWideStringField;
     cdsUnidadeNegocionomefantasia: TWideStringField;
+    cdsAuditoriadescricao: TWideMemoField;
   private
     FInstanceOwner: Boolean;
 //    FServerMethodsClient: TServerMethodsClient;
