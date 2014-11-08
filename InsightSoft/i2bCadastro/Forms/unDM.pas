@@ -958,9 +958,6 @@ type
     cdsRegraFiscalcfopdevolucao: TSmallintField;
     cdsRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField;
     cdsRegraFiscalObservacaoobservacao: TWideMemoField;
-    cdsSerieidserie: TIntegerField;
-    cdsSeriedescricao: TWideStringField;
-    cdsSerienumeracao: TIntegerField;
     cdsProdutoFornecedoridprodutofornecedor: TIntegerField;
     cdsProdutoFornecedorcodigoprodutofornecedor: TWideStringField;
     cdsProdutoFornecedoridproduto: TIntegerField;
@@ -987,6 +984,9 @@ type
     cdsUnidadeNegociocnpj: TWideStringField;
     cdsUnidadeNegocionomefantasia: TWideStringField;
     cdsAuditoriadescricao: TWideMemoField;
+    cdsSerieidserie: TIntegerField;
+    cdsSeriedescricao: TWideStringField;
+    cdsSerienumeracao: TIntegerField;
   private
     FInstanceOwner: Boolean;
 //    FServerMethodsClient: TServerMethodsClient;

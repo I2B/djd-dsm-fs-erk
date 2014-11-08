@@ -1,6 +1,6 @@
 object DM: TDM
   OldCreateOrder = False
-  Height = 759
+  Height = 656
   Width = 920
   object conServer: TSQLConnection
     DriverName = 'DataSnap'
@@ -3578,13 +3578,18 @@ object DM: TDM
     Left = 536
     Top = 592
     object cdsSerieidserie: TIntegerField
+      Alignment = taCenter
+      DisplayLabel = 'S'#233'rie'
       FieldName = 'idserie'
     end
     object cdsSeriedescricao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       Size = 50
     end
     object cdsSerienumeracao: TIntegerField
+      Alignment = taCenter
+      DisplayLabel = 'Numera'#231#227'o Atual'
       FieldName = 'numeracao'
     end
   end

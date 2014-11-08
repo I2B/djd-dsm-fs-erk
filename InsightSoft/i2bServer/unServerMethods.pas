@@ -190,6 +190,9 @@ type
     dspTipoOperacao: TDataSetProvider;
     dspTipoTelefone: TDataSetProvider;
     dspUnidadeNegocio: TDataSetProvider;
+    qrySerieidserie: TIntegerField;
+    qrySeriedescricao: TWideStringField;
+    qrySerienumeracao: TIntegerField;
   private
     { Private declarations }
   public
