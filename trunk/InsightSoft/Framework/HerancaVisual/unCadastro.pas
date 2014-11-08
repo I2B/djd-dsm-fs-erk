@@ -17,14 +17,28 @@ uses
   dxNavBarCollns, dxNavBarBase, dxNavBar, Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ActnMan,
   Vcl.ImgList, cxContainer, cxEdit, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses,
-  cxImage, Vcl.ExtCtrls, Vcl.StdCtrls, dxBarBuiltInMenu, cxPC, dxScreenTip, dxCustomHint, cxHint, dxRibbonRadialMenu;
+  cxImage, Vcl.ExtCtrls, Vcl.StdCtrls, dxBarBuiltInMenu, cxPC, dxScreenTip, dxCustomHint, cxHint, dxRibbonRadialMenu,
+  Datasnap.DBClient;
 
 type
   TfrmCadastro = class(TfrmGrid)
-    btnInserir: TcxImage;
-    btnEditar: TcxImage;
+    imgNovo: TcxImage;
+    imgEditar: TcxImage;
     imgInativar: TcxImage;
+    acNovo: TAction;
+    acEditar: TAction;
+    acInativar: TAction;
+    pnlCadastro: TPanel;
+    cxImage3: TcxImage;
+    cxImage4: TcxImage;
+    acSalvar: TAction;
+    acCancelar: TAction;
     procedure FormClick(Sender: TObject);
+    procedure acNovoExecute(Sender: TObject);
+    procedure acEditarExecute(Sender: TObject);
+    procedure acInativarExecute(Sender: TObject);
+    procedure acSalvarExecute(Sender: TObject);
+    procedure acCancelarExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,6 +51,51 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadastro.acCancelarExecute(Sender: TObject);
+begin
+  inherited;
+  (dts.DataSet as TClientDataSet).Cancel;
+  cxPageControl.ActivePage := cxTabGrid;
+  pnlSide.Visible := True;
+end;
+
+procedure TfrmCadastro.acEditarExecute(Sender: TObject);
+begin
+  inherited;
+  pnlSide.Visible := False;
+  cxPageControl.ActivePage := cxTabCadastro;
+  (dts.DataSet as TClientDataSet).Edit;
+end;
+
+procedure TfrmCadastro.acInativarExecute(Sender: TObject);
+begin
+  inherited;
+  if Application.MessageBox('Você tem certeza que deseja Remover/Inativar este registro?','Inativar Registro',
+    MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
+  begin
+    (dts.DataSet as TClientDataSet).Delete;
+    (dts.DataSet as TClientDataSet).ApplyUpdates(-1);
+  end;
+end;
+
+procedure TfrmCadastro.acNovoExecute(Sender: TObject);
+begin
+  inherited;
+  pnlSide.Visible := False;
+  cxPageControl.ActivePage := cxTabCadastro;
+  (dts.DataSet as TClientDataSet).Insert;
+end;
+
+procedure TfrmCadastro.acSalvarExecute(Sender: TObject);
+begin
+  inherited;
+  (dts.DataSet as TClientDataSet).Post;
+  (dts.DataSet as TClientDataSet).ApplyUpdates(-1);
+  (dts.DataSet as TClientDataSet).RefreshRecord;
+  cxPageControl.ActivePage := cxTabGrid;
+  pnlSide.Visible := True;
+end;
 
 procedure TfrmCadastro.FormClick(Sender: TObject);
 begin

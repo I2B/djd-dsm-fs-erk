@@ -993,7 +993,7 @@ object ServerMethods: TServerMethods
   object qrySerie: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from serie limit 0')
+      'select * from serie')
     Left = 888
     Top = 144
   end
