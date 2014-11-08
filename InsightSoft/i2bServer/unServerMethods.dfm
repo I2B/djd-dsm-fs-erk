@@ -9,6 +9,7 @@ object ServerMethods: TServerMethods
       'Password=defd'
       'Server=127.0.0.1'
       'DriverID=PG')
+    Connected = True
     LoginPrompt = False
     Left = 176
     Top = 8
@@ -993,7 +994,7 @@ object ServerMethods: TServerMethods
   object qrySerie: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from serie limit 0')
+      'select * from serie order by idserie limit 0 ')
     Left = 888
     Top = 144
     object qrySerieidserie: TIntegerField

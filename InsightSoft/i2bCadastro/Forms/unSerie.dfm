@@ -13,7 +13,7 @@ inherited frmSerie: TfrmSerie
     ExplicitHeight = 439
     inherited lblRegistros: TLabel
       Top = 422
-      ExplicitTop = 417
+      ExplicitTop = 422
     end
     inherited imgImprimir: TcxImage
       Top = 308
@@ -38,6 +38,8 @@ inherited frmSerie: TfrmSerie
   inherited pnlClient: TPanel
     Width = 832
     Height = 439
+    ExplicitWidth = 832
+    ExplicitHeight = 439
     inherited cxPageControl: TcxPageControl
       Width = 832
       Height = 411
@@ -74,7 +76,7 @@ inherited frmSerie: TfrmSerie
           Height = 379
           ExplicitHeight = 379
         end
-        inline FrameSerie1: TFrameSerie
+        inline FrameSerie: TFrameSerie
           Left = 60
           Top = 0
           Width = 768
@@ -123,6 +125,17 @@ inherited frmSerie: TfrmSerie
     end
     inherited pnlTop: TPanel
       Width = 832
+      ExplicitWidth = 832
+      inherited lblPrimeiroEdit: TLabel
+        Width = 108
+        Caption = 'cxDBTextEdit1'
+        ExplicitWidth = 108
+      end
+      inherited lblFrame: TLabel
+        Width = 89
+        Caption = 'FrameSerie'
+        ExplicitWidth = 89
+      end
     end
   end
   inherited dxBarManager: TdxBarManager

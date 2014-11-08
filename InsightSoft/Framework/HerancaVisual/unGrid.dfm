@@ -41,7 +41,6 @@ inherited frmGrid: TfrmGrid
       ParentColor = False
       ParentFont = False
       Transparent = False
-      ExplicitTop = 378
       ExplicitWidth = 19
     end
     object imgImprimir: TcxImage
@@ -209,10 +208,6 @@ inherited frmGrid: TfrmGrid
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 496
-    ExplicitTop = 32
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object cxPageControl: TcxPageControl
       Left = 0
       Top = 28
@@ -222,9 +217,6 @@ inherited frmGrid: TfrmGrid
       TabOrder = 0
       Properties.ActivePage = cxTabGrid
       Properties.CustomButtons.Buttons = <>
-      ExplicitLeft = 24
-      ExplicitTop = 88
-      ExplicitHeight = 400
       ClientRectBottom = 370
       ClientRectLeft = 2
       ClientRectRight = 838
@@ -232,7 +224,6 @@ inherited frmGrid: TfrmGrid
       object cxTabGrid: TcxTabSheet
         Caption = 'cxTabGrid'
         ImageIndex = 0
-        ExplicitHeight = 368
         object cxGrid: TcxGrid
           Left = 0
           Top = 0
@@ -240,7 +231,6 @@ inherited frmGrid: TfrmGrid
           Height = 340
           Align = alClient
           TabOrder = 0
-          ExplicitHeight = 368
           object cxGridDB: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
             DataController.DataSource = dts
@@ -265,6 +255,9 @@ inherited frmGrid: TfrmGrid
       object cxTabCadastro: TcxTabSheet
         Caption = 'cxTabCadastro'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
         ExplicitHeight = 368
       end
     end

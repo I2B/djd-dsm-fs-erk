@@ -23,7 +23,8 @@ type
     cxGridDBidserie: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBnumeracao: TcxGridDBColumn;
-    FrameSerie1: TFrameSerie;
+    FrameSerie: TFrameSerie;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -38,5 +39,11 @@ implementation
 {$R *.dfm}
 
 uses unDM;
+
+procedure TfrmSerie.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  frmSerie := nil;
+end;
 
 end.
