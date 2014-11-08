@@ -1,28 +1,38 @@
 inherited frmCadastro: TfrmCadastro
   Caption = 'frmCadastro'
+  ClientHeight = 399
+  ClientWidth = 902
   FormStyle = fsNormal
   OnClick = FormClick
+  ExplicitWidth = 918
+  ExplicitHeight = 438
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlSide: TPanel
+    Height = 399
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
+    ExplicitHeight = 0
     inherited lblRegistros: TLabel
-      ExplicitTop = 383
+      Top = 382
     end
     inherited imgImprimir: TcxImage
+      Top = 268
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
+      ExplicitTop = -131
     end
     inherited imgExportar: TcxImage
+      Top = 325
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
+      ExplicitTop = -74
     end
     object imgNovo: TcxImage
       Left = 0
@@ -242,13 +252,34 @@ inherited frmCadastro: TfrmCadastro
     end
   end
   inherited pnlClient: TPanel
+    Width = 842
+    Height = 399
+    ExplicitWidth = 64
+    ExplicitHeight = 0
     inherited cxPageControl: TcxPageControl
+      Width = 842
+      Height = 371
+      ExplicitWidth = 64
+      ClientRectBottom = 369
+      ClientRectRight = 840
+      inherited cxTabGrid: TcxTabSheet
+        ExplicitWidth = 60
+        inherited cxGrid: TcxGrid
+          Width = 838
+          Height = 339
+          ExplicitWidth = 60
+        end
+      end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
+        ExplicitWidth = 60
+        ExplicitHeight = 340
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
           Width = 60
-          Height = 340
+          Height = 339
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
@@ -258,6 +289,7 @@ inherited frmCadastro: TfrmCadastro
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
+          ExplicitHeight = 340
           object cxImage3: TcxImage
             Left = 0
             Top = 0
@@ -714,6 +746,26 @@ inherited frmCadastro: TfrmCadastro
             Width = 60
           end
         end
+      end
+    end
+    inherited pnlTop: TPanel
+      Width = 842
+      ExplicitWidth = 64
+      object lblPrimeiroEdit: TLabel
+        Left = 5
+        Top = 1
+        Width = 117
+        Height = 25
+        Caption = 'lblPrimeiroEdit'
+        Visible = False
+      end
+      object lblFrame: TLabel
+        Left = 136
+        Top = 1
+        Width = 69
+        Height = 25
+        Caption = 'lblFrame'
+        Visible = False
       end
     end
   end

@@ -18,7 +18,7 @@ uses
   Vcl.ImgList, cxContainer, cxEdit, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses,
   cxImage, Vcl.ExtCtrls, Vcl.StdCtrls, dxBarBuiltInMenu, cxPC, dxScreenTip, dxCustomHint, cxHint, dxRibbonRadialMenu,
-  Datasnap.DBClient;
+  Datasnap.DBClient, cxTextEdit, cxDBEdit;
 
 type
   TfrmCadastro = class(TfrmGrid)
@@ -33,6 +33,8 @@ type
     cxImage4: TcxImage;
     acSalvar: TAction;
     acCancelar: TAction;
+    lblPrimeiroEdit: TLabel;
+    lblFrame: TLabel;
     procedure FormClick(Sender: TObject);
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
@@ -61,30 +63,58 @@ begin
 end;
 
 procedure TfrmCadastro.acEditarExecute(Sender: TObject);
+var
+  Frame : TFrame;
 begin
   inherited;
-  pnlSide.Visible := False;
-  cxPageControl.ActivePage := cxTabCadastro;
-  (dts.DataSet as TClientDataSet).Edit;
+  if (dts.DataSet as TClientDataSet).RecordCount > 0 then
+  begin
+    pnlSide.Visible := False;
+    cxPageControl.ActivePage := cxTabCadastro;
+    try
+      Frame := TFrame(FindComponent(lblFrame.Caption));
+      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
+      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
+    except
+      MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
+      lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
+      'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+    end;
+    (dts.DataSet as TClientDataSet).Edit;
+  end;
 end;
 
 procedure TfrmCadastro.acInativarExecute(Sender: TObject);
 begin
   inherited;
-  if Application.MessageBox('Você tem certeza que deseja Remover/Inativar este registro?','Inativar Registro',
-    MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
+  if (dts.DataSet as TClientDataSet).RecordCount > 0 then
   begin
-    (dts.DataSet as TClientDataSet).Delete;
-    (dts.DataSet as TClientDataSet).ApplyUpdates(-1);
+    if Application.MessageBox('Você tem certeza que deseja Remover/Inativar este registro?','Inativar Registro',
+      MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
+    begin
+      (dts.DataSet as TClientDataSet).Delete;
+      (dts.DataSet as TClientDataSet).ApplyUpdates(-1);
+    end;
   end;
 end;
 
 procedure TfrmCadastro.acNovoExecute(Sender: TObject);
+var
+  Frame : TFrame;
 begin
   inherited;
   pnlSide.Visible := False;
   cxPageControl.ActivePage := cxTabCadastro;
   (dts.DataSet as TClientDataSet).Insert;
+  try
+    Frame := TFrame(FindComponent(lblFrame.Caption));
+    (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
+    (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
+  except
+    MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
+      lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
+      'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+  end;
 end;
 
 procedure TfrmCadastro.acSalvarExecute(Sender: TObject);
