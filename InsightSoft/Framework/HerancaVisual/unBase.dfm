@@ -30,4 +30,26 @@ object frmBase: TfrmBase
     Left = 398
     Top = 190
   end
+  object dxBarManager: TdxBarManager
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Categories.Strings = (
+      'Default')
+    Categories.ItemsVisibles = (
+      2)
+    Categories.Visibles = (
+      True)
+    PopupMenuLinks = <>
+    UseSystemFont = True
+    Left = 272
+    Top = 152
+    DockControlHeights = (
+      0
+      0
+      0
+      0)
+  end
 end

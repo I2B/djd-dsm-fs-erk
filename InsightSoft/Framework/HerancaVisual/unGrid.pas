@@ -17,30 +17,40 @@ uses
   Vcl.ImgList, Vcl.ExtCtrls, dxCustomTileControl, cxClasses, dxTileControl, cxContainer, cxEdit, cxImage, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
-  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu;
+  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter;
 
 type
   TfrmGrid = class(TfrmBase)
     dts: TDataSource;
     ActionList: TActionList;
     acImprimir: TAction;
-    acExportarPDF: TAction;
-    acExportarExcel: TAction;
-    acExportarWord: TAction;
     pnlSide: TPanel;
     imgImprimir: TcxImage;
     imgExportar: TcxImage;
     lblRegistros: TLabel;
+    RadialMenuExportar: TdxRibbonRadialMenu;
+    barBtnWord: TdxBarButton;
+    barBtnExcel: TdxBarButton;
+    barBtnPDF: TdxBarButton;
+    barBtnCopiar: TdxBarButton;
+    pnlClient: TPanel;
     cxPageControl: TcxPageControl;
     cxTabGrid: TcxTabSheet;
-    cxTabCadastro: TcxTabSheet;
     cxGrid: TcxGrid;
     cxGridDB: TcxGridDBTableView;
     cxLevel: TcxGridLevel;
-    RadialMenuExportar: TdxRibbonRadialMenu;
+    cxTabCadastro: TcxTabSheet;
+    pnlTop: TPanel;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
+    procedure barBtnCopiarClick(Sender: TObject);
+    procedure barBtnPDFClick(Sender: TObject);
+    procedure barBtnExcelClick(Sender: TObject);
+    procedure barBtnWordClick(Sender: TObject);
+    procedure acImprimirExecute(Sender: TObject);
+    procedure imgImprimirClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -54,10 +64,46 @@ implementation
 
 {$R *.dfm}
 
+procedure TfrmGrid.acImprimirExecute(Sender: TObject);
+begin
+  inherited;
+  ShowMessage('Em desenvolvimento...');
+end;
+
+procedure TfrmGrid.barBtnCopiarClick(Sender: TObject);
+begin
+  inherited;
+  cxGridDB.CopyToClipboard(True);
+end;
+
+procedure TfrmGrid.barBtnExcelClick(Sender: TObject);
+begin
+  inherited;
+  ShowMessage('Em desenvolvimento...');
+end;
+
+procedure TfrmGrid.barBtnPDFClick(Sender: TObject);
+begin
+  inherited;
+  ShowMessage('Em desenvolvimento...');
+end;
+
+procedure TfrmGrid.barBtnWordClick(Sender: TObject);
+begin
+  inherited;
+  ShowMessage('Em desenvolvimento...');
+end;
+
 procedure TfrmGrid.dtsDataChange(Sender: TObject; Field: TField);
 begin
   inherited;
-//  lblRegistros.Caption := StrToInt(dts.DataSet.RecNo) + '/' + StrToInt(dts.DataSet.RecordCount);
+  lblRegistros.Caption := IntToStr(dts.DataSet.RecNo) + '/' + IntToStr(dts.DataSet.RecordCount);
+end;
+
+procedure TfrmGrid.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Destroy;
 end;
 
 procedure TfrmGrid.FormCreate(Sender: TObject);
@@ -70,6 +116,12 @@ procedure TfrmGrid.imgExportarClick(Sender: TObject);
 begin
   inherited;
   RadialMenuExportar.PopupFromCursorPos;
+end;
+
+procedure TfrmGrid.imgImprimirClick(Sender: TObject);
+begin
+  inherited;
+  acImprimirExecute(Sender);
 end;
 
 end.

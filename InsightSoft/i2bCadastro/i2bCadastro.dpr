@@ -6,14 +6,16 @@ uses
   unDM in 'Forms\unDM.pas' {DM: TDataModule},
   unBase in '..\Framework\HerancaVisual\unBase.pas' {frmBase},
   unGrid in '..\Framework\HerancaVisual\unGrid.pas' {frmGrid},
-  unCadastro in '..\Framework\HerancaVisual\unCadastro.pas' {frmCadastro};
+  unCadastro in '..\Framework\HerancaVisual\unCadastro.pas' {frmCadastro},
+  unSerie in 'Forms\unSerie.pas' {frmSerie},
+  unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.
