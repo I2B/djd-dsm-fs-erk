@@ -15,9 +15,9 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   dxLayoutContainer, dxLayoutControl, Data.DB, dxSkinsdxNavBarPainter, dxNavBar, System.Actions, Vcl.ActnList,
   Vcl.ImgList, Vcl.ExtCtrls, dxCustomTileControl, cxClasses, dxTileControl, cxContainer, cxEdit, cxImage, cxStyles,
-  cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomView,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomView, ShellAPI,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
-  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter;
+  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink;
 
 type
   TfrmGrid = class(TfrmBase)
@@ -29,7 +29,7 @@ type
     imgExportar: TcxImage;
     lblRegistros: TLabel;
     RadialMenuExportar: TdxRibbonRadialMenu;
-    barBtnWord: TdxBarButton;
+    barBtnXML: TdxBarButton;
     barBtnExcel: TdxBarButton;
     barBtnPDF: TdxBarButton;
     barBtnCopiar: TdxBarButton;
@@ -42,15 +42,19 @@ type
     cxTabCadastro: TcxTabSheet;
     pnlTop: TPanel;
     SaveDialog: TSaveDialog;
+    barBtnHTML: TdxBarButton;
+    barBtnTXT: TdxBarButton;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
     procedure barBtnCopiarClick(Sender: TObject);
     procedure barBtnPDFClick(Sender: TObject);
     procedure barBtnExcelClick(Sender: TObject);
-    procedure barBtnWordClick(Sender: TObject);
+    procedure barBtnXMLClick(Sender: TObject);
     procedure acImprimirExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure barBtnHTMLClick(Sender: TObject);
+    procedure barBtnTXTClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,43 +70,69 @@ implementation
 
 procedure TfrmGrid.acImprimirExecute(Sender: TObject);
 begin
-  inherited;
   ShowMessage('Em desenvolvimento...');
 end;
 
 procedure TfrmGrid.barBtnCopiarClick(Sender: TObject);
 begin
-  inherited;
   cxGridDB.CopyToClipboard(True);
 end;
 
 procedure TfrmGrid.barBtnExcelClick(Sender: TObject);
 begin
-  inherited;
-  ShowMessage('Em desenvolvimento...');
+  SaveDialog.Filter := 'Excel (*.xlsx) |*.xlsx';
+  SaveDialog.Title := 'Exportar Dados';
+  SaveDialog.DefaultExt:= 'xlsx';
+  if SaveDialog.Execute then
+  begin
+    ExportGridToXLSX(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
+    ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
+  end;
+end;
+
+procedure TfrmGrid.barBtnHTMLClick(Sender: TObject);
+begin
+  SaveDialog.Filter := 'HTML (*.html) |*.html';
+  SaveDialog.Title := 'Exportar Dados';
+  SaveDialog.DefaultExt:= 'html';
+  if SaveDialog.Execute then
+  begin
+    ExportGridToHTML(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
+    ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
+  end;
 end;
 
 procedure TfrmGrid.barBtnPDFClick(Sender: TObject);
 begin
-  inherited;
   ShowMessage('Em desenvolvimento...');
 end;
 
-procedure TfrmGrid.barBtnWordClick(Sender: TObject);
+procedure TfrmGrid.barBtnTXTClick(Sender: TObject);
 begin
-  SaveDialog.Filter := 'Word (*.doc) |*.doc';
+  SaveDialog.Filter := 'Arquivo Texto (*.txt) |*.txt';
   SaveDialog.Title := 'Exportar Dados';
-  SaveDialog.DefaultExt:= 'doc';
+  SaveDialog.DefaultExt:= 'txt';
   if SaveDialog.Execute then
   begin
-    ExportGrid4ToExcel(SaveDialog.FileName,Grade, False);
-    ShellExecute(Handle, 'open', pchar(SaveDialog.FileName), nil, nil, SW_SHOW);
+    ExportGridToText(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
+    ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
+  end;
+end;
+
+procedure TfrmGrid.barBtnXMLClick(Sender: TObject);
+begin
+  SaveDialog.Filter := 'XML (*.xml) |*.xml';
+  SaveDialog.Title := 'Exportar Dados';
+  SaveDialog.DefaultExt:= 'xml';
+  if SaveDialog.Execute then
+  begin
+    ExportGridToXML(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
+    ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
   end;
 end;
 
 procedure TfrmGrid.dtsDataChange(Sender: TObject; Field: TField);
 begin
-  inherited;
   lblRegistros.Caption := IntToStr(dts.DataSet.RecNo) + '/' + IntToStr(dts.DataSet.RecordCount);
 end;
 
@@ -120,7 +150,6 @@ end;
 
 procedure TfrmGrid.imgExportarClick(Sender: TObject);
 begin
-  inherited;
   RadialMenuExportar.PopupFromCursorPos;
 end;
 

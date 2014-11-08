@@ -45,8 +45,8 @@ inherited frmSerie: TfrmSerie
       Height = 411
       ExplicitWidth = 832
       ExplicitHeight = 411
-      ClientRectBottom = 407
-      ClientRectRight = 828
+      ClientRectBottom = 409
+      ClientRectRight = 830
       inherited cxTabGrid: TcxTabSheet
         ExplicitLeft = 4
         ExplicitTop = 26
@@ -72,11 +72,13 @@ inherited frmSerie: TfrmSerie
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 824
-        ExplicitHeight = 381
+        ExplicitLeft = 2
+        ExplicitTop = 30
+        ExplicitWidth = 828
+        ExplicitHeight = 379
         inherited pnlCadastro: TPanel
-          Height = 381
-          ExplicitHeight = 381
+          Height = 379
+          ExplicitHeight = 379
         end
       end
     end
