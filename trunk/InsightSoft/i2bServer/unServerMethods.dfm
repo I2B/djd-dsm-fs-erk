@@ -993,9 +993,26 @@ object ServerMethods: TServerMethods
   object qrySerie: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from serie')
+      'select * from serie limit 0')
     Left = 888
     Top = 144
+    object qrySerieidserie: TIntegerField
+      DisplayLabel = 'S'#233'rie'
+      FieldName = 'idserie'
+      Origin = 'idserie'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qrySeriedescricao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 50
+    end
+    object qrySerienumeracao: TIntegerField
+      DisplayLabel = 'Numera'#231#227'o Atual'
+      FieldName = 'numeracao'
+      Origin = 'numeracao'
+    end
   end
   object qrySetor: TFDQuery
     Connection = conexao
