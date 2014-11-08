@@ -673,7 +673,12 @@ inherited frmGrid: TfrmGrid
         Visible = True
         ItemName = 'barBtnCopiar'
       end>
-    UseOwnFont = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI Light'
+    Font.Style = []
+    UseOwnFont = True
     Left = 376
     Top = 344
   end
