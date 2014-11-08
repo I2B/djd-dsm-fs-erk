@@ -57,7 +57,7 @@ implementation
 procedure TfrmGrid.dtsDataChange(Sender: TObject; Field: TField);
 begin
   inherited;
-  lblRegistros.Caption := StrToInt(dts.DataSet.RecNo) + '/' + StrToInt(dts.DataSet.RecordCount);
+//  lblRegistros.Caption := StrToInt(dts.DataSet.RecNo) + '/' + StrToInt(dts.DataSet.RecordCount);
 end;
 
 procedure TfrmGrid.FormCreate(Sender: TObject);

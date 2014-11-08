@@ -13,14 +13,12 @@ inherited frmCadastro: TfrmCadastro
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitWidth = 60
     end
     inherited imgExportar: TcxImage
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitTop = 326
     end
     object btnInserir: TcxImage
       Left = 0
@@ -87,7 +85,6 @@ inherited frmCadastro: TfrmCadastro
       StyleHot.BorderStyle = ebsNone
       StyleHot.Color = 28906
       TabOrder = 2
-      ExplicitTop = 133
       Height = 57
       Width = 60
     end
@@ -158,8 +155,6 @@ inherited frmCadastro: TfrmCadastro
       StyleHot.BorderStyle = ebsNone
       StyleHot.Color = 28906
       TabOrder = 3
-      ExplicitLeft = -4
-      ExplicitTop = 144
       Height = 57
       Width = 60
     end
@@ -229,20 +224,8 @@ inherited frmCadastro: TfrmCadastro
       StyleHot.BorderStyle = ebsNone
       StyleHot.Color = 28906
       TabOrder = 4
-      ExplicitLeft = -3
-      ExplicitTop = 175
       Height = 57
       Width = 60
-    end
-  end
-  inherited cxPageControl: TcxPageControl
-    inherited cxTabGrid: TcxTabSheet
-      inherited cxGrid: TcxGrid
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 836
-        ExplicitHeight = 368
-      end
     end
   end
 end

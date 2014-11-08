@@ -6,7 +6,7 @@ object ServerMethods: TServerMethods
     Params.Strings = (
       'Database=i2bdb'
       'User_Name=postgres'
-      'Password=postgres'
+      'Password=defd'
       'Server=127.0.0.1'
       'DriverID=PG')
     LoginPrompt = False
@@ -115,6 +115,7 @@ object ServerMethods: TServerMethods
     Top = 424
   end
   object dspControle: TDataSetProvider
+    DataSet = qryControle
     Left = 88
     Top = 480
   end
