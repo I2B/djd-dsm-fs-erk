@@ -1725,16 +1725,108 @@ object ServerMethods: TServerMethods
   object qryEstoqueContagemDetalhe: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from estoqueContagemDetalhe limit 0')
+      
+        'select estoqueContagemDetalhe.*, produto.nome as ProdutoNome fro' +
+        'm estoqueContagemDetalhe '
+      
+        'inner join produto on estoqueContagemDetalhe.idProduto = produto' +
+        '.idProduto'
+      'order by idEstoqueCotagemdetalhe limit 0')
     Left = 264
     Top = 424
+    object qryEstoqueContagemDetalheidestoquecotagemdetalhe: TIntegerField
+      FieldName = 'idestoquecotagemdetalhe'
+      Origin = 'idestoquecotagemdetalhe'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryEstoqueContagemDetalheidestoquecontagemcabecalho: TIntegerField
+      FieldName = 'idestoquecontagemcabecalho'
+      Origin = 'idestoquecontagemcabecalho'
+    end
+    object qryEstoqueContagemDetalheidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object qryEstoqueContagemDetalhequantidadecontada: TFloatField
+      FieldName = 'quantidadecontada'
+      Origin = 'quantidadecontada'
+    end
+    object qryEstoqueContagemDetalhequantidadesistema: TFloatField
+      FieldName = 'quantidadesistema'
+      Origin = 'quantidadesistema'
+    end
+    object qryEstoqueContagemDetalhedivergencia: TFloatField
+      FieldName = 'divergencia'
+      Origin = 'divergencia'
+    end
+    object qryEstoqueContagemDetalheprodutonome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'produtonome'
+      Origin = 'produtonome'
+      Size = 100
+    end
   end
   object qryEstoqueGrade: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from estoqueGrade limit 0')
+      
+        'select estoqueGrade.*, produto.nome as ProdutoNome, estoqueCor.n' +
+        'ome as CorNome, '
+      'estoqueTamanho.nome as TamanhoNome from estoqueGrade'
+      'inner join produto on estoqueGrade.idProduto = produto.idProduto'
+      
+        'inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.' +
+        'idEstoqueCor'
+      
+        'inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = est' +
+        'oqueTamanho.idEstoqueTamanho'
+      'order by idEstoqueGrade limit 0')
     Left = 264
     Top = 480
+    object qryEstoqueGradeidestoquegrade: TIntegerField
+      FieldName = 'idestoquegrade'
+      Origin = 'idestoquegrade'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryEstoqueGradeidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object qryEstoqueGradeidestoquecor: TIntegerField
+      FieldName = 'idestoquecor'
+      Origin = 'idestoquecor'
+    end
+    object qryEstoqueGradeidestoquetamanho: TIntegerField
+      FieldName = 'idestoquetamanho'
+      Origin = 'idestoquetamanho'
+    end
+    object qryEstoqueGradecodigo: TWideStringField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      Size = 50
+    end
+    object qryEstoqueGradequantidade: TFloatField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+    end
+    object qryEstoqueGradeprodutonome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'produtonome'
+      Origin = 'produtonome'
+      Size = 100
+    end
+    object qryEstoqueGradecornome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cornome'
+      Origin = 'cornome'
+      Size = 30
+    end
+    object qryEstoqueGradetamanhonome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'tamanhonome'
+      Origin = 'tamanhonome'
+      Size = 30
+    end
   end
   object qryEstoqueTamanho: TFDQuery
     Connection = conexao
@@ -1742,6 +1834,22 @@ object ServerMethods: TServerMethods
       'select * from estoqueTamanho limit 0')
     Left = 264
     Top = 536
+    object qryEstoqueTamanhoidestoquetamanho: TIntegerField
+      FieldName = 'idestoquetamanho'
+      Origin = 'idestoquetamanho'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryEstoqueTamanhocodigo: TWideStringField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      FixedChar = True
+      Size = 3
+    end
+    object qryEstoqueTamanhonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 30
+    end
   end
   object qryHistoricoMovimento: TFDQuery
     Connection = conexao
@@ -1749,6 +1857,30 @@ object ServerMethods: TServerMethods
       'select * from historicoMovimento limit 0')
     Left = 264
     Top = 592
+    object qryHistoricoMovimentoidhistoricomovimento: TIntegerField
+      FieldName = 'idhistoricomovimento'
+      Origin = 'idhistoricomovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryHistoricoMovimentodescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 60
+    end
+    object qryHistoricoMovimentotipo: TWideStringField
+      FieldName = 'tipo'
+      Origin = 'tipo'
+      FixedChar = True
+      Size = 1
+    end
+    object qryHistoricoMovimentocontaliquidacao: TIntegerField
+      FieldName = 'contaliquidacao'
+      Origin = 'contaliquidacao'
+    end
+    object qryHistoricoMovimentoativo: TBooleanField
+      FieldName = 'ativo'
+      Origin = 'ativo'
+    end
   end
   object dspEntradaLocalEntregaRetirada: TDataSetProvider
     DataSet = qryEntradaLocalEntregaRetirada
