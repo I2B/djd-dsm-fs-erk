@@ -496,6 +496,30 @@ type
     qryEstoqueCoridestoquecor: TIntegerField;
     qryEstoqueCorcodigo: TWideStringField;
     qryEstoqueCornome: TWideStringField;
+    qryEstoqueContagemDetalheidestoquecotagemdetalhe: TIntegerField;
+    qryEstoqueContagemDetalheidestoquecontagemcabecalho: TIntegerField;
+    qryEstoqueContagemDetalheidproduto: TIntegerField;
+    qryEstoqueContagemDetalhequantidadecontada: TFloatField;
+    qryEstoqueContagemDetalhequantidadesistema: TFloatField;
+    qryEstoqueContagemDetalhedivergencia: TFloatField;
+    qryEstoqueContagemDetalheprodutonome: TWideStringField;
+    qryEstoqueGradeidestoquegrade: TIntegerField;
+    qryEstoqueGradeidproduto: TIntegerField;
+    qryEstoqueGradeidestoquecor: TIntegerField;
+    qryEstoqueGradeidestoquetamanho: TIntegerField;
+    qryEstoqueGradecodigo: TWideStringField;
+    qryEstoqueGradequantidade: TFloatField;
+    qryEstoqueGradeprodutonome: TWideStringField;
+    qryEstoqueGradecornome: TWideStringField;
+    qryEstoqueGradetamanhonome: TWideStringField;
+    qryEstoqueTamanhoidestoquetamanho: TIntegerField;
+    qryEstoqueTamanhocodigo: TWideStringField;
+    qryEstoqueTamanhonome: TWideStringField;
+    qryHistoricoMovimentoidhistoricomovimento: TIntegerField;
+    qryHistoricoMovimentodescricao: TWideStringField;
+    qryHistoricoMovimentotipo: TWideStringField;
+    qryHistoricoMovimentocontaliquidacao: TIntegerField;
+    qryHistoricoMovimentoativo: TBooleanField;
   private
     { Private declarations }
   public
