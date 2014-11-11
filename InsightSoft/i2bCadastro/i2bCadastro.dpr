@@ -9,7 +9,8 @@ uses
   unCadastro in '..\Framework\HerancaVisual\unCadastro.pas' {frmCadastro},
   unSerie in 'Forms\unSerie.pas' {frmSerie},
   unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame},
-  unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame};
+  unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame},
+  unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria};
 
 {$R *.res}
 
@@ -18,5 +19,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCADAuditoria, frmCADAuditoria);
   Application.Run;
 end.
