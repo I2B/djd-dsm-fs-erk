@@ -13,7 +13,7 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp,
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
-  dxLayoutContainer, dxLayoutControl, Data.DB;
+  dxLayoutContainer, dxLayoutControl, Data.DB, Vcl.StdCtrls;
 
 type
   TFramePai = class(TFrame)

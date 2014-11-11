@@ -1,107 +1,108 @@
-object FrameSerie: TFrameSerie
-  Left = 0
-  Top = 0
-  Width = 572
-  Height = 326
-  Color = clWindow
-  ParentBackground = False
-  ParentColor = False
-  TabOrder = 0
-  object dxLayoutControl: TdxLayoutControl
-    Left = 0
-    Top = 0
-    Width = 572
-    Height = 326
-    Align = alClient
-    BevelOuter = bvNone
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI Light'
-    Font.Style = []
-    ParentBackground = True
-    ParentFont = False
-    TabOrder = 0
-    object cxDBTextEdit1: TcxDBTextEdit
-      Left = 66
-      Top = 12
+inherited FrameSerie: TFrameSerie
+  OnResize = FrameResize
+  inherited dxLayoutControl: TdxLayoutControl
+    object Label1: TLabel [0]
+      Left = 12
+      Top = 165
+      Width = 30
+      Height = 15
+      Caption = 'Label1'
+      Color = clBtnFace
+      ParentColor = False
+    end
+    object Label2: TLabel [1]
+      Left = 12
+      Top = 187
+      Width = 32
+      Height = 15
+      Caption = 'Label2'
+      Color = clBtnFace
+      ParentColor = False
+    end
+    object cxDBTextEdit1: TcxDBTextEdit [2]
+      Left = 12
+      Top = 33
       DataBinding.DataField = 'idserie'
-      DataBinding.DataSource = dtsSerie
-      Properties.ReadOnly = False
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Width = 68
+      Width = 55
     end
-    object cxDBTextEdit2: TcxDBTextEdit
-      Left = 66
-      Top = 42
+    object cxDBTextEdit2: TcxDBTextEdit [3]
+      Left = 12
+      Top = 84
       DataBinding.DataField = 'descricao'
-      DataBinding.DataSource = dtsSerie
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 1
-      Width = 260
+      Width = 319
     end
-    object cxDBTextEdit3: TcxDBTextEdit
-      Left = 427
-      Top = 42
+    object cxDBTextEdit3: TcxDBTextEdit [4]
+      Left = 12
+      Top = 135
       DataBinding.DataField = 'numeracao'
-      DataBinding.DataSource = dtsSerie
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
-      Width = 200
+      Width = 93
     end
-    object dxLayoutControlGroup_Root: TdxLayoutGroup
-      AlignHorz = ahLeft
-      AlignVert = avTop
+    inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       CaptionOptions.Visible = False
-      ButtonOptions.Buttons = <>
-      Hidden = True
-      ShowBorder = False
       Index = -1
     end
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
       AlignHorz = ahLeft
-      CaptionOptions.Text = 'ID'
+      CaptionOptions.Text = 'S'#233'rie'
+      CaptionOptions.Layout = clTop
       Control = cxDBTextEdit1
       ControlOptions.ShowBorder = False
       Index = 0
     end
     object dxLayoutControlItem2: TdxLayoutItem
-      Parent = dxLayoutControlGroup1
-      AlignHorz = ahClient
+      Parent = dxLayoutControlGroup_Root
+      AlignHorz = ahLeft
       CaptionOptions.Text = 'Descri'#231#227'o'
+      CaptionOptions.Layout = clTop
       Control = cxDBTextEdit2
       ControlOptions.ShowBorder = False
-      Index = 0
+      Index = 1
     end
     object dxLayoutControlItem3: TdxLayoutItem
-      Parent = dxLayoutControlGroup1
+      Parent = dxLayoutControlGroup_Root
+      AlignHorz = ahLeft
       CaptionOptions.Text = 'Numera'#231#227'o Atual'
-      SizeOptions.AssignedValues = [sovSizableHorz]
-      SizeOptions.SizableHorz = False
-      SizeOptions.Width = 149
+      CaptionOptions.Layout = clTop
       Control = cxDBTextEdit3
       ControlOptions.ShowBorder = False
-      Index = 1
+      Index = 2
     end
-    object dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+    object dxLayoutControlItem4: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
-      LayoutDirection = ldHorizontal
-      Index = 1
-      AutoCreated = True
+      CaptionOptions.Text = 'Label1'
+      CaptionOptions.Visible = False
+      Control = Label1
+      ControlOptions.AutoColor = True
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutControlItem5: TdxLayoutItem
+      Parent = dxLayoutControlGroup_Root
+      CaptionOptions.Text = 'Label2'
+      CaptionOptions.Visible = False
+      Control = Label2
+      ControlOptions.AutoColor = True
+      ControlOptions.ShowBorder = False
+      Index = 4
     end
   end
-  object dtsSerie: TDataSource
-    AutoEdit = False
+  inherited DataSource: TDataSource
     DataSet = DM.cdsSerie
-    Left = 208
-    Top = 152
   end
 end

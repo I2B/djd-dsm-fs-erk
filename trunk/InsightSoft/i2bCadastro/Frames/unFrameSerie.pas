@@ -3,8 +3,8 @@ unit unFrameSerie;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, unFramePai, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary,
   dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark,
@@ -13,30 +13,42 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp,
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
-  dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit, Data.DB;
+  Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit,
+  Vcl.StdCtrls;
 
 type
-  TFrameSerie = class(TFrame)
-    dxLayoutControlGroup_Root: TdxLayoutGroup;
-    dxLayoutControl: TdxLayoutControl;
+  TFrameSerie = class(TFramePai)
     cxDBTextEdit1: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
     cxDBTextEdit2: TcxDBTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
     cxDBTextEdit3: TcxDBTextEdit;
     dxLayoutControlItem3: TdxLayoutItem;
-    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
-    dtsSerie: TDataSource;
+    Label1: TLabel;
+    dxLayoutControlItem4: TdxLayoutItem;
+    Label2: TLabel;
+    dxLayoutControlItem5: TdxLayoutItem;
+    procedure FrameResize(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
 
+var
+  FrameSerie: TFrameSerie;
+
 implementation
 
 {$R *.dfm}
 
 uses unDM;
+
+procedure TFrameSerie.FrameResize(Sender: TObject);
+begin
+  inherited;
+  Label1.Caption := 'Heigth: '+IntToStr(self.Height);
+  Label2.Caption := 'Width: '+IntToStr(self.Width);
+end;
 
 end.

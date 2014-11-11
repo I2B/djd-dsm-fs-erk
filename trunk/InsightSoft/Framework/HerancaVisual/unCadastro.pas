@@ -18,7 +18,9 @@ uses
   Vcl.ImgList, cxContainer, cxEdit, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses,
   cxImage, Vcl.ExtCtrls, Vcl.StdCtrls, dxBarBuiltInMenu, cxPC, dxScreenTip, dxCustomHint, cxHint, dxRibbonRadialMenu,
-  Datasnap.DBClient, cxTextEdit, cxDBEdit;
+  Datasnap.DBClient, cxTextEdit, cxDBEdit, cxMaskEdit, cxDropDownEdit, cxLabel, Vcl.Menus, cxButtons, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider;
 
 type
   TfrmCadastro = class(TfrmGrid)
@@ -35,12 +37,21 @@ type
     acCancelar: TAction;
     lblPrimeiroEdit: TLabel;
     lblFrame: TLabel;
-    procedure FormClick(Sender: TObject);
+    pnlBottom: TPanel;
+    lblCampo: TcxLabel;
+    cbCampo: TcxComboBox;
+    lblInformacao: TcxLabel;
+    edtInformacao: TcxTextEdit;
+    btnBuscar: TcxButton;
+    cbSQL: TcxComboBox;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
     procedure acSalvarExecute(Sender: TObject);
     procedure acCancelarExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure cbCampoPropertiesChange(Sender: TObject);
+    procedure btnBuscarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -127,10 +138,46 @@ begin
   pnlSide.Visible := True;
 end;
 
-procedure TfrmCadastro.FormClick(Sender: TObject);
+procedure TfrmCadastro.btnBuscarClick(Sender: TObject);
+var
+  Client : TClientDataSet;
+  Provider : TDataSetProvider;
+  Query : TFDQuery;
+  SQL : String;
+begin
+  //Buscar dados do Servidor da aplicação
+{  if edtInformacao.Text = '' then
+    edtInformacao.Text := '*';
+
+  (dts.DataSet as TClientDataSet).Close;
+  Client := (dts.DataSet as TClientDataSet);
+  Provider := TDataSetProvider(FindComponent(Client.ProviderName));
+  SQL := (Provider.DataSet as TFDQuery).SQL.Text;
+  Query.Close;
+  StringReplace(Query.SQL.Text,'limit 0','where '+cbSQL.Text+' = '+QuotedStr(edtInformacao.Text),[rfReplaceAll,rfIgnoreCase]);
+  Query.Open();
+  (dts.DataSet as TClientDataSet).Open;}
+end;
+
+procedure TfrmCadastro.cbCampoPropertiesChange(Sender: TObject);
+begin
+  cbSQL.ItemIndex := cbCampo.ItemIndex;
+end;
+
+procedure TfrmCadastro.FormCreate(Sender: TObject);
+var
+  I : integer;
 begin
   inherited;
-  ShowMessage(Usuario);
+
+  for I := 0 to (dts.DataSet as TClientDataSet).Fields.Count - 1 do
+  begin
+    if (dts.DataSet as TClientDataSet).Fields[I].Visible then
+    begin
+      cbSQL.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].FieldName);
+      cbCampo.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].DisplayLabel);
+    end;
+  end;
 end;
 
 end.
