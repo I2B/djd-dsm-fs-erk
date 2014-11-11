@@ -1935,7 +1935,7 @@ object ServerMethods: TServerMethods
   object qryIndicadorEconomico: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from indicadorEconomico limit 0')
+      'select * from indicadorEconomico')
     Left = 368
     Top = 88
   end

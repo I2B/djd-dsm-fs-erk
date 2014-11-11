@@ -1385,13 +1385,16 @@ object DM: TDM
     Left = 248
     Top = 88
     object cdsIndicadorEconomicoidindicadoreconomico: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idindicadoreconomico'
     end
     object cdsIndicadorEconomicodescricao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       Size = 30
     end
     object cdsIndicadorEconomicoativo: TBooleanField
+      DisplayLabel = 'Ativo'
       FieldName = 'ativo'
     end
   end

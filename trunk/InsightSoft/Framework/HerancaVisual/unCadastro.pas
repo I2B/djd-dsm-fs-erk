@@ -133,7 +133,7 @@ begin
   inherited;
   (dts.DataSet as TClientDataSet).Post;
   (dts.DataSet as TClientDataSet).ApplyUpdates(-1);
-  (dts.DataSet as TClientDataSet).RefreshRecord;
+  (dts.DataSet as TClientDataSet).Refresh;
   cxPageControl.ActivePage := cxTabGrid;
   pnlSide.Visible := True;
 end;

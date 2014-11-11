@@ -16,7 +16,7 @@ uses
   cxLookAndFeelPainters, cxGraphics, dxAlertWindow, cxControls, dxRibbonSkins, dxSkinsdxRibbonPainter,
   dxRibbonCustomizationForm, dxRibbonRadialMenu, cxContainer, cxEdit, dxGDIPlusClasses, cxImage,
   dxSkinsdxStatusBarPainter, dxStatusBar, cxPC, dxSkinscxPCPainter, dxBarBuiltInMenu, dxTabbedMDI, Data.DB,
-  Datasnap.DBClient;
+  Datasnap.DBClient, Vcl.Menus;
 
 type
   TfrmPrincipal = class(TForm)
@@ -31,8 +31,16 @@ type
     btnSerie: TdxBarLargeButton;
     dxStatusBar: TdxStatusBar;
     dxTabbedMDIManager: TdxTabbedMDIManager;
+    btnIndicadorEconomico: TdxBarLargeButton;
+    tabParametro: TdxRibbonTab;
+    tabPessoas: TdxRibbonTab;
+    tabProdutos: TdxRibbonTab;
+    tabRegraFiscal: TdxRibbonTab;
+    tabEmpresa: TdxRibbonTab;
+    tabFinanceiro: TdxRibbonTab;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnIndicadorEconomicoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,7 +54,7 @@ implementation
 
 {$R *.dfm}
 
-uses unSerie, unDM;
+uses unSerie, unDM, unIndicadorEconomico;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -59,6 +67,20 @@ begin
   else
   begin
     frmSerie.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
+begin
+  DM.cdsIndicadorEconomico.Open;
+  if frmIndicadorEconomico = nil then
+  begin
+    frmIndicadorEconomico := TfrmIndicadorEconomico.Create(Application);
+    frmIndicadorEconomico.pnlTop.Caption := frmIndicadorEconomico.Caption+'  ';
+  end
+  else
+  begin
+    frmIndicadorEconomico.Show;
   end;
 end;
 
