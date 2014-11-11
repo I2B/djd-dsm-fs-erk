@@ -8,7 +8,8 @@ uses
   unGrid in '..\Framework\HerancaVisual\unGrid.pas' {frmGrid},
   unCadastro in '..\Framework\HerancaVisual\unCadastro.pas' {frmCadastro},
   unSerie in 'Forms\unSerie.pas' {frmSerie},
-  unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame};
+  unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame},
+  unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame};
 
 {$R *.res}
 

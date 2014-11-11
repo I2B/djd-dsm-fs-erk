@@ -85,7 +85,7 @@ begin
   SaveDialog.DefaultExt:= 'xlsx';
   if SaveDialog.Execute then
   begin
-    ExportGridToXLSX(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
+    ExportGridToXLSX(SaveDialog.FileName,cxGrid,False,True,True,SaveDialog.DefaultExt);
     ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
   end;
 end;

@@ -16,13 +16,14 @@ uses
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxNavigator, Data.DB, cxDBData, dxScreenTip, dxSkinsdxBarPainter, dxBar, dxRibbonRadialMenu, System.Actions,
   Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls;
+  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, unFramePai, unFrameSerie;
 
 type
   TfrmSerie = class(TfrmCadastro)
     cxGridDBidserie: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBnumeracao: TcxGridDBColumn;
+    FrameSerie: TFrameSerie;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }

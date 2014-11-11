@@ -224,10 +224,6 @@ inherited frmGrid: TfrmGrid
       object cxTabGrid: TcxTabSheet
         Caption = 'cxTabGrid'
         ImageIndex = 0
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 832
-        ExplicitHeight = 342
         object cxGrid: TcxGrid
           Left = 0
           Top = 0
@@ -235,8 +231,6 @@ inherited frmGrid: TfrmGrid
           Height = 340
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 832
-          ExplicitHeight = 342
           object cxGridDB: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
             DataController.DataSource = dts
