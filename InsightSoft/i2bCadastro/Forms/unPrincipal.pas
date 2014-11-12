@@ -38,9 +38,16 @@ type
     tabRegraFiscal: TdxRibbonTab;
     tabEmpresa: TdxRibbonTab;
     tabFinanceiro: TdxRibbonTab;
+    barAuditoria: TdxBar;
+    btnAuditoria: TdxBarLargeButton;
+    barPortador: TdxBar;
+    btnBanco: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
+    procedure btnAuditoriaClick(Sender: TObject);
+    procedure btnBancoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +61,7 @@ implementation
 
 {$R *.dfm}
 
-uses unSerie, unDM, unIndicadorEconomico;
+uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -67,6 +74,34 @@ begin
   else
   begin
     frmSerie.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnAuditoriaClick(Sender: TObject);
+begin
+  DM.cdsAuditoria.Open;
+  if frmCADAuditoria = nil then
+  begin
+    frmCADAuditoria := TfrmCADAuditoria.Create(Application);
+    frmCADAuditoria.pnlTop.Caption := frmCADAuditoria.Caption+'  ';
+  end
+  else
+  begin
+    frmCADAuditoria.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnBancoClick(Sender: TObject);
+begin
+  DM.cdsBanco.Open;
+  if frmCADBanco = nil then
+  begin
+    frmCADBanco := TfrmCADBanco.Create(Application);
+    frmCADBanco.pnlTop.Caption := frmCADBanco.Caption+'  ';
+  end
+  else
+  begin
+    frmCADBanco.Show;
   end;
 end;
 
