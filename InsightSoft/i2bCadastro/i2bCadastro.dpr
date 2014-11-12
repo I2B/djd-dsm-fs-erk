@@ -10,7 +10,11 @@ uses
   unSerie in 'Forms\unSerie.pas' {frmSerie},
   unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame},
   unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame},
-  unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria};
+  unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria},
+  unFrameIndicadorEconomico in 'Frames\unFrameIndicadorEconomico.pas' {frameIndicadorEconomico: TFrame},
+  unIndicadorEconomico in 'Forms\unIndicadorEconomico.pas',
+  UnFrameBanco in 'Frames\UnFrameBanco.pas' {FrameBanco: TFrame},
+  unCADBanco in 'Forms\unCADBanco.pas' {frmCADBanco};
 
 {$R *.res}
 
@@ -19,6 +23,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmCADAuditoria, frmCADAuditoria);
   Application.Run;
 end.
