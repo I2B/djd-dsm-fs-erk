@@ -1145,12 +1145,21 @@ type
     qryUnidadeNegociorazaosocial: TWideStringField;
   private
     { Private declarations }
+    //Funções para gestão do Arquivo LOG
+    procedure AbreLOG;
+    procedure FechaLOG;
+    procedure adicionaMensagemNoLOG(msg: String);
   public
     { Public declarations }
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
+
+    procedure setSQLSerie(filtro: String);
 	
   end;
+
+  var
+    arq : TextFile;
 
 implementation
 
@@ -1160,6 +1169,47 @@ implementation
 
 uses System.StrUtils;
 
+procedure TServerMethods.AbreLOG;
+var
+  dia, mes, ano : Word;
+begin
+  DecodeDate(now, ano, mes, dia);
+
+  if not DirectoryExists('C:/InsightSoft') then
+    ForceDirectories('C:/InsightSoft');
+
+  if not DirectoryExists('C:/InsightSoft/logs') then
+    ForceDirectories('C:/InsightSoft/logs');
+
+  if not FileExists('C:/InsightSoft/logs/logServer'+'-'+FormatFloat('00',dia)+'-'+
+    FormatFloat('00',mes)+'-'+FormatFloat('0000',ano)+'.txt') then
+  begin
+    AssignFile(arq,'C:/InsightSoft/logs/logServer'+'-'+FormatFloat('00',dia)+'-'+
+      FormatFloat('00',mes)+'-'+FormatFloat('0000',ano)+'.txt');
+    Rewrite(arq);
+    Writeln(arq);
+    CloseFile(arq);
+  end;
+
+  AssignFile(arq, 'C:/InsightSoft/logs/logServer'+'-'+FormatFloat('00',dia)+'-'+
+    FormatFloat('00',mes)+'-'+FormatFloat('0000',ano)+'.txt');
+  Append(arq);
+end;
+
+procedure TServerMethods.FechaLOG;
+begin
+  CloseFile(arq);
+end;
+
+procedure TServerMethods.adicionaMensagemNoLOG(msg: String);
+begin
+  try
+    Writeln(arq, DateTimeToStr(now) + ': ' + msg);
+  except
+
+  end;
+end;
+
 function TServerMethods.EchoString(Value: string): string;
 begin
   Result := Value;
@@ -1168,6 +1218,34 @@ end;
 function TServerMethods.ReverseString(Value: string): string;
 begin
   Result := System.StrUtils.ReverseString(Value);
+end;
+
+procedure TServerMethods.setSQLSerie(filtro: String);
+var
+  SQL: String;
+begin
+  if filtro <> '*' then
+  begin //Tem algo a Filtrar
+    SQL := StringReplace(qrySerie.SQL.Text,'limit 0','',[rfReplaceAll,rfIgnoreCase]);
+    if pos('where',qrySerie.SQL.Text,0) = 0 then
+    begin
+      SQL := StringReplace(SQL,'order',' where '+filtro+' order',[rfReplaceAll,rfIgnoreCase]);
+    end
+    else
+    begin
+      SQL := StringReplace(SQL,'order',' and '+filtro+' order',[rfReplaceAll,rfIgnoreCase]);
+    end;
+  end
+  else
+  begin //Todos os dados
+    SQL := StringReplace(qrySerie.SQL.Text,'limit 0','',[rfReplaceAll,rfIgnoreCase]);
+  end;
+  qrySerie.Close;
+  qrySerie.SQL.Clear;
+  AbreLOG;
+  adicionaMensagemNoLOG(SQL);
+  FechaLOG;
+  qrySerie.SQL.Add(SQL);
 end;
 
 end.

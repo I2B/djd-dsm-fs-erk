@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Classes, Data.DBXDataSnap,
   IPPeerClient, Data.DBXCommon, Datasnap.DBClient, Datasnap.DSConnect, Data.DB,
-  Data.SqlExpr;
+  Data.SqlExpr, Data.FMTBcd;
   //ClientClassesUnit1
 
 type
@@ -989,14 +989,10 @@ type
     cdsSerienumeracao: TIntegerField;
   private
     FInstanceOwner: Boolean;
-//    FServerMethodsClient: TServerMethodsClient;
-//    function GetServerMethodsClient: TServerMethodsClient;
-    { Private declarations }
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
     property InstanceOwner: Boolean read FInstanceOwner write FInstanceOwner;
-//    property ServerMethodsClient: TServerMethodsClient read GetServerMethodsClient write FServerMethodsClient;
 
 end;
 
@@ -1017,18 +1013,7 @@ end;
 
 destructor TDM.Destroy;
 begin
-//  FServerMethodsClient.Free;
   inherited;
 end;
-
-{function TDM.GetServerMethodsClient: TServerMethodsClient;
-begin
-  if FServerMethodsClient = nil then
-  begin
-    conServer.Open;
-    FServerMethodsClient:= TServerMethodsClient.Create(conServer.DBXConnection, FInstanceOwner);
-  end;
-  Result := FServerMethodsClient;
-end;}
 
 end.
