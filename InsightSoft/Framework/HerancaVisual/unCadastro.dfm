@@ -278,10 +278,8 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
-        ExplicitWidth = 838
-        ExplicitHeight = 269
+        ExplicitWidth = 834
+        ExplicitHeight = 271
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
@@ -296,6 +294,7 @@ inherited frmCadastro: TfrmCadastro
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
+          ExplicitHeight = 271
           object cxImage3: TcxImage
             Left = 0
             Top = 0

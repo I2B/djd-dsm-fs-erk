@@ -42,12 +42,16 @@ type
     btnAuditoria: TdxBarLargeButton;
     barPortador: TdxBar;
     btnBanco: TdxBarLargeButton;
-    dxBarLargeButton2: TdxBarLargeButton;
+    btnPortador: TdxBarLargeButton;
+    barEstrutura: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
     procedure btnAuditoriaClick(Sender: TObject);
     procedure btnBancoClick(Sender: TObject);
+    procedure btnPortadorClick(Sender: TObject);
+    procedure dxBarLargeButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco;
+uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -74,6 +78,20 @@ begin
   else
   begin
     frmSerie.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.dxBarLargeButton1Click(Sender: TObject);
+begin
+  DM.cdsCBO.Open;
+  if frmCADCBO = nil then
+  begin
+    frmCADCBO := TfrmCADCBO.Create(Application);
+    frmCADCBO.pnlTop.Caption := frmCADCBO.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCBO.Show;
   end;
 end;
 
@@ -108,14 +126,28 @@ end;
 procedure TfrmPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
 begin
   DM.cdsIndicadorEconomico.Open;
-  if frmIndicadorEconomico = nil then
+  if frmCADIndicadorEconomico = nil then
   begin
-    frmIndicadorEconomico := TfrmIndicadorEconomico.Create(Application);
-    frmIndicadorEconomico.pnlTop.Caption := frmIndicadorEconomico.Caption+'  ';
+    frmCADIndicadorEconomico := TfrmCADIndicadorEconomico.Create(Application);
+    frmCADIndicadorEconomico.pnlTop.Caption := frmCADIndicadorEconomico.Caption+'  ';
   end
   else
   begin
-    frmIndicadorEconomico.Show;
+    frmCADIndicadorEconomico.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnPortadorClick(Sender: TObject);
+begin
+  DM.cdsPortador.Open;
+  if frmCadPortador = nil then
+  begin
+    frmCadPortador := TfrmCadPortador.Create(Application);
+    frmCadPortador.pnlTop.Caption := frmCadPortador.Caption+'  ';
+  end
+  else
+  begin
+    frmCadPortador.Show;
   end;
 end;
 

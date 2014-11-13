@@ -114,11 +114,6 @@ type
     cdsCargonome: TWideStringField;
     cdsCargodescricao: TWideMemoField;
     cdsCargosalario: TFloatField;
-    cdsCBOidcargo: TIntegerField;
-    cdsCBOidcbo: TIntegerField;
-    cdsCBOnome: TWideStringField;
-    cdsCBOdescricao: TWideMemoField;
-    cdsCBOsalario: TFloatField;
     cdsCEPidcep: TWideStringField;
     cdsCEPidmunicipio: TIntegerField;
     cdsCEPlogradouro: TWideStringField;
@@ -987,6 +982,11 @@ type
     cdsSerieidserie: TIntegerField;
     cdsSeriedescricao: TWideStringField;
     cdsSerienumeracao: TIntegerField;
+    cdsCBOidcbo: TIntegerField;
+    cdsCBOcodigo2002: TWideStringField;
+    cdsCBOcodigo1994: TWideStringField;
+    cdsCBOnome: TWideStringField;
+    cdsCBOobservacao: TWideMemoField;
   private
     FInstanceOwner: Boolean;
   public

@@ -12,9 +12,13 @@ uses
   unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame},
   unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria},
   unFrameIndicadorEconomico in 'Frames\unFrameIndicadorEconomico.pas' {frameIndicadorEconomico: TFrame},
-  unIndicadorEconomico in 'Forms\unIndicadorEconomico.pas',
+  unIndicadorEconomico in 'Forms\unIndicadorEconomico.pas' {frmCADIndicadorEconomico},
   UnFrameBanco in 'Frames\UnFrameBanco.pas' {FrameBanco: TFrame},
-  unCADBanco in 'Forms\unCADBanco.pas' {frmCADBanco};
+  unCADBanco in 'Forms\unCADBanco.pas' {frmCADBanco},
+  unFramePortador in 'Frames\unFramePortador.pas' {FramePortador: TFrame},
+  unCADPortador in 'Forms\unCADPortador.pas' {frmCadPortador},
+  unFrameCBO in 'Frames\unFrameCBO.pas' {FrameCBO: TFrame},
+  unCADCBO in 'Forms\unCADCBO.pas' {frmCADCBO};
 
 {$R *.res}
 

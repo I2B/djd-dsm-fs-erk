@@ -1,5 +1,5 @@
 inherited frmCADBanco: TfrmCADBanco
-  Caption = 'Cadastro Banco'
+  Caption = 'Banco'
   ClientHeight = 404
   ClientWidth = 789
   ExplicitWidth = 805
@@ -89,6 +89,12 @@ inherited frmCADBanco: TfrmCADBanco
             Height = 274
             ExplicitWidth = 665
             ExplicitHeight = 274
+            inherited edtBanco: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtID: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
