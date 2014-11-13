@@ -16,7 +16,9 @@ uses
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxNavigator, Data.DB, cxDBData, dxScreenTip, dxSkinsdxBarPainter, dxBar, dxRibbonRadialMenu, System.Actions,
   Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, unFramePai, unFrameSerie;
+  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, unFramePai, unFrameSerie,
+  Vcl.Menus, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd, Data.SqlExpr, cxDropDownEdit, cxCalendar, cxButtons,
+  cxTextEdit, cxMaskEdit, cxLabel;
 
 type
   TfrmSerie = class(TfrmCadastro)

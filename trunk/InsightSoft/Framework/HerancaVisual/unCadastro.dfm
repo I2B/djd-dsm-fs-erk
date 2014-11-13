@@ -263,6 +263,8 @@ inherited frmCadastro: TfrmCadastro
       ClientRectBottom = 299
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 269
         inherited cxGrid: TcxGrid
@@ -818,7 +820,7 @@ inherited frmCadastro: TfrmCadastro
         Width = 135
       end
       object lblInformacao: TcxLabel
-        Left = 164
+        Left = 280
         Top = 13
         Caption = 'Informa'#231#227'o'
         ParentFont = False
@@ -835,11 +837,12 @@ inherited frmCadastro: TfrmCadastro
         Properties.ShadowedColor = clWhite
       end
       object edtInformacao: TcxTextEdit
-        Left = 164
+        Left = 280
         Top = 34
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 3
-        Width = 552
+        OnKeyPress = edtInformacaoKeyPress
+        Width = 436
       end
       object btnBuscar: TcxButton
         Left = 728
@@ -889,9 +892,42 @@ inherited frmCadastro: TfrmCadastro
       object cbSQL: TcxComboBox
         Left = 18
         Top = 34
+        Properties.OnChange = cbSQLPropertiesChange
         TabOrder = 5
         Visible = False
         Width = 49
+      end
+      object lblOperacao: TcxLabel
+        Left = 159
+        Top = 13
+        Caption = 'Opera'#231#227'o'
+        ParentFont = False
+        Style.BorderColor = clWhite
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWhite
+        Style.Font.Height = -12
+        Style.Font.Name = 'Segoe UI Light'
+        Style.Font.Style = []
+        Style.TextColor = clWhite
+        Style.IsFontAssigned = True
+        StyleDisabled.TextColor = clWhite
+        StyleHot.TextColor = clWhite
+        Properties.ShadowedColor = clWhite
+      end
+      object cbOperacao: TcxComboBox
+        Left = 159
+        Top = 34
+        Properties.DropDownListStyle = lsFixedList
+        Properties.DropDownSizeable = True
+        Properties.OnChange = cbCampoPropertiesChange
+        TabOrder = 7
+        Width = 116
+      end
+      object dateInformacao: TcxDateEdit
+        Left = 280
+        Top = 34
+        TabOrder = 8
+        Width = 121
       end
     end
   end
@@ -947,5 +983,15 @@ inherited frmCadastro: TfrmCadastro
   inherited SaveDialog: TSaveDialog
     Left = 110
     Top = 274
+  end
+  object ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftString
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    Left = 238
+    Top = 130
   end
 end

@@ -9,7 +9,7 @@ inherited frmSerie: TfrmSerie
   inherited pnlSide: TPanel
     Height = 439
     TabOrder = 2
-    ExplicitHeight = 0
+    ExplicitHeight = 439
     inherited lblRegistros: TLabel
       Top = 422
       ExplicitTop = 422
@@ -37,23 +37,23 @@ inherited frmSerie: TfrmSerie
   inherited pnlClient: TPanel
     Width = 832
     Height = 439
-    ExplicitWidth = 892
+    ExplicitWidth = 832
     ExplicitHeight = 439
     inherited cxPageControl: TcxPageControl
       Width = 832
-      Height = 370
+      Height = 341
       ExplicitWidth = 832
-      ExplicitHeight = 411
-      ClientRectBottom = 368
+      ExplicitHeight = 341
+      ClientRectBottom = 339
       ClientRectRight = 830
       inherited cxTabGrid: TcxTabSheet
         ExplicitWidth = 828
-        ExplicitHeight = 379
+        ExplicitHeight = 309
         inherited cxGrid: TcxGrid
           Width = 828
-          Height = 338
+          Height = 309
           ExplicitWidth = 828
-          ExplicitHeight = 379
+          ExplicitHeight = 309
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidserie: TcxGridDBColumn
               DataBinding.FieldName = 'idserie'
@@ -70,16 +70,16 @@ inherited frmSerie: TfrmSerie
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitWidth = 828
-        ExplicitHeight = 379
+        ExplicitHeight = 309
         inherited pnlCadastro: TPanel
-          Height = 338
-          ExplicitHeight = 379
+          Height = 309
+          ExplicitHeight = 309
         end
         inline FrameSerie: TFrameSerie
           Left = 60
           Top = 0
           Width = 768
-          Height = 338
+          Height = 309
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -93,19 +93,20 @@ inherited frmSerie: TfrmSerie
           TabOrder = 1
           ExplicitLeft = 60
           ExplicitWidth = 768
-          ExplicitHeight = 379
+          ExplicitHeight = 309
           inherited dxLayoutControl: TdxLayoutControl
             Width = 768
-            Height = 338
+            Height = 309
             ExplicitWidth = 768
-            ExplicitHeight = 379
-            inherited Label1: TLabel
-              Width = 30
-              ExplicitWidth = 30
+            ExplicitHeight = 309
+            inherited cxDBTextEdit1: TcxDBTextEdit
+              ExplicitHeight = 23
             end
-            inherited Label2: TLabel
-              Width = 32
-              ExplicitWidth = 32
+            inherited cxDBTextEdit2: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited cxDBTextEdit3: TcxDBTextEdit
+              ExplicitHeight = 23
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -144,8 +145,19 @@ inherited frmSerie: TfrmSerie
       end
     end
     inherited pnlBottom: TPanel
-      Top = 398
+      Top = 369
       Width = 832
+      ExplicitTop = 369
+      ExplicitWidth = 832
+      inherited lblCampo: TcxLabel
+        Style.IsFontAssigned = True
+      end
+      inherited lblInformacao: TcxLabel
+        Style.IsFontAssigned = True
+      end
+      inherited lblOperacao: TcxLabel
+        Style.IsFontAssigned = True
+      end
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -157,5 +169,16 @@ inherited frmSerie: TfrmSerie
   end
   inherited dts: TDataSource
     DataSet = DM.cdsSerie
+  end
+  inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLSerie'
   end
 end
