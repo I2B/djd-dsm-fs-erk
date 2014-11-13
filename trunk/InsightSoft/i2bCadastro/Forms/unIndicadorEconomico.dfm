@@ -1,5 +1,5 @@
-inherited frmIndicadorEconomico: TfrmIndicadorEconomico
-  Caption = 'frmIndicadorEconomico'
+inherited frmCADIndicadorEconomico: TfrmCADIndicadorEconomico
+  Caption = 'Indicador Econ'#244'mico'
   ClientHeight = 439
   ClientWidth = 782
   ExplicitWidth = 798
@@ -29,19 +29,21 @@ inherited frmIndicadorEconomico: TfrmIndicadorEconomico
     ExplicitHeight = 439
     inherited cxPageControl: TcxPageControl
       Width = 722
-      Height = 411
+      Height = 341
       ExplicitWidth = 722
-      ExplicitHeight = 411
-      ClientRectBottom = 409
+      ExplicitHeight = 341
+      ClientRectBottom = 339
       ClientRectRight = 720
       inherited cxTabGrid: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 718
-        ExplicitHeight = 379
+        ExplicitHeight = 309
         inherited cxGrid: TcxGrid
           Width = 718
-          Height = 379
+          Height = 309
           ExplicitWidth = 718
-          ExplicitHeight = 379
+          ExplicitHeight = 309
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidindicadoreconomico: TcxGridDBColumn
               DataBinding.FieldName = 'idindicadoreconomico'
@@ -60,16 +62,16 @@ inherited frmIndicadorEconomico: TfrmIndicadorEconomico
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitWidth = 718
-        ExplicitHeight = 379
+        ExplicitHeight = 309
         inherited pnlCadastro: TPanel
-          Height = 379
-          ExplicitHeight = 379
+          Height = 309
+          ExplicitHeight = 309
         end
         inline frameIndicadorEconomico: TframeIndicadorEconomico
           Left = 60
           Top = 0
           Width = 658
-          Height = 379
+          Height = 309
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -83,12 +85,21 @@ inherited frmIndicadorEconomico: TfrmIndicadorEconomico
           TabOrder = 1
           ExplicitLeft = 60
           ExplicitWidth = 658
-          ExplicitHeight = 379
+          ExplicitHeight = 309
           inherited dxLayoutControl: TdxLayoutControl
             Width = 658
-            Height = 379
-            ExplicitWidth = 654
-            ExplicitHeight = 381
+            Height = 309
+            ExplicitWidth = 658
+            ExplicitHeight = 309
+            inherited edtDescricao: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtID: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited cxDBCheckBox1: TcxDBCheckBox
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -121,6 +132,27 @@ inherited frmIndicadorEconomico: TfrmIndicadorEconomico
         Width = 213
         Caption = 'FrameIndicadorEconomico'
         ExplicitWidth = 213
+      end
+    end
+    inherited pnlBottom: TPanel
+      Top = 369
+      Width = 722
+      ExplicitTop = 369
+      ExplicitWidth = 722
+      inherited lblCampo: TcxLabel
+        Style.IsFontAssigned = True
+      end
+      inherited cbCampo: TcxComboBox
+        ExplicitHeight = 23
+      end
+      inherited lblInformacao: TcxLabel
+        Style.IsFontAssigned = True
+      end
+      inherited edtInformacao: TcxTextEdit
+        ExplicitHeight = 23
+      end
+      inherited cbSQL: TcxComboBox
+        ExplicitHeight = 23
       end
     end
   end

@@ -129,7 +129,9 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="Forms\unIndicadorEconomico.pas"/>
+        <DCCReference Include="Forms\unIndicadorEconomico.pas">
+            <Form>frmCADIndicadorEconomico</Form>
+        </DCCReference>
         <DCCReference Include="Frames\UnFrameBanco.pas">
             <Form>FrameBanco</Form>
             <FormType>dfm</FormType>
@@ -137,6 +139,24 @@
         </DCCReference>
         <DCCReference Include="Forms\unCADBanco.pas">
             <Form>frmCADBanco</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFramePortador.pas">
+            <Form>FramePortador</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADPortador.pas">
+            <Form>frmCadPortador</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCBO.pas">
+            <Form>FrameCBO</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCBO.pas">
+            <Form>frmCADCBO</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

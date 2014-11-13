@@ -23,7 +23,9 @@ begin
   // Application.DelayInitialize := True;
   //
   if not Application.DelayInitialize or Application.Installing then
+  begin
     Application.Initialize;
+  end;
   Application.CreateForm(TServerContainer, ServerContainer);
   Application.Run;
 end.

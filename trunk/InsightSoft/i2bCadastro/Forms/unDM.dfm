@@ -124,22 +124,30 @@ object DM: TDM
     RemoteServer = dspConnection
     Left = 32
     Top = 256
-    object cdsCBOidcargo: TIntegerField
-      FieldName = 'idcargo'
-    end
     object cdsCBOidcbo: TIntegerField
       FieldName = 'idcbo'
+      Origin = 'idcbo'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object cdsCBOcodigo2002: TWideStringField
+      FieldName = 'codigo2002'
+      Origin = 'codigo2002'
+      Size = 10
+    end
+    object cdsCBOcodigo1994: TWideStringField
+      FieldName = 'codigo1994'
+      Origin = 'codigo1994'
+      Size = 10
     end
     object cdsCBOnome: TWideStringField
       FieldName = 'nome'
-      Size = 30
+      Origin = 'nome'
+      Size = 250
     end
-    object cdsCBOdescricao: TWideMemoField
-      FieldName = 'descricao'
+    object cdsCBOobservacao: TWideMemoField
+      FieldName = 'observacao'
+      Origin = 'observacao'
       BlobType = ftWideMemo
-    end
-    object cdsCBOsalario: TFloatField
-      FieldName = 'salario'
     end
   end
   object cdsCEP: TClientDataSet

@@ -9,10 +9,11 @@ uses
   dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, Data.DB,
   cxDBData, dxScreenTip, dxSkinsdxBarPainter, unFramePai, unFrameIndicadorEconomico, dxBar, dxRibbonRadialMenu,
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, cxCheckBox;
+  cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, cxCheckBox,
+  Vcl.Menus, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel;
 
 type
-  TfrmIndicadorEconomico = class(TfrmCadastro)
+  TfrmCADIndicadorEconomico = class(TfrmCadastro)
     frameIndicadorEconomico: TframeIndicadorEconomico;
     cxGridDBidindicadoreconomico: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
@@ -24,7 +25,7 @@ type
   end;
 
 var
-  frmIndicadorEconomico: TfrmIndicadorEconomico;
+  frmCADIndicadorEconomico: TfrmCADIndicadorEconomico;
 
 implementation
 
