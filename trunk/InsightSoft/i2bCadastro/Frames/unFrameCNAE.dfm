@@ -1,4 +1,4 @@
-﻿inherited FrameCNAE: TFrameCNAE
+inherited FrameCNAE: TFrameCNAE
   inherited dxLayoutControl: TdxLayoutControl
     object edtCodigo: TcxDBTextEdit [0]
       Left = 12
@@ -11,7 +11,7 @@
       TabOrder = 0
       Width = 121
     end
-    object edtDenominação: TcxDBTextEdit [1]
+    object memDenominacao: TcxDBMemo [1]
       Left = 12
       Top = 84
       DataBinding.DataField = 'denominacao'
@@ -20,7 +20,8 @@
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 1
-      Width = 301
+      Height = 77
+      Width = 389
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
@@ -34,16 +35,18 @@
       ControlOptions.ShowBorder = False
       Index = 0
     end
-    object dxLayoutControlItem2: TdxLayoutItem
+    object dxLayoutControlItem3: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
       CaptionOptions.Text = 'Denomina'#231#227'o'
       CaptionOptions.Layout = clTop
-      Control = edtDenominação
+      Control = memDenominacao
       ControlOptions.ShowBorder = False
       Index = 1
     end
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsCNAE
+    Left = 240
+    Top = 224
   end
 end

@@ -43,11 +43,14 @@ begin
   if not(Key in ['0'..'9', #8, #45]) then
   begin
     key:=#0;
-  end;
-  if Length(edtCEP.Text)=8 then
+  end
+  else
   begin
-    edtCEP.Text:= edtCEP.Text + key;
-    edtMunicipio.SetFocus;
+    if (Length(edtCEP.Text)=8) and (key<>#8) then
+    begin
+      edtCEP.Text:= edtCEP.Text + key;
+      edtMunicipio.SetFocus;
+    end;
   end;
 end;
 

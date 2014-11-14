@@ -119,9 +119,6 @@ type
     cdsCEPlogradouro: TWideStringField;
     cdsCEPcomplemento: TWideStringField;
     cdsCEPbairro: TWideStringField;
-    cdsCNAEidcnae: TIntegerField;
-    cdsCNAEcodigo: TIntegerField;
-    cdsCNAEdenominacao: TWideMemoField;
     cdsControleidcontrole: TIntegerField;
     cdsControlesequencia: TSmallintField;
     cdsControledescricao: TWideStringField;
@@ -988,6 +985,9 @@ type
     cdsCFOPdescricaonf: TWideStringField;
     cdsCFOPaplicacao: TWideMemoField;
     cdsCFOPtipooperacaodescricao: TWideStringField;
+    cdsCNAEidcnae: TIntegerField;
+    cdsCNAEcodigo: TIntegerField;
+    cdsCNAEdenominacao: TWideMemoField;
   private
     FInstanceOwner: Boolean;
   public

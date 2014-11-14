@@ -219,7 +219,6 @@ object DM: TDM
     Top = 424
     object cdsCNAEidcnae: TIntegerField
       FieldName = 'idcnae'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsCNAEcodigo: TIntegerField
       FieldName = 'codigo'

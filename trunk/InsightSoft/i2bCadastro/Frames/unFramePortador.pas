@@ -36,11 +36,14 @@ begin
   if not(Key in ['0'..'9', #8]) then
   begin
     key:=#0;
-  end;
-  if Length(edtBanco.Text)=3 then
+  end
+  else
   begin
-    edtBanco.Text:=edtBanco.Text+key;
-    edtDescricao.SetFocus;
+    if (Length(edtBanco.Text)=3) and (key<>#8) then
+    begin
+      edtBanco.Text:=edtBanco.Text + key;
+      edtDescricao.SetFocus;
+    end;
   end;
 end;
 

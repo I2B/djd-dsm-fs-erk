@@ -36,11 +36,14 @@ begin
   if not(Key in ['0'..'9', #8]) then
   begin
     key:=#0;
-  end;
-  if Length(edtID.Text)=3 then
+  end
+  else
   begin
-    edtID.Text:=edtID.Text+key;
-    edtBanco.SetFocus;
+    if (Length(edtID.Text)=3) and (key<>#8) then
+    begin
+      edtID.Text:=edtID.Text+key;
+      edtBanco.SetFocus;
+    end;
   end;
 end;
 

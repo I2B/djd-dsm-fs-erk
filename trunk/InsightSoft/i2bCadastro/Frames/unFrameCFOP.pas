@@ -43,11 +43,14 @@ begin
   if not(Key in ['0'..'9', #8]) then
   begin
     key:=#0;
-  end;
-  if Length(edtCFOP.Text)=3 then
+  end
+  else
   begin
-    edtCFOP.Text:=edtCFOP.Text + key;
-    edtTipoOperacao.SetFocus;
+    if (Length(edtCFOP.Text)=3) and (key<>#8) then
+    begin
+      edtCFOP.Text:=edtCFOP.Text + key;
+      edtTipoOperacao.SetFocus;
+    end;
   end;
 end;
 
