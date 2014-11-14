@@ -1,11 +1,49 @@
 inherited frmCADCNAE: TfrmCADCNAE
   Caption = 'frmCADCNAE'
+  ClientHeight = 424
+  ClientWidth = 831
+  ExplicitWidth = 847
+  ExplicitHeight = 463
   PixelsPerInch = 96
   TextHeight = 15
+  inherited pnlSide: TPanel
+    Height = 424
+    ExplicitHeight = 424
+    inherited lblRegistros: TLabel
+      Top = 407
+      ExplicitTop = 407
+    end
+    inherited imgImprimir: TcxImage
+      Top = 293
+      ExplicitTop = 293
+    end
+    inherited imgExportar: TcxImage
+      Top = 350
+      ExplicitTop = 350
+    end
+  end
   inherited pnlClient: TPanel
+    Width = 771
+    Height = 424
+    ExplicitWidth = 771
+    ExplicitHeight = 424
     inherited cxPageControl: TcxPageControl
+      Width = 771
+      Height = 326
+      ExplicitWidth = 771
+      ExplicitHeight = 326
+      ClientRectBottom = 324
+      ClientRectRight = 769
       inherited cxTabGrid: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
+        ExplicitWidth = 767
+        ExplicitHeight = 294
         inherited cxGrid: TcxGrid
+          Width = 767
+          Height = 294
+          ExplicitWidth = 767
+          ExplicitHeight = 294
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidcnae: TcxGridDBColumn
               Caption = 'ID'
@@ -27,11 +65,17 @@ inherited frmCADCNAE: TfrmCADCNAE
       inherited cxTabCadastro: TcxTabSheet
         ExplicitLeft = 2
         ExplicitTop = 30
+        ExplicitWidth = 767
+        ExplicitHeight = 294
+        inherited pnlCadastro: TPanel
+          Height = 294
+          ExplicitHeight = 294
+        end
         inline FrameCNAE: TFrameCNAE
           Left = 60
           Top = 0
-          Width = 778
-          Height = 269
+          Width = 707
+          Height = 294
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -43,18 +87,21 @@ inherited frmCADCNAE: TfrmCADCNAE
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 258
-          ExplicitTop = -39
+          ExplicitLeft = 60
+          ExplicitWidth = 707
+          ExplicitHeight = 294
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 778
-            Height = 269
+            Width = 707
+            Height = 294
+            ExplicitWidth = 707
+            ExplicitHeight = 294
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem
+            inherited dxLayoutControlItem3: TdxLayoutItem
               Index = 1
             end
           end
@@ -62,6 +109,8 @@ inherited frmCADCNAE: TfrmCADCNAE
       end
     end
     inherited pnlTop: TPanel
+      Width = 771
+      ExplicitWidth = 771
       inherited lblPrimeiroEdit: TLabel
         Width = 87
         Caption = 'edtCodigo'
@@ -74,6 +123,10 @@ inherited frmCADCNAE: TfrmCADCNAE
       end
     end
     inherited pnlBottom: TPanel
+      Top = 354
+      Width = 771
+      ExplicitTop = 354
+      ExplicitWidth = 771
       inherited lblCampo: TcxLabel
         Style.IsFontAssigned = True
       end
@@ -84,7 +137,13 @@ inherited frmCADCNAE: TfrmCADCNAE
         Style.IsFontAssigned = True
       end
       inherited edtInformacao: TcxTextEdit
+        ExplicitWidth = 669
         ExplicitHeight = 23
+        Width = 669
+      end
+      inherited btnBuscar: TcxButton
+        Left = 657
+        ExplicitLeft = 657
       end
       inherited cbSQL: TcxComboBox
         ExplicitHeight = 23
