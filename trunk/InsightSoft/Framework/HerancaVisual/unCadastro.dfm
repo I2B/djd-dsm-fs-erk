@@ -263,8 +263,6 @@ inherited frmCadastro: TfrmCadastro
       ClientRectBottom = 299
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 269
         inherited cxGrid: TcxGrid
@@ -278,8 +276,8 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 834
-        ExplicitHeight = 271
+        ExplicitWidth = 838
+        ExplicitHeight = 269
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
@@ -294,7 +292,6 @@ inherited frmCadastro: TfrmCadastro
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 271
           object cxImage3: TcxImage
             Left = 0
             Top = 0
@@ -848,8 +845,9 @@ inherited frmCadastro: TfrmCadastro
         Top = 32
         Width = 88
         Height = 25
+        Hint = 'Buscar dados no servidor'
+        Action = acBuscar
         Anchors = [akTop, akRight]
-        Caption = 'Buscar'
         OptionsImage.Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000000000000000000000000000000000000000000000000
@@ -885,8 +883,9 @@ inherited frmCadastro: TfrmCadastro
           0001000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 4
-        OnClick = btnBuscarClick
       end
       object cbSQL: TcxComboBox
         Left = 18
@@ -973,6 +972,11 @@ inherited frmCadastro: TfrmCadastro
       Caption = 'Cancelar'
       ShortCut = 122
       OnExecute = acCancelarExecute
+    end
+    object acBuscar: TAction
+      Caption = 'Buscar'
+      ShortCut = 117
+      OnExecute = acBuscarExecute
     end
   end
   inherited RadialMenuExportar: TdxRibbonRadialMenu

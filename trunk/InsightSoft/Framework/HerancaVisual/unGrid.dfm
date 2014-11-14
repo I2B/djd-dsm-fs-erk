@@ -46,7 +46,7 @@ inherited frmGrid: TfrmGrid
     object imgImprimir: TcxImage
       Left = 0
       Top = 269
-      Hint = 'Imprimir Registros'
+      Hint = 'Imprimir Registros [Ctrl + P]'
       Align = alBottom
       ParentShowHint = False
       Picture.Data = {
@@ -255,10 +255,6 @@ inherited frmGrid: TfrmGrid
       object cxTabCadastro: TcxTabSheet
         Caption = 'cxTabCadastro'
         ImageIndex = 1
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 832
-        ExplicitHeight = 342
       end
     end
     object pnlTop: TPanel

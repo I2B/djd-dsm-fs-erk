@@ -69,6 +69,8 @@ inherited frmSerie: TfrmSerie
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 828
         ExplicitHeight = 309
         inherited pnlCadastro: TPanel

@@ -1143,19 +1143,112 @@ type
     qryUnidadeNegocionomefantasia: TWideStringField;
     qryUnidadeNegociocnaedenominacao: TWideMemoField;
     qryUnidadeNegociorazaosocial: TWideStringField;
+    procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
-    //Funções para gestão do Arquivo LOG
-    procedure AbreLOG;
-    procedure FechaLOG;
-    procedure adicionaMensagemNoLOG(msg: String);
+    //Funções para gestão do Arquivo LOG - DJD
+    procedure LOGopen;
+    procedure LOGclose;
+    procedure LOGadd(msg: String);
+    //Função para alterar SQL da Query e retornar ao cliente - DJD
+    procedure alteraSQL(Query : TFDQuery; filtro, select, from, where, order:String);
+
+    //Constantes com as definições das SQLs inicias de cada tabela - DJD
+    //const select[NOMEDATABELA]: array[1..5] of string = ([SELECT],[FROM],[WHERE],[ORDER],[LIMIT]);
+    const selectAuditoria: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectBanco: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCargo: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCBO: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCEP: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCFOP: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCNAE: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectControle: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCSTCOFINS: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCSTIPI: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectCSTPIS: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectDocumento: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectECFCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectECFItem: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEmpresa: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEndereco: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaDuplicado: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaItem: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaItemImposto: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaLocalEntregaRetirada: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaTransportadora: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEntradaTransportadoraReboque: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstado: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstoqueContagemCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstoqueContagemDetalhe: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstoqueCor: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstoqueGrade: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectEstoqueTamanho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectHistoricoMovimento: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectIndicadorEconomico: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectIndice: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectLicitacao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectLicitacaoDocumento: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectModelo: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectMovimento: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectMovimentoCheque: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectMunicipio: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNCM: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeCupomFiscalReferenciado: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeDeclaracaoImportacao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeDestinatario: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeDuplicata: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeImportacaoDetalhe: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeItem: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeItemII: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeItemImposto: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeLocalEntregaRetirada: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeNFReferenciada: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeProdutorRuralReferenciada: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeReferenciada: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeTransportadora: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectNFeTransportadoraReboque: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectOrcamentoCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectOrcamentoItem: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPais: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPedidoCabecalho: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPedidoItem: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoa: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaCliente: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaColaborador: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaContador: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaFornecedor: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaRepresentante: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaTransportadora: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPessoaVendedor: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPlanoContasFinanceiro: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPlanoContasGerencial: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPortador: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectPortadorHistorico: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProduto: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoFornecedor: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoGrupo: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoPromocao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoSubGrupo: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoTabelaPreco: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoUnidade: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectProdutoUnidadeConversao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectRegraFiscal: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectRegraFiscalObservacao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectSerie: array[1..5] of string = ('select * ',' from serie ','',' order by idserie ',' limit 0 ');
+    const selectSetor: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectTelefone: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectTipoOperacao: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectTipoTelefone: array[1..5] of string = ('','','','',' limit 0 ');
+    const selectUnidadeNegocio: array[1..5] of string = ('','','','',' limit 0 ');
   public
     { Public declarations }
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
 
+    //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
     procedure setSQLSerie(filtro: String);
-	
   end;
 
   var
@@ -1163,13 +1256,11 @@ type
 
 implementation
 
-
 {$R *.dfm}
-
 
 uses System.StrUtils;
 
-procedure TServerMethods.AbreLOG;
+procedure TServerMethods.LOGopen;
 var
   dia, mes, ano : Word;
 begin
@@ -1196,17 +1287,57 @@ begin
   Append(arq);
 end;
 
-procedure TServerMethods.FechaLOG;
+procedure TServerMethods.LOGclose;
 begin
   CloseFile(arq);
 end;
 
-procedure TServerMethods.adicionaMensagemNoLOG(msg: String);
+procedure TServerMethods.LOGadd(msg: String);
 begin
   try
     Writeln(arq, DateTimeToStr(now) + ': ' + msg);
   except
 
+  end;
+end;
+
+procedure TServerMethods.alteraSQL(Query: TFDQuery; filtro, select, from, where, order: String);
+begin
+  Query.Close;
+  Query.SQL.Clear;
+  if filtro <> '*' then
+  begin //Tem algo a Filtrar
+    if where = '' then
+    begin
+      Query.SQL.Add(select+from+' where '+filtro+' '+order);
+    end
+    else
+    begin
+      Query.SQL.Add(select+from+where+' and '+filtro+' '+order);
+    end;
+  end
+  else
+  begin //Todos os dados
+    Query.SQL.Add(select+from+where+order);
+  end;
+
+  LOGopen;
+  LOGadd('SQL de '+Query.Name+' alterada para ['+Trim(Query.SQL.Text)+']');
+  LOGclose;
+end;
+
+procedure TServerMethods.DSServerModuleCreate(Sender: TObject);
+var
+  I : Integer;
+begin
+  //Fazer aqui conforme abaixo
+
+  //qrySerie
+  With qrySerie do
+  begin
+    SQL.Clear;
+    for I := 1 to 5 do
+      SQL.Add(selectSerie[I]);
   end;
 end;
 
@@ -1221,31 +1352,8 @@ begin
 end;
 
 procedure TServerMethods.setSQLSerie(filtro: String);
-var
-  SQL: String;
 begin
-  if filtro <> '*' then
-  begin //Tem algo a Filtrar
-    SQL := StringReplace(qrySerie.SQL.Text,'limit 0','',[rfReplaceAll,rfIgnoreCase]);
-    if pos('where',qrySerie.SQL.Text,0) = 0 then
-    begin
-      SQL := StringReplace(SQL,'order',' where '+filtro+' order',[rfReplaceAll,rfIgnoreCase]);
-    end
-    else
-    begin
-      SQL := StringReplace(SQL,'order',' and '+filtro+' order',[rfReplaceAll,rfIgnoreCase]);
-    end;
-  end
-  else
-  begin //Todos os dados
-    SQL := StringReplace(qrySerie.SQL.Text,'limit 0','',[rfReplaceAll,rfIgnoreCase]);
-  end;
-  qrySerie.Close;
-  qrySerie.SQL.Clear;
-  AbreLOG;
-  adicionaMensagemNoLOG(SQL);
-  FechaLOG;
-  qrySerie.SQL.Add(SQL);
+  alteraSQL(qrySerie,filtro,selectSerie[1],selectSerie[2],selectSerie[3],selectSerie[4]);
 end;
 
 end.
