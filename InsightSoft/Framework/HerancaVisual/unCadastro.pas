@@ -49,6 +49,7 @@ type
     lblOperacao: TcxLabel;
     cbOperacao: TcxComboBox;
     dateInformacao: TcxDateEdit;
+    acBuscar: TAction;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
@@ -56,9 +57,9 @@ type
     procedure acCancelarExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cbCampoPropertiesChange(Sender: TObject);
-    procedure btnBuscarClick(Sender: TObject);
     procedure cbSQLPropertiesChange(Sender: TObject);
     procedure edtInformacaoKeyPress(Sender: TObject; var Key: Char);
+    procedure acBuscarExecute(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto;
@@ -76,6 +77,124 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadastro.acBuscarExecute(Sender: TObject);
+var
+  filtro: String;
+  dia,mes,ano:Word;
+begin
+  if edtInformacao.Text = '' then
+  begin //Quer Trazer TUDO
+    filtro := '*';
+  end
+  else
+  begin //Tem Filtro
+    if TipoDoCampo in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
+    begin //Campo TEXTO
+      case cbOperacao.ItemIndex of
+        0: filtro := 'Upper('+cbSQL.Text+')' + ' = '+ 'Upper('+QuotedStr(edtInformacao.Text)+')'; //Igual a
+        1: filtro := 'Upper('+cbSQL.Text+')' + ' <> '+ 'Upper('+QuotedStr(edtInformacao.Text)+')'; //Diferente de
+        2: filtro := 'Upper('+cbSQL.Text+')' + ' like '+'Upper('+QuotedStr('%'+edtInformacao.Text+'%')+')'; //Contém
+        3: filtro := 'Upper('+cbSQL.Text+')' + ' not like '+'Upper('+QuotedStr('%'+edtInformacao.Text+'%')+')'; //Não Contém
+        4: filtro := 'Upper('+cbSQL.Text+')' + ' like '+'Upper('+QuotedStr(edtInformacao.Text+'%')+')'; //Começa com
+        5: filtro := 'Upper('+cbSQL.Text+')' + ' = '+QuotedStr(''); //Em Branco
+      end;
+    end
+    else if TipoDoCampo in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
+    begin //Campo INTEIRO ou NUMÉRICO
+      case cbOperacao.ItemIndex of
+        0: filtro := cbSQL.Text + ' < ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Menor que
+        1: filtro := cbSQL.Text + ' <= ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Menor e igual a
+        2: filtro := cbSQL.Text + ' = ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Igual a
+        3: filtro := cbSQL.Text + ' <> ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Diferente de
+        4: filtro := cbSQL.Text + ' >= ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Maior e igual a
+        5: filtro := cbSQL.Text + ' > ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Maior que
+      end;
+    end
+    else if TipoDoCampo in [ftDate,ftDateTime] then
+    begin //Campo DATA
+    case cbOperacao.ItemIndex of
+      0: filtro := cbSQL.Text + ' < ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Menor que
+      1: filtro := cbSQL.Text + ' <= ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Menor e Igual a
+      2: filtro := cbSQL.Text + ' = ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Igual a
+      3: filtro := cbSQL.Text + ' <> ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Diferente de
+      4: filtro := cbSQL.Text + ' >= ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Maior e Igual a
+      5: filtro := cbSQL.Text + ' > ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Maior que
+      6: //Mês Anterior
+      begin
+        DecodeDate(date,ano,mes,dia);
+        if mes = 1 then
+        begin
+          mes := 1;
+          ano := ano - 1;
+        end
+        else
+        begin
+          mes := mes - 1;
+        end;
+        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
+          IntToStr(ano);
+      end;
+      7: //Mês Atual
+      begin
+        DecodeDate(date,ano,mes,dia);
+        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
+          IntToStr(ano);
+      end;
+      8: //Mês Seguinte
+      begin
+        DecodeDate(date,ano,mes,dia);
+        if mes = 12 then
+        begin
+          mes := 1;
+          ano := ano + 1;
+        end
+        else
+        begin
+          mes := mes + 1;
+        end;
+        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
+          IntToStr(ano);
+      end;
+      9: //Ano Anterior
+      begin
+        DecodeDate(date,ano,mes,dia);
+        ano := ano - 1;
+        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
+      end;
+      10: //Ano Atual
+      begin
+        DecodeDate(date,ano,mes,dia);
+        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
+      end;
+      11: //Ano Seguinte
+      begin
+        ano := ano + 1;
+        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
+      end;
+    end;
+    end
+    else if TipoDoCampo in [ftBoolean] then
+    begin //Campo BOLEANO
+      case cbOperacao.ItemIndex of
+        0: filtro := cbSQL.Text + ' = True'; //Verdadeiro
+        1: filtro := cbSQL.Text + ' = False'; //Falso
+      end;
+    end;
+  end;
+
+  try
+    (dts.DataSet as TClientDataSet).Close;
+    ServerMethod.Params[0].AsString := filtro;
+    ServerMethod.ExecuteMethod;
+    (dts.DataSet as TClientDataSet).Open;
+  except
+    On E: Exception do
+    begin
+      Application.MessageBox(PWideChar('Falha ao buscar dados do Servidor. Detalhes: '+E.ToString),'',MB_OK + MB_ICONERROR);
+    end;
+  end;
+end;
 
 procedure TfrmCadastro.acCancelarExecute(Sender: TObject);
 begin
@@ -208,124 +327,6 @@ begin
   dateInformacao.Visible := False;
 end;
 
-procedure TfrmCadastro.btnBuscarClick(Sender: TObject);
-var
-  filtro: String;
-  dia,mes,ano:Word;
-begin
-  if TipoDoCampo in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
-  begin //Campo TEXTO
-    if edtInformacao.Text = '' then
-    begin //Quer Trazer TUDO
-      filtro := '*';
-    end
-    else
-    begin //Tem Filtro
-      case cbOperacao.ItemIndex of
-        0: filtro := cbSQL.Text + ' = '+ QuotedStr(edtInformacao.Text); //Igual a
-        1: filtro := cbSQL.Text + ' <> '+ QuotedStr(edtInformacao.Text); //Diferente de
-        2: filtro := cbSQL.Text + ' like '+QuotedStr('%'+edtInformacao.Text+'%'); //Contém
-        3: filtro := cbSQL.Text + ' not like '+QuotedStr('%'+edtInformacao.Text+'%'); //Não Contém
-        4: filtro := cbSQL.Text + ' like '+QuotedStr('%'+edtInformacao.Text); //Começa com
-        5: filtro := cbSQL.Text + ' = '+QuotedStr(''); //Em Branco
-      end;
-    end;
-  end
-  else if TipoDoCampo in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
-  begin //Campo INTEIRO ou NUMÉRICO
-    case cbOperacao.ItemIndex of
-      0: filtro := cbSQL.Text + ' < ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Menor que
-      1: filtro := cbSQL.Text + ' <= ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Menor e igual a
-      2: filtro := cbSQL.Text + ' = ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Igual a
-      3: filtro := cbSQL.Text + ' <> ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Diferente de
-      4: filtro := cbSQL.Text + ' >= ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Maior e igual a
-      5: filtro := cbSQL.Text + ' > ' + StringReplace(edtInformacao.Text,',','.',[rfReplaceAll]); //Maior que
-    end;
-  end
-  else if TipoDoCampo in [ftDate,ftDateTime] then
-  begin //Campo DATA
-    case cbOperacao.ItemIndex of
-      0: filtro := cbSQL.Text + ' < ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Menor que
-      1: filtro := cbSQL.Text + ' <= ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Menor e Igual a
-      2: filtro := cbSQL.Text + ' = ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Igual a
-      3: filtro := cbSQL.Text + ' <> ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Diferente de
-      4: filtro := cbSQL.Text + ' >= ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Maior e Igual a
-      5: filtro := cbSQL.Text + ' > ' + QuotedStr(StringReplace(dateInformacao.Text,'/','.',[rfReplaceAll])); //Maior que
-      6: //Mês Anterior
-      begin
-        DecodeDate(date,ano,mes,dia);
-        if mes = 1 then
-        begin
-          mes := 1;
-          ano := ano - 1;
-        end
-        else
-        begin
-          mes := mes - 1;
-        end;
-        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
-          IntToStr(ano);
-      end;
-      7: //Mês Atual
-      begin
-        DecodeDate(date,ano,mes,dia);
-        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
-          IntToStr(ano);
-      end;
-      8: //Mês Seguinte
-      begin
-        DecodeDate(date,ano,mes,dia);
-        if mes = 12 then
-        begin
-          mes := 1;
-          ano := ano + 1;
-        end
-        else
-        begin
-          mes := mes + 1;
-        end;
-        filtro := 'Extract(Month From '+cbSQL.Text+') = '+IntToStr(mes)+' and Extract (Ano From '+cbSQL.Text+') = '+
-          IntToStr(ano);
-      end;
-      9: //Ano Anterior
-      begin
-        DecodeDate(date,ano,mes,dia);
-        ano := ano - 1;
-        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
-      end;
-      10: //Ano Atual
-      begin
-        DecodeDate(date,ano,mes,dia);
-        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
-      end;
-      11: //Ano Seguinte
-      begin
-        ano := ano + 1;
-        filtro := 'Extract (Ano From '+cbSQL.Text+') = '+IntToStr(ano);
-      end;
-    end;
-  end
-  else if TipoDoCampo in [ftBoolean] then
-  begin //Campo BOLEANO
-    case cbOperacao.ItemIndex of
-      0: filtro := cbSQL.Text + ' = True'; //Verdadeiro
-      1: filtro := cbSQL.Text + ' = False'; //Falso
-    end;
-  end;
-
-  try
-    (dts.DataSet as TClientDataSet).Close;
-    ServerMethod.Params[0].AsString := filtro;
-    ServerMethod.ExecuteMethod;
-    (dts.DataSet as TClientDataSet).Open;
-  except
-    On E: Exception do
-    begin
-      Application.MessageBox(PWideChar('Falha ao buscar dados do Servidor. Detalhes: '+E.ToString),'',MB_OK + MB_ICONERROR);
-    end;
-  end;
-end;
-
 procedure TfrmCadastro.cbCampoPropertiesChange(Sender: TObject);
 begin
   cbSQL.ItemIndex := cbCampo.ItemIndex;
@@ -407,10 +408,15 @@ begin
 
   for I := 0 to (dts.DataSet as TClientDataSet).Fields.Count - 1 do
   begin
-    if (dts.DataSet as TClientDataSet).Fields[I].Visible then
+    if (dts.DataSet as TClientDataSet).Fields[I].DataType in [ftString,ftSmallint,ftInteger,ftWord,ftBoolean,ftFloat,
+      ftCurrency,ftBCD,ftDate,ftDateTime,ftFixedChar,ftWideString,ftLargeint,ftFMTBcd,ftFixedWideChar,ftLongWord,
+      ftShortint,ftExtended,ftSingle] then
     begin
-      cbSQL.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].FieldName);
-      cbCampo.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].DisplayLabel);
+      if (dts.DataSet as TClientDataSet).Fields[I].Visible then
+      begin
+        cbSQL.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].FieldName);
+        cbCampo.Properties.Items.Add((dts.DataSet as TClientDataSet).Fields[I].DisplayLabel);
+      end;
     end;
   end;
   cbCampo.ItemIndex := 0;
