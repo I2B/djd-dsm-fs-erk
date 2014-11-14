@@ -119,12 +119,6 @@ type
     cdsCEPlogradouro: TWideStringField;
     cdsCEPcomplemento: TWideStringField;
     cdsCEPbairro: TWideStringField;
-    cdsCFOPidcfop: TIntegerField;
-    cdsCFOPtipooperacao_idtipooperacao: TIntegerField;
-    cdsCFOPcfop: TIntegerField;
-    cdsCFOPdescricao: TWideStringField;
-    cdsCFOPdescricaonf: TWideStringField;
-    cdsCFOPaplicacao: TWideMemoField;
     cdsCNAEidcnae: TIntegerField;
     cdsCNAEcodigo: TIntegerField;
     cdsCNAEdenominacao: TWideMemoField;
@@ -987,6 +981,13 @@ type
     cdsCBOcodigo1994: TWideStringField;
     cdsCBOnome: TWideStringField;
     cdsCBOobservacao: TWideMemoField;
+    cdsCFOPidcfop: TIntegerField;
+    cdsCFOPidtipooperacao: TIntegerField;
+    cdsCFOPcfop: TIntegerField;
+    cdsCFOPdescricao: TWideStringField;
+    cdsCFOPdescricaonf: TWideStringField;
+    cdsCFOPaplicacao: TWideMemoField;
+    cdsCFOPtipooperacaodescricao: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

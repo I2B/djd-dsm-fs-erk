@@ -52,6 +52,7 @@ type
     procedure btnBancoClick(Sender: TObject);
     procedure btnPortadorClick(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure btnClienteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,7 +66,8 @@ implementation
 
 {$R *.dfm}
 
-uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO;
+uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
+  unCADCNAE;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -120,6 +122,20 @@ begin
   else
   begin
     frmCADBanco.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnClienteClick(Sender: TObject);
+begin
+  DM.cdsCNAE.Open;
+  if frmCADCNAE = nil then
+  begin
+    frmCADCNAE := TfrmCADCNAE.Create(Application);
+    frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCNAE.Show;
   end;
 end;
 

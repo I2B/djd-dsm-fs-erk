@@ -159,6 +159,33 @@
             <Form>frmCADCBO</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Frames\unFrameCEP.pas">
+            <Form>FrameCEP</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCEP.pas">
+            <Form>frmCADCEP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCFOP.pas">
+            <Form>FrameCFOP</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCFOP.pas">
+            <Form>frmCADCFOP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCNAE.pas">
+            <Form>FrameCNAE</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCNAE.pas">
+            <Form>frmCADCNAE</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
