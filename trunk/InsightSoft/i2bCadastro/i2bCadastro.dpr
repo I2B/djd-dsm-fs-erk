@@ -18,7 +18,13 @@ uses
   unFramePortador in 'Frames\unFramePortador.pas' {FramePortador: TFrame},
   unCADPortador in 'Forms\unCADPortador.pas' {frmCadPortador},
   unFrameCBO in 'Frames\unFrameCBO.pas' {FrameCBO: TFrame},
-  unCADCBO in 'Forms\unCADCBO.pas' {frmCADCBO};
+  unCADCBO in 'Forms\unCADCBO.pas' {frmCADCBO},
+  unFrameCEP in 'Frames\unFrameCEP.pas' {FrameCEP: TFrame},
+  unCADCEP in 'Forms\unCADCEP.pas' {frmCADCEP},
+  unFrameCFOP in 'Frames\unFrameCFOP.pas' {FrameCFOP: TFrame},
+  unCADCFOP in 'Forms\unCADCFOP.pas' {frmCADCFOP},
+  unFrameCNAE in 'Frames\unFrameCNAE.pas' {FrameCNAE: TFrame},
+  unCADCNAE in 'Forms\unCADCNAE.pas' {frmCADCNAE};
 
 {$R *.res}
 

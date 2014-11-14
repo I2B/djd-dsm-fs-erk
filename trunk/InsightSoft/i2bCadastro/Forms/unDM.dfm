@@ -187,8 +187,8 @@ object DM: TDM
     object cdsCFOPidcfop: TIntegerField
       FieldName = 'idcfop'
     end
-    object cdsCFOPtipooperacao_idtipooperacao: TIntegerField
-      FieldName = 'tipooperacao_idtipooperacao'
+    object cdsCFOPidtipooperacao: TIntegerField
+      FieldName = 'idtipooperacao'
     end
     object cdsCFOPcfop: TIntegerField
       FieldName = 'cfop'
@@ -205,6 +205,10 @@ object DM: TDM
       FieldName = 'aplicacao'
       BlobType = ftWideMemo
     end
+    object cdsCFOPtipooperacaodescricao: TWideStringField
+      FieldName = 'tipooperacaodescricao'
+      ProviderFlags = []
+    end
   end
   object cdsCNAE: TClientDataSet
     Aggregates = <>
@@ -215,6 +219,7 @@ object DM: TDM
     Top = 424
     object cdsCNAEidcnae: TIntegerField
       FieldName = 'idcnae'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsCNAEcodigo: TIntegerField
       FieldName = 'codigo'
