@@ -64,6 +64,11 @@ type
     cbFiltroCampo: TcxComboBox;
     cbFiltroOperacao: TcxComboBox;
     btnAdicionarFiltro: TcxButton;
+    btnFiltroSalvar: TcxButton;
+    btnFiltroLimpar: TcxButton;
+    btnFiltroCancelar: TcxButton;
+    cxButton1: TcxButton;
+    gbFiltroSalvo: TcxGroupBox;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
@@ -74,6 +79,7 @@ type
     procedure cbSQLPropertiesChange(Sender: TObject);
     procedure edtInformacaoKeyPress(Sender: TObject; var Key: Char);
     procedure acBuscarExecute(Sender: TObject);
+    procedure acAbaFiltroExecute(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto;
@@ -91,6 +97,15 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadastro.acAbaFiltroExecute(Sender: TObject);
+begin
+  if cxPageControl.ActivePage = cxTabGrid then
+  begin
+    cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
+    cxPageControl.ActivePage := cxTabFiltro;
+  end;
+end;
 
 procedure TfrmCadastro.acBuscarExecute(Sender: TObject);
 var
