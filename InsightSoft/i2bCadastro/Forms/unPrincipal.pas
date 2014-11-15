@@ -45,6 +45,8 @@ type
     btnPortador: TdxBarLargeButton;
     barEstrutura: TdxBar;
     dxBarLargeButton1: TdxBarLargeButton;
+    dxBarManagerBar1: TdxBar;
+    dxBarLargeButton2: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -53,6 +55,7 @@ type
     procedure btnPortadorClick(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btnClienteClick(Sender: TObject);
+    procedure dxBarLargeButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,7 +70,7 @@ implementation
 {$R *.dfm}
 
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
-  unCADCNAE;
+  unCADCNAE, unCADUnidadeNegocio;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -95,6 +98,21 @@ begin
   begin
     frmCADCBO.Show;
   end;
+end;
+
+procedure TfrmPrincipal.dxBarLargeButton2Click(Sender: TObject);
+begin
+  DM.cdsUnidadeNegocio.Open;
+  if frmCADUnidadeNegocio = nil then
+  begin
+    frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
+    frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
+  end
+  else
+  begin
+    frmCADUnidadeNegocio.Show;
+  end;
+
 end;
 
 procedure TfrmPrincipal.btnAuditoriaClick(Sender: TObject);

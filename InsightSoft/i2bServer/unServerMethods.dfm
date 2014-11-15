@@ -167,7 +167,7 @@ object ServerMethods: TServerMethods
     SQL.Strings = (
       'select CEP.*, municipio.nome as municipioNome from CEP '
       'inner join municipio on CEP.idMunicipio = Municipio.idMunicipio '
-      'order by idCEP, idMunicipio limit 0')
+      'order by idCEP limit 0')
     Left = 56
     Top = 312
     object qryCEPidcep: TWideStringField
@@ -211,7 +211,7 @@ object ServerMethods: TServerMethods
       
         'inner join tipoOperacao on cfop.idTipoOperacao = tipoOperacao.id' +
         'TipoOperacao '
-      'order by cfop.idCFOP limit 0')
+      'order by idCFOP limit 0')
     Left = 56
     Top = 368
     object qryCFOPidcfop: TIntegerField
@@ -1678,7 +1678,9 @@ object ServerMethods: TServerMethods
   object qryEntradaTransportadoraReboque: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from entradaTransportadoraReboque limit 0')
+      
+        'select * from entradaTransportadoraReboque order by idEntradaTra' +
+        'nsportadoraReboque limit 0')
     Left = 264
     Top = 200
     object qryEntradaTransportadoraReboqueidentradatransportadorareboque: TIntegerField
@@ -2376,7 +2378,7 @@ object ServerMethods: TServerMethods
   object qryMunicipio: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from municipio limit 0')
+      'select * from municipio order by idEstado, nome limit 0')
     Left = 368
     Top = 480
     object qryMunicipioidmunicipio: TIntegerField
@@ -2399,7 +2401,7 @@ object ServerMethods: TServerMethods
   object qryNCM: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from ncm limit 0')
+      'select * from ncm order by idNCM limit 0')
     Left = 368
     Top = 536
     object qryNCMidncm: TIntegerField
@@ -4082,7 +4084,7 @@ object ServerMethods: TServerMethods
   object qryPessoa: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from pessoa limit 0')
+      'select * from pessoa order by idPessoa limit 0')
     Left = 576
     Top = 592
     object qryPessoaidpessoa: TIntegerField
@@ -5657,10 +5659,10 @@ object ServerMethods: TServerMethods
         'select unidadeNegocio.*, cnae.denominacao as cnaeDenominacao, em' +
         'presa.razaoSocial '
       'from unidadeNegocio '
-      'inner join cnae on unidadeNegocio.idCNAE = cnae.idCNAE'
+      'inner join cnae on unidadeNegocio.idCNAE = cnae.idCNAE '
       
         'inner join empresa on unidadeNegocio.idEmpresa = empresa.idEmpre' +
-        'sa'
+        'sa '
       'order by idUnidadeNegocio limit 0')
     Left = 888
     Top = 424
