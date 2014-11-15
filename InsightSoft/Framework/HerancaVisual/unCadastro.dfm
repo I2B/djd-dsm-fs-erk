@@ -258,6 +258,7 @@ inherited frmCadastro: TfrmCadastro
     inherited cxPageControl: TcxPageControl
       Width = 842
       Height = 371
+      Properties.ActivePage = cxTabFiltro
       ExplicitWidth = 842
       ExplicitHeight = 301
       ClientRectBottom = 369
@@ -918,7 +919,149 @@ inherited frmCadastro: TfrmCadastro
       object cxTabFiltro: TcxTabSheet
         Caption = 'cxTabFiltro'
         ImageIndex = 2
+        ParentColor = False
         ExplicitHeight = 269
+        object gbDesenvolvimentoFiltro: TcxGroupBox
+          Left = 0
+          Top = 0
+          Align = alLeft
+          Caption = 'Desenvolvimento do Filtro'
+          TabOrder = 0
+          DesignSize = (
+            289
+            332)
+          Height = 339
+          Width = 289
+          object lblFIltroCampo: TcxLabel
+            Left = 7
+            Top = 15
+            Caption = 'Campo'
+          end
+          object lblFiltroOperacao: TcxLabel
+            Left = 155
+            Top = 15
+            Caption = 'Opera'#231#227'o'
+          end
+          object lblFiltroCondicao: TcxLabel
+            Left = 7
+            Top = 65
+            Caption = 'Condi'#231#227'o'
+          end
+          object edtFiltroCondicao: TcxTextEdit
+            Left = 7
+            Top = 84
+            TabOrder = 3
+            TextHint = 'Informe a condi'#231#227'o a ser filtrada'
+            Width = 262
+          end
+          object rgFiltroAndOr: TcxRadioGroup
+            Left = 7
+            Top = 107
+            Caption = 'Rela'#231#227'o'
+            Properties.Columns = 2
+            Properties.Items = <
+              item
+                Caption = 'E'
+                Value = 'E'
+              end
+              item
+                Caption = 'Ou'
+                Value = 'Ou'
+              end>
+            TabOrder = 4
+            Height = 40
+            Width = 115
+          end
+          object dateFiltroCondicao: TcxDateEdit
+            Left = 7
+            Top = 84
+            TabOrder = 5
+            Visible = False
+            Width = 121
+          end
+          object gbFiltroDesenvolvido: TcxGroupBox
+            Left = 7
+            Top = 193
+            Anchors = [akLeft, akTop, akBottom]
+            Caption = 'Filtro Desenvolvido'
+            TabOrder = 6
+            Height = 130
+            Width = 262
+            object memoFiltroDesenvolvido: TcxMemo
+              Left = 3
+              Top = 17
+              Align = alClient
+              Style.BorderColor = clWindow
+              Style.BorderStyle = ebsNone
+              StyleFocused.BorderStyle = ebsNone
+              StyleHot.BorderStyle = ebsNone
+              TabOrder = 0
+              ExplicitLeft = 72
+              ExplicitTop = 24
+              ExplicitWidth = 185
+              ExplicitHeight = 89
+              Height = 103
+              Width = 256
+            end
+          end
+          object cbFiltroCampo: TcxComboBox
+            Left = 7
+            Top = 36
+            TabOrder = 7
+            TextHint = 'Selecione...'
+            Width = 142
+          end
+          object cbFiltroOperacao: TcxComboBox
+            Left = 155
+            Top = 36
+            TabOrder = 8
+            TextHint = 'Selecione...'
+            Width = 114
+          end
+          object btnAdicionarFiltro: TcxButton
+            Left = 7
+            Top = 156
+            Width = 262
+            Height = 29
+            Caption = 'Adicionar ao Filtro'
+            OptionsImage.Glyph.Data = {
+              36040000424D3604000000000000360000002800000010000000100000000100
+              2000000000000004000000000000000000000000000000000000000000000000
+              00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+              2FC72121218D1010104600000000000000000000000000000000000000000000
+              0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000808
+              0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000002121
+              218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000101010463939
+              39F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF393939F3101010462121218D3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218D2F2F2FC73C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC7383838F03C3C
+              3CFF3C3C3CFF3C3C3CFF00000000000000000000000000000000000000000000
+              000000000000000000003C3C3CFF3C3C3CFF3C3C3CFF383838F0383838F03C3C
+              3CFF3C3C3CFF3C3C3CFF00000000000000000000000000000000000000000000
+              000000000000000000003C3C3CFF3C3C3CFF3C3C3CFF383838F02F2F2FC73C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC72121218D3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218D101010463939
+              39F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF393939F310101046000000002121
+              218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000000000000808
+              0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000000000
+              0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
+              00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+              2FC72121218D1010104600000000000000000000000000000000}
+            TabOrder = 9
+          end
+        end
       end
     end
     inherited pnlTop: TPanel
@@ -991,6 +1134,10 @@ inherited frmCadastro: TfrmCadastro
       Caption = 'Buscar'
       ShortCut = 117
       OnExecute = acBuscarExecute
+    end
+    object acAbaFiltro: TAction
+      Caption = 'Filtrar'
+      ShortCut = 16454
     end
   end
   inherited RadialMenuExportar: TdxRibbonRadialMenu
