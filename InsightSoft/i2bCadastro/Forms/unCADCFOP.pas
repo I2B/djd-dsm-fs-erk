@@ -11,7 +11,7 @@ uses
   dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls,
-  unFramePai, unFrameCFOP;
+  unFramePai, unFrameCFOP, cxMemo, cxGroupBox, cxRadioGroup;
 
 type
   TfrmCADCFOP = class(TfrmCadastro)

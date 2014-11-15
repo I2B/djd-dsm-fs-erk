@@ -263,13 +263,13 @@ inherited frmCadastro: TfrmCadastro
       ClientRectBottom = 369
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 339
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 269
+          ExplicitLeft = 3
+          ExplicitTop = 4
           ExplicitWidth = 838
           ExplicitHeight = 269
           inherited cxGridDB: TcxGridDBTableView
@@ -912,6 +912,7 @@ inherited frmCadastro: TfrmCadastro
       end
       object cxTabFiltro: TcxTabSheet
         Caption = 'cxTabFiltro'
+        Color = clBtnFace
         ImageIndex = 2
         ParentColor = False
         object gbDesenvolvimentoFiltro: TcxGroupBox
@@ -992,8 +993,6 @@ inherited frmCadastro: TfrmCadastro
               StyleFocused.BorderStyle = ebsNone
               StyleHot.BorderStyle = ebsNone
               TabOrder = 0
-              ExplicitWidth = 256
-              ExplicitHeight = 429
               Height = 37
               Width = 818
             end
@@ -1243,10 +1242,6 @@ inherited frmCadastro: TfrmCadastro
           Align = alClient
           Caption = 'Filtros Salvos'
           TabOrder = 1
-          ExplicitLeft = 112
-          ExplicitTop = 210
-          ExplicitWidth = 185
-          ExplicitHeight = 105
           Height = 172
           Width = 838
         end

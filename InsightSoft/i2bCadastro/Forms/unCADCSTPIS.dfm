@@ -1,14 +1,11 @@
 inherited frmCADCSTPIS: TfrmCADCSTPIS
-  Caption = 'CAST PIS'
+  Caption = 'CST PIS'
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlClient: TPanel
     inherited cxPageControl: TcxPageControl
-      ExplicitHeight = 371
       inherited cxTabGrid: TcxTabSheet
         inherited cxGrid: TcxGrid
-          ExplicitLeft = 0
-          ExplicitTop = 0
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidcstpis: TcxGridDBColumn
               Caption = 'ID'
@@ -49,6 +46,7 @@ inherited frmCADCSTPIS: TfrmCADCSTPIS
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitWidth = 98
         inline FramePIS: TFramePIS
           Left = 60
           Top = 0
@@ -65,11 +63,14 @@ inherited frmCADCSTPIS: TfrmCADCSTPIS
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 258
-          ExplicitTop = 31
+          ExplicitLeft = 60
+          ExplicitWidth = 38
+          ExplicitHeight = 339
           inherited dxLayoutControl: TdxLayoutControl
             Width = 778
             Height = 339
+            ExplicitWidth = 778
+            ExplicitHeight = 339
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -120,6 +121,14 @@ inherited frmCADCSTPIS: TfrmCADCSTPIS
     DataSet = DM.cdsCSTPIS
   end
   inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
     SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCSTPIS'
   end
 end

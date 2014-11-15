@@ -1,5 +1,5 @@
 inherited frmCADCNAE: TfrmCADCNAE
-  Caption = 'frmCADCNAE'
+  Caption = 'CNAE - C'#243'digo Nacional da Atividade Econ'#244'mica'
   ClientHeight = 424
   ClientWidth = 831
   ExplicitWidth = 847
@@ -29,16 +29,14 @@ inherited frmCADCNAE: TfrmCADCNAE
     ExplicitHeight = 424
     inherited cxPageControl: TcxPageControl
       Width = 771
-      Height = 326
+      Height = 396
       ExplicitWidth = 771
-      ExplicitHeight = 326
-      ClientRectBottom = 324
+      ExplicitHeight = 396
+      ClientRectBottom = 394
       ClientRectRight = 769
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 767
-        ExplicitHeight = 294
+        ExplicitHeight = 364
         inherited cxGrid: TcxGrid
           Width = 767
           Height = 294
@@ -61,21 +59,55 @@ inherited frmCADCNAE: TfrmCADCNAE
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 294
+          Width = 767
+          ExplicitTop = 294
+          ExplicitWidth = 767
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited edtInformacao: TcxTextEdit
+            ExplicitWidth = 669
+            ExplicitHeight = 23
+            Width = 669
+          end
+          inherited btnBuscar: TcxButton
+            Left = 657
+            ExplicitLeft = 657
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 767
-        ExplicitHeight = 294
+        ExplicitHeight = 364
         inherited pnlCadastro: TPanel
-          Height = 294
-          ExplicitHeight = 294
+          Height = 364
+          ExplicitHeight = 364
         end
         inline FrameCNAE: TFrameCNAE
           Left = 60
           Top = 0
           Width = 707
-          Height = 294
+          Height = 364
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -89,12 +121,12 @@ inherited frmCADCNAE: TfrmCADCNAE
           TabOrder = 1
           ExplicitLeft = 60
           ExplicitWidth = 707
-          ExplicitHeight = 294
+          ExplicitHeight = 364
           inherited dxLayoutControl: TdxLayoutControl
             Width = 707
-            Height = 294
+            Height = 364
             ExplicitWidth = 707
-            ExplicitHeight = 294
+            ExplicitHeight = 364
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -105,6 +137,32 @@ inherited frmCADCNAE: TfrmCADCNAE
               Index = 1
             end
           end
+        end
+      end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 767
+        ExplicitHeight = 364
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 767
+          Width = 767
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+        end
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 767
+          ExplicitHeight = 197
+          Height = 197
+          Width = 767
         end
       end
     end
@@ -122,42 +180,6 @@ inherited frmCADCNAE: TfrmCADCNAE
         ExplicitWidth = 97
       end
     end
-    inherited pnlBottom: TPanel
-      Top = 354
-      Width = 771
-      ExplicitTop = 354
-      ExplicitWidth = 771
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbCampo: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited edtInformacao: TcxTextEdit
-        ExplicitWidth = 669
-        ExplicitHeight = 23
-        Width = 669
-      end
-      inherited btnBuscar: TcxButton
-        Left = 657
-        ExplicitLeft = 657
-      end
-      inherited cbSQL: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblOperacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbOperacao: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited dateInformacao: TcxDateEdit
-        ExplicitHeight = 23
-      end
-    end
   end
   inherited dxBarManager: TdxBarManager
     DockControlHeights = (
@@ -170,6 +192,14 @@ inherited frmCADCNAE: TfrmCADCNAE
     DataSet = DM.cdsCNAE
   end
   inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
     SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCNAE'
   end
 end

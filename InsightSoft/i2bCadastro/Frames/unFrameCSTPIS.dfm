@@ -16,7 +16,7 @@ inherited FramePIS: TFramePIS
     end
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
-      CaptionOptions.Text = 'Descricao'
+      CaptionOptions.Text = 'Descri'#231#227'o'
       CaptionOptions.Layout = clTop
       Control = edtDescricao
       ControlOptions.ShowBorder = False

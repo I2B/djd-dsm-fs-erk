@@ -1,5 +1,5 @@
 inherited frmCADCBO: TfrmCADCBO
-  Caption = 'CBO'
+  Caption = 'CBO - Classifica'#231#227'o Brasileira de Ocupa'#231#245'es'
   ClientHeight = 388
   ClientWidth = 851
   ExplicitWidth = 867
@@ -29,21 +29,19 @@ inherited frmCADCBO: TfrmCADCBO
     ExplicitHeight = 388
     inherited cxPageControl: TcxPageControl
       Width = 791
-      Height = 290
+      Height = 360
       ExplicitWidth = 791
-      ExplicitHeight = 290
-      ClientRectBottom = 288
+      ExplicitHeight = 360
+      ClientRectBottom = 358
       ClientRectRight = 789
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 783
-        ExplicitHeight = 260
+        ExplicitWidth = 787
+        ExplicitHeight = 328
         inherited cxGrid: TcxGrid
           Width = 787
           Height = 258
-          ExplicitWidth = 783
-          ExplicitHeight = 260
+          ExplicitWidth = 787
+          ExplicitHeight = 258
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidcbo: TcxGridDBColumn
               Caption = 'ID'
@@ -72,19 +70,55 @@ inherited frmCADCBO: TfrmCADCBO
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 258
+          Width = 787
+          ExplicitTop = 258
+          ExplicitWidth = 787
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited edtInformacao: TcxTextEdit
+            ExplicitWidth = 689
+            ExplicitHeight = 23
+            Width = 689
+          end
+          inherited btnBuscar: TcxButton
+            Left = 677
+            ExplicitLeft = 677
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 783
-        ExplicitHeight = 260
+        ExplicitWidth = 787
+        ExplicitHeight = 328
         inherited pnlCadastro: TPanel
-          Height = 258
-          ExplicitHeight = 260
+          Height = 328
+          ExplicitHeight = 328
         end
         inline FrameCBO: TFrameCBO
           Left = 60
           Top = 0
           Width = 727
-          Height = 258
+          Height = 328
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -96,11 +130,14 @@ inherited frmCADCBO: TfrmCADCBO
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 251
-          ExplicitTop = -48
+          ExplicitLeft = 60
+          ExplicitWidth = 727
+          ExplicitHeight = 328
           inherited dxLayoutControl: TdxLayoutControl
             Width = 727
-            Height = 258
+            Height = 328
+            ExplicitWidth = 727
+            ExplicitHeight = 328
             inherited edtCBO: TcxDBTextEdit
               ExplicitWidth = 232
               Width = 232
@@ -141,6 +178,32 @@ inherited frmCADCBO: TfrmCADCBO
           end
         end
       end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 787
+        ExplicitHeight = 328
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 787
+          Width = 787
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+        end
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 787
+          ExplicitHeight = 161
+          Height = 161
+          Width = 787
+        end
+      end
     end
     inherited pnlTop: TPanel
       Width = 791
@@ -156,33 +219,6 @@ inherited frmCADCBO: TfrmCADCBO
         ExplicitWidth = 86
       end
     end
-    inherited pnlBottom: TPanel
-      Top = 318
-      Width = 791
-      ExplicitTop = 318
-      ExplicitWidth = 791
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbCampo: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited edtInformacao: TcxTextEdit
-        ExplicitWidth = 689
-        ExplicitHeight = 23
-        Width = 689
-      end
-      inherited btnBuscar: TcxButton
-        Left = 677
-        ExplicitLeft = 677
-      end
-      inherited cbSQL: TcxComboBox
-        ExplicitHeight = 23
-      end
-    end
   end
   inherited dxBarManager: TdxBarManager
     DockControlHeights = (
@@ -193,5 +229,16 @@ inherited frmCADCBO: TfrmCADCBO
   end
   inherited dts: TDataSource
     DataSet = DM.cdsCBO
+  end
+  inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCBO'
   end
 end

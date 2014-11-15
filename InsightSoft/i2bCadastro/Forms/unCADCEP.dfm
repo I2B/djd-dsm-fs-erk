@@ -1,5 +1,5 @@
 inherited frmCADCEP: TfrmCADCEP
-  Caption = 'frmCADCEP'
+  Caption = 'CEP - C'#243'digo de Endere'#231'amento Postal'
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlClient: TPanel
@@ -10,7 +10,7 @@ inherited frmCADCEP: TfrmCADCEP
             object cxGridDBidcep: TcxGridDBColumn
               Caption = 'Cep'
               DataBinding.FieldName = 'idcep'
-              Width = 121
+              Width = 100
             end
             object cxGridDBidmunicipio: TcxGridDBColumn
               Caption = 'Munic'#237'pio'
@@ -34,15 +34,40 @@ inherited frmCADCEP: TfrmCADCEP
             end
           end
         end
+        inherited pnlBottom: TPanel
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited edtInformacao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
+        ExplicitWidth = 98
         inline FrameCEP: TFrameCEP
           Left = 60
           Top = 0
           Width = 778
-          Height = 269
+          Height = 339
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -54,22 +79,28 @@ inherited frmCADCEP: TfrmCADCEP
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 258
-          ExplicitTop = -39
+          ExplicitLeft = 60
+          ExplicitWidth = 38
+          ExplicitHeight = 339
           inherited dxLayoutControl: TdxLayoutControl
             Width = 778
-            Height = 269
+            Height = 339
+            ExplicitWidth = 778
+            ExplicitHeight = 339
             inherited edtCEP: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
+              ExplicitHeight = 23
+            end
+            inherited edtLogradouro: TcxDBTextEdit
+              ExplicitHeight = 23
             end
             inherited edtComplemento: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
+              ExplicitHeight = 23
             end
             inherited edtBairro: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
+              ExplicitHeight = 23
+            end
+            inherited edtMunicipio: TcxDBTextEdit
+              ExplicitHeight = 23
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -96,6 +127,22 @@ inherited frmCADCEP: TfrmCADCEP
           end
         end
       end
+      inherited cxTabFiltro: TcxTabSheet
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+        end
+      end
     end
     inherited pnlTop: TPanel
       inherited lblPrimeiroEdit: TLabel
@@ -109,32 +156,6 @@ inherited frmCADCEP: TfrmCADCEP
         ExplicitWidth = 82
       end
     end
-    inherited pnlBottom: TPanel
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbCampo: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited edtInformacao: TcxTextEdit
-        ExplicitHeight = 23
-      end
-      inherited cbSQL: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblOperacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbOperacao: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited dateInformacao: TcxDateEdit
-        ExplicitHeight = 23
-      end
-    end
   end
   inherited dxBarManager: TdxBarManager
     DockControlHeights = (
@@ -145,5 +166,16 @@ inherited frmCADCEP: TfrmCADCEP
   end
   inherited dts: TDataSource
     DataSet = DM.cdsCEP
+  end
+  inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCEP'
   end
 end

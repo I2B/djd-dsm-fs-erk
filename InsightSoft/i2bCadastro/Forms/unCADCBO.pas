@@ -10,7 +10,8 @@ uses
   cxDBData, Vcl.Menus, dxScreenTip, dxSkinsdxBarPainter, dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList,
   dxCustomHint, cxHint, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC,
-  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameCBO;
+  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameCBO, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd,
+  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar;
 
 type
   TfrmCADCBO = class(TfrmCadastro)

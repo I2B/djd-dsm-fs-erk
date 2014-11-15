@@ -4,11 +4,8 @@ inherited frmCADCSTIPI: TfrmCADCSTIPI
   TextHeight = 15
   inherited pnlClient: TPanel
     inherited cxPageControl: TcxPageControl
-      ExplicitHeight = 371
       inherited cxTabGrid: TcxTabSheet
         inherited cxGrid: TcxGrid
-          ExplicitLeft = 0
-          ExplicitTop = 0
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidcstipi: TcxGridDBColumn
               Caption = 'ID'
@@ -70,11 +67,14 @@ inherited frmCADCSTIPI: TfrmCADCSTIPI
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 258
-          ExplicitTop = 31
+          ExplicitLeft = 60
+          ExplicitWidth = 38
+          ExplicitHeight = 339
           inherited dxLayoutControl: TdxLayoutControl
             Width = 778
             Height = 339
+            ExplicitWidth = 778
+            ExplicitHeight = 339
             inherited edtDescricao: TcxDBTextEdit
               ExplicitWidth = 121
               Width = 121
@@ -130,5 +130,16 @@ inherited frmCADCSTIPI: TfrmCADCSTIPI
   end
   inherited dts: TDataSource
     DataSet = DM.cdsCSTIPI
+  end
+  inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCSTIPI'
   end
 end
