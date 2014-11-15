@@ -222,6 +222,33 @@
             <Form>frmCADTelefone</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Frames\unFrameCSTCofins.pas">
+            <Form>FrameCSTCofins</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCSTIPI.pas">
+            <Form>FrameCSTIPI</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCSTPIS.pas">
+            <Form>FramePIS</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCSTCofins.pas">
+            <Form>frmCSTCofins</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCSTIPI.pas">
+            <Form>frmCADCSTIPI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCSTPIS.pas">
+            <Form>frmCADCSTPIS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
