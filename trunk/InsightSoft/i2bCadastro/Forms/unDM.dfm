@@ -10,11 +10,13 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
+    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
+    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -57,9 +59,6 @@ object DM: TDM
     object cdsAuditoriaidauditoria: TIntegerField
       FieldName = 'idauditoria'
     end
-    object cdsAuditoriaidempresa: TIntegerField
-      FieldName = 'idempresa'
-    end
     object cdsAuditoriadataregistro: TDateField
       FieldName = 'dataregistro'
     end
@@ -73,6 +72,13 @@ object DM: TDM
     object cdsAuditoriadescricao: TWideMemoField
       FieldName = 'descricao'
       BlobType = ftWideMemo
+    end
+    object cdsAuditoriaidunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+    end
+    object cdsAuditorianomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Size = 60
     end
   end
   object cdsBanco: TClientDataSet
@@ -3666,8 +3672,8 @@ object DM: TDM
     RemoteServer = dspConnection
     Left = 608
     Top = 424
-    object cdsUnidadeNegocioidunidadedenegocio: TIntegerField
-      FieldName = 'idunidadedenegocio'
+    object cdsUnidadeNegocioidunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
     end
     object cdsUnidadeNegocioidcnae: TIntegerField
       FieldName = 'idcnae'
@@ -3681,6 +3687,14 @@ object DM: TDM
     end
     object cdsUnidadeNegocionomefantasia: TWideStringField
       FieldName = 'nomefantasia'
+      Size = 60
+    end
+    object cdsUnidadeNegociocnaedenominacao: TWideMemoField
+      FieldName = 'cnaedenominacao'
+      BlobType = ftWideMemo
+    end
+    object cdsUnidadeNegociorazaosocial: TWideStringField
+      FieldName = 'razaosocial'
       Size = 60
     end
   end

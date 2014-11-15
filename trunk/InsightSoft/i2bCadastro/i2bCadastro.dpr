@@ -24,7 +24,9 @@ uses
   unFrameCFOP in 'Frames\unFrameCFOP.pas' {FrameCFOP: TFrame},
   unCADCFOP in 'Forms\unCADCFOP.pas' {frmCADCFOP},
   unFrameCNAE in 'Frames\unFrameCNAE.pas' {FrameCNAE: TFrame},
-  unCADCNAE in 'Forms\unCADCNAE.pas' {frmCADCNAE};
+  unCADCNAE in 'Forms\unCADCNAE.pas' {frmCADCNAE},
+  unFrameUnidadeNegocio in 'Frames\unFrameUnidadeNegocio.pas' {FrameUnidadeNegocio: TFrame},
+  unCADUnidadeNegocio in 'Forms\unCADUnidadeNegocio.pas' {frmCADUnidadeNegocio};
 
 {$R *.res}
 

@@ -30,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 4
     TabStop = False
     object tabPrincipal: TdxRibbonTab
-      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -66,8 +65,13 @@ object frmPrincipal: TfrmPrincipal
       Index = 4
     end
     object tabEmpresa: TdxRibbonTab
+      Active = True
       Caption = 'Empresa'
-      Groups = <>
+      Groups = <
+        item
+          Caption = ''
+          ToolbarName = 'dxBarManagerBar1'
+        end>
       Index = 5
     end
     object tabParametro: TdxRibbonTab
@@ -275,6 +279,26 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'dxBarLargeButton1'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarManagerBar1: TdxBar
+      Caption = 'barEmpresa'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1058
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
         end>
       OneOnRow = True
       Row = 0
@@ -1509,6 +1533,13 @@ object frmPrincipal: TfrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = 'Unidade de Negocio'
+      Category = 0
+      Hint = 'Unidade de Negocio'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton2Click
     end
   end
   object dxRibbonPopupMenu: TdxRibbonPopupMenu

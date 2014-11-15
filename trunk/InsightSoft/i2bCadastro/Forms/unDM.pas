@@ -102,11 +102,6 @@ type
     cdsUnidadeNegocio: TClientDataSet;
     cdsNFeProdutorRuralReferenciada: TClientDataSet;
     dspNFeReferenciada: TClientDataSet;
-    cdsAuditoriaidauditoria: TIntegerField;
-    cdsAuditoriaidempresa: TIntegerField;
-    cdsAuditoriadataregistro: TDateField;
-    cdsAuditoriahoraregistro: TTimeField;
-    cdsAuditoriaacao: TWideStringField;
     cdsBancoidbanco: TWideStringField;
     cdsBanconome: TWideStringField;
     cdsCargoidcargo: TIntegerField;
@@ -964,12 +959,6 @@ type
     cdsTipoOperacaodescricao: TWideStringField;
     cdsTipoTelefoneidtipotelefone: TIntegerField;
     cdsTipoTelefonedescricao: TWideStringField;
-    cdsUnidadeNegocioidunidadedenegocio: TIntegerField;
-    cdsUnidadeNegocioidcnae: TIntegerField;
-    cdsUnidadeNegocioidempresa: TIntegerField;
-    cdsUnidadeNegociocnpj: TWideStringField;
-    cdsUnidadeNegocionomefantasia: TWideStringField;
-    cdsAuditoriadescricao: TWideMemoField;
     cdsSerieidserie: TIntegerField;
     cdsSeriedescricao: TWideStringField;
     cdsSerienumeracao: TIntegerField;
@@ -988,6 +977,20 @@ type
     cdsCNAEidcnae: TIntegerField;
     cdsCNAEcodigo: TIntegerField;
     cdsCNAEdenominacao: TWideMemoField;
+    cdsUnidadeNegocioidunidadenegocio: TIntegerField;
+    cdsUnidadeNegocioidcnae: TIntegerField;
+    cdsUnidadeNegocioidempresa: TIntegerField;
+    cdsUnidadeNegociocnpj: TWideStringField;
+    cdsUnidadeNegocionomefantasia: TWideStringField;
+    cdsUnidadeNegociocnaedenominacao: TWideMemoField;
+    cdsUnidadeNegociorazaosocial: TWideStringField;
+    cdsAuditoriaidauditoria: TIntegerField;
+    cdsAuditoriadataregistro: TDateField;
+    cdsAuditoriahoraregistro: TTimeField;
+    cdsAuditoriaacao: TWideStringField;
+    cdsAuditoriadescricao: TWideMemoField;
+    cdsAuditoriaidunidadenegocio: TIntegerField;
+    cdsAuditorianomefantasia: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
