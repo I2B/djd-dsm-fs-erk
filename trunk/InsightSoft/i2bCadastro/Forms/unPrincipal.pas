@@ -70,7 +70,8 @@ implementation
 {$R *.dfm}
 
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
-  unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone;
+  unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
+  unCADCSTPIS;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin

@@ -32,7 +32,13 @@ uses
   unFrameTipoOperacao in 'Frames\unFrameTipoOperacao.pas' {FrameTipoOperacao: TFrame},
   unCADTipoOperacao in 'Forms\unCADTipoOperacao.pas' {frmCADTipoOperacao},
   unFrameTelefone in 'Frames\unFrameTelefone.pas' {FrameTelefone: TFrame},
-  unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone};
+  unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone},
+  unFrameCSTCofins in 'Frames\unFrameCSTCofins.pas' {FrameCSTCofins: TFrame},
+  unFrameCSTIPI in 'Frames\unFrameCSTIPI.pas' {FrameCSTIPI: TFrame},
+  unFrameCSTPIS in 'Frames\unFrameCSTPIS.pas' {FramePIS: TFrame},
+  unCADCSTCofins in 'Forms\unCADCSTCofins.pas' {frmCSTCofins},
+  unCADCSTIPI in 'Forms\unCADCSTIPI.pas' {frmCADCSTIPI},
+  unCADCSTPIS in 'Forms\unCADCSTPIS.pas' {frmCADCSTPIS};
 
 {$R *.res}
 
@@ -41,5 +47,8 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCSTCofins, frmCSTCofins);
+  Application.CreateForm(TfrmCADCSTIPI, frmCADCSTIPI);
+  Application.CreateForm(TfrmCADCSTPIS, frmCADCSTPIS);
   Application.Run;
 end.
