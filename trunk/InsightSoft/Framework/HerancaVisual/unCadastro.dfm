@@ -257,32 +257,197 @@ inherited frmCadastro: TfrmCadastro
     ExplicitHeight = 399
     inherited cxPageControl: TcxPageControl
       Width = 842
-      Height = 301
+      Height = 371
       ExplicitWidth = 842
       ExplicitHeight = 301
-      ClientRectBottom = 299
+      ClientRectBottom = 369
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 269
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 269
+          ExplicitLeft = -40
+          ExplicitTop = -72
           ExplicitWidth = 838
           ExplicitHeight = 269
           inherited cxGridDB: TcxGridDBTableView
             FilterRow.InfoText = 'Clique aqui para filtrar os dados da Grid'
           end
         end
+        object pnlBottom: TPanel
+          Left = 0
+          Top = 269
+          Width = 838
+          Height = 70
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 5177344
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Segoe UI Light'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 1
+          ExplicitTop = 329
+          ExplicitWidth = 842
+          DesignSize = (
+            838
+            70)
+          object lblCampo: TcxLabel
+            Left = 18
+            Top = 13
+            Caption = 'Campo'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object cbCampo: TcxComboBox
+            Left = 18
+            Top = 34
+            Properties.DropDownListStyle = lsFixedList
+            Properties.DropDownSizeable = True
+            Properties.OnChange = cbCampoPropertiesChange
+            TabOrder = 1
+            Width = 135
+          end
+          object lblInformacao: TcxLabel
+            Left = 280
+            Top = 13
+            Caption = 'Informa'#231#227'o'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object edtInformacao: TcxTextEdit
+            Left = 280
+            Top = 34
+            Anchors = [akLeft, akTop, akRight]
+            TabOrder = 3
+            OnKeyPress = edtInformacaoKeyPress
+            Width = 436
+          end
+          object btnBuscar: TcxButton
+            Left = 728
+            Top = 32
+            Width = 88
+            Height = 25
+            Action = acBuscar
+            Anchors = [akTop, akRight]
+            OptionsImage.Glyph.Data = {
+              36040000424D3604000000000000360000002800000010000000100000000100
+              2000000000000004000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000023232394353535E01A1A1A7000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000001E1E1E813C3C3CFF3C3C3CFF353535E000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF2323239400000000000000000000
+              0000000000000000000000000000000000000000000000000000000000001E1E
+              1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
+              0000000000011616165C282828AB363636E6363636E6282828AB292929AE3C3C
+              3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
+              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF1E1E1E7E00000000000000000000000000000000000000001616
+              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F3C3C3CFF3C3C
+              3CFF292929AD0000000000000000000000000000000000000000000000002828
+              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
+              3CFF282828AB0000000000000000000000000000000000000000000000003636
+              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
+              3CFF363636E60000000000000000000000000000000000000000000000003636
+              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
+              3CFF363636E60000000000000000000000000000000000000000000000002828
+              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
+              3CFF282828AB0000000000000000000000000000000000000000000000001616
+              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F363636E53C3C
+              3CFF1616165C0000000000000000000000000000000000000000000000000000
+              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
+              1E80000000010000000000000000000000000000000000000000000000000000
+              0000000000011616165C282828AB363636E6363636E6282828AB1616165C0000
+              0001000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+          end
+          object cbSQL: TcxComboBox
+            Left = 18
+            Top = 34
+            Properties.OnChange = cbSQLPropertiesChange
+            TabOrder = 5
+            Visible = False
+            Width = 49
+          end
+          object lblOperacao: TcxLabel
+            Left = 159
+            Top = 13
+            Caption = 'Opera'#231#227'o'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object cbOperacao: TcxComboBox
+            Left = 159
+            Top = 34
+            Properties.DropDownListStyle = lsFixedList
+            Properties.DropDownSizeable = True
+            Properties.OnChange = cbCampoPropertiesChange
+            TabOrder = 7
+            Width = 116
+          end
+          object dateInformacao: TcxDateEdit
+            Left = 280
+            Top = 34
+            TabOrder = 8
+            Width = 121
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 269
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
           Width = 60
-          Height = 269
+          Height = 339
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
@@ -292,6 +457,7 @@ inherited frmCadastro: TfrmCadastro
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
+          ExplicitHeight = 269
           object cxImage3: TcxImage
             Left = 0
             Top = 0
@@ -749,6 +915,11 @@ inherited frmCadastro: TfrmCadastro
           end
         end
       end
+      object cxTabFiltro: TcxTabSheet
+        Caption = 'cxTabFiltro'
+        ImageIndex = 2
+        ExplicitHeight = 269
+      end
     end
     inherited pnlTop: TPanel
       Width = 842
@@ -770,171 +941,14 @@ inherited frmCadastro: TfrmCadastro
         Visible = False
       end
     end
-    object pnlBottom: TPanel
-      Left = 0
-      Top = 329
-      Width = 842
-      Height = 70
-      Align = alBottom
-      BevelOuter = bvNone
-      Color = 5177344
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -12
-      Font.Name = 'Segoe UI Light'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 2
-      DesignSize = (
-        842
-        70)
-      object lblCampo: TcxLabel
-        Left = 18
-        Top = 13
-        Caption = 'Campo'
-        ParentFont = False
-        Style.BorderColor = clWhite
-        Style.Font.Charset = DEFAULT_CHARSET
-        Style.Font.Color = clWhite
-        Style.Font.Height = -12
-        Style.Font.Name = 'Segoe UI Light'
-        Style.Font.Style = []
-        Style.TextColor = clWhite
-        Style.IsFontAssigned = True
-        StyleDisabled.TextColor = clWhite
-        StyleHot.TextColor = clWhite
-        Properties.ShadowedColor = clWhite
-      end
-      object cbCampo: TcxComboBox
-        Left = 18
-        Top = 34
-        Properties.DropDownListStyle = lsFixedList
-        Properties.DropDownSizeable = True
-        Properties.OnChange = cbCampoPropertiesChange
-        TabOrder = 1
-        Width = 135
-      end
-      object lblInformacao: TcxLabel
-        Left = 280
-        Top = 13
-        Caption = 'Informa'#231#227'o'
-        ParentFont = False
-        Style.BorderColor = clWhite
-        Style.Font.Charset = DEFAULT_CHARSET
-        Style.Font.Color = clWhite
-        Style.Font.Height = -12
-        Style.Font.Name = 'Segoe UI Light'
-        Style.Font.Style = []
-        Style.TextColor = clWhite
-        Style.IsFontAssigned = True
-        StyleDisabled.TextColor = clWhite
-        StyleHot.TextColor = clWhite
-        Properties.ShadowedColor = clWhite
-      end
-      object edtInformacao: TcxTextEdit
-        Left = 280
-        Top = 34
-        Anchors = [akLeft, akTop, akRight]
-        TabOrder = 3
-        OnKeyPress = edtInformacaoKeyPress
-        Width = 436
-      end
-      object btnBuscar: TcxButton
-        Left = 728
-        Top = 32
-        Width = 88
-        Height = 25
-        Hint = 'Buscar dados no servidor'
-        Action = acBuscar
-        Anchors = [akTop, akRight]
-        OptionsImage.Glyph.Data = {
-          36040000424D3604000000000000360000002800000010000000100000000100
-          2000000000000004000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000023232394353535E01A1A1A7000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000001E1E1E813C3C3CFF3C3C3CFF353535E000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF2323239400000000000000000000
-          0000000000000000000000000000000000000000000000000000000000001E1E
-          1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
-          0000000000011616165C282828AB363636E6363636E6282828AB292929AE3C3C
-          3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
-          00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
-          3CFF3C3C3CFF1E1E1E7E00000000000000000000000000000000000000001616
-          165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F3C3C3CFF3C3C
-          3CFF292929AD0000000000000000000000000000000000000000000000002828
-          28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-          3CFF282828AB0000000000000000000000000000000000000000000000003636
-          36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-          3CFF363636E60000000000000000000000000000000000000000000000003636
-          36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-          3CFF363636E60000000000000000000000000000000000000000000000002828
-          28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-          3CFF282828AB0000000000000000000000000000000000000000000000001616
-          165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F363636E53C3C
-          3CFF1616165C0000000000000000000000000000000000000000000000000000
-          00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
-          1E80000000010000000000000000000000000000000000000000000000000000
-          0000000000011616165C282828AB363636E6363636E6282828AB1616165C0000
-          0001000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000}
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 4
-      end
-      object cbSQL: TcxComboBox
-        Left = 18
-        Top = 34
-        Properties.OnChange = cbSQLPropertiesChange
-        TabOrder = 5
-        Visible = False
-        Width = 49
-      end
-      object lblOperacao: TcxLabel
-        Left = 159
-        Top = 13
-        Caption = 'Opera'#231#227'o'
-        ParentFont = False
-        Style.BorderColor = clWhite
-        Style.Font.Charset = DEFAULT_CHARSET
-        Style.Font.Color = clWhite
-        Style.Font.Height = -12
-        Style.Font.Name = 'Segoe UI Light'
-        Style.Font.Style = []
-        Style.TextColor = clWhite
-        Style.IsFontAssigned = True
-        StyleDisabled.TextColor = clWhite
-        StyleHot.TextColor = clWhite
-        Properties.ShadowedColor = clWhite
-      end
-      object cbOperacao: TcxComboBox
-        Left = 159
-        Top = 34
-        Properties.DropDownListStyle = lsFixedList
-        Properties.DropDownSizeable = True
-        Properties.OnChange = cbCampoPropertiesChange
-        TabOrder = 7
-        Width = 116
-      end
-      object dateInformacao: TcxDateEdit
-        Left = 280
-        Top = 34
-        TabOrder = 8
-        Width = 121
-      end
-    end
   end
   inherited cxHintStyleController: TcxHintStyleController
-    Top = 86
+    Left = 334
+    Top = 6
   end
   inherited dxBarManager: TdxBarManager
-    Left = 112
-    Top = 176
+    Left = 400
+    Top = 6
     DockControlHeights = (
       0
       0
@@ -942,12 +956,12 @@ inherited frmCadastro: TfrmCadastro
       0)
   end
   inherited dts: TDataSource
-    Left = 240
-    Top = 80
+    Left = 552
+    Top = 6
   end
   inherited ActionList: TActionList
-    Left = 112
-    Top = 128
+    Left = 368
+    Top = 6
     object acNovo: TAction
       Caption = 'Novo'
       ShortCut = 114
@@ -980,12 +994,12 @@ inherited frmCadastro: TfrmCadastro
     end
   end
   inherited RadialMenuExportar: TdxRibbonRadialMenu
-    Left = 112
-    Top = 224
+    Left = 432
+    Top = 6
   end
   inherited SaveDialog: TSaveDialog
-    Left = 110
-    Top = 274
+    Left = 466
+    Top = 6
   end
   object ServerMethod: TSqlServerMethod
     Params = <
@@ -994,7 +1008,7 @@ inherited frmCadastro: TfrmCadastro
         Name = 'filtro'
         ParamType = ptInput
       end>
-    Left = 238
-    Top = 130
+    Left = 582
+    Top = 6
   end
 end

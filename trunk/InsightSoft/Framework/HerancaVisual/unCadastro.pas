@@ -38,6 +38,9 @@ type
     acCancelar: TAction;
     lblPrimeiroEdit: TLabel;
     lblFrame: TLabel;
+    ServerMethod: TSqlServerMethod;
+    acBuscar: TAction;
+    cxTabFiltro: TcxTabSheet;
     pnlBottom: TPanel;
     lblCampo: TcxLabel;
     cbCampo: TcxComboBox;
@@ -45,11 +48,9 @@ type
     edtInformacao: TcxTextEdit;
     btnBuscar: TcxButton;
     cbSQL: TcxComboBox;
-    ServerMethod: TSqlServerMethod;
     lblOperacao: TcxLabel;
     cbOperacao: TcxComboBox;
     dateInformacao: TcxDateEdit;
-    acBuscar: TAction;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
