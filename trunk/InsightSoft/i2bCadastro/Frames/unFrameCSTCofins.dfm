@@ -9,7 +9,7 @@ inherited FrameCSTCofins: TFrameCSTCofins
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Width = 121
+      Width = 349
     end
     object memObservacao: TcxDBMemo [1]
       Left = 12
@@ -28,7 +28,7 @@ inherited FrameCSTCofins: TFrameCSTCofins
     end
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
-      CaptionOptions.Text = 'Descricao'
+      CaptionOptions.Text = 'Descri'#231#227'o'
       CaptionOptions.Layout = clTop
       Control = edtDescricao
       ControlOptions.ShowBorder = False

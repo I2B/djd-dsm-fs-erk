@@ -53,7 +53,10 @@ object frmPrincipal: TfrmPrincipal
     end
     object tabRegraFiscal: TdxRibbonTab
       Caption = 'Regra Fiscal'
-      Groups = <>
+      Groups = <
+        item
+          ToolbarName = 'barCST'
+        end>
       Index = 3
     end
     object tabFinanceiro: TdxRibbonTab
@@ -70,7 +73,7 @@ object frmPrincipal: TfrmPrincipal
       Groups = <
         item
           Caption = ''
-          ToolbarName = 'dxBarManagerBar1'
+          ToolbarName = 'BarEmpresa'
         end>
       Index = 5
     end
@@ -286,8 +289,8 @@ object frmPrincipal: TfrmPrincipal
       Visible = True
       WholeRow = False
     end
-    object dxBarManagerBar1: TdxBar
-      Caption = 'barEmpresa'
+    object BarEmpresa: TdxBar
+      Caption = 'Empresa'
       CaptionButtons = <>
       DockedLeft = 0
       DockedTop = 0
@@ -299,6 +302,34 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'dxBarLargeButton2'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object barCST: TdxBar
+      Caption = 'CST'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1058
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnIPI'
+        end
+        item
+          Visible = True
+          ItemName = 'btnPIS'
+        end
+        item
+          Visible = True
+          ItemName = 'btnCofins'
         end>
       OneOnRow = True
       Row = 0
@@ -1671,6 +1702,27 @@ object frmPrincipal: TfrmPrincipal
         20AB0D0C0D46201F20993B393AFF000000060000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
       OnClick = dxBarLargeButton2Click
+    end
+    object btnIPI: TdxBarLargeButton
+      Caption = 'IPI'
+      Category = 0
+      Hint = 'IPI'
+      Visible = ivAlways
+      OnClick = btnIPIClick
+    end
+    object btnPIS: TdxBarLargeButton
+      Caption = 'PIS'
+      Category = 0
+      Hint = 'PIS'
+      Visible = ivAlways
+      OnClick = btnPISClick
+    end
+    object btnCofins: TdxBarLargeButton
+      Caption = 'COFINS'
+      Category = 0
+      Hint = 'COFINS'
+      Visible = ivAlways
+      OnClick = btnCofinsClick
     end
   end
   object dxRibbonPopupMenu: TdxRibbonPopupMenu

@@ -1,5 +1,5 @@
 inherited frmCADCFOP: TfrmCADCFOP
-  Caption = 'frmCADCFOP'
+  Caption = 'CFOP - C'#243'digo Fiscal de Opera'#231#245'es e Presta'#231#245'es'
   ClientHeight = 424
   ClientWidth = 830
   ExplicitWidth = 846
@@ -8,36 +8,40 @@ inherited frmCADCFOP: TfrmCADCFOP
   TextHeight = 15
   inherited pnlSide: TPanel
     Height = 424
-    ExplicitHeight = 8
+    ExplicitHeight = 424
     inherited lblRegistros: TLabel
       Top = 407
+      ExplicitTop = 407
     end
     inherited imgImprimir: TcxImage
       Top = 293
-      ExplicitTop = -123
+      ExplicitTop = 293
     end
     inherited imgExportar: TcxImage
       Top = 350
-      ExplicitTop = -66
+      ExplicitTop = 350
     end
   end
   inherited pnlClient: TPanel
     Width = 770
     Height = 424
-    ExplicitWidth = 102
-    ExplicitHeight = 8
+    ExplicitWidth = 770
+    ExplicitHeight = 424
     inherited cxPageControl: TcxPageControl
       Width = 770
-      Height = 326
-      ExplicitWidth = 102
-      ClientRectBottom = 324
+      Height = 396
+      ExplicitWidth = 770
+      ExplicitHeight = 396
+      ClientRectBottom = 394
       ClientRectRight = 768
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 766
+        ExplicitHeight = 364
         inherited cxGrid: TcxGrid
           Width = 766
           Height = 294
-          ExplicitWidth = 98
+          ExplicitWidth = 766
+          ExplicitHeight = 294
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidcfop: TcxGridDBColumn
               Caption = 'ID'
@@ -72,19 +76,55 @@ inherited frmCADCFOP: TfrmCADCFOP
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 294
+          Width = 766
+          ExplicitTop = 294
+          ExplicitWidth = 766
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited edtInformacao: TcxTextEdit
+            ExplicitWidth = 668
+            ExplicitHeight = 23
+            Width = 668
+          end
+          inherited btnBuscar: TcxButton
+            Left = 656
+            ExplicitLeft = 656
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
-        ExplicitWidth = 98
+        ExplicitWidth = 766
+        ExplicitHeight = 364
         inherited pnlCadastro: TPanel
-          Height = 294
+          Height = 364
+          ExplicitHeight = 364
         end
         inline FrameCFOP: TFrameCFOP
           Left = 60
           Top = 0
           Width = 706
-          Height = 294
+          Height = 364
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -96,11 +136,14 @@ inherited frmCADCFOP: TfrmCADCFOP
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 186
-          ExplicitTop = -14
+          ExplicitLeft = 60
+          ExplicitWidth = 706
+          ExplicitHeight = 364
           inherited dxLayoutControl: TdxLayoutControl
             Width = 706
-            Height = 294
+            Height = 364
+            ExplicitWidth = 706
+            ExplicitHeight = 364
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -126,10 +169,36 @@ inherited frmCADCFOP: TfrmCADCFOP
           end
         end
       end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 766
+        ExplicitHeight = 364
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 766
+          Width = 766
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+        end
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 766
+          ExplicitHeight = 197
+          Height = 197
+          Width = 766
+        end
+      end
     end
     inherited pnlTop: TPanel
       Width = 770
-      ExplicitWidth = 102
+      ExplicitWidth = 770
       inherited lblPrimeiroEdit: TLabel
         Width = 72
         Caption = 'edtCFOP'
@@ -139,42 +208,6 @@ inherited frmCADCFOP: TfrmCADCFOP
         Width = 95
         Caption = 'FrameCFOP'
         ExplicitWidth = 95
-      end
-    end
-    inherited pnlBottom: TPanel
-      Top = 354
-      Width = 770
-      ExplicitTop = -62
-      ExplicitWidth = 102
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbCampo: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited edtInformacao: TcxTextEdit
-        ExplicitWidth = 0
-        ExplicitHeight = 23
-        Width = 668
-      end
-      inherited btnBuscar: TcxButton
-        Left = 656
-        ExplicitLeft = -12
-      end
-      inherited cbSQL: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblOperacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbOperacao: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited dateInformacao: TcxDateEdit
-        ExplicitHeight = 23
       end
     end
   end
@@ -189,6 +222,14 @@ inherited frmCADCFOP: TfrmCADCFOP
     DataSet = DM.cdsCFOP
   end
   inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
     SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLCFOP'
   end
 end

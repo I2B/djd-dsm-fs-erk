@@ -1,5 +1,5 @@
 inherited frmCADBanco: TfrmCADBanco
-  Caption = 'Banco'
+  Caption = 'Bancos'
   ClientHeight = 404
   ClientWidth = 789
   ExplicitWidth = 805
@@ -29,19 +29,19 @@ inherited frmCADBanco: TfrmCADBanco
     ExplicitHeight = 404
     inherited cxPageControl: TcxPageControl
       Width = 729
-      Height = 306
+      Height = 376
       ExplicitWidth = 729
-      ExplicitHeight = 306
-      ClientRectBottom = 304
+      ExplicitHeight = 376
+      ClientRectBottom = 374
       ClientRectRight = 727
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 725
-        ExplicitHeight = 274
+        ExplicitHeight = 344
         inherited cxGrid: TcxGrid
           Width = 725
           Height = 274
+          ExplicitLeft = 3
+          ExplicitTop = 4
           ExplicitWidth = 725
           ExplicitHeight = 274
           inherited cxGridDB: TcxGridDBTableView
@@ -57,19 +57,49 @@ inherited frmCADBanco: TfrmCADBanco
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 274
+          Width = 725
+          ExplicitTop = 274
+          ExplicitWidth = 725
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited edtInformacao: TcxTextEdit
+            ExplicitWidth = 627
+            ExplicitHeight = 23
+            Width = 627
+          end
+          inherited btnBuscar: TcxButton
+            Left = 615
+            ExplicitLeft = 615
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitWidth = 725
-        ExplicitHeight = 274
+        ExplicitHeight = 344
         inherited pnlCadastro: TPanel
-          Height = 274
-          ExplicitHeight = 274
+          Height = 344
+          ExplicitHeight = 344
         end
         inline FrameBanco: TFrameBanco
           Left = 60
           Top = 0
           Width = 665
-          Height = 274
+          Height = 344
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -83,12 +113,12 @@ inherited frmCADBanco: TfrmCADBanco
           TabOrder = 1
           ExplicitLeft = 60
           ExplicitWidth = 665
-          ExplicitHeight = 274
+          ExplicitHeight = 344
           inherited dxLayoutControl: TdxLayoutControl
             Width = 665
-            Height = 274
+            Height = 344
             ExplicitWidth = 665
-            ExplicitHeight = 274
+            ExplicitHeight = 344
             inherited edtBanco: TcxDBTextEdit
               ExplicitHeight = 23
             end
@@ -107,6 +137,32 @@ inherited frmCADBanco: TfrmCADBanco
           end
         end
       end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 725
+        ExplicitHeight = 344
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 725
+          Width = 725
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+        end
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 725
+          ExplicitHeight = 177
+          Height = 177
+          Width = 725
+        end
+      end
     end
     inherited pnlTop: TPanel
       Width = 729
@@ -122,33 +178,6 @@ inherited frmCADBanco: TfrmCADBanco
         ExplicitWidth = 98
       end
     end
-    inherited pnlBottom: TPanel
-      Top = 334
-      Width = 729
-      ExplicitTop = 334
-      ExplicitWidth = 729
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited cbCampo: TcxComboBox
-        ExplicitHeight = 23
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited edtInformacao: TcxTextEdit
-        ExplicitWidth = 627
-        ExplicitHeight = 23
-        Width = 627
-      end
-      inherited btnBuscar: TcxButton
-        Left = 615
-        ExplicitLeft = 615
-      end
-      inherited cbSQL: TcxComboBox
-        ExplicitHeight = 23
-      end
-    end
   end
   inherited dxBarManager: TdxBarManager
     DockControlHeights = (
@@ -161,5 +190,16 @@ inherited frmCADBanco: TfrmCADBanco
     DataSet = DM.cdsBanco
     Left = 168
     Top = 280
+  end
+  inherited ServerMethod: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftWideString
+        Precision = 2000
+        Name = 'filtro'
+        ParamType = ptInput
+      end>
+    SQLConnection = DM.conServer
+    ServerMethodName = 'TServerMethods.setSQLBanco'
   end
 end

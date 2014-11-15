@@ -10,7 +10,8 @@ uses
   cxDBData, Vcl.Menus, dxScreenTip, dxSkinsdxBarPainter, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint, Vcl.StdCtrls, cxButtons, cxTextEdit,
   cxMaskEdit, cxDropDownEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses,
-  cxImage, Vcl.ExtCtrls, unFramePai, unFramePortador;
+  cxImage, Vcl.ExtCtrls, unFramePai, unFramePortador, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd, Data.SqlExpr,
+  cxMemo, cxGroupBox, cxRadioGroup, cxCalendar;
 
 type
   TfrmCadPortador = class(TfrmCadastro)

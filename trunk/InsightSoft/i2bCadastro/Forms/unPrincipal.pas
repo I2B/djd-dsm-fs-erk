@@ -45,8 +45,12 @@ type
     btnPortador: TdxBarLargeButton;
     barEstrutura: TdxBar;
     dxBarLargeButton1: TdxBarLargeButton;
-    dxBarManagerBar1: TdxBar;
+    BarEmpresa: TdxBar;
     dxBarLargeButton2: TdxBarLargeButton;
+    barCST: TdxBar;
+    btnIPI: TdxBarLargeButton;
+    btnPIS: TdxBarLargeButton;
+    btnCofins: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -56,6 +60,9 @@ type
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btnClienteClick(Sender: TObject);
     procedure dxBarLargeButton2Click(Sender: TObject);
+    procedure btnCofinsClick(Sender: TObject);
+    procedure btnPISClick(Sender: TObject);
+    procedure btnIPIClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,7 +78,7 @@ implementation
 
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
-  unCADCSTPIS;
+  unCADCSTPIS, unCADEmpresa;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -146,15 +153,29 @@ end;
 
 procedure TfrmPrincipal.btnClienteClick(Sender: TObject);
 begin
-  DM.cdsCNAE.Open;
-  if frmCADCNAE = nil then
+  DM.cdsEmpresa.Open;
+  if frmCADEmpresa = nil then
   begin
-    frmCADCNAE := TfrmCADCNAE.Create(Application);
-    frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
+    frmCADEmpresa := TfrmCADEmpresa.Create(Application);
+    frmCADEmpresa.pnlTop.Caption := frmCADEmpresa.Caption+'  ';
   end
   else
   begin
-    frmCADCNAE.Show;
+    frmCADEmpresa.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnCofinsClick(Sender: TObject);
+begin
+  DM.cdsCSTCofins.Open;
+  if frmCADCSTCofins = nil then
+  begin
+    frmCADCSTCofins := TfrmCADCSTCofins.Create(Application);
+    frmCADCSTCofins.pnlTop.Caption := frmCADCSTCofins.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCSTCofins.Show;
   end;
 end;
 
@@ -169,6 +190,34 @@ begin
   else
   begin
     frmCADIndicadorEconomico.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnIPIClick(Sender: TObject);
+begin
+  DM.cdsCSTIPI.Open;
+  if frmCADCSTIPI = nil then
+  begin
+    frmCADCSTIPI := TfrmCADCSTIPI.Create(Application);
+    frmCADCSTIPI.pnlTop.Caption := frmCADCSTIPI.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCSTIPI.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnPISClick(Sender: TObject);
+begin
+  DM.cdsCSTPIS.Open;
+  if frmCADCSTPIS = nil then
+  begin
+    frmCADCSTPIS := TfrmCADCSTPIS.Create(Application);
+    frmCADCSTPIS.pnlTop.Caption := frmCADCSTPIS.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCSTPIS.Show;
   end;
 end;
 

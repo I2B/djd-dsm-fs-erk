@@ -14,7 +14,7 @@ uses
   cxImage, Vcl.ExtCtrls, unFramePai, unFrameCSTCofins;
 
 type
-  TfrmCSTCofins = class(TfrmCadastro)
+  TfrmCADCSTCofins = class(TfrmCadastro)
     cxGridDBidcstcofins: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBobservacao: TcxGridDBColumn;
@@ -26,7 +26,7 @@ type
   end;
 
 var
-  frmCSTCofins: TfrmCSTCofins;
+  frmCADCSTCofins: TfrmCADCSTCofins;
 
 implementation
 

@@ -10,7 +10,8 @@ uses
   cxDBData, Vcl.Menus, Vcl.ComCtrls, dxCore, cxDateUtils, dxScreenTip, dxSkinsdxBarPainter, Data.FMTBcd, unFramePai,
   unFrameCNAE, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu,
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit,
-  cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls;
+  cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls,
+  cxMemo, cxGroupBox, cxRadioGroup;
 
 type
   TfrmCADCNAE = class(TfrmCadastro)

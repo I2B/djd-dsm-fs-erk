@@ -10,7 +10,6 @@ uses
   unSerie in 'Forms\unSerie.pas' {frmSerie},
   unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame},
   unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame},
-  unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria},
   unFrameIndicadorEconomico in 'Frames\unFrameIndicadorEconomico.pas' {frameIndicadorEconomico: TFrame},
   unIndicadorEconomico in 'Forms\unIndicadorEconomico.pas' {frmCADIndicadorEconomico},
   UnFrameBanco in 'Frames\UnFrameBanco.pas' {FrameBanco: TFrame},
@@ -32,13 +31,16 @@ uses
   unFrameTipoOperacao in 'Frames\unFrameTipoOperacao.pas' {FrameTipoOperacao: TFrame},
   unCADTipoOperacao in 'Forms\unCADTipoOperacao.pas' {frmCADTipoOperacao},
   unFrameTelefone in 'Frames\unFrameTelefone.pas' {FrameTelefone: TFrame},
-  unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone},
   unFrameCSTCofins in 'Frames\unFrameCSTCofins.pas' {FrameCSTCofins: TFrame},
   unFrameCSTIPI in 'Frames\unFrameCSTIPI.pas' {FrameCSTIPI: TFrame},
   unFrameCSTPIS in 'Frames\unFrameCSTPIS.pas' {FramePIS: TFrame},
-  unCADCSTCofins in 'Forms\unCADCSTCofins.pas' {frmCSTCofins},
+  unCADCSTCofins in 'Forms\unCADCSTCofins.pas' {frmCADCSTCofins},
   unCADCSTIPI in 'Forms\unCADCSTIPI.pas' {frmCADCSTIPI},
-  unCADCSTPIS in 'Forms\unCADCSTPIS.pas' {frmCADCSTPIS};
+  unCADCSTPIS in 'Forms\unCADCSTPIS.pas' {frmCADCSTPIS},
+  unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria},
+  unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone},
+  unFrameEmpresa in 'Frames\unFrameEmpresa.pas' {FrameEmpresa: TFrame},
+  unCADEmpresa in 'Forms\unCADEmpresa.pas' {frmCADEmpresa};
 
 {$R *.res}
 
@@ -47,8 +49,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmCSTCofins, frmCSTCofins);
-  Application.CreateForm(TfrmCADCSTIPI, frmCADCSTIPI);
-  Application.CreateForm(TfrmCADCSTPIS, frmCADCSTPIS);
   Application.Run;
 end.

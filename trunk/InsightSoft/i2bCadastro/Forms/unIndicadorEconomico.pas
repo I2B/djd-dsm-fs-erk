@@ -10,7 +10,8 @@ uses
   cxDBData, dxScreenTip, dxSkinsdxBarPainter, unFramePai, unFrameIndicadorEconomico, dxBar, dxRibbonRadialMenu,
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, cxCheckBox,
-  Vcl.Menus, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel;
+  Vcl.Menus, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd,
+  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar;
 
 type
   TfrmCADIndicadorEconomico = class(TfrmCadastro)
