@@ -26,7 +26,13 @@ uses
   unFrameCNAE in 'Frames\unFrameCNAE.pas' {FrameCNAE: TFrame},
   unCADCNAE in 'Forms\unCADCNAE.pas' {frmCADCNAE},
   unFrameUnidadeNegocio in 'Frames\unFrameUnidadeNegocio.pas' {FrameUnidadeNegocio: TFrame},
-  unCADUnidadeNegocio in 'Forms\unCADUnidadeNegocio.pas' {frmCADUnidadeNegocio};
+  unCADUnidadeNegocio in 'Forms\unCADUnidadeNegocio.pas' {frmCADUnidadeNegocio},
+  unFrameTipoTelefone in 'Frames\unFrameTipoTelefone.pas' {FrameTipoTelefone: TFrame},
+  unCADTipoTelefone in 'Forms\unCADTipoTelefone.pas' {frmCADTipoTelefone},
+  unFrameTipoOperacao in 'Frames\unFrameTipoOperacao.pas' {FrameTipoOperacao: TFrame},
+  unCADTipoOperacao in 'Forms\unCADTipoOperacao.pas' {frmCADTipoOperacao},
+  unFrameTelefone in 'Frames\unFrameTelefone.pas' {FrameTelefone: TFrame},
+  unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone};
 
 {$R *.res}
 

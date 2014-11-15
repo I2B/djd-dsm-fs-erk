@@ -32,18 +32,18 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
       Height = 345
       ExplicitWidth = 813
       ExplicitHeight = 345
-      ClientRectBottom = 341
-      ClientRectRight = 809
+      ClientRectBottom = 343
+      ClientRectRight = 811
       inherited cxTabGrid: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 805
-        ExplicitHeight = 315
+        ExplicitLeft = 2
+        ExplicitTop = 30
+        ExplicitWidth = 809
+        ExplicitHeight = 313
         inherited cxGrid: TcxGrid
-          Width = 805
-          Height = 315
-          ExplicitWidth = 805
-          ExplicitHeight = 315
+          Width = 809
+          Height = 313
+          ExplicitWidth = 809
+          ExplicitHeight = 313
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidunidadenegocio: TcxGridDBColumn
               DataBinding.FieldName = 'idunidadenegocio'
@@ -70,19 +70,17 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 805
-        ExplicitHeight = 315
+        ExplicitWidth = 809
+        ExplicitHeight = 313
         inherited pnlCadastro: TPanel
-          Height = 315
-          ExplicitHeight = 315
+          Height = 313
+          ExplicitHeight = 313
         end
         inline FrameUnidadeNegocio: TFrameUnidadeNegocio
           Left = 60
           Top = 0
-          Width = 745
-          Height = 315
+          Width = 749
+          Height = 313
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -95,20 +93,24 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
           ParentFont = False
           TabOrder = 1
           ExplicitLeft = 60
-          ExplicitWidth = 745
-          ExplicitHeight = 315
+          ExplicitWidth = 749
+          ExplicitHeight = 313
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 745
-            Height = 315
-            ExplicitWidth = 745
-            ExplicitHeight = 315
+            Width = 749
+            Height = 313
+            ExplicitWidth = 749
+            ExplicitHeight = 313
+            inherited edtCNPJ: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
             inherited edtNomeFantasia: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
+              ExplicitHeight = 23
             end
             inherited edtIDEmpresa: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
+              ExplicitHeight = 23
+            end
+            inherited edtCNAE: TcxDBTextEdit
+              ExplicitHeight = 23
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -137,9 +139,9 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
       Width = 813
       ExplicitWidth = 813
       inherited lblPrimeiroEdit: TLabel
-        Width = 108
-        Caption = 'cxDBTextEdit1'
-        ExplicitWidth = 108
+        Width = 113
+        Caption = 'edtIDEmpresa'
+        ExplicitWidth = 113
       end
       inherited lblFrame: TLabel
         Width = 185

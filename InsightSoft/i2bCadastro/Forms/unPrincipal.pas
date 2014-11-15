@@ -70,7 +70,7 @@ implementation
 {$R *.dfm}
 
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
-  unCADCNAE, unCADUnidadeNegocio;
+  unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -102,15 +102,15 @@ end;
 
 procedure TfrmPrincipal.dxBarLargeButton2Click(Sender: TObject);
 begin
-  DM.cdsUnidadeNegocio.Open;
-  if frmCADUnidadeNegocio = nil then
+  DM.cdsTelefone.Open;
+  if frmCADTelefone = nil then
   begin
-    frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
-    frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
+    frmCADTelefone := TfrmCADTelefone.Create(Application);
+    frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
   end
   else
   begin
-    frmCADUnidadeNegocio.Show;
+    frmCADTelefone.Show;
   end;
 
 end;

@@ -10,13 +10,11 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -3638,6 +3636,7 @@ object DM: TDM
   end
   object cdsTipoOperacao: TClientDataSet
     Aggregates = <>
+    AutoCalcFields = False
     Params = <>
     ProviderName = 'dspTipoOperacao'
     RemoteServer = dspConnection
@@ -3645,9 +3644,12 @@ object DM: TDM
     Top = 312
     object cdsTipoOperacaoidtipooperacao: TIntegerField
       FieldName = 'idtipooperacao'
+      Origin = 'idtipooperacao'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsTipoOperacaodescricao: TWideStringField
       FieldName = 'descricao'
+      Origin = 'descricao'
     end
   end
   object cdsTipoTelefone: TClientDataSet
@@ -3659,9 +3661,12 @@ object DM: TDM
     Top = 368
     object cdsTipoTelefoneidtipotelefone: TIntegerField
       FieldName = 'idtipotelefone'
+      Origin = 'idtipotelefone'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsTipoTelefonedescricao: TWideStringField
       FieldName = 'descricao'
+      Origin = 'descricao'
       Size = 50
     end
   end

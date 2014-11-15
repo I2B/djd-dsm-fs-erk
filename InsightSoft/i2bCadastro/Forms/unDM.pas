@@ -958,7 +958,6 @@ type
     cdsTipoOperacaoidtipooperacao: TIntegerField;
     cdsTipoOperacaodescricao: TWideStringField;
     cdsTipoTelefoneidtipotelefone: TIntegerField;
-    cdsTipoTelefonedescricao: TWideStringField;
     cdsSerieidserie: TIntegerField;
     cdsSeriedescricao: TWideStringField;
     cdsSerienumeracao: TIntegerField;
@@ -991,6 +990,7 @@ type
     cdsAuditoriadescricao: TWideMemoField;
     cdsAuditoriaidunidadenegocio: TIntegerField;
     cdsAuditorianomefantasia: TWideStringField;
+    cdsTipoTelefonedescricao: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
