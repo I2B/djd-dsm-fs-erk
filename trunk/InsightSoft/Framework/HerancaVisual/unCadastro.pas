@@ -21,7 +21,7 @@ uses
   Datasnap.DBClient, cxTextEdit, cxDBEdit, cxMaskEdit, cxDropDownEdit, cxLabel, Vcl.Menus, cxButtons, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider, Data.FMTBcd,
-  Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, cxCalendar;
+  Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, cxCalendar, cxGroupBox, cxListBox, cxRadioGroup, cxMemo;
 
 type
   TfrmCadastro = class(TfrmGrid)
@@ -51,6 +51,19 @@ type
     lblOperacao: TcxLabel;
     cbOperacao: TcxComboBox;
     dateInformacao: TcxDateEdit;
+    acAbaFiltro: TAction;
+    gbDesenvolvimentoFiltro: TcxGroupBox;
+    lblFIltroCampo: TcxLabel;
+    lblFiltroOperacao: TcxLabel;
+    lblFiltroCondicao: TcxLabel;
+    edtFiltroCondicao: TcxTextEdit;
+    rgFiltroAndOr: TcxRadioGroup;
+    dateFiltroCondicao: TcxDateEdit;
+    gbFiltroDesenvolvido: TcxGroupBox;
+    memoFiltroDesenvolvido: TcxMemo;
+    cbFiltroCampo: TcxComboBox;
+    cbFiltroOperacao: TcxComboBox;
+    btnAdicionarFiltro: TcxButton;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
