@@ -1079,6 +1079,32 @@ type
     qryProdutoUnidadeConversaofatorconversao: TFloatField;
     qryProdutoUnidadeConversaoprodutonome: TWideStringField;
     qryProdutoUnidadeConversaounidadesigla: TWideStringField;
+    qryRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField;
+    qryRegraFiscalObservacaoobservacao: TWideMemoField;
+    qrySetoridsetor: TIntegerField;
+    qrySetornome: TWideStringField;
+    qrySetordescricao: TWideStringField;
+    qryTelefoneidtelefone: TIntegerField;
+    qryTelefoneidpessoa: TIntegerField;
+    qryTelefoneidunidadenegocio: TIntegerField;
+    qryTelefoneidtipotelefone: TIntegerField;
+    qryTelefonenumerotelefone: TWideStringField;
+    qryTipoTelefoneidtipotelefone: TIntegerField;
+    qryTipoTelefonedescricao: TWideStringField;
+    qryUnidadeNegocioidunidadenegocio: TIntegerField;
+    qryUnidadeNegocioidcnae: TIntegerField;
+    qryUnidadeNegocioidempresa: TIntegerField;
+    qryUnidadeNegociocnpj: TWideStringField;
+    qryUnidadeNegocionomefantasia: TWideStringField;
+    qryUnidadeNegociocnaedenominacao: TWideMemoField;
+    qryUnidadeNegociorazaosocial: TWideStringField;
+    qryCSTICMS: TFDQuery;
+    qryCSTCSOSN: TFDQuery;
+    dspCSTICMS: TDataSetProvider;
+    dspCSTCSOSN: TDataSetProvider;
+    qryCSTICMSidcsticms: TIntegerField;
+    qryCSTICMSdescricao: TWideStringField;
+    qryCSTICMSobservacao: TWideMemoField;
     qryRegraFiscalidregrafiscal: TIntegerField;
     qryRegraFiscalidpessoa: TIntegerField;
     qryRegraFiscalidregrafiscalobservacao: TIntegerField;
@@ -1114,35 +1140,14 @@ type
     qryRegraFiscalie: TFloatField;
     qryRegraFiscalii: TFloatField;
     qryRegraFiscalcfopdevolucao: TSmallintField;
+    qryRegraFiscalidcsticms: TIntegerField;
+    qryRegraFiscalidcstcsosn: TIntegerField;
     qryRegraFiscalpessoanome: TWideStringField;
-    qryRegraFiscalcstpisdescricao: TWideStringField;
-    qryRegraFiscalcstipidescricao: TWideStringField;
     qryRegraFiscaltipooperacaodescricao: TWideStringField;
     qryRegraFiscalpaisnome: TWideStringField;
     qryRegraFiscalmunicipionome: TWideStringField;
     qryRegraFiscalnomefantasia: TWideStringField;
     qryRegraFiscalcfopdescricao: TWideStringField;
-    qryRegraFiscalncmdescricao: TWideStringField;
-    qryRegraFiscalcstcofinsdescricao: TWideStringField;
-    qryRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField;
-    qryRegraFiscalObservacaoobservacao: TWideMemoField;
-    qrySetoridsetor: TIntegerField;
-    qrySetornome: TWideStringField;
-    qrySetordescricao: TWideStringField;
-    qryTelefoneidtelefone: TIntegerField;
-    qryTelefoneidpessoa: TIntegerField;
-    qryTelefoneidunidadenegocio: TIntegerField;
-    qryTelefoneidtipotelefone: TIntegerField;
-    qryTelefonenumerotelefone: TWideStringField;
-    qryTipoTelefoneidtipotelefone: TIntegerField;
-    qryTipoTelefonedescricao: TWideStringField;
-    qryUnidadeNegocioidunidadenegocio: TIntegerField;
-    qryUnidadeNegocioidcnae: TIntegerField;
-    qryUnidadeNegocioidempresa: TIntegerField;
-    qryUnidadeNegociocnpj: TWideStringField;
-    qryUnidadeNegocionomefantasia: TWideStringField;
-    qryUnidadeNegociocnaedenominacao: TWideMemoField;
-    qryUnidadeNegociorazaosocial: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1156,200 +1161,197 @@ type
     //Constantes com as definições das SQLs inicias de cada tabela - DJD
     //const select[NOMEDATABELA]: array[1..5] of string = ([SELECT],[FROM],[WHERE],[ORDER],[LIMIT]);
     const selectAuditoria: array[1..5] of string = ('select auditoria.*, unidadeNegocio.nomeFantasia',
-    'from auditoria inner join unidadeNegocio on auditoria.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio','',
-    'order by idAuditoria',' limit 0 ');
-    const selectBanco: array[1..5] of string = ('select *','from banco','','order by idBanco',' limit 0 ');
+      ' from auditoria inner join unidadeNegocio on auditoria.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',' ',
+      ' order by idAuditoria',' limit 0 ');
+    const selectBanco: array[1..5] of string = ('select *',' from banco',' ',' order by idBanco',' limit 0 ');
     const selectCargo: array[1..5] of string = ('select cargo.*, cbo.nome  as CBOnome',
-    'from cargo inner join cbo on cargo.idCBO = cbo.idCBO','','order by idCargo',' limit 0 ');
-    const selectCBO: array[1..5] of string = ('select *','from CBO','','order by idCBO',' limit 0 ');
+      ' from cargo inner join cbo on cargo.idCBO = cbo.idCBO',' ',' order by idCargo',' limit 0 ');
+    const selectCBO: array[1..5] of string = ('select *',' from CBO',' ',' order by idCBO',' limit 0 ');
     const selectCEP: array[1..5] of string = ('select CEP.*, municipio.nome as municipioNome',
-    'from CEP inner join municipio on CEP.idMunicipio = Municipio.idMunicipio','',
-    'order by idCEP',' limit 0 ');
+    ' from CEP inner join municipio on CEP.idMunicipio = Municipio.idMunicipio',' ',
+    ' order by idCEP',' limit 0 ');
     const selectCFOP: array[1..5] of string = ('select cfop.*, tipoOperacao.descricao as tipoOperacaoDescricao',
-    'from cfop inner join tipoOperacao on cfop.idTipoOperacao = tipoOperacao.idTipoOperacao','',
-    'order by idCFOP',' limit 0 ');
-    const selectCNAE: array[1..5] of string = ('select *','from CNAE','','order by idCNAE',' limit 0 ');
-    const selectControle: array[1..5] of string = ('select *','from controle','','order by idControle',' limit 0 ');
-    const selectCSTCOFINS: array[1..5] of string = ('select *','from cstcofins','','order by idCSTCOFINS',' limit 0 ');
-    const selectCSTIPI: array[1..5] of string = ('select *','from cstipi','','order by idCSTIPI',' limit 0 ');
-    const selectCSTPIS: array[1..5] of string = ('select *','from cstpis','','order by idCSTPIS',' limit 0 ');
-    const selectDocumento: array[1..5] of string = ('select *','from documento','','order by idDocumento',' limit 0 ');
+      ' from cfop inner join tipoOperacao on cfop.idTipoOperacao = tipoOperacao.idTipoOperacao',' ',
+      ' order by idCFOP',' limit 0 ');
+    const selectCNAE: array[1..5] of string = ('select *',' from CNAE',' ',' order by idCNAE',' limit 0 ');
+    const selectControle: array[1..5] of string = ('select *',' from controle',' ',' order by idControle',' limit 0 ');
+    const selectCSTCOFINS: array[1..5] of string = ('select *',' from cstcofins',' ',' order by idCSTCOFINS',' limit 0 ');
+    const selectCSTIPI: array[1..5] of string = ('select *',' from cstipi',' ',' order by idCSTIPI',' limit 0 ');
+    const selectCSTPIS: array[1..5] of string = ('select *',' from cstpis',' ',' order by idCSTPIS',' limit 0 ');
+    const selectDocumento: array[1..5] of string = ('select *',' from documento',' ',' order by idDocumento',' limit 0 ');
     const selectECFCabecalho: array[1..5] of string = ('select ecfCabecalho.*, unidadeNegocio.nomeFantasia, pessoa.nome as pessoaNome',
-    'from ecfCabecalho inner join unidadeNegocio on ecfCabecalho.idunidadenegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join pessoa on ecfCabecalho.idPessoa = pessoa.idPessoa','','order by idECFCabecalho',' limit 0 ');
-    const selectECFItem: array[1..5] of string = ('select ecfitem.*, produto.descricao as produtoDescricao','from ecfitem'+
-    'inner join produto on ecfitem.idProduto = produto.idProduto','','order by idECFItem',' limit 0 ');
-    const selectEmpresa: array[1..5] of string = ('select *','from empresa','','order by idEmpresa',' limit 0 ');
-    const selectEndereco: array[1..5] of string = ('select *','from endereco','','order by idEndereco',' limit 0 ');
+      ' from ecfCabecalho inner join unidadeNegocio on ecfCabecalho.idunidadenegocio = unidadeNegocio.idUnidadeNegocio'+
+      ' inner join pessoa on ecfCabecalho.idPessoa = pessoa.idPessoa',' ',' order by idECFCabecalho',' limit 0 ');
+    const selectECFItem: array[1..5] of string = ('select ecfitem.*, produto.descricao as produtoDescricao',' from ecfitem'+
+      ' inner join produto on ecfitem.idProduto = produto.idProduto',' ',' order by idECFItem',' limit 0 ');
+    const selectEmpresa: array[1..5] of string = ('select *',' from empresa',' ',' order by idEmpresa',' limit 0 ');
+    const selectEndereco: array[1..5] of string = ('select *',' from endereco',' ',' order by idEndereco',' limit 0 ');
     const selectEntradaCabecalho: array[1..5] of string = ('select entradaCabecalho.*, unidadeNegocio.nomeFantasia, pessoa.nome as PessoaNome',
-    'from entradaCabecalho inner join unidadeNegocio on entradaCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join pessoa on entradaCabecalho.idPessoa = pessoa.idPessoa','','order by idEntradaCabecalho',' limit 0 ');
-    const selectEntradaDuplicata: array[1..5] of string = ('select *','from entradaDuplicata','','order by idEntradaDuplicata',' limit 0 ');
+      ' from entradaCabecalho inner join unidadeNegocio on entradaCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
+      ' inner join pessoa on entradaCabecalho.idPessoa = pessoa.idPessoa',' ',' order by idEntradaCabecalho',' limit 0 ');
+    const selectEntradaDuplicata: array[1..5] of string = ('select *',' from entradaDuplicata',' ',' order by idEntradaDuplicata',' limit 0 ');
     const selectEntradaItem: array[1..5] of string = ('select entradaItem.*, produto.descricao as produtoDescricao',
-    'from entradaItem inner join produto on entradaItem.idProduto = produto.idProduto','','order by idEntradaItem',' limit 0 ');
-    const selectEntradaItemImposto: array[1..5] of string = ('select *','from entradaItemImposto','','order by idEntradaItemImposto',' limit 0 ');
-    const selectEntradaLocalEntregaRetirada: array[1..5] of string = ('select *','from entradaLocalEntregaRetirada','',
-    'order by idEntradaLocalEntregaRetirada',' limit 0 ');
+      ' from entradaItem inner join produto on entradaItem.idProduto = produto.idProduto',' ',' order by idEntradaItem',' limit 0 ');
+    const selectEntradaItemImposto: array[1..5] of string = ('select *',' from entradaItemImposto',' ',' order by idEntradaItemImposto',' limit 0 ');
+    const selectEntradaLocalEntregaRetirada: array[1..5] of string = ('select *',' from entradaLocalEntregaRetirada',' ',
+      ' order by idEntradaLocalEntregaRetirada',' limit 0 ');
     const selectEntradaTransportadora: array[1..5] of string = ('select entradaTransportadora.*, pessoa.nome as pessoaNome',
-    'from entradaTransportadora inner join pessoa on entradaTransportadora.idPessoa = pessoa.idPessoa','',
-    'order by idEntradaTransportadora',' limit 0 ');
-    const selectEntradaTransportadoraReboque: array[1..5] of string = ('select *','from entradaTransportadoraReboque','',
-    'order by idEntradaTransportadoraReboque',' limit 0 ');
-    const selectEstado: array[1..5] of string = ('select estado.*, pais.nome as paisNome','from estado'+
-    'inner join pais on estado.idPais = pais.idPais','','order by idEstado',' limit 0 ');
+      ' from entradaTransportadora inner join pessoa on entradaTransportadora.idPessoa = pessoa.idPessoa',' ',
+      ' order by idEntradaTransportadora',' limit 0 ');
+    const selectEntradaTransportadoraReboque: array[1..5] of string = ('select *',' from entradaTransportadoraReboque',' ',
+      ' order by idEntradaTransportadoraReboque',' limit 0 ');
+    const selectEstado: array[1..5] of string = ('select estado.*, pais.nome as paisNome',' from estado'+
+      ' inner join pais on estado.idPais = pais.idPais',' ',' order by idEstado',' limit 0 ');
     const selectEstoqueContagemCabecalho: array[1..5] of string = ('select estoqueContagemCabecalho.*, empresa.nomeFantasia',
-    'from estoqueContagemCabecalho inner join empresa on estoqueContagemCabecalho.idEmpresa = empresa.idEmpresa',
-    '','order by idEstoqueContagemCabecalho',' limit 0 ');
-    const selectEstoqueContagemDetalhe: array[1..5] of string = ('select *','from estoqueCor','','order by idEstoqueCor',' limit 0 ');
+      ' from estoqueContagemCabecalho inner join empresa on estoqueContagemCabecalho.idEmpresa = empresa.idEmpresa',
+      ' ',' order by idEstoqueContagemCabecalho',' limit 0 ');
+    const selectEstoqueContagemDetalhe: array[1..5] of string = ('select *',' from estoqueCor',' ',' order by idEstoqueCor',' limit 0 ');
     const selectEstoqueCor: array[1..5] of string = ('select estoqueContagemDetalhe.*, produto.nome as produtoNome',
-    'from estoqueContagemDetalhe inner join produto on estoqueContagemDetalhe.idProduto = produto.idProduto',
-    '','order by idEstoqueCotagemdetalhe',' limit 0 ');
+      ' from estoqueContagemDetalhe inner join produto on estoqueContagemDetalhe.idProduto = produto.idProduto',
+      ' ',' order by idEstoqueCotagemdetalhe',' limit 0 ');
     const selectEstoqueGrade: array[1..5] of string = ('select estoqueGrade.*, produto.nome as ProdutoNome, estoqueCor.nome as CorNome,'+
-    'estoqueTamanho.nome as TamanhoNome','from estoqueGrade inner join produto on estoqueGrade.idProduto = produto.idProduto'+
-    'inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.idEstoqueCor'+
-    'inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = estoqueTamanho.idEstoqueTamanho','','order by idEstoqueGrade',' limit 0 ');
-    const selectEstoqueTamanho: array[1..5] of string = ('select *','from estoqueTamanho','','order by idEstoqueTamanho',' limit 0 ');
-    const selectHistoricoMovimento: array[1..5] of string = ('select *','from historicoMovimento','','order by idHistoricoMovimento',' limit 0 ');
-    const selectIndicadorEconomico: array[1..5] of string = ('select *','from indicadorEconomico','','order by idIndicadorEconomico',' limit 0 ');
+      ' estoqueTamanho.nome as TamanhoNome',' from estoqueGrade inner join produto on estoqueGrade.idProduto = produto.idProduto'+
+      ' inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.idEstoqueCor'+
+      ' inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = estoqueTamanho.idEstoqueTamanho',' ',' order by idEstoqueGrade',' limit 0 ');
+    const selectEstoqueTamanho: array[1..5] of string = ('select *',' from estoqueTamanho',' ',' order by idEstoqueTamanho',' limit 0 ');
+    const selectHistoricoMovimento: array[1..5] of string = ('select *',' from historicoMovimento',' ',' order by idHistoricoMovimento',' limit 0 ');
+    const selectIndicadorEconomico: array[1..5] of string = ('select *',' from indicadorEconomico',' ',' order by idIndicadorEconomico',' limit 0 ');
     const selectIndice: array[1..5] of string = ('select indice.*, indicadorEconomico.descricao as indicadorDescricao',
-    'from indice inner join indicadorEconomico on indice.idIndicadorEconomico = indicadorEconomico.idIndicadorEconomico',
-    '','order by idIndice',' limit 0 ');
+      ' from indice inner join indicadorEconomico on indice.idIndicadorEconomico = indicadorEconomico.idIndicadorEconomico',
+      ' ',' order by idIndice',' limit 0 ');
     const selectLicitacao: array[1..5] of string = ('select licitacao.*, pessoa.nome as pessoaNome, unidadeNegocio.nomeFantasia',
-    'from licitacao inner join pessoa on licitacao.idPessoa = pessoa.idPessoa'+
-    'inner join unidadeNegocio on licitacao.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio','','order by idLicitacao',' limit 0 ');
-    const selectLicitacaoDocumento: array[1..5] of string = ('select *','from licitacaoDocumento','','order by idLicitacaoDocumento',' limit 0 ');
-    const selectModelo: array[1..5] of string = ('select *','from modelo','','order by idModelo',' limit 0 ');
+      ' from licitacao inner join pessoa on licitacao.idPessoa = pessoa.idPessoa'+
+      ' inner join unidadeNegocio on licitacao.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',' ',' order by idLicitacao',' limit 0 ');
+    const selectLicitacaoDocumento: array[1..5] of string = ('select *',' from licitacaoDocumento',' ',' order by idLicitacaoDocumento',' limit 0 ');
+    const selectModelo: array[1..5] of string = ('select *',' from modelo',' ',' order by idModelo',' limit 0 ');
     const selectMovimento: array[1..5] of string = ('select movimento.*, planoContasFinanceiro.descricao as planoFinanceiroDescricao,'+
-    'planoContasGerencial.descricao as planoGerencialDescricao, portador.descricao as portadorDescricao,'+
-    'unidadeNegocio.nomeFantasia, pessoa.nome as pessoaNome','from movimento'+
-    'inner join planoContasFinanceiro on movimento.idPlanoContasFinanceiro = planoContasFinanceiro.idPlanoContasFinanceiro'+
-    'inner join planoContasGerencial on movimento.idPlanoContasGerencial = planoContasGerencial.idPlanoContasGerencial'+
-    'inner join portador on movimento.idPortador = portador.idPortador'+
-    'inner join unidadeNegocio on movimento.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join pessoa on movimento.idPessoa = pessoa.idPessoa','','order by idMovimento',' limit 0 ');
+      ' planoContasGerencial.descricao as planoGerencialDescricao, portador.descricao as portadorDescricao,'+
+      ' unidadeNegocio.nomeFantasia, pessoa.nome as pessoaNome',' from movimento'+
+      ' inner join planoContasFinanceiro on movimento.idPlanoContasFinanceiro = planoContasFinanceiro.idPlanoContasFinanceiro'+
+      ' inner join planoContasGerencial on movimento.idPlanoContasGerencial = planoContasGerencial.idPlanoContasGerencial'+
+      ' inner join portador on movimento.idPortador = portador.idPortador'+
+      ' inner join unidadeNegocio on movimento.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
+      ' inner join pessoa on movimento.idPessoa = pessoa.idPessoa',' ',' order by idMovimento',' limit 0 ');
     const selectMovimentoCheque: array[1..5] of string = ('select movimentoCheque.*, banco.nome as bancoNome',
-    'from movimentoCheque inner join banco on movimentoCheque.idBanco = banco.idBanco','','order by idMovimentoCheque',' limit 0 ');
-    const selectMunicipio: array[1..5] of string = ('select *','from municipio','','order by idEstado, nome',' limit 0 ');
-    const selectNCM: array[1..5] of string = ('select *','from ncm','','order by idNCM',' limit 0 ');
+      ' from movimentoCheque inner join banco on movimentoCheque.idBanco = banco.idBanco',' ',' order by idMovimentoCheque',' limit 0 ');
+    const selectMunicipio: array[1..5] of string = ('select *',' from municipio',' ',' order by idEstado, nome',' limit 0 ');
+    const selectNCM: array[1..5] of string = ('select *',' from ncm',' ',' order by idNCM',' limit 0 ');
     const selectNFeCabecalho: array[1..5] of string = ('select nfeCabecalho.*, unidadeNegocio.nomeFantasia',
-    'from nfeCabecalho inner join unidadeNegocio on nfeCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio','',
-    'order by idNFeCabecalho',' limit 0 ');
-    const selectNFeCupomFiscalReferenciado: array[1..5] of string = ('select *','from NFeCupomFiscalReferenciado','',
-    'order by idNFeCupomFiscalReferenciado',' limit 0 ');
-    const selectNFeDeclaracaoImportacao: array[1..5] of string = ('select *','from NFeDeclaracaoImportacao','',
-    'order by idNFeDeclaracaoImportacao',' limit 0 ');
+      ' from nfeCabecalho inner join unidadeNegocio on nfeCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio','',
+      ' order by idNFeCabecalho',' limit 0 ');
+    const selectNFeCupomFiscalReferenciado: array[1..5] of string = ('select *',' from NFeCupomFiscalReferenciado',' ',
+      ' order by idNFeCupomFiscalReferenciado',' limit 0 ');
+    const selectNFeDeclaracaoImportacao: array[1..5] of string = ('select *',' from NFeDeclaracaoImportacao',' ',
+      ' order by idNFeDeclaracaoImportacao',' limit 0 ');
     const selectNFeDestinatario: array[1..5] of string = ('select NFeDestinatario.*, pais.nome as paisNome,'+
-    'municipio.nome as municipioNome','from NFeDestinatario inner join pais on NFeDestinatario.idPais = pais.idPais'+
-    'inner join municipio on NFeDestinatario.idMunicipio = municipio.idMunicipio','','order by idNFeDestinatario',' limit 0 ');
-    const selectNFeDuplicata: array[1..5] of string = ('select *','from NFeDuplicata','','order by idNFeDuplicata',' limit 0 ');
-    const selectNFeImportacaoDetalhe: array[1..5] of string = ('select *','from NFeImportacaoDetalhe','',
-    'order by idNFeImportacaoDetalhe',' limit 0 ');
-    const selectNFeItem: array[1..5] of string = ('select NFeItem.*, produto.nome as produtoNome','from NFeItem'+
-    'inner join produto on NFeItem.idProduto = produto.idProduto','','order by idNFeItem',' limit 0 ');
-    const selectNFeItemII: array[1..5] of string = ('select *','from NFeItemII','','order by idNFeItemII',' limit 0 ');
-    const selectNFeItemImposto: array[1..5] of string = ('select *','from NFeItemImposto','','order by idNFeItemImposto',' limit 0 ');
-    const selectNFeLocalEntregaRetirada: array[1..5] of string = ('select *','from NFeLocalEntregaRetirada','',
-    'order by idNFeLocalEntregaRetirada',' limit 0 ');
-    const selectNFeNFReferenciada: array[1..5] of string = ('select *','from NFeNFReferenciada','','order by idNFeNFReferenciada',' limit 0 ');
-    const selectNFeProdutorRuralReferenciada: array[1..5] of string = ('select *','from NFeProdutorRuralReferenciada',
-    'order by idNFeProdutorRuralReferenciada','',' limit 0 ');
-    const selectNFeReferenciada: array[1..5] of string = ('select *','from NFeReferenciada','',
-    'order by idNFeReferenciada',' limit 0 ');
+      ' municipio.nome as municipioNome',' from NFeDestinatario inner join pais on NFeDestinatario.idPais = pais.idPais'+
+      ' inner join municipio on NFeDestinatario.idMunicipio = municipio.idMunicipio',' ',' order by idNFeDestinatario',' limit 0 ');
+    const selectNFeDuplicata: array[1..5] of string = ('select *',' from NFeDuplicata',' ',' order by idNFeDuplicata',' limit 0 ');
+    const selectNFeImportacaoDetalhe: array[1..5] of string = ('select *',' from NFeImportacaoDetalhe',' ',
+      ' order by idNFeImportacaoDetalhe',' limit 0 ');
+    const selectNFeItem: array[1..5] of string = ('select NFeItem.*, produto.nome as produtoNome',' from NFeItem'+
+      ' inner join produto on NFeItem.idProduto = produto.idProduto',' ',' order by idNFeItem',' limit 0 ');
+    const selectNFeItemII: array[1..5] of string = ('select *',' from NFeItemII',' ',' order by idNFeItemII',' limit 0 ');
+    const selectNFeItemImposto: array[1..5] of string = ('select *',' from NFeItemImposto',' ',' order by idNFeItemImposto',' limit 0 ');
+    const selectNFeLocalEntregaRetirada: array[1..5] of string = ('select *',' from NFeLocalEntregaRetirada',' ',
+      ' order by idNFeLocalEntregaRetirada',' limit 0 ');
+    const selectNFeNFReferenciada: array[1..5] of string = ('select *',' from NFeNFReferenciada',' ',' order by idNFeNFReferenciada',' limit 0 ');
+    const selectNFeProdutorRuralReferenciada: array[1..5] of string = ('select *',' from NFeProdutorRuralReferenciada',
+      ' ',' order by idNFeProdutorRuralReferenciada',' limit 0 ');
+    const selectNFeReferenciada: array[1..5] of string = ('select *',' from NFeReferenciada',' ',
+      ' order by idNFeReferenciada',' limit 0 ');
     const selectNFeTransportadora: array[1..5] of string = ('select NFeTransportadora.*, municipio.nome as municipioNome,'+
-    'cfop.descricao as cfopDescricao','from NFeTransportadora'+
-    'inner join municipio on NFeTransportadora.idMunicipio = municipio.idMunicipio'+
-    'inner join cfop on NFeTransportadora.idCFOP = cfop.idCFOP','','order by idNFeTransportadora',' limit 0 ');
-    const selectNFeTransportadoraReboque: array[1..5] of string = ('select *','from NFeTransportadoraReboque',
-    '','order by idNFeTransportadoraReboque',' limit 0 ');
+      ' cfop.descricao as cfopDescricao',' from NFeTransportadora'+
+      ' inner join municipio on NFeTransportadora.idMunicipio = municipio.idMunicipio'+
+      ' inner join cfop on NFeTransportadora.idCFOP = cfop.idCFOP',' ',' order by idNFeTransportadora',' limit 0 ');
+    const selectNFeTransportadoraReboque: array[1..5] of string = ('select *',' from NFeTransportadoraReboque',
+      ' ',' order by idNFeTransportadoraReboque',' limit 0 ');
     const selectOrcamentoCabecalho: array[1..5] of string = ('select orcamentoCabecalho.*, unidadeNegocio.nomeFantasia,'+
-    'pessoa.nome as pessoaNome','from orcamentoCabecalho'+
-    'inner join unidadeNegocio on orcamentoCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join pessoa on orcamentoCabecalho.idPessoa = pessoa.idPessoa',
-    'order by idOrcamentoCabecalho','',' limit 0 ');
+      ' pessoa.nome as pessoaNome',' from orcamentoCabecalho'+
+      ' inner join unidadeNegocio on orcamentoCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
+      ' inner join pessoa on orcamentoCabecalho.idPessoa = pessoa.idPessoa',
+      ' ',' order by idOrcamentoCabecalho',' limit 0 ');
     const selectOrcamentoItem: array[1..5] of string = ('select orcamentoItem.*, produto.nome as produtoNome',
-    'from orcamentoItem inner join produto on orcamentoItem.idProduto = produto.idProduto',
-    '','order by idOrcamentoItem',' limit 0 ');
+      ' from orcamentoItem inner join produto on orcamentoItem.idProduto = produto.idProduto',
+      ' ',' order by idOrcamentoItem',' limit 0 ');
     const selectPais: array[1..5] of string = ('select pais.*, indicadorEconomico.descricao as indicadorDescricao',
-    'from pais inner join indicadorEconomico on pais.idIndicadorEconomico = indicadorEconomico.idIndicadorEconomico',
-    '','order by nome',' limit 0 ');
+      ' from pais inner join indicadorEconomico on pais.idIndicadorEconomico = indicadorEconomico.idIndicadorEconomico',
+      ' ',' order by nome',' limit 0 ');
     const selectPedidoCabecalho: array[1..5] of string = ('select pedidoCabecalho.*, unidadeNegocio.nomeFantasia, '+
-    'pessoa.nome as pessoaNome','from pedidoCabecalho '+
-    'inner join unidadeNegocio on pedidoCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join pessoa on pedidoCabecalho.idPessoa = pessoa.idPessoa','','order by idpedidoCabecalho',' limit 0 ');
+      ' pessoa.nome as pessoaNome',' from pedidoCabecalho '+
+      ' inner join unidadeNegocio on pedidoCabecalho.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
+      ' inner join pessoa on pedidoCabecalho.idPessoa = pessoa.idPessoa',' ',' order by idpedidoCabecalho',' limit 0 ');
     const selectPedidoItem: array[1..5] of string = ('select pedidoItem.*, produto.nome as produtoNome',
-    'from pedidoItem inner join produto on pedidoItem.idProduto = produto.idProduto','','order by idpedidoItem',' limit 0 ');
-    const selectPessoa: array[1..5] of string = ('select *','from pessoa','','order by idPessoa',' limit 0 ');
-    const selectPessoaCliente: array[1..5] of string = ('select *','from pessoaCliente','','order by idPessoa',' limit 0 ');
+      ' from pedidoItem inner join produto on pedidoItem.idProduto = produto.idProduto',' ',' order by idpedidoItem',' limit 0 ');
+    const selectPessoa: array[1..5] of string = ('select *',' from pessoa',' ',' order by idPessoa',' limit 0 ');
+    const selectPessoaCliente: array[1..5] of string = ('select *',' from pessoaCliente',' ',' order by idPessoa',' limit 0 ');
     const selectPessoaColaborador: array[1..5] of string = ('select pessoaColaborador.*, setor.nome as setorNome, '+
-    'cargo.nome as cargoNome','from pessoaColaborador inner join setor on pessoaColaborador.idSetor = setor.idSetor'+
-    'inner join cargo on pessoaColaborador.idCargo = cargo.idCargo','','order by idPessoa',' limit 0 ');
+      ' cargo.nome as cargoNome',' from pessoaColaborador inner join setor on pessoaColaborador.idSetor = setor.idSetor'+
+      ' inner join cargo on pessoaColaborador.idCargo = cargo.idCargo',' ',' order by idPessoa',' limit 0 ');
     const selectPessoaContador: array[1..5] of string = ('select pessoaContador.*, unidadeNegocio.nomeFantasia',
-    'from pessoaContador inner join unidadeNegocio on pessoaContador.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
-    '','order by idPessoa',' limit 0 ');
-    const selectPessoaFornecedor: array[1..5] of string = ('select *','from pessoaFornecedor','','order by idPessoaFornecedor',' limit 0 ');
+      ' from pessoaContador inner join unidadeNegocio on pessoaContador.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
+      ' ',' order by idPessoa',' limit 0 ');
+    const selectPessoaFornecedor: array[1..5] of string = ('select *',' from pessoaFornecedor',' ',' order by idPessoaFornecedor',' limit 0 ');
     const selectPessoaRepresentante: array[1..5] of string = ('select pessoaRepresentante.*, unidadeNegocio.nomeFantasia',
-    'from pessoaRepresentante inner join unidadeNegocio on pessoaRepresentante.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
-    '','order by idPessoa',' limit 0 ');
-    const selectPessoaTransportadora: array[1..5] of string = ('select *','from pessoaTransportadora','',
-    'order by idPessoa',' limit 0 ');
+      ' from pessoaRepresentante inner join unidadeNegocio on pessoaRepresentante.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
+      ' ',' order by idPessoa',' limit 0 ');
+    const selectPessoaTransportadora: array[1..5] of string = ('select *',' from pessoaTransportadora',' ',
+      ' order by idPessoa',' limit 0 ');
     const selectPessoaVendedor: array[1..5] of string = ('select pessoaVendedor.*, unidadeNegocio.nomeFantasia',
-    'from pessoaVendedor inner join unidadeNegocio on pessoaVendedor.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
-    '','order by idPessoa',' limit 0 ');
-    const selectPlanoContasFinanceiro: array[1..5] of string = ('select *','from planoContasFinanceiro','',
-    'order by idPlanoContasFinanceiro',' limit 0 ');
-    const selectPlanoContasGerencial: array[1..5] of string = ('select *','from planoContasGerencial','',
-    'order by idPlanoContasGerencial',' limit 0 ');
-    const selectPortador: array[1..5] of string = ('select portador.*, banco.nome as bancoNome','from portador'+
-    'inner join banco on portador.idBanco = banco.idBanco','','order by idPortador',' limit 0 ');
-    const selectPortadorHistorico: array[1..5] of string = ('select *','from portadorHistorico','',
-    'order by idPortadorHistorico',' limit 0 ');
+      ' from pessoaVendedor inner join unidadeNegocio on pessoaVendedor.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
+      ' ',' order by idPessoa',' limit 0 ');
+    const selectPlanoContasFinanceiro: array[1..5] of string = ('select *',' from planoContasFinanceiro',' ',
+      ' order by idPlanoContasFinanceiro',' limit 0 ');
+    const selectPlanoContasGerencial: array[1..5] of string = ('select *',' from planoContasGerencial',' ',
+      ' order by idPlanoContasGerencial',' limit 0 ');
+    const selectPortador: array[1..5] of string = ('select portador.*, banco.nome as bancoNome',' from portador'+
+      ' inner join banco on portador.idBanco = banco.idBanco',' ',' order by idPortador',' limit 0 ');
+    const selectPortadorHistorico: array[1..5] of string = ('select *',' from portadorHistorico',' ',
+      ' order by idPortadorHistorico',' limit 0 ');
     const selectProduto: array[1..5] of string = ('select produto.*, produtoGrupo.nome as grupoNome, '+
-    'produtoSubGrupo.nome as subGrupoNome','from produto'+
-    'inner join produtoGrupo on produto.idGrupoProdutos = produtoGrupo.idGrupoProdutos'+
-    'inner join produtoSubGrupo on produto.idSubGrupoProdutos = produtoSubGrupo.idSubGrupoProdutos','',
-    'order by idProduto',' limit 0 ');
-    const selectProdutoFornecedor: array[1..5] of string = ('select *','from produtoFornecedor','',
-    'order by idProdutoFornecedor',' limit 0 ');
-    const selectProdutoGrupo: array[1..5] of string = ('select *','from produtoGrupo','','order by idGrupoProdutos',' limit 0 ');
+      ' produtoSubGrupo.nome as subGrupoNome',' from produto'+
+      ' inner join produtoGrupo on produto.idGrupoProdutos = produtoGrupo.idGrupoProdutos'+
+      ' inner join produtoSubGrupo on produto.idSubGrupoProdutos = produtoSubGrupo.idSubGrupoProdutos',' ',
+      ' order by idProduto',' limit 0 ');
+    const selectProdutoFornecedor: array[1..5] of string = ('select *',' from produtoFornecedor',' ',
+      ' order by idProdutoFornecedor',' limit 0 ');
+    const selectProdutoGrupo: array[1..5] of string = ('select *',' from produtoGrupo',' ',' order by idGrupoProdutos',' limit 0 ');
     const selectProdutoPromocao: array[1..5] of string = ('select produtoPromocao.*, produto.nome as produtoNome',
-    'from produtoPromocao inner join produto on produtoPromocao.idProduto = produto.idProduto',
-    '','order by idProdutoPromocao',' limit 0 ');
+      ' from produtoPromocao inner join produto on produtoPromocao.idProduto = produto.idProduto',
+      ' ',' order by idProdutoPromocao',' limit 0 ');
     const selectProdutoSubGrupo: array[1..5] of string = ('select produtoSubGrupo.*, produtoGrupo.nome as grupoNome',
-    'from produtoSubGrupo inner join produtoGrupo on produtoSubGrupo.idGrupoProdutos = produtoGrupo.idGrupoProdutos',
-    '','order by idSubGrupoProdutos',' limit 0 ');
+      ' from produtoSubGrupo inner join produtoGrupo on produtoSubGrupo.idGrupoProdutos = produtoGrupo.idGrupoProdutos',
+      ' ',' order by idSubGrupoProdutos',' limit 0 ');
     const selectProdutoTabelaPreco: array[1..5] of string = ('select produtoTabelaPreco.*, produto.nome as produtoNome',
-    'from produtoTabelaPreco inner join produto on produtoTabelaPreco.idProduto = produto.idProduto','',
-    'order by idProdutoTabelaPreco',' limit 0 ');
-    const selectProdutoUnidade: array[1..5] of string = ('select *','from produtoUnidade','','order by idProdutoUnidade',' limit 0 ');
+      ' from produtoTabelaPreco inner join produto on produtoTabelaPreco.idProduto = produto.idProduto',' ',
+      ' order by idProdutoTabelaPreco',' limit 0 ');
+    const selectProdutoUnidade: array[1..5] of string = ('select *',' from produtoUnidade',' ',' order by idProdutoUnidade',' limit 0 ');
     const selectProdutoUnidadeConversao: array[1..5] of string = ('select produtoUnidadeConversao.*, '+
-    'produto.nome as produtoNome, produtoUnidade.sigla as unidadeSigla',
-    'from produtoUnidadeConversao inner join produto on produtoUnidadeConversao.idProduto = produto.idProduto'+
-    'inner join produtoUnidade on produtoUnidadeConversao.idProdutoUnidade = produtoUnidade.idProdutoUnidade','',
-    'order by idProdutoUnidadeConversao',' limit 0 ');
+      ' produto.nome as produtoNome, produtoUnidade.sigla as unidadeSigla',
+      ' from produtoUnidadeConversao inner join produto on produtoUnidadeConversao.idProduto = produto.idProduto'+
+      ' inner join produtoUnidade on produtoUnidadeConversao.idProdutoUnidade = produtoUnidade.idProdutoUnidade','',
+      ' order by idProdutoUnidadeConversao',' limit 0 ');
     const selectRegraFiscal: array[1..5] of string = ('select regraFiscal.*, pessoa.nome as pessoaNome, '+
-    'cstPIS.descricao as cstPISDescricao, cstIPI.descricao as cstIPIDescricao, tipoOperacao.descricao as tipoOperacaoDescricao,'+
-    'pais.nome as paisNome, municipio.nome as municipioNome, unidadeNegocio.nomeFantasia,'+
-    'cfop.descricao as cfopDescricao, ncm.descricao as ncmDescricao, cstCofins.descricao as cstCofinsDescricao',
-    'from regraFiscal inner join pessoa on regraFiscal.idPessoa = pessoa.idPessoa'+
-    'inner join cstPIS on regraFiscal.idCSTPIS = cstPIS.idCSTPIS'+
-    'inner join cstIPI on regraFiscal.idCSTIPI = cstIPI.idCSTIPI'+
-    'inner join tipoOperacao on regraFiscal.idTipoOperacao = tipoOperacao.idTipoOperacao'+
-    'inner join pais on regraFiscal.idPais = pais.idPais'+
-    'inner join municipio on regraFiscal.idMunicipio = municipio.idMunicipio'+
-    'inner join unidadeNegocio on regraFiscal.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio'+
-    'inner join cfop on regraFiscal.idCFOP = cfop.idCFOP'+
-    'inner join ncm on regraFiscal.idNCM = ncm.idNCM'+
-    'inner join cstCofins on regraFiscal.idCSTCOFINS = cstCOFINS.idCSTCOFINS','','order by idRegraFiscal',' limit 0 ');
-    const selectRegraFiscalObservacao: array[1..5] of string = ('select *','from regraFiscalObservacao','',
-    'order by idRegraFiscalObservacao',' limit 0 ');
-    const selectSerie: array[1..5] of string = ('select * ',' from serie ','',' order by idserie ',' limit 0 ');
-    const selectSetor: array[1..5] of string = ('select *','from setor','','order by idSetor',' limit 0 ');
-    const selectTelefone: array[1..5] of string = ('select *','from telefone','','order by idTelefone',' limit 0 ');
-    const selectTipoOperacao: array[1..5] of string = ('select *','from tipoOperacao','','order by tipoOperacao',' limit 0 ');
-    const selectTipoTelefone: array[1..5] of string = ('select *','from tipoTelefone','','order by idTipoTelefone',' limit 0 ');
+      ' tipoOperacao.descricao as tipoOperacaoDescricao, pais.nome as paisNome, municipio.nome as municipioNome, '+
+      ' unidadeNegocio.nomeFantasia, cfop.descricao as cfopDescricao ',
+      ' from regraFiscal inner join pessoa on regraFiscal.idPessoa = pessoa.idPessoa '+
+      ' inner join tipoOperacao on regraFiscal.idTipoOperacao = tipoOperacao.idTipoOperacao '+
+      ' inner join pais on regraFiscal.idPais = pais.idPais '+
+      ' inner join municipio on regraFiscal.idMunicipio = municipio.idMunicipio '+
+      ' inner join unidadeNegocio on regraFiscal.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio '+
+      ' inner join cfop on regraFiscal.idCFOP = cfop.idCFOP ',' ',' order by idRegraFiscal',' limit 0 ');
+    const selectRegraFiscalObservacao: array[1..5] of string = ('select *',' from regraFiscalObservacao',' ',
+      ' order by idRegraFiscalObservacao',' limit 0 ');
+    const selectSerie: array[1..5] of string = ('select * ',' from serie ',' ',' order by idserie ',' limit 0 ');
+    const selectSetor: array[1..5] of string = ('select *',' from setor',' ',' order by idSetor',' limit 0 ');
+    const selectTelefone: array[1..5] of string = ('select *',' from telefone',' ',' order by idTelefone',' limit 0 ');
+    const selectTipoOperacao: array[1..5] of string = ('select *',' from tipoOperacao',' ',' order by tipoOperacao',' limit 0 ');
+    const selectTipoTelefone: array[1..5] of string = ('select *',' from tipoTelefone',' ',' order by idTipoTelefone',' limit 0 ');
     const selectUnidadeNegocio: array[1..5] of string = ('select unidadeNegocio.*, cnae.denominacao as cnaeDenominacao, '+
-    'empresa.razaoSocial','from unidadeNegocio inner join cnae on unidadeNegocio.idCNAE = cnae.idCNAE '+
-    'inner join empresa on unidadeNegocio.idEmpresa = empresa.idEmpresa','','order by idUnidadeNegocio',' limit 0 ');
+      ' empresa.razaoSocial',' from unidadeNegocio inner join cnae on unidadeNegocio.idCNAE = cnae.idCNAE '+
+      ' inner join empresa on unidadeNegocio.idEmpresa = empresa.idEmpresa',' ',' order by idUnidadeNegocio',' limit 0 ');
+    const selectCSTICMS: array[1..5] of string = ('select *','from csticms','','order by idCSTICMS',' limit 0 ');
+    const selectCSTCSOSN: array[1..5] of string = ('select *','from cstcsosn','','order by idCSTCSOSN',' limit 0 ');
   public
     { Public declarations }
     function EchoString(Value: string): string;
@@ -1443,6 +1445,8 @@ type
     procedure setSQLTipoOperacao(filtro: String);
     procedure setSQLTipoTelefone(filtro: String);
     procedure setSQLUnidadeNegocio(filtro: String);
+    procedure setSQLCSTICMS(filtro: String);
+    procedure setSQLCSTCSOSN(filtro: String);
   end;
 
   var
@@ -2053,6 +2057,18 @@ begin
     for I := 1 to 5 do
       SQL.Add(selectUnidadeNegocio[I]);
   end;
+  With qryCSTICMS do
+  begin
+    SQL.Clear;
+    for I := 1 to 5 do
+      SQL.Add(selectCSTICMS[I]);
+  end;
+  With qryCSTCSOSN do
+  begin
+    SQL.Clear;
+    for I := 1 to 5 do
+      SQL.Add(selectCSTCSOSN[I]);
+  end;
 end;
 
 function TServerMethods.EchoString(Value: string): string;
@@ -2533,6 +2549,16 @@ procedure TServerMethods.setSQLUnidadeNegocio(filtro: String);
 begin
   alteraSQL(qryUnidadeNegocio,filtro,selectUnidadeNegocio[1],selectUnidadeNegocio[2],selectUnidadeNegocio[3],
     selectUnidadeNegocio[4]);
+end;
+
+procedure TServerMethods.setSQLCSTICMS(filtro: String);
+begin
+  alteraSQL(qryCSTICMS,filtro,selectCSTICMS[1],selectCSTICMS[2],selectCSTICMS[3],selectCSTICMS[4]);
+end;
+
+procedure TServerMethods.setSQLCSTCSOSN(filtro: String);
+begin
+  alteraSQL(qryCSTCSOSN,filtro,selectCSTCSOSN[1],selectCSTCSOSN[2],selectCSTCSOSN[3],selectCSTCSOSN[4]);
 end;
 
 end.
