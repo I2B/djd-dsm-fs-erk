@@ -3614,19 +3614,17 @@ object DM: TDM
       FieldName = 'cfopdevolucao'
       Origin = 'cfopdevolucao'
     end
+    object cdsRegraFiscalidcsticms: TIntegerField
+      FieldName = 'idcsticms'
+      Origin = 'idcsticms'
+    end
+    object cdsRegraFiscalidcstcsosn: TIntegerField
+      FieldName = 'idcstcsosn'
+      Origin = 'idcstcsosn'
+    end
     object cdsRegraFiscalpessoanome: TWideStringField
       FieldName = 'pessoanome'
       Origin = 'pessoanome'
-      Size = 250
-    end
-    object cdsRegraFiscalcstpisdescricao: TWideStringField
-      FieldName = 'cstpisdescricao'
-      Origin = 'cstpisdescricao'
-      Size = 250
-    end
-    object cdsRegraFiscalcstipidescricao: TWideStringField
-      FieldName = 'cstipidescricao'
-      Origin = 'cstipidescricao'
       Size = 250
     end
     object cdsRegraFiscaltipooperacaodescricao: TWideStringField
@@ -3651,16 +3649,6 @@ object DM: TDM
     object cdsRegraFiscalcfopdescricao: TWideStringField
       FieldName = 'cfopdescricao'
       Origin = 'cfopdescricao'
-      Size = 250
-    end
-    object cdsRegraFiscalncmdescricao: TWideStringField
-      FieldName = 'ncmdescricao'
-      Origin = 'ncmdescricao'
-      Size = 50
-    end
-    object cdsRegraFiscalcstcofinsdescricao: TWideStringField
-      FieldName = 'cstcofinsdescricao'
-      Origin = 'cstcofinsdescricao'
       Size = 250
     end
   end
@@ -3774,27 +3762,35 @@ object DM: TDM
     Top = 424
     object cdsUnidadeNegocioidunidadenegocio: TIntegerField
       FieldName = 'idunidadenegocio'
+      Origin = 'idunidadenegocio'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsUnidadeNegocioidcnae: TIntegerField
       FieldName = 'idcnae'
+      Origin = 'idcnae'
     end
     object cdsUnidadeNegocioidempresa: TIntegerField
       FieldName = 'idempresa'
+      Origin = 'idempresa'
     end
     object cdsUnidadeNegociocnpj: TWideStringField
       FieldName = 'cnpj'
+      Origin = 'cnpj'
       Size = 9
     end
     object cdsUnidadeNegocionomefantasia: TWideStringField
       FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
       Size = 60
     end
     object cdsUnidadeNegociocnaedenominacao: TWideMemoField
       FieldName = 'cnaedenominacao'
+      Origin = 'cnaedenominacao'
       BlobType = ftWideMemo
     end
     object cdsUnidadeNegociorazaosocial: TWideStringField
       FieldName = 'razaosocial'
+      Origin = 'razaosocial'
       Size = 60
     end
   end
@@ -3857,6 +3853,44 @@ object DM: TDM
     object dspNFeReferenciadachaveacesso: TWideStringField
       FieldName = 'chaveacesso'
       Size = 44
+    end
+  end
+  object cdsCSTICMS: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCSTICMS'
+    RemoteServer = dspConnection
+    Left = 608
+    Top = 480
+    object cdsCSTICMSidcsticms: TIntegerField
+      FieldName = 'idcsticms'
+    end
+    object cdsCSTICMSdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 250
+    end
+    object cdsCSTICMSobservacao: TWideMemoField
+      FieldName = 'observacao'
+      BlobType = ftWideMemo
+    end
+  end
+  object CDSCSTCSOSN: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCSTCSOSN'
+    RemoteServer = dspConnection
+    Left = 608
+    Top = 536
+    object CDSCSTCSOSNidcstcsosn: TIntegerField
+      FieldName = 'idcstcsosn'
+    end
+    object CDSCSTCSOSNdescricao: TWideStringField
+      FieldName = 'descricao'
+      Size = 250
+    end
+    object CDSCSTCSOSNobservacao: TWideMemoField
+      FieldName = 'observacao'
+      BlobType = ftWideMemo
     end
   end
 end

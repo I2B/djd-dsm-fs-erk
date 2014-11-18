@@ -956,6 +956,14 @@ type
     cdsAuditoriaidunidadenegocio: TIntegerField;
     cdsAuditorianomefantasia: TWideStringField;
     cdsTipoTelefonedescricao: TWideStringField;
+    cdsCSTICMS: TClientDataSet;
+    CDSCSTCSOSN: TClientDataSet;
+    cdsCSTICMSidcsticms: TIntegerField;
+    cdsCSTICMSdescricao: TWideStringField;
+    cdsCSTICMSobservacao: TWideMemoField;
+    CDSCSTCSOSNidcstcsosn: TIntegerField;
+    CDSCSTCSOSNdescricao: TWideStringField;
+    CDSCSTCSOSNobservacao: TWideMemoField;
     cdsRegraFiscalidregrafiscal: TIntegerField;
     cdsRegraFiscalidpessoa: TIntegerField;
     cdsRegraFiscalidregrafiscalobservacao: TIntegerField;
@@ -991,16 +999,14 @@ type
     cdsRegraFiscalie: TFloatField;
     cdsRegraFiscalii: TFloatField;
     cdsRegraFiscalcfopdevolucao: TSmallintField;
+    cdsRegraFiscalidcsticms: TIntegerField;
+    cdsRegraFiscalidcstcsosn: TIntegerField;
     cdsRegraFiscalpessoanome: TWideStringField;
-    cdsRegraFiscalcstpisdescricao: TWideStringField;
-    cdsRegraFiscalcstipidescricao: TWideStringField;
     cdsRegraFiscaltipooperacaodescricao: TWideStringField;
     cdsRegraFiscalpaisnome: TWideStringField;
     cdsRegraFiscalmunicipionome: TWideStringField;
     cdsRegraFiscalnomefantasia: TWideStringField;
     cdsRegraFiscalcfopdescricao: TWideStringField;
-    cdsRegraFiscalncmdescricao: TWideStringField;
-    cdsRegraFiscalcstcofinsdescricao: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

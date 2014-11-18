@@ -10,6 +10,7 @@ object ServerMethods: TServerMethods
       'Password=defd'
       'Server=127.0.0.1'
       'DriverID=PG')
+    Connected = True
     LoginPrompt = False
     Left = 176
     Top = 8
@@ -5248,37 +5249,25 @@ object ServerMethods: TServerMethods
     Connection = conexao
     SQL.Strings = (
       
-        'select regraFiscal.*, pessoa.nome as pessoaNome, cstPIS.descrica' +
-        'o as cstPISDescricao,'
-      
-        'cstIPI.descricao as cstIPIDescricao, tipoOperacao.descricao as t' +
-        'ipoOperacaoDescricao,'
+        'select regraFiscal.*, pessoa.nome as pessoaNome, tipoOperacao.de' +
+        'scricao as tipoOperacaoDescricao, '
       
         'pais.nome as paisNome, municipio.nome as municipioNome, unidadeN' +
-        'egocio.nomeFantasia,'
-      
-        'cfop.descricao as cfopDescricao, ncm.descricao as ncmDescricao, ' +
-        'cstCofins.descricao as cstCofinsDescricao '
-      'from regraFiscal '
-      'inner join pessoa on regraFiscal.idPessoa = pessoa.idPessoa'
-      'inner join cstPIS on regraFiscal.idCSTPIS = cstPIS.idCSTPIS'
-      'inner join cstIPI on regraFiscal.idCSTIPI = cstIPI.idCSTIPI'
+        'egocio.nomeFantasia, '
+      'cfop.descricao as cfopDescricao from regraFiscal '
+      'inner join pessoa on regraFiscal.idPessoa = pessoa.idPessoa '
       
         'inner join tipoOperacao on regraFiscal.idTipoOperacao = tipoOper' +
-        'acao.idTipoOperacao'
-      'inner join pais on regraFiscal.idPais = pais.idPais'
+        'acao.idTipoOperacao '
+      'inner join pais on regraFiscal.idPais = pais.idPais '
       
         'inner join municipio on regraFiscal.idMunicipio = municipio.idMu' +
-        'nicipio'
+        'nicipio '
       
         'inner join unidadeNegocio on regraFiscal.idUnidadeNegocio = unid' +
-        'adeNegocio.idUnidadeNegocio'
-      'inner join cfop on regraFiscal.idCFOP = cfop.idCFOP'
-      'inner join ncm on regraFiscal.idNCM = ncm.idNCM'
-      
-        'inner join cstCofins on regraFiscal.idCSTCOFINS = cstCOFINS.idCS' +
-        'TCOFINS'
-      'order by idRegraFiscal limit 0')
+        'adeNegocio.idUnidadeNegocio '
+      'inner join cfop on regraFiscal.idCFOP = cfop.idCFOP '
+      'order by idRegraFiscal limit 0 ')
     Left = 784
     Top = 592
     object qryRegraFiscalidregrafiscal: TIntegerField
@@ -5424,22 +5413,18 @@ object ServerMethods: TServerMethods
       FieldName = 'cfopdevolucao'
       Origin = 'cfopdevolucao'
     end
+    object qryRegraFiscalidcsticms: TIntegerField
+      FieldName = 'idcsticms'
+      Origin = 'idcsticms'
+    end
+    object qryRegraFiscalidcstcsosn: TIntegerField
+      FieldName = 'idcstcsosn'
+      Origin = 'idcstcsosn'
+    end
     object qryRegraFiscalpessoanome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'pessoanome'
       Origin = 'pessoanome'
-      Size = 250
-    end
-    object qryRegraFiscalcstpisdescricao: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'cstpisdescricao'
-      Origin = 'cstpisdescricao'
-      Size = 250
-    end
-    object qryRegraFiscalcstipidescricao: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'cstipidescricao'
-      Origin = 'cstipidescricao'
       Size = 250
     end
     object qryRegraFiscaltipooperacaodescricao: TWideStringField
@@ -5469,18 +5454,6 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'cfopdescricao'
       Origin = 'cfopdescricao'
-      Size = 250
-    end
-    object qryRegraFiscalncmdescricao: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'ncmdescricao'
-      Origin = 'ncmdescricao'
-      Size = 50
-    end
-    object qryRegraFiscalcstcofinsdescricao: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'cstcofinsdescricao'
-      Origin = 'cstcofinsdescricao'
       Size = 250
     end
   end
@@ -5736,5 +5709,43 @@ object ServerMethods: TServerMethods
     DataSet = qryUnidadeNegocio
     Left = 920
     Top = 424
+  end
+  object qryCSTICMS: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from csticms order by idcsticms limit 0')
+    Left = 888
+    Top = 480
+    object qryCSTICMSidcsticms: TIntegerField
+      FieldName = 'idcsticms'
+      Origin = 'idcsticms'
+    end
+    object qryCSTICMSdescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 250
+    end
+    object qryCSTICMSobservacao: TWideMemoField
+      FieldName = 'observacao'
+      Origin = 'observacao'
+      BlobType = ftWideMemo
+    end
+  end
+  object qryCSTCSOSN: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from cstcsosn order by idcstcsosn limit 0')
+    Left = 888
+    Top = 536
+  end
+  object dspCSTICMS: TDataSetProvider
+    DataSet = qryCSTICMS
+    Left = 920
+    Top = 480
+  end
+  object dspCSTCSOSN: TDataSetProvider
+    DataSet = qryCSTCSOSN
+    Left = 920
+    Top = 536
   end
 end

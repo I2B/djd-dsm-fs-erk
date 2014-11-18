@@ -258,6 +258,27 @@
             <Form>frmCADEmpresa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\unCADRegraFiscalObservacao.pas"/>
+        <DCCReference Include="Forms\unCADSetor.pas"/>
+        <DCCReference Include="Frames\unFrameRegraFiscalObservacao.pas">
+            <Form>FrameRegraFiscalObservacao</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameSetor.pas">
+            <Form>FrameSetor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameRegraFiscal.pas">
+            <Form>FrameRegraFiscal</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADRegraFiscal.pas">
+            <Form>frmCADRegraFiscal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

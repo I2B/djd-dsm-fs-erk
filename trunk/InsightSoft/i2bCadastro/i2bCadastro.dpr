@@ -40,7 +40,13 @@ uses
   unCADAuditoria in 'Forms\unCADAuditoria.pas' {frmCADAuditoria},
   unCADTelefone in 'Forms\unCADTelefone.pas' {frmCADTelefone},
   unFrameEmpresa in 'Frames\unFrameEmpresa.pas' {FrameEmpresa: TFrame},
-  unCADEmpresa in 'Forms\unCADEmpresa.pas' {frmCADEmpresa};
+  unCADEmpresa in 'Forms\unCADEmpresa.pas' {frmCADEmpresa},
+  unCADRegraFiscalObservacao in 'Forms\unCADRegraFiscalObservacao.pas',
+  unCADSetor in 'Forms\unCADSetor.pas',
+  unFrameRegraFiscalObservacao in 'Frames\unFrameRegraFiscalObservacao.pas' {FrameRegraFiscalObservacao: TFrame},
+  unFrameSetor in 'Frames\unFrameSetor.pas' {FrameSetor: TFrame},
+  unFrameRegraFiscal in 'Frames\unFrameRegraFiscal.pas' {FrameRegraFiscal: TFrame},
+  unCADRegraFiscal in 'Forms\unCADRegraFiscal.pas' {frmCADRegraFiscal};
 
 {$R *.res}
 
@@ -49,5 +55,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCADRegraFiscal, frmCADRegraFiscal);
   Application.Run;
 end.
