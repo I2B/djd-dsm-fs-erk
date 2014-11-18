@@ -78,7 +78,7 @@ implementation
 
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
-  unCADCSTPIS, unCADEmpresa;
+  unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -110,11 +110,11 @@ end;
 
 procedure TfrmPrincipal.dxBarLargeButton2Click(Sender: TObject);
 begin
-  DM.cdsTelefone.Open;
-  if frmCADTelefone = nil then
+  DM.cdsRegraFiscalObservacao.Open;
+  if frmCADRegraFiscalObservacao = nil then
   begin
-    frmCADTelefone := TfrmCADTelefone.Create(Application);
-    frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
+    frmCADRegraFiscalObservacao := TfrmCADRegraFiscalObservacao.Create(Application);
+    frmCADRegraFiscalObservacao.pnlTop.Caption := frmCADRegraFiscalObservacao.Caption+'  ';
   end
   else
   begin
