@@ -10,11 +10,13 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
+    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
+    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -2610,13 +2612,17 @@ object DM: TDM
     Top = 200
     object cdsSetoridsetor: TIntegerField
       FieldName = 'idsetor'
+      Origin = 'idsetor'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsSetornome: TWideStringField
       FieldName = 'nome'
+      Origin = 'nome'
       Size = 50
     end
     object cdsSetordescricao: TWideStringField
       FieldName = 'descricao'
+      Origin = 'descricao'
       Size = 250
     end
   end
@@ -3458,6 +3464,7 @@ object DM: TDM
     end
   end
   object cdsRegraFiscal: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspRegraFiscal'
@@ -3466,110 +3473,195 @@ object DM: TDM
     Top = 480
     object cdsRegraFiscalidregrafiscal: TIntegerField
       FieldName = 'idregrafiscal'
+      Origin = 'idregrafiscal'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsRegraFiscalidpessoa: TIntegerField
       FieldName = 'idpessoa'
+      Origin = 'idpessoa'
     end
     object cdsRegraFiscalidregrafiscalobservacao: TIntegerField
       FieldName = 'idregrafiscalobservacao'
+      Origin = 'idregrafiscalobservacao'
     end
     object cdsRegraFiscalidcstpis: TIntegerField
       FieldName = 'idcstpis'
+      Origin = 'idcstpis'
     end
     object cdsRegraFiscalidcstipi: TIntegerField
       FieldName = 'idcstipi'
+      Origin = 'idcstipi'
     end
     object cdsRegraFiscalidtipooperacao: TIntegerField
       FieldName = 'idtipooperacao'
+      Origin = 'idtipooperacao'
     end
     object cdsRegraFiscalidpais: TIntegerField
       FieldName = 'idpais'
+      Origin = 'idpais'
     end
-    object cdsRegraFiscaldmunicipio: TIntegerField
-      FieldName = 'dmunicipio'
+    object cdsRegraFiscalidmunicipio: TIntegerField
+      FieldName = 'idmunicipio'
+      Origin = 'idmunicipio'
     end
     object cdsRegraFiscalidestado: TWideStringField
       FieldName = 'idestado'
+      Origin = 'idestado'
       FixedChar = True
       Size = 2
     end
-    object cdsRegraFiscalunidadedenegocio_idunidadedenegocio: TIntegerField
-      FieldName = 'unidadedenegocio_idunidadedenegocio'
+    object cdsRegraFiscalidunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+      Origin = 'idunidadenegocio'
     end
     object cdsRegraFiscalidcfop: TIntegerField
       FieldName = 'idcfop'
+      Origin = 'idcfop'
     end
     object cdsRegraFiscalidncm: TIntegerField
       FieldName = 'idncm'
+      Origin = 'idncm'
     end
-    object cdsRegraFiscalcstcofins_idcstcofins: TIntegerField
-      FieldName = 'cstcofins_idcstcofins'
+    object cdsRegraFiscalidcstcofins: TIntegerField
+      FieldName = 'idcstcofins'
+      Origin = 'idcstcofins'
     end
     object cdsRegraFiscalreducaoipi: TFloatField
       FieldName = 'reducaoipi'
+      Origin = 'reducaoipi'
     end
     object cdsRegraFiscalipi: TSmallintField
       FieldName = 'ipi'
+      Origin = 'ipi'
     end
     object cdsRegraFiscalreducaoicms: TFloatField
       FieldName = 'reducaoicms'
+      Origin = 'reducaoicms'
     end
     object cdsRegraFiscalicms: TSmallintField
       FieldName = 'icms'
+      Origin = 'icms'
     end
     object cdsRegraFiscalpis: TFloatField
       FieldName = 'pis'
+      Origin = 'pis'
     end
     object cdsRegraFiscalretencaopis: TFloatField
       FieldName = 'retencaopis'
+      Origin = 'retencaopis'
     end
     object cdsRegraFiscalcofins: TFloatField
       FieldName = 'cofins'
+      Origin = 'cofins'
     end
     object cdsRegraFiscalretencaocofins: TIntegerField
       FieldName = 'retencaocofins'
+      Origin = 'retencaocofins'
     end
     object cdsRegraFiscalativo: TBooleanField
       FieldName = 'ativo'
+      Origin = 'ativo'
     end
     object cdsRegraFiscalmva: TFloatField
       FieldName = 'mva'
+      Origin = 'mva'
     end
     object cdsRegraFiscalst: TFloatField
       FieldName = 'st'
+      Origin = 'st'
     end
     object cdsRegraFiscalreducaost: TFloatField
       FieldName = 'reducaost'
+      Origin = 'reducaost'
     end
     object cdsRegraFiscaliss: TFloatField
       FieldName = 'iss'
+      Origin = 'iss'
     end
     object cdsRegraFiscalreducaoiss: TFloatField
       FieldName = 'reducaoiss'
+      Origin = 'reducaoiss'
     end
     object cdsRegraFiscalcsosn: TSmallintField
       FieldName = 'csosn'
+      Origin = 'csosn'
     end
     object cdsRegraFiscalcssl: TFloatField
       FieldName = 'cssl'
+      Origin = 'cssl'
     end
     object cdsRegraFiscalinss: TFloatField
       FieldName = 'inss'
+      Origin = 'inss'
     end
     object cdsRegraFiscalir: TSmallintField
       FieldName = 'ir'
+      Origin = 'ir'
     end
     object cdsRegraFiscalfunrural: TFloatField
       FieldName = 'funrural'
+      Origin = 'funrural'
     end
     object cdsRegraFiscalie: TFloatField
       FieldName = 'ie'
+      Origin = 'ie'
     end
     object cdsRegraFiscalii: TFloatField
       FieldName = 'ii'
+      Origin = 'ii'
     end
     object cdsRegraFiscalcfopdevolucao: TSmallintField
       FieldName = 'cfopdevolucao'
+      Origin = 'cfopdevolucao'
+    end
+    object cdsRegraFiscalpessoanome: TWideStringField
+      FieldName = 'pessoanome'
+      Origin = 'pessoanome'
+      Size = 250
+    end
+    object cdsRegraFiscalcstpisdescricao: TWideStringField
+      FieldName = 'cstpisdescricao'
+      Origin = 'cstpisdescricao'
+      Size = 250
+    end
+    object cdsRegraFiscalcstipidescricao: TWideStringField
+      FieldName = 'cstipidescricao'
+      Origin = 'cstipidescricao'
+      Size = 250
+    end
+    object cdsRegraFiscaltipooperacaodescricao: TWideStringField
+      FieldName = 'tipooperacaodescricao'
+      Origin = 'tipooperacaodescricao'
+    end
+    object cdsRegraFiscalpaisnome: TWideStringField
+      FieldName = 'paisnome'
+      Origin = 'paisnome'
+      Size = 100
+    end
+    object cdsRegraFiscalmunicipionome: TWideStringField
+      FieldName = 'municipionome'
+      Origin = 'municipionome'
+      Size = 150
+    end
+    object cdsRegraFiscalnomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
+      Size = 60
+    end
+    object cdsRegraFiscalcfopdescricao: TWideStringField
+      FieldName = 'cfopdescricao'
+      Origin = 'cfopdescricao'
+      Size = 250
+    end
+    object cdsRegraFiscalncmdescricao: TWideStringField
+      FieldName = 'ncmdescricao'
+      Origin = 'ncmdescricao'
+      Size = 50
+    end
+    object cdsRegraFiscalcstcofinsdescricao: TWideStringField
+      FieldName = 'cstcofinsdescricao'
+      Origin = 'cstcofinsdescricao'
+      Size = 250
     end
   end
   object cdsRegraFiscalObservacao: TClientDataSet
@@ -3581,9 +3673,12 @@ object DM: TDM
     Top = 536
     object cdsRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField
       FieldName = 'idregrafiscalobservacao'
+      Origin = 'idregrafiscalobservacao'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsRegraFiscalObservacaoobservacao: TWideMemoField
       FieldName = 'observacao'
+      Origin = 'observacao'
       BlobType = ftWideMemo
     end
   end
