@@ -7,31 +7,31 @@ inherited frmCadastro: TfrmCadastro
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlSide: TPanel
-    Height = 399
+    Height = 329
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
-    ExplicitHeight = 399
+    ExplicitHeight = 329
     inherited lblRegistros: TLabel
-      Top = 382
+      Top = 312
       ExplicitTop = 382
     end
     inherited imgImprimir: TcxImage
-      Top = 268
+      Top = 198
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitTop = 268
+      ExplicitTop = 198
     end
     inherited imgExportar: TcxImage
-      Top = 325
+      Top = 255
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
-      ExplicitTop = 325
+      ExplicitTop = 255
     end
     object imgNovo: TcxImage
       Left = 0
@@ -252,21 +252,21 @@ inherited frmCadastro: TfrmCadastro
   end
   inherited pnlClient: TPanel
     Width = 842
-    Height = 399
+    Height = 329
     ExplicitWidth = 842
-    ExplicitHeight = 399
+    ExplicitHeight = 329
     inherited cxPageControl: TcxPageControl
       Width = 842
-      Height = 371
+      Height = 301
       ExplicitWidth = 842
-      ExplicitHeight = 371
-      ClientRectBottom = 369
+      ExplicitHeight = 301
+      ClientRectBottom = 299
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
         ExplicitLeft = 2
         ExplicitTop = 30
         ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitHeight = 269
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 269
@@ -276,174 +276,17 @@ inherited frmCadastro: TfrmCadastro
             FilterRow.InfoText = 'Clique aqui para filtrar os dados da Grid'
           end
         end
-        object pnlBottom: TPanel
-          Left = 0
-          Top = 269
-          Width = 838
-          Height = 70
-          Align = alBottom
-          BevelOuter = bvNone
-          Color = 5177344
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -12
-          Font.Name = 'Segoe UI Light'
-          Font.Style = []
-          ParentBackground = False
-          ParentFont = False
-          TabOrder = 1
-          DesignSize = (
-            838
-            70)
-          object lblCampo: TcxLabel
-            Left = 18
-            Top = 13
-            Caption = 'Campo'
-            ParentFont = False
-            Style.BorderColor = clWhite
-            Style.Font.Charset = DEFAULT_CHARSET
-            Style.Font.Color = clWhite
-            Style.Font.Height = -12
-            Style.Font.Name = 'Segoe UI Light'
-            Style.Font.Style = []
-            Style.TextColor = clWhite
-            Style.IsFontAssigned = True
-            StyleDisabled.TextColor = clWhite
-            StyleHot.TextColor = clWhite
-            Properties.ShadowedColor = clWhite
-          end
-          object cbCampo: TcxComboBox
-            Left = 18
-            Top = 34
-            Properties.DropDownListStyle = lsFixedList
-            Properties.DropDownSizeable = True
-            Properties.OnChange = cbCampoPropertiesChange
-            TabOrder = 1
-            Width = 135
-          end
-          object lblInformacao: TcxLabel
-            Left = 280
-            Top = 13
-            Caption = 'Informa'#231#227'o'
-            ParentFont = False
-            Style.BorderColor = clWhite
-            Style.Font.Charset = DEFAULT_CHARSET
-            Style.Font.Color = clWhite
-            Style.Font.Height = -12
-            Style.Font.Name = 'Segoe UI Light'
-            Style.Font.Style = []
-            Style.TextColor = clWhite
-            Style.IsFontAssigned = True
-            StyleDisabled.TextColor = clWhite
-            StyleHot.TextColor = clWhite
-            Properties.ShadowedColor = clWhite
-          end
-          object edtInformacao: TcxTextEdit
-            Left = 280
-            Top = 34
-            Anchors = [akLeft, akTop, akRight]
-            TabOrder = 3
-            OnKeyPress = edtInformacaoKeyPress
-            Width = 436
-          end
-          object btnBuscar: TcxButton
-            Left = 728
-            Top = 32
-            Width = 88
-            Height = 25
-            Action = acBuscar
-            Anchors = [akTop, akRight]
-            OptionsImage.Glyph.Data = {
-              36040000424D3604000000000000360000002800000010000000100000000100
-              2000000000000004000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000023232394353535E01A1A1A7000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000001E1E1E813C3C3CFF3C3C3CFF353535E000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF2323239400000000000000000000
-              0000000000000000000000000000000000000000000000000000000000001E1E
-              1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
-              0000000000011616165C282828AB363636E6363636E6282828AB292929AE3C3C
-              3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
-              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
-              3CFF3C3C3CFF1E1E1E7E00000000000000000000000000000000000000001616
-              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F3C3C3CFF3C3C
-              3CFF292929AD0000000000000000000000000000000000000000000000002828
-              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-              3CFF282828AB0000000000000000000000000000000000000000000000003636
-              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-              3CFF363636E60000000000000000000000000000000000000000000000003636
-              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-              3CFF363636E60000000000000000000000000000000000000000000000002828
-              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-              3CFF282828AB0000000000000000000000000000000000000000000000001616
-              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F363636E53C3C
-              3CFF1616165C0000000000000000000000000000000000000000000000000000
-              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
-              1E80000000010000000000000000000000000000000000000000000000000000
-              0000000000011616165C282828AB363636E6363636E6282828AB1616165C0000
-              0001000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000000000000000
-              0000000000000000000000000000000000000000000000000000}
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 4
-          end
-          object cbSQL: TcxComboBox
-            Left = 18
-            Top = 34
-            Properties.OnChange = cbSQLPropertiesChange
-            TabOrder = 5
-            Visible = False
-            Width = 49
-          end
-          object lblOperacao: TcxLabel
-            Left = 159
-            Top = 13
-            Caption = 'Opera'#231#227'o'
-            ParentFont = False
-            Style.BorderColor = clWhite
-            Style.Font.Charset = DEFAULT_CHARSET
-            Style.Font.Color = clWhite
-            Style.Font.Height = -12
-            Style.Font.Name = 'Segoe UI Light'
-            Style.Font.Style = []
-            Style.TextColor = clWhite
-            Style.IsFontAssigned = True
-            StyleDisabled.TextColor = clWhite
-            StyleHot.TextColor = clWhite
-            Properties.ShadowedColor = clWhite
-          end
-          object cbOperacao: TcxComboBox
-            Left = 159
-            Top = 34
-            Properties.DropDownListStyle = lsFixedList
-            Properties.DropDownSizeable = True
-            Properties.OnChange = cbCampoPropertiesChange
-            TabOrder = 7
-            Width = 116
-          end
-          object dateInformacao: TcxDateEdit
-            Left = 280
-            Top = 34
-            TabOrder = 8
-            Width = 121
-          end
-        end
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitLeft = 2
         ExplicitTop = 30
         ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitHeight = 269
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
           Width = 60
-          Height = 339
+          Height = 269
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
@@ -911,14 +754,12 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitHeight = 269
         inherited gbFiltroSalvo: TcxGroupBox
           ExplicitWidth = 838
-          ExplicitHeight = 172
-          Height = 172
+          ExplicitHeight = 102
+          Height = 102
           Width = 838
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
@@ -987,6 +828,39 @@ inherited frmCadastro: TfrmCadastro
         Caption = 'lblFrame'
         Visible = False
       end
+    end
+  end
+  inherited pnlBottom: TPanel
+    Top = 329
+    Width = 902
+    ExplicitTop = 329
+    ExplicitWidth = 902
+    DesignSize = (
+      902
+      70)
+    inherited lblCampo: TcxLabel
+      Style.IsFontAssigned = True
+    end
+    inherited cbCampo: TcxComboBox
+      ExplicitHeight = 23
+    end
+    inherited lblInformacao: TcxLabel
+      Style.IsFontAssigned = True
+    end
+    inherited edtInformacao: TcxTextEdit
+      ExplicitHeight = 23
+    end
+    inherited cbSQL: TcxComboBox
+      ExplicitHeight = 23
+    end
+    inherited lblOperacao: TcxLabel
+      Style.IsFontAssigned = True
+    end
+    inherited cbOperacao: TcxComboBox
+      ExplicitHeight = 23
+    end
+    inherited dateInformacao: TcxDateEdit
+      ExplicitHeight = 23
     end
   end
   inherited cxHintStyleController: TcxHintStyleController

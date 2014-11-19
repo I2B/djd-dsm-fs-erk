@@ -46,7 +46,11 @@ uses
   unFrameRegraFiscalObservacao in 'Frames\unFrameRegraFiscalObservacao.pas' {FrameRegraFiscalObservacao: TFrame},
   unFrameSetor in 'Frames\unFrameSetor.pas' {FrameSetor: TFrame},
   unFrameRegraFiscal in 'Frames\unFrameRegraFiscal.pas' {FrameRegraFiscal: TFrame},
-  unCADRegraFiscal in 'Forms\unCADRegraFiscal.pas' {frmCADRegraFiscal};
+  unCADRegraFiscal in 'Forms\unCADRegraFiscal.pas' {frmCADRegraFiscal},
+  unFrameProdutoUnidadeConversao in 'Frames\unFrameProdutoUnidadeConversao.pas' {FrameProdutoUnidadeConversao: TFrame},
+  unCADProdutoUnidadeConversao in 'Forms\unCADProdutoUnidadeConversao.pas' {frmCADProdutoUnidadeConversao},
+  unFrameProdutoUnidade in 'Frames\unFrameProdutoUnidade.pas' {FrameProdutoUnidade: TFrame},
+  unCADProdutoUnidade in 'Forms\unCADProdutoUnidade.pas' {frmCADProdutoUnidade};
 
 {$R *.res}
 
@@ -55,6 +59,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmCADRegraFiscal, frmCADRegraFiscal);
   Application.Run;
 end.

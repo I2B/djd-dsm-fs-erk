@@ -893,15 +893,6 @@ type
     cdsProdutoTabelaPrecoidproduto: TIntegerField;
     cdsProdutoTabelaPreconome: TWideStringField;
     cdsProdutoTabelaPrecopreco: TFloatField;
-    cdsProdutoUnidadeidprodutounidade: TIntegerField;
-    cdsProdutoUnidadesigla: TWideStringField;
-    cdsProdutoUnidadedescricao: TWideMemoField;
-    cdsProdutoUnidadeConversaoidprodutounidadeconversao: TIntegerField;
-    cdsProdutoUnidadeConversaoidproduto: TIntegerField;
-    cdsProdutoUnidadeConversaoidprodutounidade: TIntegerField;
-    cdsProdutoUnidadeConversaosigla: TWideStringField;
-    cdsProdutoUnidadeConversaodescricao: TWideMemoField;
-    cdsProdutoUnidadeConversaofatorconversao: TFloatField;
     cdsRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField;
     cdsRegraFiscalObservacaoobservacao: TWideMemoField;
     cdsProdutoFornecedoridprodutofornecedor: TIntegerField;
@@ -1007,6 +998,17 @@ type
     cdsRegraFiscalmunicipionome: TWideStringField;
     cdsRegraFiscalnomefantasia: TWideStringField;
     cdsRegraFiscalcfopdescricao: TWideStringField;
+    cdsProdutoUnidadeConversaoidprodutounidadeconversao: TIntegerField;
+    cdsProdutoUnidadeConversaoidproduto: TIntegerField;
+    cdsProdutoUnidadeConversaoidprodutounidade: TIntegerField;
+    cdsProdutoUnidadeConversaosigla: TWideStringField;
+    cdsProdutoUnidadeConversaodescricao: TWideMemoField;
+    cdsProdutoUnidadeConversaofatorconversao: TFloatField;
+    cdsProdutoUnidadeConversaoprodutonome: TWideStringField;
+    cdsProdutoUnidadeConversaounidadesigla: TWideStringField;
+    cdsProdutoUnidadeidprodutounidade: TIntegerField;
+    cdsProdutoUnidadesigla: TWideStringField;
+    cdsProdutoUnidadedescricao: TWideMemoField;
   private
     FInstanceOwner: Boolean;
   public
