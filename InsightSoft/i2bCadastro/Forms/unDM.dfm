@@ -10,13 +10,11 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -3424,13 +3422,16 @@ object DM: TDM
     Left = 536
     Top = 368
     object cdsProdutoUnidadeidprodutounidade: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idprodutounidade'
     end
     object cdsProdutoUnidadesigla: TWideStringField
+      DisplayLabel = 'Sigla'
       FieldName = 'sigla'
       Size = 10
     end
     object cdsProdutoUnidadedescricao: TWideMemoField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       BlobType = ftWideMemo
     end
@@ -3462,9 +3463,16 @@ object DM: TDM
     object cdsProdutoUnidadeConversaofatorconversao: TFloatField
       FieldName = 'fatorconversao'
     end
+    object cdsProdutoUnidadeConversaoprodutonome: TWideStringField
+      FieldName = 'produtonome'
+      Size = 100
+    end
+    object cdsProdutoUnidadeConversaounidadesigla: TWideStringField
+      FieldName = 'unidadesigla'
+      Size = 10
+    end
   end
   object cdsRegraFiscal: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspRegraFiscal'

@@ -39,16 +39,6 @@ type
     lblPrimeiroEdit: TLabel;
     lblFrame: TLabel;
     acBuscar: TAction;
-    pnlBottom: TPanel;
-    lblCampo: TcxLabel;
-    cbCampo: TcxComboBox;
-    lblInformacao: TcxLabel;
-    edtInformacao: TcxTextEdit;
-    btnBuscar: TcxButton;
-    cbSQL: TcxComboBox;
-    lblOperacao: TcxLabel;
-    cbOperacao: TcxComboBox;
-    dateInformacao: TcxDateEdit;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);

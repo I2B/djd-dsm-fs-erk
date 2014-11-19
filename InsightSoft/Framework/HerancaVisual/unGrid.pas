@@ -66,6 +66,16 @@ type
     btnFiltroCancelar: TcxButton;
     cxButton1: TcxButton;
     acAbaFiltro: TAction;
+    pnlBottom: TPanel;
+    lblCampo: TcxLabel;
+    cbCampo: TcxComboBox;
+    lblInformacao: TcxLabel;
+    edtInformacao: TcxTextEdit;
+    btnBuscar: TcxButton;
+    cbSQL: TcxComboBox;
+    lblOperacao: TcxLabel;
+    cbOperacao: TcxComboBox;
+    dateInformacao: TcxDateEdit;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -176,7 +186,7 @@ begin
   RadialMenuExportar.PopupFromCursorPos;
 end;
 
-procedure TfrmCadastro.acAbaFiltroExecute(Sender: TObject);
+procedure TfrmGrid.acAbaFiltroExecute(Sender: TObject);
 begin
   if cxPageControl.ActivePage = cxTabGrid then
   begin
