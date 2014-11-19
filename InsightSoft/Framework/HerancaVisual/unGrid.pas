@@ -17,7 +17,9 @@ uses
   Vcl.ImgList, Vcl.ExtCtrls, dxCustomTileControl, cxClasses, dxTileControl, cxContainer, cxEdit, cxImage, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel, cxGridCustomView, ShellAPI,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
-  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink;
+  cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink,
+  Data.FMTBcd, Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.Menus, cxButtons, cxDropDownEdit, cxMemo,
+  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel;
 
 type
   TfrmGrid = class(TfrmBase)
@@ -44,6 +46,26 @@ type
     SaveDialog: TSaveDialog;
     barBtnHTML: TdxBarButton;
     barBtnTXT: TdxBarButton;
+    ServerMethod: TSqlServerMethod;
+    cxTabFiltro: TcxTabSheet;
+    gbFiltroSalvo: TcxGroupBox;
+    gbDesenvolvimentoFiltro: TcxGroupBox;
+    lblFIltroCampo: TcxLabel;
+    lblFiltroOperacao: TcxLabel;
+    lblFiltroCondicao: TcxLabel;
+    edtFiltroCondicao: TcxTextEdit;
+    rgFiltroAndOr: TcxRadioGroup;
+    dateFiltroCondicao: TcxDateEdit;
+    gbFiltroDesenvolvido: TcxGroupBox;
+    memoFiltroDesenvolvido: TcxMemo;
+    cbFiltroCampo: TcxComboBox;
+    cbFiltroOperacao: TcxComboBox;
+    btnAdicionarFiltro: TcxButton;
+    btnFiltroSalvar: TcxButton;
+    btnFiltroLimpar: TcxButton;
+    btnFiltroCancelar: TcxButton;
+    cxButton1: TcxButton;
+    acAbaFiltro: TAction;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -55,6 +77,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure barBtnHTMLClick(Sender: TObject);
     procedure barBtnTXTClick(Sender: TObject);
+    procedure acAbaFiltroExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -151,6 +174,15 @@ end;
 procedure TfrmGrid.imgExportarClick(Sender: TObject);
 begin
   RadialMenuExportar.PopupFromCursorPos;
+end;
+
+procedure TfrmCadastro.acAbaFiltroExecute(Sender: TObject);
+begin
+  if cxPageControl.ActivePage = cxTabGrid then
+  begin
+    cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
+    cxPageControl.ActivePage := cxTabFiltro;
+  end;
 end;
 
 end.

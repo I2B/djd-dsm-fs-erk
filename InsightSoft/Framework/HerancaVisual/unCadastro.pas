@@ -38,9 +38,7 @@ type
     acCancelar: TAction;
     lblPrimeiroEdit: TLabel;
     lblFrame: TLabel;
-    ServerMethod: TSqlServerMethod;
     acBuscar: TAction;
-    cxTabFiltro: TcxTabSheet;
     pnlBottom: TPanel;
     lblCampo: TcxLabel;
     cbCampo: TcxComboBox;
@@ -51,24 +49,6 @@ type
     lblOperacao: TcxLabel;
     cbOperacao: TcxComboBox;
     dateInformacao: TcxDateEdit;
-    acAbaFiltro: TAction;
-    gbDesenvolvimentoFiltro: TcxGroupBox;
-    lblFIltroCampo: TcxLabel;
-    lblFiltroOperacao: TcxLabel;
-    lblFiltroCondicao: TcxLabel;
-    edtFiltroCondicao: TcxTextEdit;
-    rgFiltroAndOr: TcxRadioGroup;
-    dateFiltroCondicao: TcxDateEdit;
-    gbFiltroDesenvolvido: TcxGroupBox;
-    memoFiltroDesenvolvido: TcxMemo;
-    cbFiltroCampo: TcxComboBox;
-    cbFiltroOperacao: TcxComboBox;
-    btnAdicionarFiltro: TcxButton;
-    btnFiltroSalvar: TcxButton;
-    btnFiltroLimpar: TcxButton;
-    btnFiltroCancelar: TcxButton;
-    cxButton1: TcxButton;
-    gbFiltroSalvo: TcxGroupBox;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
@@ -79,7 +59,6 @@ type
     procedure cbSQLPropertiesChange(Sender: TObject);
     procedure edtInformacaoKeyPress(Sender: TObject; var Key: Char);
     procedure acBuscarExecute(Sender: TObject);
-    procedure acAbaFiltroExecute(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto;
@@ -98,14 +77,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmCadastro.acAbaFiltroExecute(Sender: TObject);
-begin
-  if cxPageControl.ActivePage = cxTabGrid then
-  begin
-    cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
-    cxPageControl.ActivePage := cxTabFiltro;
-  end;
-end;
+
 
 procedure TfrmCadastro.acBuscarExecute(Sender: TObject);
 var
