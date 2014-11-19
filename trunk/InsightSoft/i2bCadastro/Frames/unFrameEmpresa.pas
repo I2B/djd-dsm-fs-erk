@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, unFramePai, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   dxSkinsCore, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinscxPCPainter,
   cxContainer, cxEdit, dxLayoutcxEditAdapters, cxGroupBox, cxCheckGroup, cxDBCheckGroup, dxLayoutContainer, cxTextEdit,
-  cxDBEdit, Data.DB, dxLayoutControl, cxRadioGroup;
+  cxDBEdit, Data.DB, dxLayoutControl, cxRadioGroup, cxMaskEdit, cxButtonEdit, Vcl.ExtDlgs;
 
 type
   TFrameEmpresa = class(TFramePai)
@@ -19,6 +19,10 @@ type
     dxLayoutControlItem3: TdxLayoutItem;
     cxDBRadioGroup1: TcxDBRadioGroup;
     dxLayoutControlItem4: TdxLayoutItem;
+    edtLogomarca: TcxDBButtonEdit;
+    dxLayoutControlItem5: TdxLayoutItem;
+    dlgOpen: TOpenPictureDialog;
+    procedure edtLogomarcaPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
   private
     { Private declarations }
   public
@@ -33,5 +37,14 @@ implementation
 {$R *.dfm}
 
 uses unDM;
+
+procedure TFrameEmpresa.edtLogomarcaPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+begin
+  inherited;
+  if dlgOpen.Execute then
+  begin
+	  edtLogomarca.Text := dlgOpen.FileName;
+  end;
+end;
 
 end.

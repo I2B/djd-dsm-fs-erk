@@ -8,63 +8,77 @@ inherited frmCADEmpresa: TfrmCADEmpresa
   TextHeight = 15
   inherited pnlSide: TPanel
     Height = 361
-    ExplicitHeight = 8
+    ExplicitHeight = 361
     inherited lblRegistros: TLabel
       Top = 344
+      ExplicitTop = 344
     end
     inherited imgImprimir: TcxImage
       Top = 230
-      ExplicitTop = -123
+      ExplicitTop = 230
     end
     inherited imgExportar: TcxImage
       Top = 287
-      ExplicitTop = -66
+      ExplicitTop = 287
     end
   end
   inherited pnlClient: TPanel
     Width = 684
     Height = 361
-    ExplicitWidth = 102
-    ExplicitHeight = 8
+    ExplicitWidth = 684
+    ExplicitHeight = 361
     inherited cxPageControl: TcxPageControl
       Width = 684
       Height = 333
-      ExplicitWidth = 102
+      ExplicitWidth = 684
+      ExplicitHeight = 333
       ClientRectBottom = 331
       ClientRectRight = 682
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 680
+        ExplicitHeight = 301
         inherited cxGrid: TcxGrid
           Width = 680
           Height = 231
           ExplicitLeft = 0
           ExplicitTop = 0
-          ExplicitWidth = 98
+          ExplicitWidth = 680
+          ExplicitHeight = 231
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidempresa: TcxGridDBColumn
+              Caption = 'ID'
               DataBinding.FieldName = 'idempresa'
             end
             object cxGridDBrazaosocial: TcxGridDBColumn
+              Caption = 'Raz'#227'o Social'
               DataBinding.FieldName = 'razaosocial'
             end
             object cxGridDBnomefantasia: TcxGridDBColumn
+              Caption = 'Nome Fantasia'
               DataBinding.FieldName = 'nomefantasia'
             end
             object cxGridDBhomepage: TcxGridDBColumn
+              Caption = 'Home Page'
               DataBinding.FieldName = 'homepage'
+              Width = 268
             end
             object cxGridDBimagemlogotipo: TcxGridDBColumn
+              Caption = 'Logotipo'
               DataBinding.FieldName = 'imagemlogotipo'
+              Width = 160
             end
             object cxGridDBtiporegime: TcxGridDBColumn
+              Caption = 'Regime Tribut'#225'rio'
               DataBinding.FieldName = 'tiporegime'
+              Width = 208
             end
           end
         end
         inherited pnlBottom: TPanel
           Top = 231
           Width = 680
-          ExplicitWidth = 98
+          ExplicitTop = 231
+          ExplicitWidth = 680
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
@@ -75,13 +89,13 @@ inherited frmCADEmpresa: TfrmCADEmpresa
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 0
+            ExplicitWidth = 582
             ExplicitHeight = 23
             Width = 582
           end
           inherited btnBuscar: TcxButton
             Left = 570
-            ExplicitLeft = -12
+            ExplicitLeft = 570
           end
           inherited cbSQL: TcxComboBox
             ExplicitHeight = 23
@@ -98,9 +112,11 @@ inherited frmCADEmpresa: TfrmCADEmpresa
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 680
+        ExplicitHeight = 301
         inherited pnlCadastro: TPanel
           Height = 301
+          ExplicitHeight = 301
         end
         inline FrameEmpresa: TFrameEmpresa
           Left = 60
@@ -119,25 +135,13 @@ inherited frmCADEmpresa: TfrmCADEmpresa
           ParentFont = False
           TabOrder = 1
           ExplicitLeft = 60
-          ExplicitWidth = 38
-          ExplicitHeight = 339
+          ExplicitWidth = 620
+          ExplicitHeight = 301
           inherited dxLayoutControl: TdxLayoutControl
             Width = 620
             Height = 301
-            ExplicitWidth = 38
-            ExplicitHeight = 339
-            inherited edtRazaoSocial: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
-            end
-            inherited cxDBTextEdit2: TcxDBTextEdit
-              ExplicitWidth = 121
-              Width = 121
-            end
-            inherited cxDBRadioGroup1: TcxDBRadioGroup
-              ExplicitWidth = 185
-              Width = 185
-            end
+            ExplicitWidth = 620
+            ExplicitHeight = 301
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -157,37 +161,53 @@ inherited frmCADEmpresa: TfrmCADEmpresa
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 680
+        ExplicitHeight = 301
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 98
+          ExplicitWidth = 680
           Width = 680
           inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitWidth = 104
+            ExplicitHeight = 23
             Width = 104
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 385
-            ExplicitLeft = -197
+            ExplicitLeft = 385
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 84
+            ExplicitWidth = 666
             Width = 666
             inherited memoFiltroDesenvolvido: TcxMemo
-              ExplicitWidth = 78
+              ExplicitWidth = 660
               Width = 660
             end
           end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 480
+            ExplicitLeft = 480
           end
           inherited btnFiltroCancelar: TcxButton
             Left = 503
+            ExplicitLeft = 503
           end
           inherited cxButton1: TcxButton
             Width = 138
+            ExplicitWidth = 138
           end
         end
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 98
+          ExplicitWidth = 680
+          ExplicitHeight = 134
           Height = 134
           Width = 680
         end
@@ -195,7 +215,7 @@ inherited frmCADEmpresa: TfrmCADEmpresa
     end
     inherited pnlTop: TPanel
       Width = 684
-      ExplicitWidth = 102
+      ExplicitWidth = 684
       inherited lblPrimeiroEdit: TLabel
         Width = 121
         Caption = 'edtRazaoSocial'

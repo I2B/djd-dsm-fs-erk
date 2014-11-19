@@ -9,7 +9,7 @@ inherited FrameEmpresa: TFrameEmpresa
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Width = 121
+      Width = 349
     end
     object cxDBTextEdit2: TcxDBTextEdit [1]
       Left = 12
@@ -20,7 +20,7 @@ inherited FrameEmpresa: TFrameEmpresa
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 1
-      Width = 121
+      Width = 349
     end
     object cxDBTextEdit3: TcxDBTextEdit [2]
       Left = 12
@@ -57,7 +57,25 @@ inherited FrameEmpresa: TFrameEmpresa
       Style.BorderStyle = ebs3D
       TabOrder = 3
       Height = 52
-      Width = 185
+      Width = 349
+    end
+    object edtLogomarca: TcxDBButtonEdit [4]
+      Left = 12
+      Top = 245
+      DataBinding.DataField = 'imagemlogotipo'
+      DataBinding.DataSource = DataSource
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edtLogomarcaPropertiesButtonClick
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      Style.ButtonStyle = bts3D
+      TabOrder = 4
+      Width = 121
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
@@ -94,10 +112,22 @@ inherited FrameEmpresa: TFrameEmpresa
       ControlOptions.ShowBorder = False
       Index = 3
     end
+    object dxLayoutControlItem5: TdxLayoutItem
+      Parent = dxLayoutControlGroup_Root
+      CaptionOptions.Text = 'LogoMarca'
+      CaptionOptions.Layout = clTop
+      Control = edtLogomarca
+      ControlOptions.ShowBorder = False
+      Index = 4
+    end
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsEmpresa
     Left = 424
+    Top = 24
+  end
+  object dlgOpen: TOpenPictureDialog
+    Left = 496
     Top = 24
   end
 end
