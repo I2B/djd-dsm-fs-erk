@@ -10,6 +10,7 @@ inherited frmGrid: TfrmGrid
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
+  ExplicitLeft = -8
   ExplicitWidth = 916
   ExplicitHeight = 439
   PixelsPerInch = 96
@@ -215,8 +216,12 @@ inherited frmGrid: TfrmGrid
       Height = 302
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabGrid
+      Properties.ActivePage = cxTabFiltro
       Properties.CustomButtons.Buttons = <>
+      ClientRectBottom = 370
+      ClientRectLeft = 2
+      ClientRectRight = 838
+      ClientRectTop = 30
       ClientRectBottom = 300
       ClientRectLeft = 2
       ClientRectRight = 838
@@ -227,9 +232,11 @@ inherited frmGrid: TfrmGrid
         object cxGrid: TcxGrid
           Left = 0
           Top = 0
-          Width = 836
+<<<<<<< .mine          Width = 836
+          Height = 340
+=======          Width = 836
           Height = 270
-          Align = alClient
+>>>>>>> .theirs          Align = alClient
           TabOrder = 0
           object cxGridDB: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
@@ -269,9 +276,48 @@ inherited frmGrid: TfrmGrid
           Align = alClient
           Caption = 'Filtros Salvos'
           TabOrder = 0
-          Height = 103
+<<<<<<< .mine          Height = 173
           Width = 836
-        end
+          object cxDBMemo1: TcxDBMemo
+            Left = 313
+            Top = 17
+            Align = alClient
+            TabOrder = 0
+            ExplicitLeft = 352
+            ExplicitWidth = 481
+            Height = 146
+            Width = 520
+          end
+          object cxGrid1: TcxGrid
+            Left = 3
+            Top = 17
+            Width = 310
+            Height = 146
+            Align = alLeft
+            TabOrder = 1
+            object cxGrid1DBTableView1: TcxGridDBTableView
+              Navigator.Buttons.CustomButtons = <>
+              DataController.DataSource = dsFiltro
+              DataController.Summary.DefaultGroupSummaryItems = <>
+              DataController.Summary.FooterSummaryItems = <>
+              DataController.Summary.SummaryGroups = <>
+              FilterRow.InfoText = 'Clique aqui para definir um filtro'
+              FilterRow.Visible = True
+              OptionsData.CancelOnExit = False
+              OptionsData.Deleting = False
+              OptionsData.DeletingConfirmation = False
+              OptionsData.Editing = False
+              OptionsData.Inserting = False
+              OptionsView.NoDataToDisplayInfoText = '<Sem dados para exibir>'
+              OptionsView.GroupByBox = False
+            end
+            object cxGrid1Level1: TcxGridLevel
+              GridView = cxGrid1DBTableView1
+            end
+          end
+=======          Height = 103
+          Width = 836
+>>>>>>> .theirs        end
         object gbDesenvolvimentoFiltro: TcxGroupBox
           Left = 0
           Top = 0
@@ -304,9 +350,10 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             TabOrder = 3
             TextHint = 'Informe a condi'#231#227'o a ser filtrada'
-            ExplicitWidth = 262
+<<<<<<< .mine            Width = 266
+=======            ExplicitWidth = 262
             Width = 266
-          end
+>>>>>>> .theirs          end
           object rgFiltroAndOr: TcxRadioGroup
             Left = 547
             Top = 15
@@ -1184,5 +1231,9 @@ inherited frmGrid: TfrmGrid
       end>
     Left = 582
     Top = 6
+  end
+  object dsFiltro: TDataSource
+    Left = 550
+    Top = 7
   end
 end

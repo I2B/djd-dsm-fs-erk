@@ -19,7 +19,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
   cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink,
   Data.FMTBcd, Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.Menus, cxButtons, cxDropDownEdit, cxMemo,
-  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel;
+  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel, cxDBEdit;
 
 type
   TfrmGrid = class(TfrmBase)
@@ -66,6 +66,11 @@ type
     btnFiltroCancelar: TcxButton;
     cxButton1: TcxButton;
     acAbaFiltro: TAction;
+    cxDBMemo1: TcxDBMemo;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    dsFiltro: TDataSource;
     pnlBottom: TPanel;
     lblCampo: TcxLabel;
     cbCampo: TcxComboBox;
@@ -190,7 +195,7 @@ procedure TfrmGrid.acAbaFiltroExecute(Sender: TObject);
 begin
   if cxPageControl.ActivePage = cxTabGrid then
   begin
-    cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
+    //cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
     cxPageControl.ActivePage := cxTabFiltro;
   end;
 end;
