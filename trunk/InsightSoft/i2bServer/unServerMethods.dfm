@@ -5747,4 +5747,42 @@ object ServerMethods: TServerMethods
     Left = 920
     Top = 536
   end
+  object qryFiltroSalvo: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from filtrosalvo order by idfiltrosalvo limit 0')
+    Left = 888
+    Top = 592
+    object qryFiltroSalvoidfiltrosalvo: TIntegerField
+      DisplayLabel = 'ID'
+      FieldName = 'idfiltrosalvo'
+      Origin = 'idfiltrosalvo'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryFiltroSalvonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object qryFiltroSalvousuario: TWideStringField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 60
+    end
+    object qryFiltroSalvofiltrosql: TWideMemoField
+      FieldName = 'filtrosql'
+      Origin = 'filtrosql'
+      BlobType = ftWideMemo
+    end
+    object qryFiltroSalvofiltrodisplay: TWideMemoField
+      FieldName = 'filtrodisplay'
+      Origin = 'filtrodisplay'
+      BlobType = ftWideMemo
+    end
+  end
+  object dspFiltroSalvo: TDataSetProvider
+    DataSet = qryFiltroSalvo
+    Left = 920
+    Top = 592
+  end
 end

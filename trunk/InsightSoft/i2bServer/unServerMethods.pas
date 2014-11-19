@@ -1148,6 +1148,13 @@ type
     qryRegraFiscalmunicipionome: TWideStringField;
     qryRegraFiscalnomefantasia: TWideStringField;
     qryRegraFiscalcfopdescricao: TWideStringField;
+    qryFiltroSalvo: TFDQuery;
+    dspFiltroSalvo: TDataSetProvider;
+    qryFiltroSalvoidfiltrosalvo: TIntegerField;
+    qryFiltroSalvonome: TWideStringField;
+    qryFiltroSalvousuario: TWideStringField;
+    qryFiltroSalvofiltrosql: TWideMemoField;
+    qryFiltroSalvofiltrodisplay: TWideMemoField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1214,6 +1221,7 @@ type
       ' inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.idEstoqueCor'+
       ' inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = estoqueTamanho.idEstoqueTamanho',' ',' order by idEstoqueGrade',' limit 0 ');
     const selectEstoqueTamanho: array[1..5] of string = ('select *',' from estoqueTamanho',' ',' order by idEstoqueTamanho',' limit 0 ');
+    const selectFiltroSalvo: array[1..5] of string = ('select *',' from filtrosalvo',' ',' order by idfiltrosalvo',' limit 0 ');
     const selectHistoricoMovimento: array[1..5] of string = ('select *',' from historicoMovimento',' ',' order by idHistoricoMovimento',' limit 0 ');
     const selectIndicadorEconomico: array[1..5] of string = ('select *',' from indicadorEconomico',' ',' order by idIndicadorEconomico',' limit 0 ');
     const selectIndice: array[1..5] of string = ('select indice.*, indicadorEconomico.descricao as indicadorDescricao',
@@ -1387,6 +1395,7 @@ type
     procedure setSQLEstoqueCor(filtro: String);
     procedure setSQLEstoqueGrade(filtro: String);
     procedure setSQLEstoqueTamanho(filtro: String);
+    procedure setSQLFiltroSalvo(filtro: String);
     procedure setSQLHistoricoMovimento(filtro: String);
     procedure setSQLIndicadorEconomico(filtro: String);
     procedure setSQLIndice(filtro: String);
@@ -1702,6 +1711,12 @@ begin
     SQL.Clear;
     for I := 1 to 5 do
       SQL.Add(selectEstoqueTamanho[I]);
+  end;
+  With qryFiltroSalvo do
+  begin
+    SQL.Clear;
+    for I := 1 to 5 do
+      SQL.Add(selectFiltroSalvo[I]);
   end;
   With qryHistoricoMovimento do
   begin
@@ -2232,6 +2247,11 @@ end;
 procedure TServerMethods.setSQLEstoqueTamanho(filtro: String);
 begin
   alteraSQL(qryEstoqueTamanho,filtro,selectEstoqueTamanho[1],selectEstoqueTamanho[2],selectEstoqueTamanho[3],selectEstoqueTamanho[4]);
+end;
+
+procedure TServerMethods.setSQLFiltroSalvo(filtro: String);
+begin
+  alteraSQL(qryFiltroSalvo,filtro,selectFiltroSalvo[1],selectFiltroSalvo[2],selectFiltroSalvo[3],selectFiltroSalvo[4]);
 end;
 
 procedure TServerMethods.setSQLHistoricoMovimento(filtro: String);
