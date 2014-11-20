@@ -10,6 +10,7 @@ object ServerMethods: TServerMethods
       'Password=defd'
       'Server=127.0.0.1'
       'DriverID=PG')
+    Connected = True
     LoginPrompt = False
     Left = 176
     Top = 8

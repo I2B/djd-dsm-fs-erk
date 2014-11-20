@@ -10,7 +10,6 @@ inherited frmGrid: TfrmGrid
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
-  ExplicitLeft = -8
   ExplicitWidth = 916
   ExplicitHeight = 439
   PixelsPerInch = 96
@@ -19,7 +18,7 @@ inherited frmGrid: TfrmGrid
     Left = 0
     Top = 0
     Width = 60
-    Height = 330
+    Height = 400
     Align = alLeft
     BevelOuter = bvNone
     Color = 5177344
@@ -27,7 +26,7 @@ inherited frmGrid: TfrmGrid
     TabOrder = 1
     object lblRegistros: TLabel
       Left = 0
-      Top = 313
+      Top = 383
       Width = 60
       Height = 17
       Align = alBottom
@@ -46,7 +45,7 @@ inherited frmGrid: TfrmGrid
     end
     object imgImprimir: TcxImage
       Left = 0
-      Top = 199
+      Top = 269
       Hint = 'Imprimir Registros [Ctrl + P]'
       Align = alBottom
       ParentShowHint = False
@@ -128,7 +127,7 @@ inherited frmGrid: TfrmGrid
     end
     object imgExportar: TcxImage
       Left = 0
-      Top = 256
+      Top = 326
       Hint = 'Exportar Registros'
       Align = alBottom
       ParentShowHint = False
@@ -205,7 +204,7 @@ inherited frmGrid: TfrmGrid
     Left = 60
     Top = 0
     Width = 840
-    Height = 330
+    Height = 400
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
@@ -213,16 +212,12 @@ inherited frmGrid: TfrmGrid
       Left = 0
       Top = 28
       Width = 840
-      Height = 302
+      Height = 372
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabFiltro
+      Properties.ActivePage = cxTabGrid
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 370
-      ClientRectLeft = 2
-      ClientRectRight = 838
-      ClientRectTop = 30
-      ClientRectBottom = 300
       ClientRectLeft = 2
       ClientRectRight = 838
       ClientRectTop = 30
@@ -232,11 +227,9 @@ inherited frmGrid: TfrmGrid
         object cxGrid: TcxGrid
           Left = 0
           Top = 0
-<<<<<<< .mine          Width = 836
-          Height = 340
-=======          Width = 836
+          Width = 836
           Height = 270
->>>>>>> .theirs          Align = alClient
+          Align = alClient
           TabOrder = 0
           object cxGridDB: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
@@ -258,14 +251,165 @@ inherited frmGrid: TfrmGrid
             GridView = cxGridDB
           end
         end
+        object pnlBottom: TPanel
+          Left = 0
+          Top = 270
+          Width = 836
+          Height = 70
+          Align = alBottom
+          BevelOuter = bvNone
+          Color = 5177344
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Segoe UI Light'
+          Font.Style = []
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 1
+          DesignSize = (
+            836
+            70)
+          object lblCampo: TcxLabel
+            Left = 18
+            Top = 13
+            Caption = 'Campo'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object cbCampo: TcxComboBox
+            Left = 18
+            Top = 34
+            Properties.DropDownListStyle = lsFixedList
+            Properties.DropDownSizeable = True
+            Properties.OnChange = cbCampoPropertiesChange
+            TabOrder = 1
+            Width = 135
+          end
+          object lblInformacao: TcxLabel
+            Left = 280
+            Top = 13
+            Caption = 'Informa'#231#227'o'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object edtInformacao: TcxTextEdit
+            Left = 280
+            Top = 34
+            Anchors = [akLeft, akTop, akRight]
+            TabOrder = 3
+            OnKeyPress = edtInformacaoKeyPress
+            Width = 440
+          end
+          object btnBuscar: TcxButton
+            Left = 732
+            Top = 32
+            Width = 88
+            Height = 25
+            Anchors = [akTop, akRight]
+            OptionsImage.Glyph.Data = {
+              36040000424D3604000000000000360000002800000010000000100000000100
+              2000000000000004000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000023232394353535E01A1A1A7000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000001E1E1E813C3C3CFF3C3C3CFF353535E000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF2323239400000000000000000000
+              0000000000000000000000000000000000000000000000000000000000001E1E
+              1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
+              0000000000011616165C282828AB363636E6363636E6282828AB292929AE3C3C
+              3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
+              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+              3CFF3C3C3CFF1E1E1E7E00000000000000000000000000000000000000001616
+              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F3C3C3CFF3C3C
+              3CFF292929AD0000000000000000000000000000000000000000000000002828
+              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
+              3CFF282828AB0000000000000000000000000000000000000000000000003636
+              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
+              3CFF363636E60000000000000000000000000000000000000000000000003636
+              36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
+              3CFF363636E60000000000000000000000000000000000000000000000002828
+              28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
+              3CFF282828AB0000000000000000000000000000000000000000000000001616
+              165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F363636E53C3C
+              3CFF1616165C0000000000000000000000000000000000000000000000000000
+              00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
+              1E80000000010000000000000000000000000000000000000000000000000000
+              0000000000011616165C282828AB363636E6363636E6282828AB1616165C0000
+              0001000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+          end
+          object cbSQL: TcxComboBox
+            Left = 18
+            Top = 34
+            Properties.OnChange = cbSQLPropertiesChange
+            TabOrder = 5
+            Visible = False
+            Width = 49
+          end
+          object lblOperacao: TcxLabel
+            Left = 159
+            Top = 13
+            Caption = 'Opera'#231#227'o'
+            ParentFont = False
+            Style.BorderColor = clWhite
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWhite
+            Style.Font.Height = -12
+            Style.Font.Name = 'Segoe UI Light'
+            Style.Font.Style = []
+            Style.TextColor = clWhite
+            Style.IsFontAssigned = True
+            StyleDisabled.TextColor = clWhite
+            StyleHot.TextColor = clWhite
+            Properties.ShadowedColor = clWhite
+          end
+          object cbOperacao: TcxComboBox
+            Left = 159
+            Top = 34
+            Properties.DropDownListStyle = lsFixedList
+            Properties.DropDownSizeable = True
+            TabOrder = 7
+            Width = 116
+          end
+          object dateInformacao: TcxDateEdit
+            Left = 280
+            Top = 34
+            TabOrder = 8
+            Width = 121
+          end
+        end
       end
       object cxTabCadastro: TcxTabSheet
         Caption = 'cxTabCadastro'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
       end
       object cxTabFiltro: TcxTabSheet
         Caption = 'cxTabFiltro'
@@ -276,48 +420,9 @@ inherited frmGrid: TfrmGrid
           Align = alClient
           Caption = 'Filtros Salvos'
           TabOrder = 0
-<<<<<<< .mine          Height = 173
+          Height = 173
           Width = 836
-          object cxDBMemo1: TcxDBMemo
-            Left = 313
-            Top = 17
-            Align = alClient
-            TabOrder = 0
-            ExplicitLeft = 352
-            ExplicitWidth = 481
-            Height = 146
-            Width = 520
-          end
-          object cxGrid1: TcxGrid
-            Left = 3
-            Top = 17
-            Width = 310
-            Height = 146
-            Align = alLeft
-            TabOrder = 1
-            object cxGrid1DBTableView1: TcxGridDBTableView
-              Navigator.Buttons.CustomButtons = <>
-              DataController.DataSource = dsFiltro
-              DataController.Summary.DefaultGroupSummaryItems = <>
-              DataController.Summary.FooterSummaryItems = <>
-              DataController.Summary.SummaryGroups = <>
-              FilterRow.InfoText = 'Clique aqui para definir um filtro'
-              FilterRow.Visible = True
-              OptionsData.CancelOnExit = False
-              OptionsData.Deleting = False
-              OptionsData.DeletingConfirmation = False
-              OptionsData.Editing = False
-              OptionsData.Inserting = False
-              OptionsView.NoDataToDisplayInfoText = '<Sem dados para exibir>'
-              OptionsView.GroupByBox = False
-            end
-            object cxGrid1Level1: TcxGridLevel
-              GridView = cxGrid1DBTableView1
-            end
-          end
-=======          Height = 103
-          Width = 836
->>>>>>> .theirs        end
+        end
         object gbDesenvolvimentoFiltro: TcxGroupBox
           Left = 0
           Top = 0
@@ -350,10 +455,8 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             TabOrder = 3
             TextHint = 'Informe a condi'#231#227'o a ser filtrada'
-<<<<<<< .mine            Width = 266
-=======            ExplicitWidth = 262
             Width = 266
->>>>>>> .theirs          end
+          end
           object rgFiltroAndOr: TcxRadioGroup
             Left = 547
             Top = 15
@@ -459,7 +562,6 @@ inherited frmGrid: TfrmGrid
               00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
               2FC72121218D1010104600000000000000000000000000000000}
             TabOrder = 9
-            ExplicitLeft = 638
           end
           object btnFiltroSalvar: TcxButton
             Left = 7
@@ -590,7 +692,6 @@ inherited frmGrid: TfrmGrid
               000000000000000000031213232D40437D935D61B5D07378DFFC7378DFFC5D61
               B5D040437D951212223000000004000000010000000000000000}
             TabOrder = 12
-            ExplicitLeft = 661
           end
           object cxButton1: TcxButton
             Left = 359
@@ -641,7 +742,6 @@ inherited frmGrid: TfrmGrid
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
-            ExplicitWidth = 296
           end
         end
       end
@@ -664,165 +764,13 @@ inherited frmGrid: TfrmGrid
       TabOrder = 1
     end
   end
-  object pnlBottom: TPanel [2]
-    Left = 0
-    Top = 330
-    Width = 900
-    Height = 70
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = 5177344
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -12
-    Font.Name = 'Segoe UI Light'
-    Font.Style = []
-    ParentBackground = False
-    ParentFont = False
-    TabOrder = 6
-    DesignSize = (
-      900
-      70)
-    object lblCampo: TcxLabel
-      Left = 18
-      Top = 13
-      Caption = 'Campo'
-      ParentFont = False
-      Style.BorderColor = clWhite
-      Style.Font.Charset = DEFAULT_CHARSET
-      Style.Font.Color = clWhite
-      Style.Font.Height = -12
-      Style.Font.Name = 'Segoe UI Light'
-      Style.Font.Style = []
-      Style.TextColor = clWhite
-      Style.IsFontAssigned = True
-      StyleDisabled.TextColor = clWhite
-      StyleHot.TextColor = clWhite
-      Properties.ShadowedColor = clWhite
-    end
-    object cbCampo: TcxComboBox
-      Left = 18
-      Top = 34
-      Properties.DropDownListStyle = lsFixedList
-      Properties.DropDownSizeable = True
-      TabOrder = 1
-      Width = 135
-    end
-    object lblInformacao: TcxLabel
-      Left = 280
-      Top = 13
-      Caption = 'Informa'#231#227'o'
-      ParentFont = False
-      Style.BorderColor = clWhite
-      Style.Font.Charset = DEFAULT_CHARSET
-      Style.Font.Color = clWhite
-      Style.Font.Height = -12
-      Style.Font.Name = 'Segoe UI Light'
-      Style.Font.Style = []
-      Style.TextColor = clWhite
-      Style.IsFontAssigned = True
-      StyleDisabled.TextColor = clWhite
-      StyleHot.TextColor = clWhite
-      Properties.ShadowedColor = clWhite
-    end
-    object edtInformacao: TcxTextEdit
-      Left = 280
-      Top = 34
-      Anchors = [akLeft, akTop, akRight]
-      TabOrder = 3
-      Width = 502
-    end
-    object btnBuscar: TcxButton
-      Left = 794
-      Top = 32
-      Width = 88
-      Height = 25
-      Anchors = [akTop, akRight]
-      OptionsImage.Glyph.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000023232394353535E01A1A1A7000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000001E1E1E813C3C3CFF3C3C3CFF353535E000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF2323239400000000000000000000
-        0000000000000000000000000000000000000000000000000000000000001E1E
-        1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
-        0000000000011616165C282828AB363636E6363636E6282828AB292929AE3C3C
-        3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
-        00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
-        3CFF3C3C3CFF1E1E1E7E00000000000000000000000000000000000000001616
-        165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F3C3C3CFF3C3C
-        3CFF292929AD0000000000000000000000000000000000000000000000002828
-        28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-        3CFF282828AB0000000000000000000000000000000000000000000000003636
-        36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-        3CFF363636E60000000000000000000000000000000000000000000000003636
-        36E63C3C3CFF0A0A0A2A000000000000000000000000000000000A0A0A2A3C3C
-        3CFF363636E60000000000000000000000000000000000000000000000002828
-        28AB3C3C3CFF1E1E1E7F000000000000000000000000000000001E1E1E7F3C3C
-        3CFF282828AB0000000000000000000000000000000000000000000000001616
-        165C3C3C3CFF363636E51E1E1E7F0A0A0A2A0A0A0A2A1E1E1E7F363636E53C3C
-        3CFF1616165C0000000000000000000000000000000000000000000000000000
-        00011E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
-        1E80000000010000000000000000000000000000000000000000000000000000
-        0000000000011616165C282828AB363636E6363636E6282828AB1616165C0000
-        0001000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000}
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 4
-    end
-    object cbSQL: TcxComboBox
-      Left = 18
-      Top = 34
-      TabOrder = 5
-      Visible = False
-      Width = 49
-    end
-    object lblOperacao: TcxLabel
-      Left = 159
-      Top = 13
-      Caption = 'Opera'#231#227'o'
-      ParentFont = False
-      Style.BorderColor = clWhite
-      Style.Font.Charset = DEFAULT_CHARSET
-      Style.Font.Color = clWhite
-      Style.Font.Height = -12
-      Style.Font.Name = 'Segoe UI Light'
-      Style.Font.Style = []
-      Style.TextColor = clWhite
-      Style.IsFontAssigned = True
-      StyleDisabled.TextColor = clWhite
-      StyleHot.TextColor = clWhite
-      Properties.ShadowedColor = clWhite
-    end
-    object cbOperacao: TcxComboBox
-      Left = 159
-      Top = 34
-      Properties.DropDownListStyle = lsFixedList
-      Properties.DropDownSizeable = True
-      TabOrder = 7
-      Width = 116
-    end
-    object dateInformacao: TcxDateEdit
-      Left = 280
-      Top = 34
-      TabOrder = 8
-      Width = 121
-    end
-  end
   inherited cxHintStyleController: TcxHintStyleController
-    Left = 390
-    Top = 9
+    Left = 214
+    Top = 78
   end
   inherited dxBarManager: TdxBarManager
-    Left = 488
-    Top = 8
+    Left = 368
+    Top = 80
     DockControlHeights = (
       0
       0
@@ -1084,12 +1032,12 @@ inherited frmGrid: TfrmGrid
   object dts: TDataSource
     AutoEdit = False
     OnDataChange = dtsDataChange
-    Left = 424
-    Top = 8
+    Left = 264
+    Top = 80
   end
   object ActionList: TActionList
-    Left = 456
-    Top = 8
+    Left = 304
+    Top = 80
     object acImprimir: TAction
       Caption = 'Imprimir'
       ImageIndex = 0
@@ -1100,6 +1048,11 @@ inherited frmGrid: TfrmGrid
       Caption = 'acAbaFiltro'
       ShortCut = 16454
       OnExecute = acAbaFiltroExecute
+    end
+    object acBuscar: TAction
+      Caption = 'acBuscar'
+      ShortCut = 117
+      OnExecute = acBuscarExecute
     end
   end
   object RadialMenuExportar: TdxRibbonRadialMenu
@@ -1215,12 +1168,12 @@ inherited frmGrid: TfrmGrid
     Font.Name = 'Segoe UI Light'
     Font.Style = []
     UseOwnFont = True
-    Left = 520
-    Top = 8
+    Left = 456
+    Top = 80
   end
   object SaveDialog: TSaveDialog
     Left = 550
-    Top = 7
+    Top = 82
   end
   object ServerMethod: TSqlServerMethod
     Params = <
@@ -1231,9 +1184,5 @@ inherited frmGrid: TfrmGrid
       end>
     Left = 582
     Top = 6
-  end
-  object dsFiltro: TDataSource
-    Left = 550
-    Top = 7
   end
 end
