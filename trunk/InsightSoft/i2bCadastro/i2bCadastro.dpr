@@ -50,7 +50,8 @@ uses
   unFrameProdutoUnidadeConversao in 'Frames\unFrameProdutoUnidadeConversao.pas' {FrameProdutoUnidadeConversao: TFrame},
   unCADProdutoUnidadeConversao in 'Forms\unCADProdutoUnidadeConversao.pas' {frmCADProdutoUnidadeConversao},
   unFrameProdutoUnidade in 'Frames\unFrameProdutoUnidade.pas' {FrameProdutoUnidade: TFrame},
-  unCADProdutoUnidade in 'Forms\unCADProdutoUnidade.pas' {frmCADProdutoUnidade};
+  unCADProdutoUnidade in 'Forms\unCADProdutoUnidade.pas' {frmCADProdutoUnidade},
+  unFrameProdutoTabelaPreco in 'Frames\unFrameProdutoTabelaPreco.pas' {FramePai1: TFrame};
 
 {$R *.res}
 

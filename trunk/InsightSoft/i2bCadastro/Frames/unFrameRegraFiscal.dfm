@@ -401,30 +401,30 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 1
-            Width = 89
+            Width = 126
           end
           object cxDBTextEdit3: TcxDBTextEdit
-            Left = 184
+            Left = 221
             Top = 33
             DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 2
-            Width = 89
+            Width = 73
           end
           object cxDBTextEdit4: TcxDBTextEdit
-            Left = 280
+            Left = 301
             Top = 33
             DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 3
-            Width = 89
+            Width = 117
           end
           object cxDBTextEdit1: TcxDBTextEdit
-            Left = 403
+            Left = 425
             Top = 33
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -433,16 +433,16 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 69
           end
           object cxDBTextEdit6: TcxDBTextEdit
-            Left = 479
+            Left = 501
             Top = 33
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 5
-            Width = 89
+            Width = 73
           end
           object cxDBTextEdit7: TcxDBTextEdit
-            Left = 184
+            Left = 168
             Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -451,16 +451,16 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 121
           end
           object cxDBTextEdit8: TcxDBTextEdit
-            Left = 312
+            Left = 296
             Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 13
-            Width = 121
+            Width = 73
           end
           object cxDBTextEdit10: TcxDBTextEdit
-            Left = 440
+            Left = 376
             Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -475,7 +475,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 6
-            Width = 121
+            Width = 125
           end
           object cxDBTextEdit14: TcxDBTextEdit
             Left = 145
@@ -484,25 +484,25 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 7
-            Width = 121
+            Width = 97
           end
           object cxDBTextEdit13: TcxDBTextEdit
-            Left = 273
+            Left = 249
             Top = 84
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 8
-            Width = 121
+            Width = 113
           end
           object cxDBTextEdit9: TcxDBTextEdit
-            Left = 401
+            Left = 369
             Top = 84
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 9
-            Width = 121
+            Width = 129
           end
           object cxDBTextEdit5: TcxDBTextEdit
             Left = 12
@@ -520,7 +520,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 11
-            Width = 89
+            Width = 73
           end
           object dxLayoutControl1Group_Root: TdxLayoutGroup
             AlignHorz = ahLeft
