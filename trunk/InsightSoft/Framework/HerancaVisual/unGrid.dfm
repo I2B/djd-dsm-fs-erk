@@ -423,19 +423,26 @@ inherited frmGrid: TfrmGrid
           TabOrder = 0
           Height = 173
           Width = 836
-          object cxGrid1: TcxGrid
+          object cxGridFiltro: TcxGrid
             Left = 3
             Top = 17
             Width = 302
             Height = 146
             Align = alLeft
             TabOrder = 0
-            object cxGrid1DBTableView1: TcxGridDBTableView
+            object grdFiltro: TcxGridTableView
+              OnDblClick = grdFiltroDblClick
               Navigator.Buttons.CustomButtons = <>
               DataController.Summary.DefaultGroupSummaryItems = <>
               DataController.Summary.FooterSummaryItems = <>
               DataController.Summary.SummaryGroups = <>
               FilterRow.InfoText = 'Clique aqui para definir um filtro'
+              OptionsCustomize.ColumnFiltering = False
+              OptionsCustomize.ColumnGrouping = False
+              OptionsCustomize.ColumnHidingOnGrouping = False
+              OptionsCustomize.ColumnHorzSizing = False
+              OptionsCustomize.ColumnMoving = False
+              OptionsCustomize.ColumnSorting = False
               OptionsData.CancelOnExit = False
               OptionsData.Deleting = False
               OptionsData.DeletingConfirmation = False
@@ -443,19 +450,126 @@ inherited frmGrid: TfrmGrid
               OptionsData.Inserting = False
               OptionsView.NoDataToDisplayInfoText = '<Sem dados para exibir>'
               OptionsView.GroupByBox = False
+              object grdFiltroRemover: TcxGridColumn
+                PropertiesClassName = 'TcxButtonEditProperties'
+                Properties.Buttons = <
+                  item
+                    Default = True
+                    Glyph.Data = {
+                      36040000424D3604000000000000360000002800000010000000100000000100
+                      2000000000000004000000000000000000000000000000000000000000000000
+                      00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                      2FC72121218D1010104600000000000000000000000000000000000000000000
+                      0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000808
+                      0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000002121
+                      218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000101010463939
+                      39F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF393939F3101010462121218D3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218D2F2F2FC73C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC7383838F03C3C
+                      3CFF3C3C3CFF3C3C3CFF00000000000000000000000000000000000000000000
+                      000000000000000000003C3C3CFF3C3C3CFF3C3C3CFF383838F0383838F03C3C
+                      3CFF3C3C3CFF3C3C3CFF00000000000000000000000000000000000000000000
+                      000000000000000000003C3C3CFF3C3C3CFF3C3C3CFF383838F02F2F2FC73C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC72121218D3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218D101010463939
+                      39F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF393939F310101046000000002121
+                      218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000000000000808
+                      0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000000000
+                      0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
+                      00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                      2FC72121218D1010104600000000000000000000000000000000}
+                    Hint = 'Remover Filtro Salvo'
+                    Kind = bkEllipsis
+                  end>
+                Properties.OnButtonClick = grdFiltroRemoverPropertiesButtonClick
+                FooterAlignmentHorz = taCenter
+                GroupSummaryAlignment = taCenter
+                HeaderAlignmentHorz = taCenter
+                HeaderGlyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000001111
+                  1148363636E73C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF363636E71111114800000000000000003636
+                  36E43C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF363636E400000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF2D2D2DBE3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF2D2D2DBE3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000001E1E1E7E3C3C3CFF3C3C3CFF1E1E
+                  1E7E000000001E1E1E7E3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF2D2D2DBF0000000000000000000000001E1E1E7E1E1E1E7E0000
+                  000000000000000000002D2D2DBF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF1E1E1E81000000000000000000000000000000000000
+                  0000000000001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E1E810000000000000000000000000000
+                  00001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000000000
+                  00001E1E1E7E3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000000000000000000000000000000000
+                  0000000000001E1E1E7E3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF2D2D2DBF0000000000000000000000001E1E1E811E1E1E810000
+                  000000000000000000002D2D2DBF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF1E1E1E81000000001E1E1E813C3C3CFF3C3C3CFF1E1E
+                  1E81000000001E1E1E813C3C3CFF3C3C3CFF3C3C3CFF00000000000000003C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF2D2D2DC13C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF2D2D2DC13C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF00000000000000003636
+                  36E73C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF363636E700000000000000000F0F
+                  0F3F2F2F2FC93C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC90F0F0F3F00000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000}
+                HeaderGlyphAlignmentHorz = taCenter
+                Width = 30
+              end
+              object grdFiltroID: TcxGridColumn
+                Caption = 'ID'
+                DataBinding.ValueType = 'Integer'
+                Visible = False
+                FooterAlignmentHorz = taCenter
+                GroupSummaryAlignment = taCenter
+                HeaderAlignmentHorz = taCenter
+                HeaderGlyphAlignmentHorz = taCenter
+              end
+              object grdFiltroDescricao: TcxGridColumn
+                Caption = 'Descri'#231#227'o'
+                FooterAlignmentHorz = taCenter
+                GroupSummaryAlignment = taCenter
+                HeaderAlignmentHorz = taCenter
+                HeaderGlyphAlignmentHorz = taCenter
+                Width = 239
+              end
+              object grdFiltroDisplay: TcxGridColumn
+                Visible = False
+              end
+              object grdFiltroSQL: TcxGridColumn
+                Visible = False
+              end
             end
-            object cxGrid1Level1: TcxGridLevel
-              GridView = cxGrid1DBTableView1
+            object cxLevelFiltro: TcxGridLevel
+              GridView = grdFiltro
             end
           end
-          object cxDBMemo1: TcxDBMemo
+          object cxMemoFiltroSalvo: TcxMemo
             Left = 305
             Top = 17
             Align = alClient
-            DataBinding.DataSource = dtsFiltroSalvo
             TabOrder = 1
-            ExplicitLeft = 408
-            ExplicitTop = 72
+            ExplicitLeft = 344
+            ExplicitTop = 56
             ExplicitWidth = 185
             ExplicitHeight = 89
             Height = 146
@@ -1223,10 +1337,5 @@ inherited frmGrid: TfrmGrid
       end>
     Left = 584
     Top = 8
-  end
-  object dtsFiltroSalvo: TDataSource
-    AutoEdit = False
-    Left = 438
-    Top = 313
   end
 end

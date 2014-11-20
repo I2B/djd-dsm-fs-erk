@@ -19,7 +19,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
   cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink,
   Data.FMTBcd, Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.Menus, cxButtons, cxDropDownEdit, cxMemo,
-  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel, Datasnap.DBClient, cxDBEdit;
+  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel, Datasnap.DBClient, cxDBEdit, cxButtonEdit;
 
 type
   TfrmGrid = class(TfrmBase)
@@ -77,11 +77,15 @@ type
     cbOperacao: TcxComboBox;
     dateInformacao: TcxDateEdit;
     acBuscar: TAction;
-    cxGrid1DBTableView1: TcxGridDBTableView;
-    cxGrid1Level1: TcxGridLevel;
-    cxGrid1: TcxGrid;
-    cxDBMemo1: TcxDBMemo;
-    dtsFiltroSalvo: TDataSource;
+    cxLevelFiltro: TcxGridLevel;
+    cxGridFiltro: TcxGrid;
+    grdFiltro: TcxGridTableView;
+    grdFiltroRemover: TcxGridColumn;
+    grdFiltroID: TcxGridColumn;
+    grdFiltroDescricao: TcxGridColumn;
+    cxMemoFiltroSalvo: TcxMemo;
+    grdFiltroDisplay: TcxGridColumn;
+    grdFiltroSQL: TcxGridColumn;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -98,6 +102,8 @@ type
     procedure cbSQLPropertiesChange(Sender: TObject);
     procedure cbCampoPropertiesChange(Sender: TObject);
     procedure acBuscarExecute(Sender: TObject);
+    procedure grdFiltroDblClick(Sender: TObject);
+    procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto;
@@ -461,6 +467,20 @@ begin
   cbCampo.ItemIndex := 0;
 
   cxPageControl.Properties.HideTabs := True;
+end;
+
+procedure TfrmGrid.grdFiltroDblClick(Sender: TObject);
+begin
+  if not(grdFiltroID.EditValue is null) then
+  begin
+    cxMemoFiltroSalvo.Lines.Clear;
+    cxMemoFiltroSalvo.Text := grdFiltroDisplay.EditValue;
+  end;
+end;
+
+procedure TfrmGrid.grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+begin
+  ShowMessage('Quando clicar nesse botão vai remover o Filtro Salvo');
 end;
 
 procedure TfrmGrid.imgExportarClick(Sender: TObject);
