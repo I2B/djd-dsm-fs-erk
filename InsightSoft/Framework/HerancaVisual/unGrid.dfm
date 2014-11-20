@@ -215,7 +215,7 @@ inherited frmGrid: TfrmGrid
       Height = 372
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabGrid
+      Properties.ActivePage = cxTabFiltro
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 370
       ClientRectLeft = 2
@@ -423,6 +423,44 @@ inherited frmGrid: TfrmGrid
           TabOrder = 0
           Height = 173
           Width = 836
+          object cxGrid1: TcxGrid
+            Left = 3
+            Top = 17
+            Width = 302
+            Height = 146
+            Align = alLeft
+            TabOrder = 0
+            object cxGrid1DBTableView1: TcxGridDBTableView
+              Navigator.Buttons.CustomButtons = <>
+              DataController.Summary.DefaultGroupSummaryItems = <>
+              DataController.Summary.FooterSummaryItems = <>
+              DataController.Summary.SummaryGroups = <>
+              FilterRow.InfoText = 'Clique aqui para definir um filtro'
+              OptionsData.CancelOnExit = False
+              OptionsData.Deleting = False
+              OptionsData.DeletingConfirmation = False
+              OptionsData.Editing = False
+              OptionsData.Inserting = False
+              OptionsView.NoDataToDisplayInfoText = '<Sem dados para exibir>'
+              OptionsView.GroupByBox = False
+            end
+            object cxGrid1Level1: TcxGridLevel
+              GridView = cxGrid1DBTableView1
+            end
+          end
+          object cxDBMemo1: TcxDBMemo
+            Left = 305
+            Top = 17
+            Align = alClient
+            DataBinding.DataSource = dtsFiltroSalvo
+            TabOrder = 1
+            ExplicitLeft = 408
+            ExplicitTop = 72
+            ExplicitWidth = 185
+            ExplicitHeight = 89
+            Height = 146
+            Width = 528
+          end
         end
         object gbDesenvolvimentoFiltro: TcxGroupBox
           Left = 0
@@ -766,12 +804,12 @@ inherited frmGrid: TfrmGrid
     end
   end
   inherited cxHintStyleController: TcxHintStyleController
-    Left = 214
-    Top = 78
+    Left = 336
+    Top = 8
   end
   inherited dxBarManager: TdxBarManager
-    Left = 368
-    Top = 80
+    Left = 400
+    Top = 8
     DockControlHeights = (
       0
       0
@@ -1033,12 +1071,12 @@ inherited frmGrid: TfrmGrid
   object dts: TDataSource
     AutoEdit = False
     OnDataChange = dtsDataChange
-    Left = 264
-    Top = 80
+    Left = 552
+    Top = 8
   end
   object ActionList: TActionList
-    Left = 304
-    Top = 80
+    Left = 368
+    Top = 8
     object acImprimir: TAction
       Caption = 'Imprimir'
       ImageIndex = 0
@@ -1169,12 +1207,12 @@ inherited frmGrid: TfrmGrid
     Font.Name = 'Segoe UI Light'
     Font.Style = []
     UseOwnFont = True
-    Left = 456
-    Top = 80
+    Left = 432
+    Top = 8
   end
   object SaveDialog: TSaveDialog
-    Left = 550
-    Top = 82
+    Left = 464
+    Top = 8
   end
   object ServerMethod: TSqlServerMethod
     Params = <
@@ -1183,7 +1221,12 @@ inherited frmGrid: TfrmGrid
         Name = 'filtro'
         ParamType = ptInput
       end>
-    Left = 582
-    Top = 6
+    Left = 584
+    Top = 8
+  end
+  object dtsFiltroSalvo: TDataSource
+    AutoEdit = False
+    Left = 438
+    Top = 313
   end
 end
