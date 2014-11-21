@@ -21,7 +21,7 @@ uses
   Datasnap.DBClient, cxTextEdit, cxDBEdit, cxMaskEdit, cxDropDownEdit, cxLabel, Vcl.Menus, cxButtons, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider, Data.FMTBcd,
-  Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, cxCalendar, cxGroupBox, cxListBox, cxRadioGroup, cxMemo;
+  Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, cxCalendar, cxGroupBox, cxListBox, cxRadioGroup, cxMemo, cxButtonEdit;
 
 type
   TfrmCadastro = class(TfrmGrid)
