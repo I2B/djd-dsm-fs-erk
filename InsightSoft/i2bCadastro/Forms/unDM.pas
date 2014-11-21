@@ -3,10 +3,8 @@ unit unDM;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DBXDataSnap,
-  IPPeerClient, Data.DBXCommon, Datasnap.DBClient, Datasnap.DSConnect, Data.DB,
-  Data.SqlExpr, Data.FMTBcd;
-  //ClientClassesUnit1
+  System.SysUtils, System.Classes, Data.DBXDataSnap, IPPeerClient, Data.DBXCommon, Datasnap.DBClient,
+  Datasnap.DSConnect, Data.DB, Data.SqlExpr, Data.FMTBcd;
 
 type
   TDM = class(TDataModule)

@@ -18,7 +18,7 @@ uses
   Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, unFramePai, unFrameSerie,
   Vcl.Menus, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd, Data.SqlExpr, cxDropDownEdit, cxCalendar, cxButtons,
-  cxTextEdit, cxMaskEdit, cxLabel;
+  cxTextEdit, cxMaskEdit, cxLabel, cxButtonEdit, cxGroupBox, cxRadioGroup, cxMemo;
 
 type
   TfrmSerie = class(TfrmCadastro)

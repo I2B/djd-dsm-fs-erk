@@ -215,20 +215,20 @@ inherited frmGrid: TfrmGrid
       Height = 372
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabFiltro
+      Properties.ActivePage = cxTabGrid
       Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 370
-      ClientRectLeft = 2
-      ClientRectRight = 838
-      ClientRectTop = 30
+      ClientRectBottom = 368
+      ClientRectLeft = 4
+      ClientRectRight = 836
+      ClientRectTop = 26
       object cxTabGrid: TcxTabSheet
         Caption = 'cxTabGrid'
         ImageIndex = 0
         object cxGrid: TcxGrid
           Left = 0
           Top = 0
-          Width = 836
-          Height = 270
+          Width = 832
+          Height = 272
           Align = alClient
           TabOrder = 0
           object cxGridDB: TcxGridDBTableView
@@ -253,8 +253,8 @@ inherited frmGrid: TfrmGrid
         end
         object pnlBottom: TPanel
           Left = 0
-          Top = 270
-          Width = 836
+          Top = 272
+          Width = 832
           Height = 70
           Align = alBottom
           BevelOuter = bvNone
@@ -268,7 +268,7 @@ inherited frmGrid: TfrmGrid
           ParentFont = False
           TabOrder = 1
           DesignSize = (
-            836
+            832
             70)
           object lblCampo: TcxLabel
             Left = 18
@@ -319,10 +319,10 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             TabOrder = 3
             OnKeyPress = edtInformacaoKeyPress
-            Width = 440
+            Width = 436
           end
           object btnBuscar: TcxButton
-            Left = 732
+            Left = 728
             Top = 32
             Width = 88
             Height = 25
@@ -421,13 +421,15 @@ inherited frmGrid: TfrmGrid
           Align = alClient
           Caption = 'Filtros Salvos'
           TabOrder = 0
-          Height = 173
-          Width = 836
+          ExplicitWidth = 836
+          ExplicitHeight = 173
+          Height = 175
+          Width = 832
           object cxGridFiltro: TcxGrid
-            Left = 3
-            Top = 17
+            Left = 2
+            Top = 20
             Width = 302
-            Height = 146
+            Height = 153
             Align = alLeft
             TabOrder = 0
             object grdFiltro: TcxGridTableView
@@ -448,7 +450,7 @@ inherited frmGrid: TfrmGrid
               OptionsData.DeletingConfirmation = False
               OptionsData.Editing = False
               OptionsData.Inserting = False
-              OptionsView.NoDataToDisplayInfoText = '<Sem dados para exibir>'
+              OptionsView.NoDataToDisplayInfoText = '<Nenhum filtro salvo>'
               OptionsView.GroupByBox = False
               object grdFiltroRemover: TcxGridColumn
                 PropertiesClassName = 'TcxButtonEditProperties'
@@ -564,16 +566,12 @@ inherited frmGrid: TfrmGrid
             end
           end
           object cxMemoFiltroSalvo: TcxMemo
-            Left = 305
-            Top = 17
+            Left = 304
+            Top = 20
             Align = alClient
             TabOrder = 1
-            ExplicitLeft = 344
-            ExplicitTop = 56
-            ExplicitWidth = 185
-            ExplicitHeight = 89
-            Height = 146
-            Width = 528
+            Height = 153
+            Width = 526
           end
         end
         object gbDesenvolvimentoFiltro: TcxGroupBox
@@ -582,11 +580,12 @@ inherited frmGrid: TfrmGrid
           Align = alTop
           Caption = 'Desenvolvimento do Filtro'
           TabOrder = 1
+          ExplicitWidth = 836
           DesignSize = (
-            836
-            160)
+            832
+            167)
           Height = 167
-          Width = 836
+          Width = 832
           object lblFIltroCampo: TcxLabel
             Left = 7
             Top = 15
@@ -608,10 +607,10 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             TabOrder = 3
             TextHint = 'Informe a condi'#231#227'o a ser filtrada'
-            Width = 266
+            Width = 262
           end
           object rgFiltroAndOr: TcxRadioGroup
-            Left = 547
+            Left = 543
             Top = 15
             Anchors = [akTop, akRight]
             Caption = 'Rela'#231#227'o'
@@ -643,19 +642,20 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             Caption = 'Filtro Desenvolvido'
             TabOrder = 6
+            ExplicitWidth = 828
             Height = 64
-            Width = 828
+            Width = 824
             object memoFiltroDesenvolvido: TcxMemo
-              Left = 3
-              Top = 17
+              Left = 2
+              Top = 20
               Align = alClient
               Style.BorderColor = clWindow
               Style.BorderStyle = ebsNone
               StyleFocused.BorderStyle = ebsNone
               StyleHot.BorderStyle = ebsNone
               TabOrder = 0
-              Height = 37
-              Width = 822
+              Height = 42
+              Width = 820
             end
           end
           object cbFiltroCampo: TcxComboBox
@@ -673,7 +673,7 @@ inherited frmGrid: TfrmGrid
             Width = 114
           end
           object btnAdicionarFiltro: TcxButton
-            Left = 642
+            Left = 638
             Top = 30
             Width = 193
             Height = 29
@@ -803,7 +803,7 @@ inherited frmGrid: TfrmGrid
             TabOrder = 11
           end
           object btnFiltroCancelar: TcxButton
-            Left = 665
+            Left = 661
             Top = 132
             Width = 170
             Height = 25
@@ -849,7 +849,7 @@ inherited frmGrid: TfrmGrid
           object cxButton1: TcxButton
             Left = 359
             Top = 132
-            Width = 300
+            Width = 296
             Height = 25
             Anchors = [akLeft, akTop, akRight]
             Caption = 'Aplicar Filtro'

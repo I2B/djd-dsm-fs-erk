@@ -41,14 +41,14 @@ inherited frmSerie: TfrmSerie
     ExplicitHeight = 439
     inherited cxPageControl: TcxPageControl
       Width = 832
-      Height = 341
+      Height = 411
       ExplicitWidth = 832
-      ExplicitHeight = 341
-      ClientRectBottom = 339
+      ExplicitHeight = 411
+      ClientRectBottom = 409
       ClientRectRight = 830
       inherited cxTabGrid: TcxTabSheet
         ExplicitWidth = 828
-        ExplicitHeight = 309
+        ExplicitHeight = 379
         inherited cxGrid: TcxGrid
           Width = 828
           Height = 309
@@ -67,21 +67,34 @@ inherited frmSerie: TfrmSerie
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 309
+          Width = 828
+          ExplicitTop = 309
+          ExplicitWidth = 828
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
         ExplicitWidth = 828
-        ExplicitHeight = 309
+        ExplicitHeight = 379
         inherited pnlCadastro: TPanel
-          Height = 309
-          ExplicitHeight = 309
+          Height = 379
+          ExplicitHeight = 379
         end
         inline FrameSerie: TFrameSerie
           Left = 60
           Top = 0
           Width = 768
-          Height = 309
+          Height = 379
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -95,10 +108,10 @@ inherited frmSerie: TfrmSerie
           TabOrder = 1
           ExplicitLeft = 60
           ExplicitWidth = 768
-          ExplicitHeight = 309
+          ExplicitHeight = 379
           inherited dxLayoutControl: TdxLayoutControl
             Width = 768
-            Height = 309
+            Height = 379
             ExplicitWidth = 768
             ExplicitHeight = 309
             inherited cxDBTextEdit1: TcxDBTextEdit
@@ -131,6 +144,29 @@ inherited frmSerie: TfrmSerie
           end
         end
       end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 828
+        ExplicitHeight = 379
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 828
+          ExplicitHeight = 212
+          Height = 212
+          Width = 828
+          inherited cxGridFiltro: TcxGrid
+            Height = 185
+          end
+          inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 520
+            ExplicitHeight = 185
+            Height = 185
+            Width = 520
+          end
+        end
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 828
+          Width = 828
+        end
+      end
     end
     inherited pnlTop: TPanel
       Width = 832
@@ -144,21 +180,6 @@ inherited frmSerie: TfrmSerie
         Width = 89
         Caption = 'FrameSerie'
         ExplicitWidth = 89
-      end
-    end
-    inherited pnlBottom: TPanel
-      Top = 369
-      Width = 832
-      ExplicitTop = 369
-      ExplicitWidth = 832
-      inherited lblCampo: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited lblInformacao: TcxLabel
-        Style.IsFontAssigned = True
-      end
-      inherited lblOperacao: TcxLabel
-        Style.IsFontAssigned = True
       end
     end
   end

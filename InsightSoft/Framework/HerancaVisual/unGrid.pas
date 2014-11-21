@@ -106,10 +106,10 @@ type
     procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
   private
     { Private declarations }
-    procedure ajustaCbOperacaoParaTexto;
-    procedure ajustaCbOperacaoParaValor;
-    procedure ajustaCbOperacaoParaData;
-    procedure ajustaCbOperacaoParaBoleano;
+    procedure ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
+    procedure ajustaCbOperacaoParaValor(Combo: TcxComboBox);
+    procedure ajustaCbOperacaoParaData(Combo: TcxComboBox);
+    procedure ajustaCbOperacaoParaBoleano(Combo: TcxComboBox);
   public
     { Public declarations }
   end;
@@ -122,62 +122,54 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmGrid.ajustaCbOperacaoParaBoleano;
+procedure TfrmGrid.ajustaCbOperacaoParaBoleano(Combo: TcxComboBox);
 begin
-  cbOperacao.Properties.Items.Clear;
-  cbOperacao.Properties.Items.Add('Verdadeiro');
-  cbOperacao.Properties.Items.Add('Falso');
-  cbOperacao.ItemIndex := 0;
-  edtInformacao.Visible := False;
-  dateInformacao.Visible := False;
+  Combo.Properties.Items.Clear;
+  Combo.Properties.Items.Add('Verdadeiro');
+  Combo.Properties.Items.Add('Falso');
+  Combo.ItemIndex := 0;
 end;
 
-procedure TfrmGrid.ajustaCbOperacaoParaData;
+procedure TfrmGrid.ajustaCbOperacaoParaData(Combo: TcxComboBox);
 begin
-  cbOperacao.Properties.Items.Clear;
-  cbOperacao.Properties.Items.Add('Menor que');
-  cbOperacao.Properties.Items.Add('Menor e Igual a');
-  cbOperacao.Properties.Items.Add('Igual a');
-  cbOperacao.Properties.Items.Add('Diferente de');
-  cbOperacao.Properties.Items.Add('Maior e Igual a');
-  cbOperacao.Properties.Items.Add('Maior que');
-  cbOperacao.Properties.Items.Add('Mês Anterior');
-  cbOperacao.Properties.Items.Add('Mês Atual');
-  cbOperacao.Properties.Items.Add('Mês Seguinte');
-  cbOperacao.Properties.Items.Add('Ano Anterior');
-  cbOperacao.Properties.Items.Add('Ano Atual');
-  cbOperacao.Properties.Items.Add('Ano Seguinte');
-  cbOperacao.ItemIndex := 2;
-  edtInformacao.Visible := False;
-  dateInformacao.Visible := True;
+  Combo.Properties.Items.Clear;
+  Combo.Properties.Items.Add('Menor que');
+  Combo.Properties.Items.Add('Menor e Igual a');
+  Combo.Properties.Items.Add('Igual a');
+  Combo.Properties.Items.Add('Diferente de');
+  Combo.Properties.Items.Add('Maior e Igual a');
+  Combo.Properties.Items.Add('Maior que');
+  Combo.Properties.Items.Add('Mês Anterior');
+  Combo.Properties.Items.Add('Mês Atual');
+  Combo.Properties.Items.Add('Mês Seguinte');
+  Combo.Properties.Items.Add('Ano Anterior');
+  Combo.Properties.Items.Add('Ano Atual');
+  Combo.Properties.Items.Add('Ano Seguinte');
+  Combo.ItemIndex := 2;
 end;
 
-procedure TfrmGrid.ajustaCbOperacaoParaTexto;
+procedure TfrmGrid.ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
 begin
-  cbOperacao.Properties.Items.Clear;
-  cbOperacao.Properties.Items.Add('Igual a');
-  cbOperacao.Properties.Items.Add('Diferente de');
-  cbOperacao.Properties.Items.Add('Contém');
-  cbOperacao.Properties.Items.Add('Não Contém');
-  cbOperacao.Properties.Items.Add('Começa com');
-  cbOperacao.Properties.Items.Add('Em Branco');
-  cbOperacao.ItemIndex := 0;
-  edtInformacao.Visible := True;
-  dateInformacao.Visible := False;
+  Combo.Properties.Items.Clear;
+  Combo.Properties.Items.Add('Igual a');
+  Combo.Properties.Items.Add('Diferente de');
+  Combo.Properties.Items.Add('Contém');
+  Combo.Properties.Items.Add('Não Contém');
+  Combo.Properties.Items.Add('Começa com');
+  Combo.Properties.Items.Add('Em Branco');
+  Combo.ItemIndex := 0;
 end;
 
-procedure TfrmGrid.ajustaCbOperacaoParaValor;
+procedure TfrmGrid.ajustaCbOperacaoParaValor(Combo: TcxComboBox);
 begin
-  cbOperacao.Properties.Items.Clear;
-  cbOperacao.Properties.Items.Add('Menor que');
-  cbOperacao.Properties.Items.Add('Menor e Igual a');
-  cbOperacao.Properties.Items.Add('Igual a');
-  cbOperacao.Properties.Items.Add('Diferente de');
-  cbOperacao.Properties.Items.Add('Maior e Igual a');
-  cbOperacao.Properties.Items.Add('Maior que');
-  cbOperacao.ItemIndex := 2;
-  edtInformacao.Visible := True;
-  dateInformacao.Visible := False;
+  Combo.Properties.Items.Clear;
+  Combo.Properties.Items.Add('Menor que');
+  Combo.Properties.Items.Add('Menor e Igual a');
+  Combo.Properties.Items.Add('Igual a');
+  Combo.Properties.Items.Add('Diferente de');
+  Combo.Properties.Items.Add('Maior e Igual a');
+  Combo.Properties.Items.Add('Maior que');
+  Combo.ItemIndex := 2;
 end;
 
 procedure TfrmGrid.acBuscarExecute(Sender: TObject);
@@ -383,25 +375,120 @@ begin
 
   TipoDoCampo := (dts.DataSet as TClientDataSet).FieldByName(cbSQL.Text).DataType;
   case TipoDoCampo of
-    ftString:        ajustaCbOperacaoParaTexto;
-    ftSmallint:      ajustaCbOperacaoParaValor;
-    ftInteger:       ajustaCbOperacaoParaValor;
-    ftWord:          ajustaCbOperacaoParaTexto;
-    ftBoolean:       ajustaCbOperacaoParaBoleano;
-    ftFloat:         ajustaCbOperacaoParaValor;
-    ftCurrency:      ajustaCbOperacaoParaValor;
-    ftBCD:           ajustaCbOperacaoParaValor;
-    ftDate:          ajustaCbOperacaoParaData;
-    ftDateTime:      ajustaCbOperacaoParaData;
-    ftFixedChar:     ajustaCbOperacaoParaTexto;
-    ftWideString:    ajustaCbOperacaoParaTexto;
-    ftLargeint:      ajustaCbOperacaoParaValor;
-    ftFMTBcd:        ajustaCbOperacaoParaValor;
-    ftFixedWideChar: ajustaCbOperacaoParaTexto;
-    ftLongWord:      ajustaCbOperacaoParaTexto;
-    ftShortint:      ajustaCbOperacaoParaValor;
-    ftExtended:      ajustaCbOperacaoParaTexto;
-    ftSingle:        ajustaCbOperacaoParaValor;
+    ftString:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftSmallint:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftInteger:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftWord:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftBoolean:
+      begin
+        ajustaCbOperacaoParaBoleano(cbOperacao);
+        edtInformacao.Visible := False;
+        dateInformacao.Visible := False;
+      end;
+    ftFloat:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftCurrency:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftBCD:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftDate:
+      begin
+        ajustaCbOperacaoParaData(cbOperacao);
+        edtInformacao.Visible := False;
+        dateInformacao.Visible := True;
+      end;
+    ftDateTime:
+      begin
+        ajustaCbOperacaoParaData(cbOperacao);
+        edtInformacao.Visible := False;
+        dateInformacao.Visible := True;
+      end;
+    ftFixedChar:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftWideString:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftLargeint:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftFMTBcd:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftFixedWideChar:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftLongWord:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftShortint:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftExtended:
+      begin
+        ajustaCbOperacaoParaTexto(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
+    ftSingle:
+      begin
+        ajustaCbOperacaoParaValor(cbOperacao);
+        edtInformacao.Visible := True;
+        dateInformacao.Visible := False;
+      end;
     else
     begin
       raise Exception.Create('Funcionalidade não implementada para o tipo do campo selecionado! Entre em contato com o '+
@@ -471,7 +558,7 @@ end;
 
 procedure TfrmGrid.grdFiltroDblClick(Sender: TObject);
 begin
-  if not(grdFiltroID.EditValue is null) then
+  if grdFiltroID.EditValue <> '' then
   begin
     cxMemoFiltroSalvo.Lines.Clear;
     cxMemoFiltroSalvo.Text := grdFiltroDisplay.EditValue;
@@ -480,7 +567,10 @@ end;
 
 procedure TfrmGrid.grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
-  ShowMessage('Quando clicar nesse botão vai remover o Filtro Salvo');
+  if Application.MessageBox('Remover o filtro selecionado?','Remover',MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
+  begin
+    ShowMessage('Quando clicar nesse botão vai remover o Filtro Salvo');
+  end;
 end;
 
 procedure TfrmGrid.imgExportarClick(Sender: TObject);
