@@ -1,45 +1,48 @@
-inherited FrameProdutoabelaPreco: TFrameProdutoabelaPreco
-  Width = 612
-  ExplicitWidth = 612
+inherited FrameEstado: TFrameEstado
   inherited dxLayoutControl: TdxLayoutControl
-    Width = 612
-    ExplicitWidth = 612
-    object edtIDProduto: TcxDBTextEdit [0]
-      Left = 12
-      Top = 84
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 1
-      Width = 85
-    end
-    object edtTabelaNome: TcxDBTextEdit [1]
+    object edtUF: TcxDBTextEdit [0]
       Left = 12
       Top = 33
+      DataBinding.DataField = 'idestado'
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Width = 121
+      Width = 70
     end
-    object edtPreco: TcxDBTextEdit [2]
-      Left = 456
+    object edtEstado: TcxDBTextEdit [1]
+      Left = 12
       Top = 84
+      DataBinding.DataField = 'nome'
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 3
       Width = 121
     end
-    object edtProdutoNome: TcxTextEdit [3]
-      Left = 104
-      Top = 84
+    object edtCodigoIBGE: TcxDBTextEdit [2]
+      Left = 89
+      Top = 33
+      DataBinding.DataField = 'codigoibge'
+      DataBinding.DataSource = DataSource
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 1
+      Width = 153
+    end
+    object edtPais: TcxDBTextEdit [3]
+      Left = 249
+      Top = 33
+      DataBinding.DataField = 'idpais'
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
-      Text = 'edtProdutoNome'
-      Width = 345
+      Width = 70
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
@@ -47,44 +50,44 @@ inherited FrameProdutoabelaPreco: TFrameProdutoabelaPreco
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup1
       AlignHorz = ahClient
-      CaptionOptions.Text = 'Produto'
+      CaptionOptions.Text = 'UF'
       CaptionOptions.Layout = clTop
-      Control = edtIDProduto
+      Control = edtUF
       ControlOptions.ShowBorder = False
       Index = 0
     end
     object dxLayoutControlItem2: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
-      CaptionOptions.Text = 'Nome da Tabela'
+      CaptionOptions.Text = 'Estado'
       CaptionOptions.Layout = clTop
-      Control = edtTabelaNome
+      Control = edtEstado
       ControlOptions.ShowBorder = False
-      Index = 0
+      Index = 1
     end
     object dxLayoutControlItem3: TdxLayoutItem
       Parent = dxLayoutControlGroup1
-      CaptionOptions.Text = 'Pre'#231'o'
+      CaptionOptions.Text = 'C'#243'digo IBGE'
       CaptionOptions.Layout = clTop
-      Control = edtPreco
+      Control = edtCodigoIBGE
       ControlOptions.ShowBorder = False
-      Index = 2
+      Index = 1
     end
     object dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
       Parent = dxLayoutControlGroup_Root
       LayoutDirection = ldHorizontal
-      Index = 1
+      Index = 0
       AutoCreated = True
     end
     object dxLayoutControlItem4: TdxLayoutItem
       Parent = dxLayoutControlGroup1
-      AlignVert = avBottom
+      CaptionOptions.Text = 'ID Pa'#237's'
       CaptionOptions.Layout = clTop
-      Control = edtProdutoNome
+      Control = edtPais
       ControlOptions.ShowBorder = False
-      Index = 1
+      Index = 2
     end
   end
   inherited DataSource: TDataSource
-    DataSet = DM.cdsProdutoTabelaPreco
+    DataSet = DM.cdsEstado
   end
 end

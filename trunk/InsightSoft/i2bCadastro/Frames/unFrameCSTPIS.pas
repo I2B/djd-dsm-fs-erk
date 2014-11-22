@@ -9,7 +9,7 @@ uses
   cxContainer, cxEdit, dxLayoutcxEditAdapters, dxLayoutContainer, cxTextEdit, cxDBEdit, Data.DB, dxLayoutControl;
 
 type
-  TFramePIS = class(TFramePai)
+  TFrameCSTPIS = class(TFramePai)
     edtDescricao: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
   private
@@ -19,7 +19,7 @@ type
   end;
 
 var
-  FramePIS: TFramePIS;
+  FrameCSTPIS: TFrameCSTPIS;
 
 implementation
 

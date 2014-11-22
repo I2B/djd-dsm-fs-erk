@@ -1,4 +1,4 @@
-inherited FrameCSTPIS: TFrameCSTPIS
+inherited FrameCSTICMS: TFrameCSTICMS
   inherited dxLayoutControl: TdxLayoutControl
     object edtDescricao: TcxDBTextEdit [0]
       Left = 12
@@ -9,7 +9,19 @@ inherited FrameCSTPIS: TFrameCSTPIS
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Width = 301
+      Width = 121
+    end
+    object memObservacao: TcxDBMemo [1]
+      Left = 12
+      Top = 84
+      DataBinding.DataField = 'observacao'
+      DataBinding.DataSource = DataSource
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 1
+      Height = 89
+      Width = 405
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
@@ -22,8 +34,16 @@ inherited FrameCSTPIS: TFrameCSTPIS
       ControlOptions.ShowBorder = False
       Index = 0
     end
+    object dxLayoutControlItem2: TdxLayoutItem
+      Parent = dxLayoutControlGroup_Root
+      CaptionOptions.Text = 'Observa'#231#227'o'
+      CaptionOptions.Layout = clTop
+      Control = memObservacao
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
   end
   inherited DataSource: TDataSource
-    DataSet = DM.cdsCSTPIS
+    DataSet = DM.cdsCSTICMS
   end
 end

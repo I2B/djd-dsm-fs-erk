@@ -225,7 +225,7 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="Frames\unFrameCSTPIS.pas">
-            <Form>FramePIS</Form>
+            <Form>FrameCSTPIS</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
@@ -298,10 +298,56 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Frames\unFrameProdutoTabelaPreco.pas">
-            <Form>FramePai1</Form>
+            <Form>FrameProdutoabelaPreco</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="Frames\UnFrameCSTCSOSN.pas">
+            <Form>FrameCSTCSOSN</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\UnCADCSTCSOSN.pas">
+            <Form>frmCADCSTCSOSN</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameCSTICMS.pas">
+            <Form>FrameCSTICMS</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADCSTICMS.pas">
+            <Form>frmCADCSTICMS</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameEstado.pas">
+            <Form>FrameEstado</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADEstado.pas">
+            <Form>frmCADEstado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameEstoqueCor.pas">
+            <Form>FrameEstoqueCor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADEstoqueCor.pas">
+            <Form>frmCADEstoqueCor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameEstoqueTamanho.pas">
+            <Form>FrameEstoqueTamanho</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADEstoqueTamanho.pas">
+            <Form>frmCADEstoqueTamanho</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -331,6 +377,12 @@
                 <DeployFile LocalName="Win32\Debug\i2bCadastro.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>i2bCadastro.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_i2bCadastro\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -668,6 +720,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>True</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
