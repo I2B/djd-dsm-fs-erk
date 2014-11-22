@@ -172,6 +172,7 @@ begin
   Combo.ItemIndex := 2;
 end;
 
+
 procedure TfrmGrid.acBuscarExecute(Sender: TObject);
 var
   filtro: String;
