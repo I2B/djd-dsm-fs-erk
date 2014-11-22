@@ -326,8 +326,8 @@ inherited frmGrid: TfrmGrid
             Top = 32
             Width = 88
             Height = 25
+            Action = acBuscar
             Anchors = [akTop, akRight]
-            Caption = 'Buscar'
             OptionsImage.Glyph.Data = {
               36040000424D3604000000000000360000002800000010000000100000000100
               2000000000000004000000000000000000000000000000000000000000000000
@@ -841,6 +841,7 @@ inherited frmGrid: TfrmGrid
               000000000000000000031213232D40437D935D61B5D07378DFFC7378DFFC5D61
               B5D040437D951212223000000004000000010000000000000000}
             TabOrder = 12
+            OnClick = btnFiltroCancelarClick
           end
           object cxButton1: TcxButton
             Left = 359
@@ -1200,7 +1201,7 @@ inherited frmGrid: TfrmGrid
       OnExecute = acAbaFiltroExecute
     end
     object acBuscar: TAction
-      Caption = 'acBuscar'
+      Caption = 'Buscar'
       ShortCut = 117
       OnExecute = acBuscarExecute
     end

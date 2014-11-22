@@ -282,23 +282,16 @@ inherited frmCadastro: TfrmCadastro
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            Properties.OnChange = nil
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            OnKeyPress = nil
             ExplicitWidth = 442
             Width = 442
           end
           inherited btnBuscar: TcxButton
             Left = 734
             ExplicitLeft = 734
-          end
-          inherited cbSQL: TcxComboBox
-            Properties.OnChange = nil
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
@@ -837,6 +830,7 @@ inherited frmCadastro: TfrmCadastro
     end
     inherited pnlTop: TPanel
       Width = 842
+      ExplicitLeft = 0
       ExplicitWidth = 842
       object lblPrimeiroEdit: TLabel
         Left = -1
