@@ -799,11 +799,15 @@ inherited frmCadastro: TfrmCadastro
           Width = 838
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 268
+            ExplicitHeight = 21
             Width = 268
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 549
             ExplicitLeft = 549
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 21
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitWidth = 830
@@ -813,6 +817,12 @@ inherited frmCadastro: TfrmCadastro
               Width = 824
             end
           end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 21
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 21
+          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 644
             ExplicitLeft = 644
@@ -821,9 +831,12 @@ inherited frmCadastro: TfrmCadastro
             Left = 667
             ExplicitLeft = 667
           end
-          inherited cxButton1: TcxButton
+          inherited btnAplicarFiltro: TcxButton
             Width = 302
             ExplicitWidth = 302
+          end
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 21
           end
         end
       end

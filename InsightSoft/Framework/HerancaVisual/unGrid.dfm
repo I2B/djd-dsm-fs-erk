@@ -2,7 +2,6 @@ inherited frmGrid: TfrmGrid
   Caption = 'frmGrid'
   ClientHeight = 400
   ClientWidth = 900
-  Color = clWindow
   Font.Height = -12
   Font.Name = 'Segoe UI Light'
   FormStyle = fsMDIChild
@@ -215,7 +214,7 @@ inherited frmGrid: TfrmGrid
       Height = 372
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabGrid
+      Properties.ActivePage = cxTabFiltro
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 370
       ClientRectLeft = 2
@@ -426,7 +425,7 @@ inherited frmGrid: TfrmGrid
           object cxGridFiltro: TcxGrid
             Left = 3
             Top = 17
-            Width = 302
+            Width = 382
             Height = 146
             Align = alLeft
             TabOrder = 0
@@ -446,12 +445,14 @@ inherited frmGrid: TfrmGrid
               OptionsData.CancelOnExit = False
               OptionsData.Deleting = False
               OptionsData.DeletingConfirmation = False
-              OptionsData.Editing = False
               OptionsData.Inserting = False
+              OptionsSelection.InvertSelect = False
               OptionsView.NoDataToDisplayInfoText = '<Nenhum filtro salvo>'
+              OptionsView.ShowEditButtons = gsebAlways
               OptionsView.GroupByBox = False
               object grdFiltroRemover: TcxGridColumn
                 PropertiesClassName = 'TcxButtonEditProperties'
+                Properties.Alignment.Horz = taCenter
                 Properties.Buttons = <
                   item
                     Default = True
@@ -490,9 +491,9 @@ inherited frmGrid: TfrmGrid
                       3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
                       00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
                       2FC72121218D1010104600000000000000000000000000000000}
-                    Hint = 'Remover Filtro Salvo'
-                    Kind = bkEllipsis
+                    Kind = bkGlyph
                   end>
+                Properties.ViewStyle = vsButtonsOnly
                 Properties.OnButtonClick = grdFiltroRemoverPropertiesButtonClick
                 FooterAlignmentHorz = taCenter
                 GroupSummaryAlignment = taCenter
@@ -533,6 +534,8 @@ inherited frmGrid: TfrmGrid
                   0000000000000000000000000000000000000000000000000000000000000000
                   0000000000000000000000000000000000000000000000000000}
                 HeaderGlyphAlignmentHorz = taCenter
+                Options.ShowEditButtons = isebAlways
+                Options.Sorting = False
                 Width = 30
               end
               object grdFiltroID: TcxGridColumn
@@ -550,7 +553,19 @@ inherited frmGrid: TfrmGrid
                 GroupSummaryAlignment = taCenter
                 HeaderAlignmentHorz = taCenter
                 HeaderGlyphAlignmentHorz = taCenter
-                Width = 239
+                MinWidth = 280
+                Options.Editing = False
+                Options.Filtering = False
+                Options.FilteringAddValueItems = False
+                Options.FilteringFilteredItemsList = False
+                Options.FilteringMRUItemsList = False
+                Options.FilteringPopup = False
+                Options.FilteringPopupMultiSelect = False
+                Options.GroupFooters = False
+                Options.Grouping = False
+                Options.HorzSizing = False
+                Options.Moving = False
+                Width = 280
               end
               object grdFiltroDisplay: TcxGridColumn
                 Visible = False
@@ -558,18 +573,106 @@ inherited frmGrid: TfrmGrid
               object grdFiltroSQL: TcxGridColumn
                 Visible = False
               end
+              object grdFiltroCarregar: TcxGridColumn
+                PropertiesClassName = 'TcxButtonEditProperties'
+                Properties.Alignment.Horz = taCenter
+                Properties.Buttons = <
+                  item
+                    Default = True
+                    Glyph.Data = {
+                      36040000424D3604000000000000360000002800000010000000100000000100
+                      2000000000000004000000000000000000000000000000000000000000000000
+                      00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                      2FC72121218D1010104600000000000000000000000000000000000000000000
+                      0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000808
+                      0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000002121
+                      218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000101010463939
+                      39F33C3C3CFF3C3C3CFF3C3C3CFF1E1E1E7E000000001E1E1E7E3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF393939F3101010462121218D3C3C
+                      3CFF3C3C3CFF3C3C3CFF1E1E1E7E0000000000000000000000001E1E1E7E3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218D2F2F2FC73C3C
+                      3CFF3C3C3CFF3C3C3CFF00000000000000001E1E1E8100000000000000001E1E
+                      1E7E3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC7383838F03C3C
+                      3CFF3C3C3CFF3C3C3CFF000000001E1E1E813C3C3CFF1E1E1E81000000000000
+                      00001E1E1E7E3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF383838F0383838F03C3C
+                      3CFF3C3C3CFF3C3C3CFF1E1E1E813C3C3CFF3C3C3CFF3C3C3CFF1E1E1E810000
+                      0000000000001E1E1E7E3C3C3CFF3C3C3CFF3C3C3CFF383838F02F2F2FC73C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF1E1E
+                      1E8100000000000000003C3C3CFF3C3C3CFF3C3C3CFF2F2F2FC72121218D3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF1E1E1E81000000003C3C3CFF3C3C3CFF3C3C3CFF2121218D101010463939
+                      39F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF1E1E1E813C3C3CFF3C3C3CFF393939F310101046000000002121
+                      218C3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF2121218C00000000000000000808
+                      0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000000000
+                      0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                      3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
+                      00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                      2FC72121218D1010104600000000000000000000000000000000}
+                    Kind = bkGlyph
+                  end>
+                Properties.ViewStyle = vsButtonsOnly
+                Properties.OnButtonClick = grdFiltroCarregarPropertiesButtonClick
+                FooterAlignmentHorz = taCenter
+                GroupSummaryAlignment = taCenter
+                HeaderAlignmentHorz = taCenter
+                HeaderGlyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                  2FC72121218D1010104600000000000000000000000000000000000000000000
+                  0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000808
+                  0820262626A33C3C3CFF262626A21414145320202088323232D5323232D52020
+                  208814141453262626A23C3C3CFF262626A30808082000000000000000002121
+                  218C3C3C3CFF1515155B020202071E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF1E1E1E80020202071515155B3C3C3CFF2121218C00000000101010463939
+                  39F3242424980000000100000000323232D53C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF323232D5000000000000000124242498393939F310101046303030CC3C3C
+                  3CFF282828A90000000000000000323232D53C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF323232D50000000000000000282828A93C3C3CFF303030CC101010463939
+                  39F33C3C3CFF242424980A0A0A2A1E1E1E803C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF1E1E1E800A0A0A2A242424983C3C3CFF393939F310101046000000002121
+                  218C3C3C3CFF3C3C3CFF303030CB2121218C2525259F333333D8333333D82525
+                  259F2121218C303030CB3C3C3CFF3C3C3CFF2121218C00000000000000000808
+                  0820262626A33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF3C3C3CFF3C3C3CFF262626A30808082000000000000000000000
+                  0000080808202121218C393939F33C3C3CFF3C3C3CFF3C3C3CFF3C3C3CFF3C3C
+                  3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
+                  00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
+                  2FC72121218D1010104600000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000}
+                HeaderGlyphAlignmentHorz = taCenter
+                Width = 40
+              end
             end
             object cxLevelFiltro: TcxGridLevel
               GridView = grdFiltro
             end
           end
           object cxMemoFiltroSalvo: TcxMemo
-            Left = 305
+            Left = 385
             Top = 17
             Align = alClient
             TabOrder = 1
+            ExplicitLeft = 336
+            ExplicitWidth = 497
             Height = 146
-            Width = 528
+            Width = 448
           end
         end
         object gbDesenvolvimentoFiltro: TcxGroupBox
@@ -587,16 +690,22 @@ inherited frmGrid: TfrmGrid
             Left = 7
             Top = 15
             Caption = 'Campo'
+            ParentColor = False
+            Style.Color = clWindow
           end
           object lblFiltroOperacao: TcxLabel
             Left = 155
             Top = 15
             Caption = 'Opera'#231#227'o'
+            ParentColor = False
+            Style.Color = clWindow
           end
           object lblFiltroCondicao: TcxLabel
             Left = 275
             Top = 15
             Caption = 'Condi'#231#227'o'
+            ParentColor = False
+            Style.Color = clWindow
           end
           object edtFiltroCondicao: TcxTextEdit
             Left = 275
@@ -604,6 +713,7 @@ inherited frmGrid: TfrmGrid
             Anchors = [akLeft, akTop, akRight]
             TabOrder = 3
             TextHint = 'Informe a condi'#231#227'o a ser filtrada'
+            OnKeyPress = edtFiltroCondicaoKeyPress
             Width = 266
           end
           object rgFiltroAndOr: TcxRadioGroup
@@ -641,6 +751,21 @@ inherited frmGrid: TfrmGrid
             TabOrder = 6
             Height = 64
             Width = 828
+            object memoFiltroSQL: TcxMemo
+              Left = 3
+              Top = 17
+              Align = alClient
+              Style.BorderColor = clWindow
+              Style.BorderStyle = ebsNone
+              StyleFocused.BorderStyle = ebsNone
+              StyleHot.BorderStyle = ebsNone
+              TabOrder = 2
+              Visible = False
+              ExplicitLeft = 400
+              ExplicitWidth = 426
+              Height = 37
+              Width = 801
+            end
             object memoFiltroDesenvolvido: TcxMemo
               Left = 3
               Top = 17
@@ -650,13 +775,36 @@ inherited frmGrid: TfrmGrid
               StyleFocused.BorderStyle = ebsNone
               StyleHot.BorderStyle = ebsNone
               TabOrder = 0
+              ExplicitWidth = 359
               Height = 37
-              Width = 822
+              Width = 801
+            end
+            object imgFiltroSQL: TcxImage
+              Left = 804
+              Top = 17
+              Align = alRight
+              Picture.Data = {
+                0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
+                00100000001008060000001FF3FF610000000467414D410000B18F0BFC610500
+                00001974455874536F6674776172650041646F626520496D6167655265616479
+                71C9653C00000021744558745469746C6500507265763B4172726F773B4C6566
+                743B4261636B3B526577696E640B2B870F0000007049444154384FA58CB10DC0
+                300CC372986F2B90CB5D1BA88046D2D03403179AF2C8CC23ACDC414444382EEE
+                8008372EEAB47640841B37DC01116EDC700744B871C31D1051F1F1031937DC01
+                2B6B307F3FA8182C4FB803229EB13CE10E88788D9727DC01113406933B60E50E
+                567E27C70DE4F67DBA54FC42690000000049454E44AE426082}
+              Style.BorderStyle = ebsNone
+              TabOrder = 1
+              OnClick = imgFiltroSQLClick
+              ExplicitLeft = 379
+              Height = 37
+              Width = 21
             end
           end
           object cbFiltroCampo: TcxComboBox
             Left = 7
             Top = 36
+            Properties.OnChange = cbFiltroCampoPropertiesChange
             TabOrder = 7
             TextHint = 'Selecione...'
             Width = 142
@@ -843,7 +991,7 @@ inherited frmGrid: TfrmGrid
             TabOrder = 12
             OnClick = btnFiltroCancelarClick
           end
-          object cxButton1: TcxButton
+          object btnAplicarFiltro: TcxButton
             Left = 359
             Top = 132
             Width = 300
@@ -892,6 +1040,14 @@ inherited frmGrid: TfrmGrid
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
+          end
+          object cbFiltroSQL: TcxComboBox
+            Left = 7
+            Top = 36
+            Properties.OnChange = cbFiltroSQLPropertiesChange
+            TabOrder = 14
+            Visible = False
+            Width = 49
           end
         end
       end
@@ -1335,5 +1491,26 @@ inherited frmGrid: TfrmGrid
       end>
     Left = 584
     Top = 8
+  end
+  object cdsFiltroSalvo: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 526
+    Top = 305
+  end
+  object ServerMethodFiltro: TSqlServerMethod
+    Params = <
+      item
+        DataType = ftString
+        Name = 'form'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'usuario'
+        ParamType = ptInput
+      end>
+    Left = 558
+    Top = 305
   end
 end

@@ -4,13 +4,14 @@ object frmBase: TfrmBase
   Caption = 'frmBase'
   ClientHeight = 437
   ClientWidth = 735
-  Color = clBtnFace
+  Color = clWindow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object cxHintStyleController: TcxHintStyleController

@@ -5780,6 +5780,11 @@ object ServerMethods: TServerMethods
       Origin = 'filtrodisplay'
       BlobType = ftWideMemo
     end
+    object qryFiltroSalvoform: TWideStringField
+      FieldName = 'form'
+      Origin = 'form'
+      Size = 50
+    end
   end
   object dspFiltroSalvo: TDataSetProvider
     DataSet = qryFiltroSalvo
