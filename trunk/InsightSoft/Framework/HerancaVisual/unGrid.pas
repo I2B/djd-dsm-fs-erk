@@ -104,6 +104,7 @@ type
     procedure acBuscarExecute(Sender: TObject);
     procedure grdFiltroDblClick(Sender: TObject);
     procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure btnFiltroCancelarClick(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
@@ -121,6 +122,8 @@ var
 implementation
 
 {$R *.dfm}
+
+{$REGION 'Ajuste dos ComboBox'}
 
 procedure TfrmGrid.ajustaCbOperacaoParaBoleano(Combo: TcxComboBox);
 begin
@@ -171,6 +174,8 @@ begin
   Combo.Properties.Items.Add('Maior que');
   Combo.ItemIndex := 2;
 end;
+
+{$ENDREGION}
 
 
 procedure TfrmGrid.acBuscarExecute(Sender: TObject);
@@ -352,6 +357,11 @@ begin
     ExportGridToXML(SaveDialog.FileName,cxGrid,False,True,SaveDialog.DefaultExt);
     ShellExecute(Handle, 'open', PChar(SaveDialog.FileName), nil, nil, SW_SHOW);
   end;
+end;
+
+procedure TfrmGrid.btnFiltroCancelarClick(Sender: TObject);
+begin
+  cxPageControl.ActivePage := cxTabGrid;
 end;
 
 procedure TfrmGrid.cbCampoPropertiesChange(Sender: TObject);
@@ -583,7 +593,8 @@ procedure TfrmGrid.acAbaFiltroExecute(Sender: TObject);
 begin
   if cxPageControl.ActivePage = cxTabGrid then
   begin
-    cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
+    if cbFiltroCampo.Properties.Items.Count = 0 then
+      cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
     cxPageControl.ActivePage := cxTabFiltro;
   end;
 end;
