@@ -3402,16 +3402,21 @@ object DM: TDM
     Top = 312
     object cdsProdutoTabelaPrecoidprodutotabelapreco: TIntegerField
       FieldName = 'idprodutotabelapreco'
+      Origin = 'idprodutotabelapreco'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsProdutoTabelaPrecoidproduto: TIntegerField
       FieldName = 'idproduto'
+      Origin = 'idproduto'
     end
     object cdsProdutoTabelaPreconome: TWideStringField
       FieldName = 'nome'
+      Origin = 'nome'
       Size = 100
     end
     object cdsProdutoTabelaPrecopreco: TFloatField
       FieldName = 'preco'
+      Origin = 'preco'
     end
   end
   object cdsProdutoUnidade: TClientDataSet
@@ -3480,57 +3485,70 @@ object DM: TDM
     Left = 536
     Top = 480
     object cdsRegraFiscalidregrafiscal: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idregrafiscal'
       Origin = 'idregrafiscal'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsRegraFiscalidpessoa: TIntegerField
+      DisplayLabel = 'ID Pessoa'
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
     end
     object cdsRegraFiscalidregrafiscalobservacao: TIntegerField
+      DisplayLabel = 'ID Observa'#231#227'o'
       FieldName = 'idregrafiscalobservacao'
       Origin = 'idregrafiscalobservacao'
     end
     object cdsRegraFiscalidcstpis: TIntegerField
+      DisplayLabel = 'CST PIS'
       FieldName = 'idcstpis'
       Origin = 'idcstpis'
     end
     object cdsRegraFiscalidcstipi: TIntegerField
+      DisplayLabel = 'CST IPI'
       FieldName = 'idcstipi'
       Origin = 'idcstipi'
     end
     object cdsRegraFiscalidtipooperacao: TIntegerField
+      DisplayLabel = 'ID Tipo Opera'#231#227'o'
       FieldName = 'idtipooperacao'
       Origin = 'idtipooperacao'
     end
     object cdsRegraFiscalidpais: TIntegerField
+      DisplayLabel = 'ID Pais'
       FieldName = 'idpais'
       Origin = 'idpais'
     end
     object cdsRegraFiscalidmunicipio: TIntegerField
+      DisplayLabel = 'ID Munic'#237'pio'
       FieldName = 'idmunicipio'
       Origin = 'idmunicipio'
     end
     object cdsRegraFiscalidestado: TWideStringField
+      DisplayLabel = 'Estado'
       FieldName = 'idestado'
       Origin = 'idestado'
       FixedChar = True
       Size = 2
     end
     object cdsRegraFiscalidunidadenegocio: TIntegerField
+      DisplayLabel = 'ID Unidade de Neg'#243'cio'
       FieldName = 'idunidadenegocio'
       Origin = 'idunidadenegocio'
     end
     object cdsRegraFiscalidcfop: TIntegerField
+      DisplayLabel = 'CFOP'
       FieldName = 'idcfop'
       Origin = 'idcfop'
     end
     object cdsRegraFiscalidncm: TIntegerField
+      DisplayLabel = 'NCM'
       FieldName = 'idncm'
       Origin = 'idncm'
     end
     object cdsRegraFiscalidcstcofins: TIntegerField
+      DisplayLabel = 'CST COFINS'
       FieldName = 'idcstcofins'
       Origin = 'idcstcofins'
     end

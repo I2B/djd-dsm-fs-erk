@@ -56,8 +56,6 @@ type
     dxLayoutControl2Item16: TdxLayoutItem;
     edtCSTICMS: TcxDBTextEdit;
     dxLayoutControl1Item1: TdxLayoutItem;
-    edtAliquotaICMS: TcxDBTextEdit;
-    dxLayoutControl1Item2: TdxLayoutItem;
     cxDBTextEdit3: TcxDBTextEdit;
     dxLayoutControl1Item3: TdxLayoutItem;
     cxDBTextEdit4: TcxDBTextEdit;
@@ -85,19 +83,31 @@ type
     dxLayoutControl1Item9: TdxLayoutItem;
     cxDBTextEdit8: TcxDBTextEdit;
     dxLayoutControl1Item10: TdxLayoutItem;
-    cxDBTextEdit9: TcxDBTextEdit;
-    dxLayoutControl1Item11: TdxLayoutItem;
-    cxDBTextEdit10: TcxDBTextEdit;
-    dxLayoutControl1Item12: TdxLayoutItem;
     cxDBCheckBox1: TcxDBCheckBox;
     dxLayoutControl2Item1: TdxLayoutItem;
     dxLayoutControl2Group1: TdxLayoutGroup;
-    cxDBTextEdit12: TcxDBTextEdit;
-    dxLayoutControl1Item14: TdxLayoutItem;
     cxDBTextEdit13: TcxDBTextEdit;
     dxLayoutControl1Item15: TdxLayoutItem;
     cxDBTextEdit14: TcxDBTextEdit;
     dxLayoutControl1Item16: TdxLayoutItem;
+    dxLayoutControl1Group5: TdxLayoutAutoCreatedGroup;
+    dxLayoutControl1Group6: TdxLayoutAutoCreatedGroup;
+    dxLayoutControl1Group7: TdxLayoutGroup;
+    dxLayoutControl1Group9: TdxLayoutGroup;
+    cxDBTextEdit9: TcxDBTextEdit;
+    dxLayoutControl1Item2: TdxLayoutItem;
+    cxDBTextEdit10: TcxDBTextEdit;
+    dxLayoutControl1Item11: TdxLayoutItem;
+    dxLayoutControl1Group10: TdxLayoutAutoCreatedGroup;
+    cxDBTextEdit11: TcxDBTextEdit;
+    dxLayoutControl1Item12: TdxLayoutItem;
+    dxLayoutControl1Group11: TdxLayoutGroup;
+    cxDBCheckBox2: TcxDBCheckBox;
+    dxLayoutControl1Item13: TdxLayoutItem;
+    cxDBCheckBox3: TcxDBCheckBox;
+    dxLayoutControl1Item14: TdxLayoutItem;
+    cxDBCheckBox4: TcxDBCheckBox;
+    dxLayoutControl1Item17: TdxLayoutItem;
   private
     { Private declarations }
   public
