@@ -16,7 +16,7 @@ uses
   Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit;
 
 type
-  TFramePai1 = class(TFramePai)
+  TFrameProdutoabelaPreco = class(TFramePai)
     edtIDProduto: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
     edtTabelaNome: TcxDBTextEdit;
@@ -33,7 +33,7 @@ type
   end;
 
 var
-  FramePai1: TFramePai1;
+  FrameProdutoabelaPreco: TFrameProdutoabelaPreco;
 
 implementation
 

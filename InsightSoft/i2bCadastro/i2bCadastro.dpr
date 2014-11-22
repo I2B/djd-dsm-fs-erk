@@ -33,7 +33,7 @@ uses
   unFrameTelefone in 'Frames\unFrameTelefone.pas' {FrameTelefone: TFrame},
   unFrameCSTCofins in 'Frames\unFrameCSTCofins.pas' {FrameCSTCofins: TFrame},
   unFrameCSTIPI in 'Frames\unFrameCSTIPI.pas' {FrameCSTIPI: TFrame},
-  unFrameCSTPIS in 'Frames\unFrameCSTPIS.pas' {FramePIS: TFrame},
+  unFrameCSTPIS in 'Frames\unFrameCSTPIS.pas' {FrameCSTPIS: TFrame},
   unCADCSTCofins in 'Forms\unCADCSTCofins.pas' {frmCADCSTCofins},
   unCADCSTIPI in 'Forms\unCADCSTIPI.pas' {frmCADCSTIPI},
   unCADCSTPIS in 'Forms\unCADCSTPIS.pas' {frmCADCSTPIS},
@@ -51,7 +51,17 @@ uses
   unCADProdutoUnidadeConversao in 'Forms\unCADProdutoUnidadeConversao.pas' {frmCADProdutoUnidadeConversao},
   unFrameProdutoUnidade in 'Frames\unFrameProdutoUnidade.pas' {FrameProdutoUnidade: TFrame},
   unCADProdutoUnidade in 'Forms\unCADProdutoUnidade.pas' {frmCADProdutoUnidade},
-  unFrameProdutoTabelaPreco in 'Frames\unFrameProdutoTabelaPreco.pas' {FramePai1: TFrame};
+  unFrameProdutoTabelaPreco in 'Frames\unFrameProdutoTabelaPreco.pas' {FrameProdutoabelaPreco: TFrame},
+  UnFrameCSTCSOSN in 'Frames\UnFrameCSTCSOSN.pas' {FrameCSTCSOSN: TFrame},
+  UnCADCSTCSOSN in 'Forms\UnCADCSTCSOSN.pas' {frmCADCSTCSOSN},
+  unFrameCSTICMS in 'Frames\unFrameCSTICMS.pas' {FrameCSTICMS: TFrame},
+  unCADCSTICMS in 'Forms\unCADCSTICMS.pas' {frmCADCSTICMS},
+  unFrameEstado in 'Frames\unFrameEstado.pas' {FrameEstado: TFrame},
+  unCADEstado in 'Forms\unCADEstado.pas' {frmCADEstado},
+  unFrameEstoqueCor in 'Frames\unFrameEstoqueCor.pas' {FrameEstoqueCor: TFrame},
+  unCADEstoqueCor in 'Forms\unCADEstoqueCor.pas' {frmCADEstoqueCor},
+  unFrameEstoqueTamanho in 'Frames\unFrameEstoqueTamanho.pas' {FrameEstoqueTamanho: TFrame},
+  unCADEstoqueTamanho in 'Forms\unCADEstoqueTamanho.pas' {frmCADEstoqueTamanho};
 
 {$R *.res}
 

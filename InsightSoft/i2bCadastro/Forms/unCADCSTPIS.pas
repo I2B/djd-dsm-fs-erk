@@ -17,7 +17,7 @@ type
   TfrmCADCSTPIS = class(TfrmCadastro)
     cxGridDBidcstpis: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
-    FramePIS: TFramePIS;
+    FrameCSTPIS: TFrameCSTPIS;
   private
     { Private declarations }
   public
