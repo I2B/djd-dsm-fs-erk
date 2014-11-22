@@ -18,11 +18,54 @@ uses
   Data.FMTBcd, unFramePai, unFrameRegraFiscal, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList,
   dxCustomHint, cxHint, cxMemo, cxGroupBox, cxRadioGroup, cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons,
   cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls;
+  cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, cxButtonEdit;
 
 type
   TfrmCADRegraFiscal = class(TfrmCadastro)
     FrameRegraFiscal: TFrameRegraFiscal;
+    cxGridDBidregrafiscal: TcxGridDBColumn;
+    cxGridDBidpessoa: TcxGridDBColumn;
+    cxGridDBidregrafiscalobservacao: TcxGridDBColumn;
+    cxGridDBidcstpis: TcxGridDBColumn;
+    cxGridDBidcstipi: TcxGridDBColumn;
+    cxGridDBidtipooperacao: TcxGridDBColumn;
+    cxGridDBidpais: TcxGridDBColumn;
+    cxGridDBidmunicipio: TcxGridDBColumn;
+    cxGridDBidestado: TcxGridDBColumn;
+    cxGridDBidunidadenegocio: TcxGridDBColumn;
+    cxGridDBidcfop: TcxGridDBColumn;
+    cxGridDBidncm: TcxGridDBColumn;
+    cxGridDBidcstcofins: TcxGridDBColumn;
+    cxGridDBreducaoipi: TcxGridDBColumn;
+    cxGridDBipi: TcxGridDBColumn;
+    cxGridDBreducaoicms: TcxGridDBColumn;
+    cxGridDBicms: TcxGridDBColumn;
+    cxGridDBpis: TcxGridDBColumn;
+    cxGridDBretencaopis: TcxGridDBColumn;
+    cxGridDBcofins: TcxGridDBColumn;
+    cxGridDBretencaocofins: TcxGridDBColumn;
+    cxGridDBativo: TcxGridDBColumn;
+    cxGridDBmva: TcxGridDBColumn;
+    cxGridDBst: TcxGridDBColumn;
+    cxGridDBreducaost: TcxGridDBColumn;
+    cxGridDBiss: TcxGridDBColumn;
+    cxGridDBreducaoiss: TcxGridDBColumn;
+    cxGridDBcsosn: TcxGridDBColumn;
+    cxGridDBcssl: TcxGridDBColumn;
+    cxGridDBinss: TcxGridDBColumn;
+    cxGridDBir: TcxGridDBColumn;
+    cxGridDBfunrural: TcxGridDBColumn;
+    cxGridDBie: TcxGridDBColumn;
+    cxGridDBii: TcxGridDBColumn;
+    cxGridDBcfopdevolucao: TcxGridDBColumn;
+    cxGridDBidcsticms: TcxGridDBColumn;
+    cxGridDBidcstcsosn: TcxGridDBColumn;
+    cxGridDBpessoanome: TcxGridDBColumn;
+    cxGridDBtipooperacaodescricao: TcxGridDBColumn;
+    cxGridDBpaisnome: TcxGridDBColumn;
+    cxGridDBmunicipionome: TcxGridDBColumn;
+    cxGridDBnomefantasia: TcxGridDBColumn;
+    cxGridDBcfopdescricao: TcxGridDBColumn;
   private
     { Private declarations }
   public
