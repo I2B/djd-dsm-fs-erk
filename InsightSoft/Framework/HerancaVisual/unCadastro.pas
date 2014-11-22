@@ -64,6 +64,7 @@ begin
   pnlSide.Visible := True;
 end;
 
+
 procedure TfrmCadastro.acEditarExecute(Sender: TObject);
 var
   Frame : TFrame;
