@@ -19,7 +19,8 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses, Vcl.StdCtrls, dxBarBuiltInMenu,
   cxPC, dxScreenTip, dxCustomHint, cxHint, dxBar, dxRibbonRadialMenu, dxSkinsdxBarPainter, cxgridexportlink,
   Data.FMTBcd, Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.Menus, cxButtons, cxDropDownEdit, cxMemo,
-  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel, Datasnap.DBClient, cxDBEdit, cxButtonEdit;
+  cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit, cxLabel, Datasnap.DBClient, cxDBEdit, cxButtonEdit,
+  Datasnap.DSConnect;
 
 type
   TfrmGrid = class(TfrmBase)
@@ -64,7 +65,7 @@ type
     btnFiltroSalvar: TcxButton;
     btnFiltroLimpar: TcxButton;
     btnFiltroCancelar: TcxButton;
-    cxButton1: TcxButton;
+    btnAplicarFiltro: TcxButton;
     acAbaFiltro: TAction;
     pnlBottom: TPanel;
     lblCampo: TcxLabel;
@@ -86,6 +87,12 @@ type
     cxMemoFiltroSalvo: TcxMemo;
     grdFiltroDisplay: TcxGridColumn;
     grdFiltroSQL: TcxGridColumn;
+    cbFiltroSQL: TcxComboBox;
+    cdsFiltroSalvo: TClientDataSet;
+    ServerMethodFiltro: TSqlServerMethod;
+    grdFiltroCarregar: TcxGridColumn;
+    imgFiltroSQL: TcxImage;
+    memoFiltroSQL: TcxMemo;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -103,8 +110,13 @@ type
     procedure cbCampoPropertiesChange(Sender: TObject);
     procedure acBuscarExecute(Sender: TObject);
     procedure grdFiltroDblClick(Sender: TObject);
-    procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure btnFiltroCancelarClick(Sender: TObject);
+    procedure cbFiltroCampoPropertiesChange(Sender: TObject);
+    procedure cbFiltroSQLPropertiesChange(Sender: TObject);
+    procedure edtFiltroCondicaoKeyPress(Sender: TObject; var Key: Char);
+    procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure grdFiltroCarregarPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure imgFiltroSQLClick(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
@@ -118,6 +130,7 @@ type
 var
   frmGrid: TfrmGrid;
   TipoDoCampo: TFieldType;
+  TipoDoCampoDoFiltro: TFieldType;
 
 implementation
 
@@ -369,6 +382,138 @@ begin
   cbSQL.ItemIndex := cbCampo.ItemIndex;
 end;
 
+procedure TfrmGrid.cbFiltroCampoPropertiesChange(Sender: TObject);
+begin
+  cbFiltroSQL.ItemIndex := cbFiltroCampo.ItemIndex;
+end;
+
+procedure TfrmGrid.cbFiltroSQLPropertiesChange(Sender: TObject);
+begin
+  TipoDoCampoDoFiltro := (dts.DataSet as TClientDataSet).FieldByName(cbFiltroSQL.Text).DataType;
+  case TipoDoCampoDoFiltro of
+    ftString:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftSmallint:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftInteger:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftWord:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftBoolean:
+      begin
+        ajustaCbOperacaoParaBoleano(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := False;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftFloat:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftCurrency:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftBCD:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftDate:
+      begin
+        ajustaCbOperacaoParaData(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := False;
+        dateFiltroCondicao.Visible := True;
+      end;
+    ftDateTime:
+      begin
+        ajustaCbOperacaoParaData(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := False;
+        dateFiltroCondicao.Visible := True;
+      end;
+    ftFixedChar:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftWideString:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftLargeint:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftFMTBcd:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftFixedWideChar:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftLongWord:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftShortint:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftExtended:
+      begin
+        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    ftSingle:
+      begin
+        ajustaCbOperacaoParaValor(cbFiltroOperacao);
+        edtFiltroCondicao.Visible := True;
+        dateFiltroCondicao.Visible := False;
+      end;
+    else
+    begin
+      raise Exception.Create('Funcionalidade não implementada para o tipo do campo selecionado! Entre em contato com o '+
+        'suporte e reporte a mensagem');
+      btnBuscar.Visible := False;
+    end;
+  end;
+end;
+
 procedure TfrmGrid.cbSQLPropertiesChange(Sender: TObject);
 begin
 {
@@ -514,6 +659,29 @@ begin
   lblRegistros.Caption := IntToStr(dts.DataSet.RecNo) + '/' + IntToStr(dts.DataSet.RecordCount);
 end;
 
+procedure TfrmGrid.edtFiltroCondicaoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if TipoDoCampoDoFiltro in [ftSmallint,ftInteger,ftLargeint,ftShortint] then
+  begin //Campo INTEIRO só pode digitar de 0 a 9
+    if not(Key in ['0'..'9',#8]) then
+    begin
+      Key:=#0;
+    end;
+  end
+  else if TipoDoCampoDoFiltro in [ftFloat,ftCurrency,ftBCD,ftFMTBcd,ftSingle] then
+  begin //Campo NUMÉRICO só pode digitar de 0 a 9 e vírgula
+    if not(Key in ['0'..'9',',',#8]) then
+    begin
+      Key:=#0;
+    end
+    else
+    begin //Não pode colocar mais de uma vírgula
+      if pos(',',edtFiltroCondicao.Text,0) > 0 then
+        Key:=#0;
+    end;
+  end;
+end;
+
 procedure TfrmGrid.edtInformacaoKeyPress(Sender: TObject; var Key: Char);
 begin
   if TipoDoCampo in [ftSmallint,ftInteger,ftLargeint,ftShortint] then
@@ -548,6 +716,7 @@ var
   I : integer;
 begin
   inherited;
+  cxPageControl.ActivePage := cxTabGrid;
 
   for I := 0 to (dts.DataSet as TClientDataSet).Fields.Count - 1 do
   begin
@@ -567,9 +736,22 @@ begin
   cxPageControl.Properties.HideTabs := True;
 end;
 
+procedure TfrmGrid.grdFiltroCarregarPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+begin
+  if grdFiltro.DataController.RecordCount > 0 then
+  begin
+    cxMemoFiltroSalvo.Lines.Clear;
+    cxMemoFiltroSalvo.Text := grdFiltroDisplay.EditValue;
+    memoFiltroDesenvolvido.Lines.Clear;
+    memoFiltroDesenvolvido.Text := grdFiltroDisplay.EditValue;
+    memoFiltroSQL.Lines.Clear;
+    memoFiltroSQL.Text := grdFiltroSQL.EditValue;
+  end;
+end;
+
 procedure TfrmGrid.grdFiltroDblClick(Sender: TObject);
 begin
-  if grdFiltroID.EditValue <> '' then
+  if grdFiltro.DataController.RecordCount > 0 then
   begin
     cxMemoFiltroSalvo.Lines.Clear;
     cxMemoFiltroSalvo.Text := grdFiltroDisplay.EditValue;
@@ -578,9 +760,10 @@ end;
 
 procedure TfrmGrid.grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
-  if Application.MessageBox('Remover o filtro selecionado?','Remover',MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
+  if Application.MessageBox('Confirma a exclusão do Filtro selecionado?','Exclusão de Filtro Salvo',MB_YESNO +
+    MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
   begin
-    ShowMessage('Quando clicar nesse botão vai remover o Filtro Salvo');
+    ShowMessage('Excluído');
   end;
 end;
 
@@ -589,12 +772,66 @@ begin
   RadialMenuExportar.PopupFromCursorPos;
 end;
 
+procedure TfrmGrid.imgFiltroSQLClick(Sender: TObject);
+var
+  resposta : String;
+begin
+  if not(memoFiltroSQL.Visible) then
+  begin
+    InputQuery('Senha de Liberação','Senha de Liberação',resposta);
+    if resposta = 'the winter is coming' then
+    begin
+      memoFiltroSQL.Visible := True;
+      memoFiltroDesenvolvido.Visible := False;
+    end;
+  end
+  else
+  begin
+    memoFiltroSQL.Visible := False;
+    memoFiltroDesenvolvido.Visible := True;
+  end;
+end;
+
 procedure TfrmGrid.acAbaFiltroExecute(Sender: TObject);
+var
+  Provider : TDSProviderConnection;
 begin
   if cxPageControl.ActivePage = cxTabGrid then
   begin
     if cbFiltroCampo.Properties.Items.Count = 0 then
+    begin
+      //Alimentar Combos com Campos
+      cbFiltroSQL.Properties.Items := cbSQL.Properties.Items;
       cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
+
+      //Buscar os Filtros criados
+      Provider := ((dts.DataSet as TClientDataSet).RemoteServer as TDSProviderConnection);
+      ServerMethodFiltro.SQLConnection := Provider.SQLConnection;
+      ServerMethodFiltro.ServerMethodName := 'TServerMethods.getFiltosSalvos';
+      ServerMethodFiltro.Params[0].AsString := Name;
+      ServerMethodFiltro.Params[1].AsString := Usuario;
+      ServerMethodFiltro.ExecuteMethod;
+
+      cdsFiltroSalvo.RemoteServer := (dts.DataSet as TClientDataSet).RemoteServer;
+      cdsFiltroSalvo.ProviderName := 'dspFiltroSalvo';
+      cdsFiltroSalvo.Open;
+      if cdsFiltroSalvo.RecordCount > 0 then
+      begin
+        cdsFiltroSalvo.First;
+        while not(cdsFiltroSalvo.Eof) do
+        begin
+          grdFiltro.DataController.Insert;
+          grdFiltroID.EditValue := cdsFiltroSalvo.FieldByName('idfiltrosalvo').AsInteger;
+          grdFiltroDescricao.EditValue := cdsFiltroSalvo.FieldByName('nome').AsString;
+          grdFiltroDisplay.EditValue := cdsFiltroSalvo.FieldByName('filtrodisplay').AsString;
+          grdFiltroSQL.EditValue := cdsFiltroSalvo.FieldByName('filtrosql').AsString;
+          grdFiltro.DataController.Post();
+
+          cdsFiltroSalvo.Next;
+        end;
+      end;
+    end;
+
     cxPageControl.ActivePage := cxTabFiltro;
   end;
 end;

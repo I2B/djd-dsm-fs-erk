@@ -1152,6 +1152,7 @@ type
     qryFiltroSalvousuario: TWideStringField;
     qryFiltroSalvofiltrosql: TWideMemoField;
     qryFiltroSalvofiltrodisplay: TWideMemoField;
+    qryFiltroSalvoform: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1361,6 +1362,8 @@ type
     { Public declarations }
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
+
+    procedure getFiltosSalvos(form, usuario:String);
 
     //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
     procedure setSQLAuditoria(filtro: String);
@@ -2091,6 +2094,13 @@ end;
 function TServerMethods.ReverseString(Value: string): string;
 begin
   Result := System.StrUtils.ReverseString(Value);
+end;
+
+procedure TServerMethods.getFiltosSalvos(form, usuario:String);
+begin
+  qryFiltroSalvo.Close;
+  qryFiltroSalvo.SQL.Clear;
+  qryFiltroSalvo.SQL.Add('select * from filtrosalvo where form = '+QuotedStr(form)+' and usuario = '+QuotedStr(usuario));
 end;
 
 procedure TServerMethods.setSQLAuditoria(filtro: String);

@@ -19,6 +19,7 @@ type
   TfrmBase = class(TForm)
     cxHintStyleController: TcxHintStyleController;
     dxBarManager: TdxBarManager;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,5 +33,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmBase.FormCreate(Sender: TObject);
+begin
+  Usuario := 'Douglas';
+end;
 
 end.
