@@ -1,4 +1,4 @@
-unit UnCADCSTCSOSN;
+unit unCADCSTICMS;
 
 interface
 
@@ -10,7 +10,7 @@ uses
   dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, Vcl.Menus,
   Vcl.ComCtrls, dxCore, cxDateUtils, cxButtonEdit, dxScreenTip,
-  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, UnFrameCSTCSOSN,
+  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, unFrameCSTICMS,
   cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions,
   Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup, cxMemo,
   cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
@@ -19,11 +19,11 @@ uses
   Vcl.ExtCtrls, Datasnap.DBClient;
 
 type
-  TfrmCADCSTCSOSN = class(TfrmCadastro)
-    cxGridDBidcstcsosn: TcxGridDBColumn;
+  TfrmCADCSTICMS = class(TfrmCadastro)
+    cxGridDBidcsticms: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBobservacao: TcxGridDBColumn;
-    FrameCSTCSOSN: TFrameCSTCSOSN;
+    FrameCSTICMS: TFrameCSTICMS;
   private
     { Private declarations }
   public
@@ -31,7 +31,7 @@ type
   end;
 
 var
-  frmCADCSTCSOSN: TfrmCADCSTCSOSN;
+  frmCADCSTICMS: TfrmCADCSTICMS;
 
 implementation
 

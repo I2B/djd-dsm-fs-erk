@@ -347,6 +347,15 @@
             <Form>frmCADEstoqueTamanho</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Frames\unFrameIndice.pas">
+            <Form>FrameIndice</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADIndice.pas">
+            <Form>frmCADIndice</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

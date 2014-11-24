@@ -61,7 +61,9 @@ uses
   unFrameEstoqueCor in 'Frames\unFrameEstoqueCor.pas' {FrameEstoqueCor: TFrame},
   unCADEstoqueCor in 'Forms\unCADEstoqueCor.pas' {frmCADEstoqueCor},
   unFrameEstoqueTamanho in 'Frames\unFrameEstoqueTamanho.pas' {FrameEstoqueTamanho: TFrame},
-  unCADEstoqueTamanho in 'Forms\unCADEstoqueTamanho.pas' {frmCADEstoqueTamanho};
+  unCADEstoqueTamanho in 'Forms\unCADEstoqueTamanho.pas' {frmCADEstoqueTamanho},
+  unFrameIndice in 'Frames\unFrameIndice.pas' {FrameIndice: TFrame},
+  unCADIndice in 'Forms\unCADIndice.pas' {frmCADIndice};
 
 {$R *.res}
 
