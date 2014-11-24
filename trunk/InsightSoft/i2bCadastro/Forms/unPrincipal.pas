@@ -32,37 +32,74 @@ type
     dxStatusBar: TdxStatusBar;
     dxTabbedMDIManager: TdxTabbedMDIManager;
     btnIndicadorEconomico: TdxBarLargeButton;
-    tabParametro: TdxRibbonTab;
     tabPessoas: TdxRibbonTab;
     tabProdutos: TdxRibbonTab;
     tabRegraFiscal: TdxRibbonTab;
     tabEmpresa: TdxRibbonTab;
     tabFinanceiro: TdxRibbonTab;
     barAuditoria: TdxBar;
-    btnAuditoria: TdxBarLargeButton;
     barPortador: TdxBar;
     btnBanco: TdxBarLargeButton;
     btnPortador: TdxBarLargeButton;
     barEstrutura: TdxBar;
-    dxBarLargeButton1: TdxBarLargeButton;
+    btnCBO: TdxBarLargeButton;
     BarEmpresa: TdxBar;
-    dxBarLargeButton2: TdxBarLargeButton;
-    barCST: TdxBar;
+    btnUnidadeNegocio: TdxBarLargeButton;
+    barTributacao: TdxBar;
     btnIPI: TdxBarLargeButton;
     btnPIS: TdxBarLargeButton;
     btnCofins: TdxBarLargeButton;
+    BarLocalidades: TdxBar;
+    btnCep: TdxBarLargeButton;
+    btnCFOP: TdxBarLargeButton;
+    barMercado: TdxBar;
+    btnCNAE: TdxBarLargeButton;
+    btnCSOSN: TdxBarLargeButton;
+    btnICMS: TdxBarLargeButton;
+    btnEmpresa: TdxBarLargeButton;
+    btnEstado: TdxBarLargeButton;
+    barConfeccao: TdxBar;
+    btnCor: TdxBarLargeButton;
+    btnTamanho: TdxBarLargeButton;
+    btnIndice: TdxBarLargeButton;
+    barEngenhariaProduto: TdxBar;
+    barProdutoUnidade: TdxBarLargeButton;
+    btnUnidadeConversao: TdxBarLargeButton;
+    barFiscal: TdxBar;
+    btnRegraFiscal: TdxBarLargeButton;
+    btnObservacao: TdxBarLargeButton;
+    barSetor: TdxBarLargeButton;
+    barPessoas: TdxBar;
+    barTelefone: TdxBarLargeButton;
+    btnAuditoria: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
     procedure btnAuditoriaClick(Sender: TObject);
     procedure btnBancoClick(Sender: TObject);
     procedure btnPortadorClick(Sender: TObject);
-    procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure btnCBOClick(Sender: TObject);
     procedure btnClienteClick(Sender: TObject);
-    procedure dxBarLargeButton2Click(Sender: TObject);
+    procedure btnUnidadeNegocioClick(Sender: TObject);
     procedure btnCofinsClick(Sender: TObject);
     procedure btnPISClick(Sender: TObject);
     procedure btnIPIClick(Sender: TObject);
+    procedure btnCFOPClick(Sender: TObject);
+    procedure btnCepClick(Sender: TObject);
+    procedure btnCNAEClick(Sender: TObject);
+    procedure btnCSOSNClick(Sender: TObject);
+    procedure btnICMSClick(Sender: TObject);
+    procedure btnEmpresaClick(Sender: TObject);
+    procedure btnEstadoClick(Sender: TObject);
+    procedure btnCorClick(Sender: TObject);
+    procedure btnTamanhoClick(Sender: TObject);
+    procedure btnIndiceClick(Sender: TObject);
+    procedure barProdutoUnidadeClick(Sender: TObject);
+    procedure btnUnidadeConversaoClick(Sender: TObject);
+    procedure btnRegraFiscalClick(Sender: TObject);
+    procedure btnObservacaoClick(Sender: TObject);
+    procedure barSetorClick(Sender: TObject);
+    procedure barTelefoneClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,7 +116,8 @@ implementation
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
-  unCADRegraFiscal, UnCADCSTCSOSN;
+  unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADEstoqueCor,
+  unCADEstoqueTamanho, unCADIndice;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -95,7 +133,21 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.dxBarLargeButton1Click(Sender: TObject);
+procedure TfrmPrincipal.btnTamanhoClick(Sender: TObject);
+begin
+   DM.cdsEstoqueTamanho.Open;
+  if frmCADEstoqueTamanho = nil then
+  begin
+    frmCADEstoqueTamanho := TfrmCADEstoqueTamanho.Create(Application);
+    frmCADEstoqueTamanho.pnlTop.Caption := frmCADEstoqueTamanho.Caption+'  ';
+  end
+  else
+  begin
+    frmCADEstoqueTamanho.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnCBOClick(Sender: TObject);
 begin
   DM.cdsCBO.Open;
   if frmCADCBO = nil then
@@ -109,19 +161,172 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.dxBarLargeButton2Click(Sender: TObject);
+procedure TfrmPrincipal.btnCepClick(Sender: TObject);
 begin
-  DM.cdsRegraFiscal.Open;
-  if frmCADRegraFiscal = nil then
+    DM.cdsCEP.Open;
+  if frmCADCEP = nil then
   begin
-    frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
-    frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
+    frmCADCEP := TfrmCADCEP.Create(Application);
+    frmCADCEP.pnlTop.Caption := frmCADCEP.Caption+'  ';
   end
   else
   begin
-    frmCADRegraFiscal.Show;
+    frmCADCEP.Show;
   end;
+end;
 
+procedure TfrmPrincipal.btnCFOPClick(Sender: TObject);
+begin
+  DM.cdsCFOP.Open;
+  if frmCADCFOP = nil then
+  begin
+    frmCADCFOP := TfrmCADCFOP.Create(Application);
+    frmCADCFOP.pnlTop.Caption := frmCADCFOP.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCFOP.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnUnidadeConversaoClick(Sender: TObject);
+begin
+  DM.cdsProdutoUnidadeConversao.Open;
+  if frmCADProdutoUnidadeConversao = nil then
+  begin
+    frmCADProdutoUnidadeConversao := TfrmCADProdutoUnidadeConversao.Create(Application);
+    frmCADProdutoUnidadeConversao.pnlTop.Caption := frmCADProdutoUnidadeConversao.Caption+'  ';
+  end
+  else
+  begin
+    frmCADProdutoUnidadeConversao.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnUnidadeNegocioClick(Sender: TObject);
+begin
+  DM.cdsUnidadeNegocio.Open;
+  if frmCADUnidadeNegocio = nil then
+  begin
+    frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
+    frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
+  end
+  else
+  begin
+    frmCADUnidadeNegocio.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnICMSClick(Sender: TObject);
+begin
+  DM.cdsCSTICMS.Open;
+  if frmCADCSTICMS = nil then
+  begin
+    frmCADCSTICMS := TfrmCADCSTICMS.Create(Application);
+    frmCADCSTICMS.pnlTop.Caption := frmCADCSTICMS.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCSTICMS.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnCNAEClick(Sender: TObject);
+begin
+  DM.cdsCNAE.Open;
+  if frmCADCNAE = nil then
+  begin
+    frmCADCNAE := TfrmCADCNAE.Create(Application);
+    frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCNAE.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnCSOSNClick(Sender: TObject);
+begin
+  DM.cdsCSTCSOSN.Open;
+  if frmCADCSTCSOSN = nil then
+  begin
+    frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
+    frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
+  end
+  else
+  begin
+    frmCADCSTCSOSN.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnEmpresaClick(Sender: TObject);
+begin
+  DM.cdsEmpresa.Open;
+  if frmCADEmpresa = nil then
+  begin
+    frmCADEmpresa := TfrmCADEmpresa.Create(Application);
+    frmCADEmpresa.pnlTop.Caption := frmCADEmpresa.Caption+'  ';
+  end
+  else
+  begin
+    frmCADEmpresa.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnEstadoClick(Sender: TObject);
+begin
+  DM.cdsEstado.Open;
+  if frmCADEstado = nil then
+  begin
+    frmCADEstado := TfrmCADEstado.Create(Application);
+    frmCADEstado.pnlTop.Caption := frmCADEstado.Caption+'  ';
+  end
+  else
+  begin
+    frmCADEstado.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.barProdutoUnidadeClick(Sender: TObject);
+begin
+  DM.cdsProdutoUnidade.Open;
+  if frmCADAuditoria = nil then
+  begin
+    frmCADProdutoUnidade := TfrmCADProdutoUnidade.Create(Application);
+    frmCADProdutoUnidade.pnlTop.Caption := frmCADProdutoUnidade.Caption+'  ';
+  end
+  else
+  begin
+    frmCADProdutoUnidade.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.barSetorClick(Sender: TObject);
+begin
+  DM.cdsSetor.Open;
+  if frmCADSetor = nil then
+  begin
+    frmCADSetor := TfrmCADSetor.Create(Application);
+    frmCADSetor.pnlTop.Caption := frmCADSetor.Caption+'  ';
+  end
+  else
+  begin
+    frmCADSetor.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.barTelefoneClick(Sender: TObject);
+begin
+  DM.cdsTelefone.Open;
+  if frmCADTelefone = nil then
+  begin
+    frmCADTelefone := TfrmCADTelefone.Create(Application);
+    frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
+  end
+  else
+  begin
+    frmCADTelefone.Show;
+  end;
 end;
 
 procedure TfrmPrincipal.btnAuditoriaClick(Sender: TObject);
@@ -180,6 +385,20 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.btnCorClick(Sender: TObject);
+begin
+  DM.cdsEstoqueCor.Open;
+  if frmCADEstoqueCor = nil then
+  begin
+    frmCADEstoqueCor := TfrmCADEstoqueCor.Create(Application);
+    frmCADEstoqueCor.pnlTop.Caption := frmCADEstoqueCor.Caption+'  ';
+  end
+  else
+  begin
+    frmCADEstoqueCor.Show;
+  end;
+end;
+
 procedure TfrmPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
 begin
   DM.cdsIndicadorEconomico.Open;
@@ -194,6 +413,20 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.btnIndiceClick(Sender: TObject);
+begin
+  DM.cdsIndice.Open;
+  if frmCADIndice = nil then
+  begin
+    frmCADIndice := TfrmCADIndice.Create(Application);
+    frmCADIndice.pnlTop.Caption := frmCADIndice.Caption+'  ';
+  end
+  else
+  begin
+    frmCADIndice.Show;
+  end;
+end;
+
 procedure TfrmPrincipal.btnIPIClick(Sender: TObject);
 begin
   DM.cdsCSTIPI.Open;
@@ -205,6 +438,20 @@ begin
   else
   begin
     frmCADCSTIPI.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnObservacaoClick(Sender: TObject);
+begin
+  DM.cdsRegraFiscalObservacao.Open;
+  if frmCADRegraFiscalObservacao = nil then
+  begin
+    frmCADRegraFiscalObservacao := TfrmCADRegraFiscalObservacao.Create(Application);
+    frmCADRegraFiscalObservacao.pnlTop.Caption := frmCADRegraFiscalObservacao.Caption+'  ';
+  end
+  else
+  begin
+    frmCADRegraFiscalObservacao.Show;
   end;
 end;
 
@@ -233,6 +480,20 @@ begin
   else
   begin
     frmCadPortador.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnRegraFiscalClick(Sender: TObject);
+begin
+  DM.cdsRegraFiscal.Open;
+  if frmCADRegraFiscal = nil then
+  begin
+    frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
+    frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
+  end
+  else
+  begin
+    frmCADRegraFiscal.Show;
   end;
 end;
 

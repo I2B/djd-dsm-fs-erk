@@ -1,110 +1,93 @@
-inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
-  Caption = 'CSOSN - C'#243'digo de Situa'#231#227'o da Opera'#231#227'o do Simples'
-  ClientHeight = 452
-  ClientWidth = 845
-  ExplicitWidth = 861
-  ExplicitHeight = 491
+inherited frmCADCSTICMS: TfrmCADCSTICMS
+  Caption = 'CST ICMS'
+  ClientHeight = 412
+  ClientWidth = 783
+  ExplicitWidth = 799
+  ExplicitHeight = 451
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlSide: TPanel
-    Height = 452
+    Height = 412
     ExplicitHeight = 8
     inherited lblRegistros: TLabel
-      Top = 435
+      Top = 395
     end
     inherited imgImprimir: TcxImage
-      Top = 321
+      Top = 281
       ExplicitTop = -123
     end
     inherited imgExportar: TcxImage
-      Top = 378
+      Top = 338
       ExplicitTop = -66
     end
   end
   inherited pnlClient: TPanel
-    Width = 785
-    Height = 452
+    Width = 723
+    Height = 412
     ExplicitWidth = 102
     ExplicitHeight = 8
     inherited cxPageControl: TcxPageControl
-      Width = 785
-      Height = 424
-      Properties.ActivePage = cxTabGrid
+      Width = 723
+      Height = 384
       ExplicitWidth = 102
-      ClientRectBottom = 422
-      ClientRectRight = 783
+      ClientRectBottom = 382
+      ClientRectRight = 721
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 781
-        ExplicitHeight = 392
+        ExplicitWidth = 98
         inherited cxGrid: TcxGrid
-          Width = 781
-          Height = 322
-          ExplicitWidth = 781
-          ExplicitHeight = 322
+          Width = 719
+          Height = 282
+          ExplicitWidth = 98
           inherited cxGridDB: TcxGridDBTableView
-            object cxGridDBidcstcsosn: TcxGridDBColumn
+            object cxGridDBidcsticms: TcxGridDBColumn
               Caption = 'ID'
-              DataBinding.FieldName = 'idcstcsosn'
+              DataBinding.FieldName = 'idcsticms'
             end
             object cxGridDBdescricao: TcxGridDBColumn
               Caption = 'Descri'#231#227'o'
               DataBinding.FieldName = 'descricao'
-              Width = 527
+              Width = 394
             end
             object cxGridDBobservacao: TcxGridDBColumn
               Caption = 'Observa'#231#227'o'
               DataBinding.FieldName = 'observacao'
-              Width = 216
+              Width = 221
             end
           end
         end
         inherited pnlBottom: TPanel
-          Top = 322
-          Width = 781
-          ExplicitTop = 322
-          ExplicitWidth = 781
+          Top = 282
+          Width = 719
+          ExplicitWidth = 98
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
           end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 385
-            ExplicitHeight = 23
-            Width = 385
+            ExplicitWidth = 0
+            Width = 621
           end
           inherited btnBuscar: TcxButton
-            Left = 677
-            ExplicitLeft = 677
-          end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
+            Left = 615
+            ExplicitLeft = -6
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitWidth = 98
         inherited pnlCadastro: TPanel
-          Height = 392
+          Height = 352
         end
-        inline FrameCSTCSOSN: TFrameCSTCSOSN
+        inline FrameCSTICMS: TFrameCSTICMS
           Left = 60
           Top = 0
-          Width = 721
-          Height = 392
+          Width = 659
+          Height = 352
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -120,8 +103,8 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
           ExplicitWidth = 38
           ExplicitHeight = 339
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 721
-            Height = 392
+            Width = 659
+            Height = 352
             ExplicitWidth = 38
             ExplicitHeight = 339
             inherited edtDescricao: TcxDBTextEdit
@@ -131,11 +114,11 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem
-              Index = 1
-            end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
+            end
+            inherited dxLayoutControlItem2: TdxLayoutItem
+              Index = 1
             end
           end
         end
@@ -144,73 +127,59 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
         ExplicitWidth = 98
         inherited gbFiltroSalvo: TcxGroupBox
           ExplicitWidth = 98
-          Height = 225
-          Width = 781
+          Height = 185
+          Width = 719
           inherited cxGridFiltro: TcxGrid
-            Height = 198
+            Height = 158
           end
           inherited cxMemoFiltroSalvo: TcxMemo
-            Height = 198
-            Width = 393
+            Height = 158
+            Width = 331
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 98
-          Width = 781
+          Width = 719
           inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitWidth = 0
-            ExplicitHeight = 23
-            Width = 683
+            Width = 149
           end
           inherited rgFiltroAndOr: TcxRadioGroup
-            Left = 492
+            Left = 430
             ExplicitLeft = -191
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitWidth = 90
-            Width = 773
+            Width = 711
             inherited memoFiltroSQL: TcxMemo
               ExplicitWidth = 63
-              Width = 746
+              Width = 684
             end
             inherited memoFiltroDesenvolvido: TcxMemo
               ExplicitWidth = 63
-              Width = 746
+              Width = 684
             end
             inherited imgFiltroSQL: TcxImage
-              Left = 749
+              Left = 687
               ExplicitLeft = 66
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
-            Left = 587
-            ExplicitLeft = -96
+            Left = 525
           end
           inherited btnFiltroCancelar: TcxButton
-            Left = 610
-            ExplicitLeft = -73
+            Left = 548
           end
           inherited btnAplicarFiltro: TcxButton
-            Width = 683
-            ExplicitWidth = 0
+            Width = 183
           end
           inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
+            ExplicitHeight = 21
           end
         end
       end
     end
     inherited pnlTop: TPanel
-      Width = 785
+      Width = 723
       ExplicitWidth = 102
       inherited lblPrimeiroEdit: TLabel
         Width = 103
@@ -218,11 +187,9 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
         ExplicitWidth = 103
       end
       inherited lblFrame: TLabel
-        Top = -3
-        Width = 137
-        Caption = 'FrameCSTCSOSN'
-        ExplicitTop = -3
-        ExplicitWidth = 137
+        Width = 122
+        Caption = 'FrameCSTICMS'
+        ExplicitWidth = 122
       end
     end
   end
@@ -234,7 +201,7 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
       0)
   end
   inherited dts: TDataSource
-    DataSet = DM.CDSCSTCSOSN
+    DataSet = DM.cdsCSTICMS
   end
   inherited ServerMethod: TSqlServerMethod
     Params = <
@@ -245,6 +212,6 @@ inherited frmCADCSTCSOSN: TfrmCADCSTCSOSN
         ParamType = ptInput
       end>
     SQLConnection = DM.conServer
-    ServerMethodName = 'TServerMethods.setSQLCSTCSOSN'
+    ServerMethodName = 'TServerMethods.setSQLCSTICMS'
   end
 end

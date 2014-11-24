@@ -8,36 +8,41 @@ inherited frmCadPortador: TfrmCadPortador
   TextHeight = 15
   inherited pnlSide: TPanel
     Height = 409
-    ExplicitHeight = 8
+    ExplicitHeight = 409
     inherited lblRegistros: TLabel
       Top = 392
+      ExplicitTop = 392
     end
     inherited imgImprimir: TcxImage
       Top = 278
-      ExplicitTop = -123
+      ExplicitTop = 278
     end
     inherited imgExportar: TcxImage
       Top = 335
-      ExplicitTop = -66
+      ExplicitTop = 335
     end
   end
   inherited pnlClient: TPanel
     Width = 763
     Height = 409
-    ExplicitWidth = 102
-    ExplicitHeight = 8
+    ExplicitWidth = 763
+    ExplicitHeight = 409
     inherited cxPageControl: TcxPageControl
       Width = 763
       Height = 381
-      ExplicitWidth = 102
+      Properties.ActivePage = cxTabGrid
+      ExplicitWidth = 763
+      ExplicitHeight = 381
       ClientRectBottom = 379
       ClientRectRight = 761
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 759
+        ExplicitHeight = 349
         inherited cxGrid: TcxGrid
           Width = 759
           Height = 279
-          ExplicitWidth = 98
+          ExplicitWidth = 759
+          ExplicitHeight = 279
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidportador: TcxGridDBColumn
               Caption = 'ID Portador'
@@ -59,7 +64,8 @@ inherited frmCadPortador: TfrmCadPortador
         inherited pnlBottom: TPanel
           Top = 279
           Width = 759
-          ExplicitWidth = 98
+          ExplicitTop = 279
+          ExplicitWidth = 759
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
@@ -70,13 +76,13 @@ inherited frmCadPortador: TfrmCadPortador
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 0
+            ExplicitWidth = 661
             ExplicitHeight = 23
             Width = 661
           end
           inherited btnBuscar: TcxButton
             Left = 649
-            ExplicitLeft = -12
+            ExplicitLeft = 649
           end
           inherited cbSQL: TcxComboBox
             ExplicitHeight = 23
@@ -93,9 +99,11 @@ inherited frmCadPortador: TfrmCadPortador
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 98
+        ExplicitWidth = 759
+        ExplicitHeight = 349
         inherited pnlCadastro: TPanel
           Height = 349
+          ExplicitHeight = 349
         end
         inline FramePortador: TFramePortador
           Left = 60
@@ -114,8 +122,8 @@ inherited frmCadPortador: TfrmCadPortador
           ParentFont = False
           TabOrder = 1
           ExplicitLeft = 60
-          ExplicitWidth = 38
-          ExplicitHeight = 339
+          ExplicitWidth = 699
+          ExplicitHeight = 349
           inherited dxLayoutControl: TdxLayoutControl
             Width = 699
             Height = 349
@@ -140,9 +148,26 @@ inherited frmCadPortador: TfrmCadPortador
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 100
+        ExplicitWidth = 759
+        ExplicitHeight = 349
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 759
+          ExplicitHeight = 182
+          Height = 182
+          Width = 759
+          inherited cxGridFiltro: TcxGrid
+            Height = 155
+            ExplicitHeight = 155
+          end
+          inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 371
+            ExplicitHeight = 155
+            Height = 155
+            Width = 371
+          end
+        end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 100
+          ExplicitWidth = 759
           Width = 759
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 183
@@ -151,17 +176,25 @@ inherited frmCadPortador: TfrmCadPortador
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 464
-            ExplicitLeft = -195
+            ExplicitLeft = 464
           end
           inherited dateFiltroCondicao: TcxDateEdit
             ExplicitHeight = 23
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 86
+            ExplicitWidth = 745
             Width = 745
+            inherited memoFiltroSQL: TcxMemo
+              ExplicitWidth = 718
+              Width = 718
+            end
             inherited memoFiltroDesenvolvido: TcxMemo
-              ExplicitWidth = 80
-              Width = 739
+              ExplicitWidth = 718
+              Width = 718
+            end
+            inherited imgFiltroSQL: TcxImage
+              Left = 721
+              ExplicitLeft = 721
             end
           end
           inherited cbFiltroCampo: TcxComboBox
@@ -178,21 +211,15 @@ inherited frmCadPortador: TfrmCadPortador
             Left = 582
             ExplicitLeft = 582
           end
-          inherited cxButton1: TcxButton
-            Width = 217
-            ExplicitWidth = 217
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 23
           end
-        end
-        inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 100
-          Height = 182
-          Width = 759
         end
       end
     end
     inherited pnlTop: TPanel
       Width = 763
-      ExplicitWidth = 102
+      ExplicitWidth = 763
       inherited lblPrimeiroEdit: TLabel
         Width = 75
         Caption = 'edtBanco'

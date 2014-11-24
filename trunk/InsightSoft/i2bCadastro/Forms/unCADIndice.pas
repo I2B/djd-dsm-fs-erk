@@ -1,4 +1,4 @@
-unit UnCADCSTCSOSN;
+unit unCADIndice;
 
 interface
 
@@ -10,20 +10,21 @@ uses
   dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, Vcl.Menus,
   Vcl.ComCtrls, dxCore, cxDateUtils, cxButtonEdit, dxScreenTip,
-  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, UnFrameCSTCSOSN,
-  cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions,
-  Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup, cxMemo,
-  cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
+  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, unFrameIndice,
+  cxGridDBTableView, Datasnap.DBClient, Data.SqlExpr, dxBar, dxRibbonRadialMenu,
+  System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup,
+  cxMemo, cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
-  Vcl.ExtCtrls, Datasnap.DBClient;
+  Vcl.ExtCtrls;
 
 type
-  TfrmCADCSTCSOSN = class(TfrmCadastro)
-    cxGridDBidcstcsosn: TcxGridDBColumn;
-    cxGridDBdescricao: TcxGridDBColumn;
-    cxGridDBobservacao: TcxGridDBColumn;
-    FrameCSTCSOSN: TFrameCSTCSOSN;
+  TfrmCADIndice = class(TfrmCadastro)
+    cxGridDBidindice: TcxGridDBColumn;
+    cxGridDBidindicadoreconomico: TcxGridDBColumn;
+    cxGridDBdataatualizacao: TcxGridDBColumn;
+    cxGridDBvalor: TcxGridDBColumn;
+    FrameIndice: TFrameIndice;
   private
     { Private declarations }
   public
@@ -31,7 +32,7 @@ type
   end;
 
 var
-  frmCADCSTCSOSN: TfrmCADCSTCSOSN;
+  frmCADIndice: TfrmCADIndice;
 
 implementation
 
