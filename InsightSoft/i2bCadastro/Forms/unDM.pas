@@ -40,9 +40,9 @@ type
     cdsEstado: TClientDataSet;
     cdsEstoqueContagemCabecalho: TClientDataSet;
     cdsEstoqueContagemDetalhe: TClientDataSet;
-    cdsEstoqueCor: TClientDataSet;
-    cdsEstoqueGrade: TClientDataSet;
-    cdsEstoqueTamanho: TClientDataSet;
+    cdsProdutoCor: TClientDataSet;
+    cdsProdutoGrade: TClientDataSet;
+    cdsProdutoTamanho: TClientDataSet;
     cdsHistoricoMovimento: TClientDataSet;
     cdsIndicadorEconomico: TClientDataSet;
     cdsIndice: TClientDataSet;
@@ -386,18 +386,6 @@ type
     cdsEstoqueContagemDetalhequantidadecontada: TFloatField;
     cdsEstoqueContagemDetalhequantidadesistema: TFloatField;
     cdsEstoqueContagemDetalhedivergencia: TFloatField;
-    cdsEstoqueCoridestoquecor: TIntegerField;
-    cdsEstoqueCorcodigo: TWideStringField;
-    cdsEstoqueCornome: TWideStringField;
-    cdsEstoqueGradeidestoquegrade: TIntegerField;
-    cdsEstoqueGradeidproduto: TIntegerField;
-    cdsEstoqueGradeidestoquecor: TIntegerField;
-    cdsEstoqueGradeidestoquetamanho: TIntegerField;
-    cdsEstoqueGradecodigo: TWideStringField;
-    cdsEstoqueGradequantidade: TFloatField;
-    cdsEstoqueTamanhoidestoquetamanho: TIntegerField;
-    cdsEstoqueTamanhocodigo: TWideStringField;
-    cdsEstoqueTamanhonome: TWideStringField;
     cdsHistoricoMovimentoidhistoricomovimento: TIntegerField;
     cdsHistoricoMovimentodescricao: TWideStringField;
     cdsHistoricoMovimentotipo: TWideStringField;
@@ -1007,6 +995,21 @@ type
     cdsProdutoUnidadeidprodutounidade: TIntegerField;
     cdsProdutoUnidadesigla: TWideStringField;
     cdsProdutoUnidadedescricao: TWideMemoField;
+    cdsProdutoTamanhoidprodutotamanho: TIntegerField;
+    cdsProdutoTamanhocodigo: TWideStringField;
+    cdsProdutoTamanhonome: TWideStringField;
+    cdsProdutoGradeidprodutograde: TIntegerField;
+    cdsProdutoGradeidproduto: TIntegerField;
+    cdsProdutoGradeidprodutocor: TIntegerField;
+    cdsProdutoGradeidprodutotamanho: TIntegerField;
+    cdsProdutoGradecodigo: TWideStringField;
+    cdsProdutoGradequantidade: TFloatField;
+    cdsProdutoGradeprodutonome: TWideStringField;
+    cdsProdutoGradecornome: TWideStringField;
+    cdsProdutoGradetamanhonome: TWideStringField;
+    cdsProdutoCorcodigo: TWideStringField;
+    cdsProdutoCornome: TWideStringField;
+    cdsProdutoCoridprodutocor: TIntegerField;
   private
     FInstanceOwner: Boolean;
   public

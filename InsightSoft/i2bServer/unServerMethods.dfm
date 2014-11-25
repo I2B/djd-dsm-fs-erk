@@ -1782,27 +1782,26 @@ object ServerMethods: TServerMethods
       Size = 60
     end
   end
-  object qryEstoqueCor: TFDQuery
+  object qryProdutoCor: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from estoqueCor order by idEstoqueCor limit 0')
+      'select * from produtoCor order by idProdutoCor limit 0')
     Left = 264
     Top = 368
-    object qryEstoqueCoridestoquecor: TIntegerField
-      FieldName = 'idestoquecor'
-      Origin = 'idestoquecor'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object qryEstoqueCorcodigo: TWideStringField
+    object qryProdutoCorcodigo: TWideStringField
       FieldName = 'codigo'
       Origin = 'codigo'
       FixedChar = True
       Size = 2
     end
-    object qryEstoqueCornome: TWideStringField
+    object qryProdutoCornome: TWideStringField
       FieldName = 'nome'
       Origin = 'nome'
       Size = 30
+    end
+    object qryProdutoCoridprodutocor: TIntegerField
+      FieldName = 'idprodutocor'
+      Origin = 'idprodutocor'
     end
   end
   object qryEstoqueContagemDetalhe: TFDQuery
@@ -1849,86 +1848,86 @@ object ServerMethods: TServerMethods
       Size = 100
     end
   end
-  object qryEstoqueGrade: TFDQuery
+  object qryProdutoGrade: TFDQuery
     Connection = conexao
     SQL.Strings = (
       
-        'select estoqueGrade.*, produto.nome as ProdutoNome, estoqueCor.n' +
+        'select produtoGrade.*, produto.nome as ProdutoNome, produtoCor.n' +
         'ome as CorNome, '
-      'estoqueTamanho.nome as TamanhoNome from estoqueGrade'
-      'inner join produto on estoqueGrade.idProduto = produto.idProduto'
+      'produtoTamanho.nome as TamanhoNome from produtoGrade'
+      'inner join produto on produtoGrade.idProduto = produto.idProduto'
       
-        'inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.' +
-        'idEstoqueCor'
+        'inner join produtoCor on produtoGrade.idProdutoCor = produtoCor.' +
+        'idProdutoCor'
       
-        'inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = est' +
-        'oqueTamanho.idEstoqueTamanho'
-      'order by idEstoqueGrade limit 0')
+        'inner join produtoTamanho on produtoGrade.idProdutoTamanho = pro' +
+        'dutoTamanho.idprodutoTamanho'
+      'order by idProdutoGrade limit 0')
     Left = 264
     Top = 480
-    object qryEstoqueGradeidestoquegrade: TIntegerField
-      FieldName = 'idestoquegrade'
-      Origin = 'idestoquegrade'
+    object qryProdutoGradeidprodutograde: TIntegerField
+      FieldName = 'idprodutograde'
+      Origin = 'idprodutograde'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
-    object qryEstoqueGradeidproduto: TIntegerField
+    object qryProdutoGradeidproduto: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
     end
-    object qryEstoqueGradeidestoquecor: TIntegerField
-      FieldName = 'idestoquecor'
-      Origin = 'idestoquecor'
+    object qryProdutoGradeidprodutocor: TIntegerField
+      FieldName = 'idprodutocor'
+      Origin = 'idprodutocor'
     end
-    object qryEstoqueGradeidestoquetamanho: TIntegerField
-      FieldName = 'idestoquetamanho'
-      Origin = 'idestoquetamanho'
+    object qryProdutoGradeidprodutotamanho: TIntegerField
+      FieldName = 'idprodutotamanho'
+      Origin = 'idprodutotamanho'
     end
-    object qryEstoqueGradecodigo: TWideStringField
+    object qryProdutoGradecodigo: TWideStringField
       FieldName = 'codigo'
       Origin = 'codigo'
       Size = 50
     end
-    object qryEstoqueGradequantidade: TFloatField
+    object qryProdutoGradequantidade: TFloatField
       FieldName = 'quantidade'
       Origin = 'quantidade'
     end
-    object qryEstoqueGradeprodutonome: TWideStringField
+    object qryProdutoGradeprodutonome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'produtonome'
       Origin = 'produtonome'
       Size = 100
     end
-    object qryEstoqueGradecornome: TWideStringField
+    object qryProdutoGradecornome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'cornome'
       Origin = 'cornome'
       Size = 30
     end
-    object qryEstoqueGradetamanhonome: TWideStringField
+    object qryProdutoGradetamanhonome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'tamanhonome'
       Origin = 'tamanhonome'
       Size = 30
     end
   end
-  object qryEstoqueTamanho: TFDQuery
+  object qryProdutoTamanho: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from estoqueTamanho order by idEstoqueTamanho limit 0')
+      'select * from produtoTamanho order by idProdutoTamanho limit 0')
     Left = 264
     Top = 536
-    object qryEstoqueTamanhoidestoquetamanho: TIntegerField
-      FieldName = 'idestoquetamanho'
-      Origin = 'idestoquetamanho'
+    object qryProdutoTamanhoidprodutotamanho: TIntegerField
+      FieldName = 'idprodutotamanho'
+      Origin = 'idprodutotamanho'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
-    object qryEstoqueTamanhocodigo: TWideStringField
+    object qryProdutoTamanhocodigo: TWideStringField
       FieldName = 'codigo'
       Origin = 'codigo'
       FixedChar = True
       Size = 3
     end
-    object qryEstoqueTamanhonome: TWideStringField
+    object qryProdutoTamanhonome: TWideStringField
       FieldName = 'nome'
       Origin = 'nome'
       Size = 30
@@ -1992,8 +1991,8 @@ object ServerMethods: TServerMethods
     Left = 296
     Top = 312
   end
-  object dspEstoqueCor: TDataSetProvider
-    DataSet = qryEstoqueCor
+  object dspProdutoCor: TDataSetProvider
+    DataSet = qryProdutoCor
     Left = 296
     Top = 368
   end
@@ -2002,13 +2001,13 @@ object ServerMethods: TServerMethods
     Left = 296
     Top = 424
   end
-  object dspEstoqueGrade: TDataSetProvider
-    DataSet = qryEstoqueGrade
+  object dspProdutoGrade: TDataSetProvider
+    DataSet = qryProdutoGrade
     Left = 296
     Top = 480
   end
-  object dspEstoqueTamanho: TDataSetProvider
-    DataSet = qryEstoqueTamanho
+  object dspProdutoTamanho: TDataSetProvider
+    DataSet = qryProdutoTamanho
     Left = 296
     Top = 536
   end
