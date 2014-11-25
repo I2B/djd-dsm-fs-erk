@@ -10,13 +10,11 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -1302,69 +1300,81 @@ object DM: TDM
       FieldName = 'divergencia'
     end
   end
-  object cdsEstoqueCor: TClientDataSet
+  object cdsProdutoCor: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'dspEstoqueCor'
+    ProviderName = 'dspProdutoCor'
     RemoteServer = dspConnection
     Left = 176
     Top = 424
-    object cdsEstoqueCoridestoquecor: TIntegerField
-      FieldName = 'idestoquecor'
-    end
-    object cdsEstoqueCorcodigo: TWideStringField
+    object cdsProdutoCorcodigo: TWideStringField
       FieldName = 'codigo'
       FixedChar = True
       Size = 2
     end
-    object cdsEstoqueCornome: TWideStringField
+    object cdsProdutoCornome: TWideStringField
       FieldName = 'nome'
       Size = 30
     end
+    object cdsProdutoCoridprodutocor: TIntegerField
+      FieldName = 'idprodutocor'
+    end
   end
-  object cdsEstoqueGrade: TClientDataSet
+  object cdsProdutoGrade: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'dspEstoqueGrade'
+    ProviderName = 'dspProdutoGrade'
     RemoteServer = dspConnection
     Left = 176
     Top = 480
-    object cdsEstoqueGradeidestoquegrade: TIntegerField
-      FieldName = 'idestoquegrade'
+    object cdsProdutoGradeidprodutograde: TIntegerField
+      FieldName = 'idprodutograde'
     end
-    object cdsEstoqueGradeidproduto: TIntegerField
+    object cdsProdutoGradeidproduto: TIntegerField
       FieldName = 'idproduto'
     end
-    object cdsEstoqueGradeidestoquecor: TIntegerField
-      FieldName = 'idestoquecor'
+    object cdsProdutoGradeidprodutocor: TIntegerField
+      FieldName = 'idprodutocor'
     end
-    object cdsEstoqueGradeidestoquetamanho: TIntegerField
-      FieldName = 'idestoquetamanho'
+    object cdsProdutoGradeidprodutotamanho: TIntegerField
+      FieldName = 'idprodutotamanho'
     end
-    object cdsEstoqueGradecodigo: TWideStringField
+    object cdsProdutoGradecodigo: TWideStringField
       FieldName = 'codigo'
       Size = 50
     end
-    object cdsEstoqueGradequantidade: TFloatField
+    object cdsProdutoGradequantidade: TFloatField
       FieldName = 'quantidade'
     end
+    object cdsProdutoGradeprodutonome: TWideStringField
+      FieldName = 'produtonome'
+      Size = 100
+    end
+    object cdsProdutoGradecornome: TWideStringField
+      FieldName = 'cornome'
+      Size = 30
+    end
+    object cdsProdutoGradetamanhonome: TWideStringField
+      FieldName = 'tamanhonome'
+      Size = 30
+    end
   end
-  object cdsEstoqueTamanho: TClientDataSet
+  object cdsProdutoTamanho: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'dspEstoqueTamanho'
+    ProviderName = 'dspProdutoTamanho'
     RemoteServer = dspConnection
     Left = 176
     Top = 536
-    object cdsEstoqueTamanhoidestoquetamanho: TIntegerField
-      FieldName = 'idestoquetamanho'
+    object cdsProdutoTamanhoidprodutotamanho: TIntegerField
+      FieldName = 'idprodutotamanho'
     end
-    object cdsEstoqueTamanhocodigo: TWideStringField
+    object cdsProdutoTamanhocodigo: TWideStringField
       FieldName = 'codigo'
       FixedChar = True
       Size = 3
     end
-    object cdsEstoqueTamanhonome: TWideStringField
+    object cdsProdutoTamanhonome: TWideStringField
       FieldName = 'nome'
       Size = 30
     end

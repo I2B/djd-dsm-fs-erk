@@ -61,20 +61,20 @@ type
     qryEntradaTransportadoraReboque: TFDQuery;
     qryEstado: TFDQuery;
     qryEstoqueContagemCabecalho: TFDQuery;
-    qryEstoqueCor: TFDQuery;
+    qryProdutoCor: TFDQuery;
     qryEstoqueContagemDetalhe: TFDQuery;
-    qryEstoqueGrade: TFDQuery;
-    qryEstoqueTamanho: TFDQuery;
+    qryProdutoGrade: TFDQuery;
+    qryProdutoTamanho: TFDQuery;
     qryHistoricoMovimento: TFDQuery;
     dspEntradaLocalEntregaRetirada: TDataSetProvider;
     dspEntradaTransportadora: TDataSetProvider;
     dspEntradaTransportadoraReboque: TDataSetProvider;
     dspEstado: TDataSetProvider;
     dspEstoqueContagemCabecalho: TDataSetProvider;
-    dspEstoqueCor: TDataSetProvider;
+    dspProdutoCor: TDataSetProvider;
     dspEstoqueContagemDetalhe: TDataSetProvider;
-    dspEstoqueGrade: TDataSetProvider;
-    dspEstoqueTamanho: TDataSetProvider;
+    dspProdutoGrade: TDataSetProvider;
+    dspProdutoTamanho: TDataSetProvider;
     dspHistoricoMovimento: TDataSetProvider;
     qryIndicadorEconomico: TFDQuery;
     qryIndice: TFDQuery;
@@ -364,21 +364,6 @@ type
     qryEstoqueContagemCabecalhodatacontagem: TDateField;
     qryEstoqueContagemCabecalhoestoqueatualizado: TWideStringField;
     qryEstoqueContagemCabecalhonomefantasia: TWideStringField;
-    qryEstoqueCoridestoquecor: TIntegerField;
-    qryEstoqueCorcodigo: TWideStringField;
-    qryEstoqueCornome: TWideStringField;
-    qryEstoqueGradeidestoquegrade: TIntegerField;
-    qryEstoqueGradeidproduto: TIntegerField;
-    qryEstoqueGradeidestoquecor: TIntegerField;
-    qryEstoqueGradeidestoquetamanho: TIntegerField;
-    qryEstoqueGradecodigo: TWideStringField;
-    qryEstoqueGradequantidade: TFloatField;
-    qryEstoqueGradeprodutonome: TWideStringField;
-    qryEstoqueGradecornome: TWideStringField;
-    qryEstoqueGradetamanhonome: TWideStringField;
-    qryEstoqueTamanhoidestoquetamanho: TIntegerField;
-    qryEstoqueTamanhocodigo: TWideStringField;
-    qryEstoqueTamanhonome: TWideStringField;
     qryHistoricoMovimentoidhistoricomovimento: TIntegerField;
     qryHistoricoMovimentodescricao: TWideStringField;
     qryHistoricoMovimentotipo: TWideStringField;
@@ -1156,6 +1141,21 @@ type
     qryFiltroSalvofiltrosql: TWideMemoField;
     qryFiltroSalvofiltrodisplay: TWideMemoField;
     qryFiltroSalvoform: TWideStringField;
+    qryProdutoCorcodigo: TWideStringField;
+    qryProdutoCornome: TWideStringField;
+    qryProdutoCoridprodutocor: TIntegerField;
+    qryProdutoGradeidprodutograde: TIntegerField;
+    qryProdutoGradeidproduto: TIntegerField;
+    qryProdutoGradeidprodutocor: TIntegerField;
+    qryProdutoGradeidprodutotamanho: TIntegerField;
+    qryProdutoGradecodigo: TWideStringField;
+    qryProdutoGradequantidade: TFloatField;
+    qryProdutoGradeprodutonome: TWideStringField;
+    qryProdutoGradecornome: TWideStringField;
+    qryProdutoGradetamanhonome: TWideStringField;
+    qryProdutoTamanhoidprodutotamanho: TIntegerField;
+    qryProdutoTamanhocodigo: TWideStringField;
+    qryProdutoTamanhonome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1213,15 +1213,15 @@ type
     const selectEstoqueContagemCabecalho: array[1..5] of string = ('select estoqueContagemCabecalho.*, empresa.nomeFantasia',
       ' from estoqueContagemCabecalho inner join empresa on estoqueContagemCabecalho.idEmpresa = empresa.idEmpresa',
       ' ',' order by idEstoqueContagemCabecalho',' limit 0 ');
-    const selectEstoqueContagemDetalhe: array[1..5] of string = ('select *',' from estoqueCor',' ',' order by idEstoqueCor',' limit 0 ');
-    const selectEstoqueCor: array[1..5] of string = ('select estoqueContagemDetalhe.*, produto.nome as produtoNome',
+    const selectProdutoCor: array[1..5] of string = ('select *',' from produtoCor',' ',' order by idProdutoCor',' limit 0 ');
+    const selectEstoqueContagemDetalhe: array[1..5] of string = ('select estoqueContagemDetalhe.*, produto.nome as produtoNome',
       ' from estoqueContagemDetalhe inner join produto on estoqueContagemDetalhe.idProduto = produto.idProduto',
       ' ',' order by idEstoqueCotagemdetalhe',' limit 0 ');
-    const selectEstoqueGrade: array[1..5] of string = ('select estoqueGrade.*, produto.nome as ProdutoNome, estoqueCor.nome as CorNome,'+
-      ' estoqueTamanho.nome as TamanhoNome',' from estoqueGrade inner join produto on estoqueGrade.idProduto = produto.idProduto'+
-      ' inner join estoqueCor on estoqueGrade.idEstoqueCor = estoqueCor.idEstoqueCor'+
-      ' inner join estoqueTamanho on estoqueGrade.idEstoqueTamanho = estoqueTamanho.idEstoqueTamanho',' ',' order by idEstoqueGrade',' limit 0 ');
-    const selectEstoqueTamanho: array[1..5] of string = ('select *',' from estoqueTamanho',' ',' order by idEstoqueTamanho',' limit 0 ');
+    const selectProdutoGrade: array[1..5] of string = ('select produtoGrade.*, produto.nome as ProdutoNome, produtoCor.nome as CorNome,'+
+      ' produtoTamanho.nome as TamanhoNome',' from produtoGrade inner join produto on produtoGrade.idProduto = produto.idProduto'+
+      ' inner join produtoCor on produtoGrade.idProdutoCor = produtoCor.idProdutoCor'+
+      ' inner join produtoTamanho on produtoGrade.idProdutoTamanho = produtoTamanho.idProdutoTamanho',' ',' order by idProdutoGrade',' limit 0 ');
+    const selectProdutoTamanho: array[1..5] of string = ('select *',' from produtoTamanho',' ',' order by idProdutoTamanho',' limit 0 ');
     const selectFiltroSalvo: array[1..5] of string = ('select *',' from filtrosalvo',' ',' order by idfiltrosalvo',' limit 0 ');
     const selectHistoricoMovimento: array[1..5] of string = ('select *',' from historicoMovimento',' ',' order by idHistoricoMovimento',' limit 0 ');
     const selectIndicadorEconomico: array[1..5] of string = ('select *',' from indicadorEconomico',' ',' order by idIndicadorEconomico',' limit 0 ');
@@ -1395,9 +1395,9 @@ type
     procedure setSQLEstado(filtro: String);
     procedure setSQLEstoqueContagemCabecalho(filtro: String);
     procedure setSQLEstoqueContagemDetalhe(filtro: String);
-    procedure setSQLEstoqueCor(filtro: String);
-    procedure setSQLEstoqueGrade(filtro: String);
-    procedure setSQLEstoqueTamanho(filtro: String);
+    procedure setSQLProdutoCor(filtro: String);
+    procedure setSQLProdutoGrade(filtro: String);
+    procedure setSQLProdutoTamanho(filtro: String);
     procedure setSQLFiltroSalvo(filtro: String);
     procedure setSQLHistoricoMovimento(filtro: String);
     procedure setSQLIndicadorEconomico(filtro: String);
@@ -1697,23 +1697,23 @@ begin
     for I := 1 to 5 do
       SQL.Add(selectEstoqueContagemDetalhe[I]);
   end;
-  With qryEstoqueCor do
+  With qryProdutoCor do
   begin
     SQL.Clear;
     for I := 1 to 5 do
-      SQL.Add(selectEstoqueCor[I]);
+      SQL.Add(selectProdutoCor[I]);
   end;
-  With qryEstoqueGrade do
+  With qryProdutoGrade do
   begin
     SQL.Clear;
     for I := 1 to 5 do
-      SQL.Add(selectEstoqueGrade[I]);
+      SQL.Add(selectProdutoGrade[I]);
   end;
-  With qryEstoqueTamanho do
+  With qryProdutoTamanho do
   begin
     SQL.Clear;
     for I := 1 to 5 do
-      SQL.Add(selectEstoqueTamanho[I]);
+      SQL.Add(selectProdutoTamanho[I]);
   end;
   With qryFiltroSalvo do
   begin
@@ -2244,19 +2244,19 @@ begin
     selectEstoqueContagemDetalhe[3],selectEstoqueContagemDetalhe[4]);
 end;
 
-procedure TServerMethods.setSQLEstoqueCor(filtro: String);
+procedure TServerMethods.setSQLProdutoCor(filtro: String);
 begin
-  alteraSQL(qryEstoqueCor,filtro,selectEstoqueCor[1],selectEstoqueCor[2],selectEstoqueCor[3],selectEstoqueCor[4]);
+  alteraSQL(qryProdutoCor,filtro,selectProdutoCor[1],selectProdutoCor[2],selectProdutoCor[3],selectProdutoCor[4]);
 end;
 
-procedure TServerMethods.setSQLEstoqueGrade(filtro: String);
+procedure TServerMethods.setSQLProdutoGrade(filtro: String);
 begin
-  alteraSQL(qryEstoqueGrade,filtro,selectEstoqueGrade[1],selectEstoqueGrade[2],selectEstoqueGrade[3],selectEstoqueGrade[4]);
+  alteraSQL(qryProdutoGrade,filtro,selectProdutoGrade[1],selectProdutoGrade[2],selectProdutoGrade[3],selectProdutoGrade[4]);
 end;
 
-procedure TServerMethods.setSQLEstoqueTamanho(filtro: String);
+procedure TServerMethods.setSQLProdutoTamanho(filtro: String);
 begin
-  alteraSQL(qryEstoqueTamanho,filtro,selectEstoqueTamanho[1],selectEstoqueTamanho[2],selectEstoqueTamanho[3],selectEstoqueTamanho[4]);
+  alteraSQL(qryProdutoTamanho,filtro,selectProdutoTamanho[1],selectProdutoTamanho[2],selectProdutoTamanho[3],selectProdutoTamanho[4]);
 end;
 
 procedure TServerMethods.setSQLFiltroSalvo(filtro: String);
