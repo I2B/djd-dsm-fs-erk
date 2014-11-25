@@ -67,32 +67,19 @@ inherited frmCADCSTCofins: TfrmCADCSTCofins
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 618
-            ExplicitHeight = 23
             Width = 618
           end
           inherited btnBuscar: TcxButton
             Left = 606
             ExplicitLeft = 606
           end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end
@@ -146,53 +133,61 @@ inherited frmCADCSTCofins: TfrmCADCSTCofins
       inherited cxTabFiltro: TcxTabSheet
         ExplicitWidth = 716
         ExplicitHeight = 332
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 716
+          ExplicitHeight = 165
+          Height = 165
+          Width = 716
+          inherited cxGridFiltro: TcxGrid
+            Height = 138
+          end
+          inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 328
+            ExplicitHeight = 138
+            Height = 138
+            Width = 328
+          end
+        end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 716
           Width = 716
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 140
-            ExplicitHeight = 23
             Width = 140
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 421
             ExplicitLeft = 421
           end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitWidth = 702
             Width = 702
-            inherited memoFiltroDesenvolvido: TcxMemo
-              ExplicitWidth = 696
-              Width = 696
+            inherited memoFiltroSQL: TcxMemo
+              ExplicitWidth = 675
+              Width = 675
             end
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
+            inherited memoFiltroDesenvolvido: TcxMemo
+              ExplicitWidth = 675
+              Width = 675
+            end
+            inherited imgFiltroSQL: TcxImage
+              Left = 678
+              ExplicitLeft = 678
+            end
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 516
+            Width = 174
             ExplicitLeft = 516
+            ExplicitWidth = 174
           end
           inherited btnFiltroCancelar: TcxButton
             Left = 539
             ExplicitLeft = 539
           end
-          inherited cxButton1: TcxButton
-            Width = 174
-            ExplicitWidth = 174
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 21
           end
-        end
-        inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 716
-          ExplicitHeight = 165
-          Height = 165
-          Width = 716
         end
       end
     end

@@ -11,7 +11,7 @@ uses
   unFrameEmpresa, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu,
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxMemo, cxGroupBox, cxRadioGroup, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC,
-  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls;
+  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADEmpresa = class(TfrmCadastro)
