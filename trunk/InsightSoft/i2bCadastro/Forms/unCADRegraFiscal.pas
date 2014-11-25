@@ -22,7 +22,6 @@ uses
 
 type
   TfrmCADRegraFiscal = class(TfrmCadastro)
-    FrameRegraFiscal: TFrameRegraFiscal;
     cxGridDBidregrafiscal: TcxGridDBColumn;
     cxGridDBidpessoa: TcxGridDBColumn;
     cxGridDBidregrafiscalobservacao: TcxGridDBColumn;
@@ -66,6 +65,7 @@ type
     cxGridDBmunicipionome: TcxGridDBColumn;
     cxGridDBnomefantasia: TcxGridDBColumn;
     cxGridDBcfopdescricao: TcxGridDBColumn;
+    FrameRegraFiscal: TFrameRegraFiscal;
   private
     { Private declarations }
   public
