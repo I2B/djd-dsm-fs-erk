@@ -18,7 +18,7 @@ uses
   Data.FMTBcd, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint,
   Vcl.StdCtrls, cxButtons, cxDropDownEdit, cxMemo, cxMaskEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxTextEdit,
   cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
-  cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameProdutoUnidade, cxButtonEdit;
+  cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameProdutoUnidade, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADProdutoUnidade = class(TfrmCadastro)

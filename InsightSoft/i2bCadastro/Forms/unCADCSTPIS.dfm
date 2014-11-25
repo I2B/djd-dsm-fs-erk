@@ -22,77 +22,18 @@ inherited frmCADCSTPIS: TfrmCADCSTPIS
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited edtInformacao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
-          end
-        end
-      end
-      inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 98
-        inline FramePIS: TFramePIS
-          Left = 60
-          Top = 0
-          Width = 778
-          Height = 339
-          Align = alClient
-          Color = clWindow
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Segoe UI Light'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentFont = False
-          TabOrder = 1
-          ExplicitLeft = 60
-          ExplicitWidth = 38
-          ExplicitHeight = 339
-          inherited dxLayoutControl: TdxLayoutControl
-            Width = 778
-            Height = 339
-            ExplicitWidth = 778
-            ExplicitHeight = 339
-            inherited dxLayoutControlGroup_Root: TdxLayoutGroup
-              Index = -1
-            end
-            inherited dxLayoutControlItem1: TdxLayoutItem
-              Index = 0
-            end
           end
         end
       end
       inherited cxTabFiltro: TcxTabSheet
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 21
           end
         end
       end

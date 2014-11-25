@@ -11,7 +11,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions,
   Vcl.ActnList, dxCustomHint, cxHint, cxMemo, cxGroupBox, cxRadioGroup, cxDropDownEdit, cxCalendar, Vcl.StdCtrls,
   cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses,
-  cxImage, Vcl.ExtCtrls, unFramePai, unFrameCSTPIS;
+  cxImage, Vcl.ExtCtrls, unFramePai, unFrameCSTPIS, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADCSTPIS = class(TfrmCadastro)

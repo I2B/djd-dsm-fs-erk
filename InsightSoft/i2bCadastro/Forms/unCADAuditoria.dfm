@@ -39,7 +39,7 @@ inherited frmCADAuditoria: TfrmCADAuditoria
         ExplicitHeight = 382
         inherited cxGrid: TcxGrid
           Width = 828
-          Height = 382
+          Height = 312
           ExplicitLeft = 4
           ExplicitWidth = 828
           ExplicitHeight = 382
@@ -79,12 +79,50 @@ inherited frmCADAuditoria: TfrmCADAuditoria
             end
           end
         end
+        inherited pnlBottom: TPanel
+          Top = 312
+          Width = 828
+          ExplicitTop = 312
+          ExplicitWidth = 828
+          inherited lblCampo: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited lblInformacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+          inherited lblOperacao: TcxLabel
+            Style.IsFontAssigned = True
+          end
+        end
       end
       inherited cxTabCadastro: TcxTabSheet
         ExplicitLeft = 2
         ExplicitTop = 30
         ExplicitWidth = 828
         ExplicitHeight = 382
+      end
+      inherited cxTabFiltro: TcxTabSheet
+        ExplicitWidth = 828
+        ExplicitHeight = 382
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 828
+          ExplicitHeight = 215
+          Height = 215
+          Width = 828
+          inherited cxGridFiltro: TcxGrid
+            Height = 188
+          end
+          inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 440
+            ExplicitHeight = 188
+            Height = 188
+            Width = 440
+          end
+        end
+        inherited gbDesenvolvimentoFiltro: TcxGroupBox
+          ExplicitWidth = 828
+          Width = 828
+        end
       end
     end
     inherited pnlTop: TPanel
@@ -98,7 +136,6 @@ inherited frmCADAuditoria: TfrmCADAuditoria
   end
   inherited dxBarManager: TdxBarManager
     Left = 384
-    Top = 8
     DockControlHeights = (
       0
       0
@@ -108,31 +145,15 @@ inherited frmCADAuditoria: TfrmCADAuditoria
   inherited dts: TDataSource
     DataSet = DM.cdsAuditoria
     Left = 544
-    Top = 8
   end
   inherited ActionList: TActionList
     Left = 344
-    Top = 8
   end
   inherited RadialMenuExportar: TdxRibbonRadialMenu
     Left = 424
-    Top = 8
   end
   inherited SaveDialog: TSaveDialog
     Left = 462
     Top = 10
-  end
-  object ServerMethod: TSqlServerMethod
-    Params = <
-      item
-        DataType = ftWideString
-        Precision = 2000
-        Name = 'filtro'
-        ParamType = ptInput
-      end>
-    SQLConnection = DM.conServer
-    ServerMethodName = 'TServerMethods.setSQLAuditoria'
-    Left = 584
-    Top = 8
   end
 end
