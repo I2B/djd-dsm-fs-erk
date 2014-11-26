@@ -1,4 +1,4 @@
-inherited FrameEstoqueCor: TFrameEstoqueCor
+inherited FrameProdutoCor: TFrameProdutoCor
   inherited dxLayoutControl: TdxLayoutControl
     object edtCodigo: TcxDBTextEdit [0]
       Left = 12
@@ -45,6 +45,6 @@ inherited FrameEstoqueCor: TFrameEstoqueCor
     end
   end
   inherited DataSource: TDataSource
-    DataSet = DM.cdsEstoqueCor
+    DataSet = DM.cdsProdutoCor
   end
 end

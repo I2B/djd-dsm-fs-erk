@@ -1,26 +1,20 @@
-inherited frmCADEstoqueTamanho: TfrmCADEstoqueTamanho
-  Caption = 'Tamanho'
+inherited frmCADModelo: TfrmCADModelo
+  Caption = 'Modelo'
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlClient: TPanel
     inherited cxPageControl: TcxPageControl
-      Properties.ActivePage = cxTabGrid
       inherited cxTabGrid: TcxTabSheet
         inherited cxGrid: TcxGrid
           inherited cxGridDB: TcxGridDBTableView
-            object cxGridDBidestoquetamanho: TcxGridDBColumn
+            object cxGridDBidmodelo: TcxGridDBColumn
               Caption = 'ID'
-              DataBinding.FieldName = 'idestoquetamanho'
+              DataBinding.FieldName = 'idmodelo'
+              Width = 74
             end
-            object cxGridDBcodigo: TcxGridDBColumn
-              Caption = 'C'#243'digo'
-              DataBinding.FieldName = 'codigo'
-              Width = 102
-            end
-            object cxGridDBnome: TcxGridDBColumn
+            object cxGridDBdescricao: TcxGridDBColumn
               Caption = 'Descri'#231#227'o'
-              DataBinding.FieldName = 'nome'
-              Width = 262
+              DataBinding.FieldName = 'descricao'
             end
           end
         end
@@ -28,33 +22,16 @@ inherited frmCADEstoqueTamanho: TfrmCADEstoqueTamanho
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited edtInformacao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
-        inline FrameEstoqueTamanho: TFrameEstoqueTamanho
+        inline FrameModelo: TFrameModelo
           Left = 60
           Top = 0
           Width = 778
@@ -81,42 +58,20 @@ inherited frmCADEstoqueTamanho: TfrmCADEstoqueTamanho
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem
-              Index = 1
-            end
-          end
-        end
-      end
-      inherited cxTabFiltro: TcxTabSheet
-        inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
           end
         end
       end
     end
     inherited pnlTop: TPanel
       inherited lblPrimeiroEdit: TLabel
-        Width = 87
-        Caption = 'edtCodigo'
-        ExplicitWidth = 87
+        Width = 103
+        Caption = 'edtDescricao'
+        ExplicitWidth = 103
       end
       inherited lblFrame: TLabel
-        Width = 187
-        Caption = 'FrameEstoqueTamanho'
-        ExplicitWidth = 187
+        Width = 113
+        Caption = 'FrameModelo'
+        ExplicitWidth = 113
       end
     end
   end
@@ -128,7 +83,7 @@ inherited frmCADEstoqueTamanho: TfrmCADEstoqueTamanho
       0)
   end
   inherited dts: TDataSource
-    DataSet = DM.cdsEstoqueTamanho
+    DataSet = DM.cdsModelo
   end
   inherited ServerMethod: TSqlServerMethod
     Params = <
@@ -139,6 +94,6 @@ inherited frmCADEstoqueTamanho: TfrmCADEstoqueTamanho
         ParamType = ptInput
       end>
     SQLConnection = DM.conServer
-    ServerMethodName = 'TServerMethods.setSQLEstoqueTamanho'
+    ServerMethodName = 'TServerMethods.setSQLModelo'
   end
 end

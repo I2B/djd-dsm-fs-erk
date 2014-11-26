@@ -329,22 +329,22 @@
             <Form>frmCADEstado</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Frames\unFrameEstoqueCor.pas">
-            <Form>FrameEstoqueCor</Form>
+        <DCCReference Include="Frames\unFrameProdutoCor.pas">
+            <Form>FrameProdutoCor</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="Forms\unCADEstoqueCor.pas">
-            <Form>frmCADEstoqueCor</Form>
+        <DCCReference Include="Forms\unCADProdutoCor.pas">
+            <Form>frmCADProdutoCor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Frames\unFrameEstoqueTamanho.pas">
-            <Form>FrameEstoqueTamanho</Form>
+        <DCCReference Include="Frames\unFrameProdutoTamanho.pas">
+            <Form>FrameProdutoTamanho</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="Forms\unCADEstoqueTamanho.pas">
-            <Form>frmCADEstoqueTamanho</Form>
+        <DCCReference Include="Forms\unCADProdutoTamanho.pas">
+            <Form>frmCADProdutoTamanho</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Frames\unFrameIndice.pas">
@@ -354,6 +354,33 @@
         </DCCReference>
         <DCCReference Include="Forms\unCADIndice.pas">
             <Form>frmCADIndice</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameModelo.pas">
+            <Form>FrameModelo</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADModelo.pas">
+            <Form>frmCADModelo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameMunicipio.pas">
+            <Form>FrameMunicipio</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADMunicipio.pas">
+            <Form>frmCADMunicipio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameNCM.pas">
+            <Form>FrameNCM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADNCM.pas">
+            <Form>frmCADNCM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>

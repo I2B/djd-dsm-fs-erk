@@ -1,4 +1,4 @@
-unit unFrameEstoqueTamanho;
+unit unFrameMunicipio;
 
 interface
 
@@ -11,10 +11,10 @@ uses
   cxDBEdit, Data.DB, dxLayoutControl;
 
 type
-  TFrameEstoqueTamanho = class(TFramePai)
-    edtCodigo: TcxDBTextEdit;
+  TFrameMunicipio = class(TFramePai)
+    edtMunicipio: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
-    edtDescricao: TcxDBTextEdit;
+    edtUF: TcxDBTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
   private
     { Private declarations }
@@ -23,7 +23,7 @@ type
   end;
 
 var
-  FrameEstoqueTamanho: TFrameEstoqueTamanho;
+  FrameMunicipio: TFrameMunicipio;
 
 implementation
 

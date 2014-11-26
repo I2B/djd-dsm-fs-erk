@@ -30,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 4
     TabStop = False
     object tabPrincipal: TdxRibbonTab
-      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -67,6 +66,7 @@ object frmPrincipal: TfrmPrincipal
       Index = 2
     end
     object tabRegraFiscal: TdxRibbonTab
+      Active = True
       Caption = 'Regra Fiscal'
       Groups = <
         item
@@ -293,7 +293,7 @@ object frmPrincipal: TfrmPrincipal
     object barEstrutura: TdxBar
       Caption = 'Estrutura'
       CaptionButtons = <>
-      DockedLeft = 174
+      DockedLeft = 244
       DockedTop = 0
       FloatLeft = 1058
       FloatTop = 8
@@ -345,7 +345,7 @@ object frmPrincipal: TfrmPrincipal
     object barTributacao: TdxBar
       Caption = 'Tributa'#231#227'o'
       CaptionButtons = <>
-      DockedLeft = 219
+      DockedLeft = 320
       DockedTop = 0
       FloatLeft = 1058
       FloatTop = 8
@@ -391,6 +391,10 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'btnCep'
+        end
+        item
+          Visible = True
+          ItemName = 'btnMunicipio'
         end
         item
           Visible = True
@@ -494,11 +498,19 @@ object frmPrincipal: TfrmPrincipal
         end
         item
           Visible = True
+          ItemName = 'btnNCM'
+        end
+        item
+          Visible = True
           ItemName = 'btnCFOP'
         end
         item
           Visible = True
           ItemName = 'btnSerie'
+        end
+        item
+          Visible = True
+          ItemName = 'btnModelo'
         end>
       OneOnRow = False
       Row = 0
@@ -1622,6 +1634,13 @@ object frmPrincipal: TfrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+    end
+    object btnMunicipio: TdxBarLargeButton
+      Caption = 'Munic'#237'pio'
+      Category = 1
+      Hint = 'Munic'#237'pio'
+      Visible = ivAlways
+      OnClick = btnMunicipioClick
     end
     object btnCor: TdxBarLargeButton
       Caption = 'Cor'
@@ -3547,6 +3566,20 @@ object frmPrincipal: TfrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+    end
+    object btnModelo: TdxBarLargeButton
+      Caption = 'Modelo'
+      Category = 3
+      Hint = 'Modelo'
+      Visible = ivAlways
+      OnClick = btnModeloClick
+    end
+    object btnNCM: TdxBarLargeButton
+      Caption = 'NCM'
+      Category = 3
+      Hint = 'NCM'
+      Visible = ivAlways
+      OnClick = btnNCMClick
     end
     object btnBanco: TdxBarLargeButton
       Caption = 'Banco'

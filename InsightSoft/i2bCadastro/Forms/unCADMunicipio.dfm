@@ -1,5 +1,5 @@
-inherited frmCADEstoqueCor: TfrmCADEstoqueCor
-  Caption = 'Cor'
+inherited frmCADMunicipio: TfrmCADMunicipio
+  Caption = 'Munic'#237'pio'
   PixelsPerInch = 96
   TextHeight = 15
   inherited pnlClient: TPanel
@@ -7,20 +7,20 @@ inherited frmCADEstoqueCor: TfrmCADEstoqueCor
       inherited cxTabGrid: TcxTabSheet
         inherited cxGrid: TcxGrid
           inherited cxGridDB: TcxGridDBTableView
-            object cxGridDBidestoquecor: TcxGridDBColumn
+            object cxGridDBidmunicipio: TcxGridDBColumn
               Caption = 'ID'
-              DataBinding.FieldName = 'idestoquecor'
-              Width = 75
-            end
-            object cxGridDBcodigo: TcxGridDBColumn
-              Caption = 'C'#243'digo'
-              DataBinding.FieldName = 'codigo'
-              Width = 82
+              DataBinding.FieldName = 'idmunicipio'
+              Width = 66
             end
             object cxGridDBnome: TcxGridDBColumn
-              Caption = 'Nome'
+              Caption = 'Munic'#237'pio'
               DataBinding.FieldName = 'nome'
-              Width = 316
+              Width = 427
+            end
+            object cxGridDBidestado: TcxGridDBColumn
+              Caption = 'UF'
+              DataBinding.FieldName = 'idestado'
+              Width = 70
             end
           end
         end
@@ -28,33 +28,16 @@ inherited frmCADEstoqueCor: TfrmCADEstoqueCor
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited edtInformacao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 2
-        ExplicitTop = 30
-        inline FrameEstoqueCor: TFrameEstoqueCor
+        inline FrameMunicipio: TFrameMunicipio
           Left = 60
           Top = 0
           Width = 778
@@ -87,34 +70,17 @@ inherited frmCADEstoqueCor: TfrmCADEstoqueCor
           end
         end
       end
-      inherited cxTabFiltro: TcxTabSheet
-        inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-        end
-      end
     end
     inherited pnlTop: TPanel
-      ExplicitLeft = 0
       inherited lblPrimeiroEdit: TLabel
-        Width = 87
-        Caption = 'edtCodigo'
-        ExplicitWidth = 87
+        Width = 105
+        Caption = 'edtMunicipio'
+        ExplicitWidth = 105
       end
       inherited lblFrame: TLabel
-        Width = 144
-        Caption = 'FrameEstoqueCor'
-        ExplicitWidth = 144
+        Width = 128
+        Caption = 'FrameMunicipio'
+        ExplicitWidth = 128
       end
     end
   end
@@ -126,7 +92,7 @@ inherited frmCADEstoqueCor: TfrmCADEstoqueCor
       0)
   end
   inherited dts: TDataSource
-    DataSet = DM.cdsEstoqueCor
+    DataSet = DM.cdsMunicipio
   end
   inherited ServerMethod: TSqlServerMethod
     Params = <
@@ -137,6 +103,6 @@ inherited frmCADEstoqueCor: TfrmCADEstoqueCor
         ParamType = ptInput
       end>
     SQLConnection = DM.conServer
-    ServerMethodName = 'TServerMethods.setSQLEstoqueCor'
+    ServerMethodName = 'TServerMethods.setSQLMunicipio'
   end
 end
