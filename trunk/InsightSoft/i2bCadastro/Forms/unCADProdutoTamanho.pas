@@ -1,4 +1,4 @@
-unit unCADEstoqueCor;
+unit unCADProdutoTamanho;
 
 interface
 
@@ -10,20 +10,20 @@ uses
   dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxNavigator, Data.DB, cxDBData, Vcl.Menus,
   Vcl.ComCtrls, dxCore, cxDateUtils, cxButtonEdit, dxScreenTip,
-  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, unFrameEstoqueCor,
-  cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions,
-  Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup, cxMemo,
-  cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
+  dxSkinsdxBarPainter, Data.FMTBcd, unFramePai, unFrameProdutoTamanho,
+  cxGridDBTableView, Datasnap.DBClient, Data.SqlExpr, dxBar, dxRibbonRadialMenu,
+  System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup,
+  cxMemo, cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
   Vcl.ExtCtrls;
 
 type
-  TfrmCADEstoqueCor = class(TfrmCadastro)
-    cxGridDBidestoquecor: TcxGridDBColumn;
+  TfrmCADProdutoTamanho = class(TfrmCadastro)
+    cxGridDBidestoquetamanho: TcxGridDBColumn;
     cxGridDBcodigo: TcxGridDBColumn;
     cxGridDBnome: TcxGridDBColumn;
-    FrameEstoqueCor: TFrameEstoqueCor;
+    FrameProdutoTamanho: TFrameProdutoTamanho;
   private
     { Private declarations }
   public
@@ -31,7 +31,7 @@ type
   end;
 
 var
-  frmCADEstoqueCor: TfrmCADEstoqueCor;
+  frmCADProdutoTamanho: TfrmCADProdutoTamanho;
 
 implementation
 

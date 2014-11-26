@@ -1,4 +1,4 @@
-unit unFrameEstoqueCor;
+unit unFrameModelo;
 
 interface
 
@@ -11,11 +11,9 @@ uses
   cxDBEdit, Data.DB, dxLayoutControl;
 
 type
-  TFrameEstoqueCor = class(TFramePai)
-    edtCodigo: TcxDBTextEdit;
-    dxLayoutControlItem1: TdxLayoutItem;
+  TFrameModelo = class(TFramePai)
     edtDescricao: TcxDBTextEdit;
-    dxLayoutControlItem2: TdxLayoutItem;
+    dxLayoutControlItem1: TdxLayoutItem;
   private
     { Private declarations }
   public
@@ -23,7 +21,7 @@ type
   end;
 
 var
-  FrameEstoqueCor: TFrameEstoqueCor;
+  FrameModelo: TFrameModelo;
 
 implementation
 

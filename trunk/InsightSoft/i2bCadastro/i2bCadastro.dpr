@@ -58,12 +58,18 @@ uses
   unCADCSTICMS in 'Forms\unCADCSTICMS.pas' {frmCADCSTICMS},
   unFrameEstado in 'Frames\unFrameEstado.pas' {FrameEstado: TFrame},
   unCADEstado in 'Forms\unCADEstado.pas' {frmCADEstado},
-  unFrameEstoqueCor in 'Frames\unFrameEstoqueCor.pas' {FrameEstoqueCor: TFrame},
-  unCADEstoqueCor in 'Forms\unCADEstoqueCor.pas' {frmCADEstoqueCor},
-  unFrameEstoqueTamanho in 'Frames\unFrameEstoqueTamanho.pas' {FrameEstoqueTamanho: TFrame},
-  unCADEstoqueTamanho in 'Forms\unCADEstoqueTamanho.pas' {frmCADEstoqueTamanho},
+  unFrameProdutoCor in 'Frames\unFrameProdutoCor.pas' {FrameProdutoCor: TFrame},
+  unCADProdutoCor in 'Forms\unCADProdutoCor.pas' {frmCADProdutoCor},
+  unFrameProdutoTamanho in 'Frames\unFrameProdutoTamanho.pas' {FrameProdutoTamanho: TFrame},
+  unCADProdutoTamanho in 'Forms\unCADProdutoTamanho.pas' {frmCADProdutoTamanho},
   unFrameIndice in 'Frames\unFrameIndice.pas' {FrameIndice: TFrame},
-  unCADIndice in 'Forms\unCADIndice.pas' {frmCADIndice};
+  unCADIndice in 'Forms\unCADIndice.pas' {frmCADIndice},
+  unFrameModelo in 'Frames\unFrameModelo.pas' {FrameModelo: TFrame},
+  unCADModelo in 'Forms\unCADModelo.pas' {frmCADModelo},
+  unFrameMunicipio in 'Frames\unFrameMunicipio.pas' {FrameMunicipio: TFrame},
+  unCADMunicipio in 'Forms\unCADMunicipio.pas' {frmCADMunicipio},
+  unFrameNCM in 'Frames\unFrameNCM.pas' {FrameNCM: TFrame},
+  unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM};
 
 {$R *.res}
 

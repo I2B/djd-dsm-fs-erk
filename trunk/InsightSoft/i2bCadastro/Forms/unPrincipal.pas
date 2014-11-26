@@ -72,6 +72,9 @@ type
     barPessoas: TdxBar;
     barTelefone: TdxBarLargeButton;
     btnAuditoria: TdxBarLargeButton;
+    btnModelo: TdxBarLargeButton;
+    btnMunicipio: TdxBarLargeButton;
+    btnNCM: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -100,6 +103,9 @@ type
     procedure btnObservacaoClick(Sender: TObject);
     procedure barSetorClick(Sender: TObject);
     procedure barTelefoneClick(Sender: TObject);
+    procedure btnModeloClick(Sender: TObject);
+    procedure btnMunicipioClick(Sender: TObject);
+    procedure btnNCMClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,8 +122,8 @@ implementation
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
-  unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADEstoqueCor,
-  unCADEstoqueTamanho, unCADIndice;
+  unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
+  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -136,14 +142,14 @@ end;
 procedure TfrmPrincipal.btnTamanhoClick(Sender: TObject);
 begin
    DM.cdsProdutoTamanho.Open;
-  if frmCADEstoqueTamanho = nil then
+  if frmCADProdutoTamanho = nil then
   begin
-    frmCADEstoqueTamanho := TfrmCADEstoqueTamanho.Create(Application);
-    frmCADEstoqueTamanho.pnlTop.Caption := frmCADEstoqueTamanho.Caption+'  ';
+    frmCADProdutoTamanho := TfrmCADProdutoTamanho.Create(Application);
+    frmCADProdutoTamanho.pnlTop.Caption := frmCADProdutoTamanho.Caption+'  ';
   end
   else
   begin
-    frmCADEstoqueTamanho.Show;
+    frmCADProdutoTamanho.Show;
   end;
 end;
 
@@ -388,14 +394,14 @@ end;
 procedure TfrmPrincipal.btnCorClick(Sender: TObject);
 begin
   DM.cdsProdutoCor.Open;
-  if frmCADEstoqueCor = nil then
+  if frmCADProdutoCor = nil then
   begin
-    frmCADEstoqueCor := TfrmCADEstoqueCor.Create(Application);
-    frmCADEstoqueCor.pnlTop.Caption := frmCADEstoqueCor.Caption+'  ';
+    frmCADProdutoCor := TfrmCADProdutoCor.Create(Application);
+    frmCADProdutoCor.pnlTop.Caption := frmCADProdutoCor.Caption+'  ';
   end
   else
   begin
-    frmCADEstoqueCor.Show;
+    frmCADProdutoCor.Show;
   end;
 end;
 
@@ -438,6 +444,48 @@ begin
   else
   begin
     frmCADCSTIPI.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnModeloClick(Sender: TObject);
+begin
+  DM.cdsModelo.Open;
+  if frmCADModelo = nil then
+  begin
+    frmCADModelo := TfrmCADModelo.Create(Application);
+    frmCADModelo.pnlTop.Caption := frmCADModelo.Caption+'  ';
+  end
+  else
+  begin
+    frmCADModelo.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnMunicipioClick(Sender: TObject);
+begin
+  DM.cdsMunicipio.Open;
+  if frmCADMunicipio = nil then
+  begin
+    frmCADMunicipio := TfrmCADMunicipio.Create(Application);
+    frmCADMunicipio.pnlTop.Caption := frmCADMunicipio.Caption + '  ';
+  end
+  else
+  begin
+    frmCADMunicipio.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnNCMClick(Sender: TObject);
+begin
+  DM.cdsNCM.Open;
+  if frmCADNCM = nil then
+  begin
+    frmCADNCM := TfrmCADNCM.Create(Application);
+    frmCADNCM.pnlTop.Caption := frmCADNCM.Caption+'  ';
+  end
+  else
+  begin
+    frmCADNCM.Show;
   end;
 end;
 
