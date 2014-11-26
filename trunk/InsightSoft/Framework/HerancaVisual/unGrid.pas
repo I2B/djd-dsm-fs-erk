@@ -196,6 +196,110 @@ end;
 
 {$ENDREGION}
 
+procedure TfrmGrid.addCondicaoAoFiltro();
+var
+  dia,mes,ano : Word;
+begin
+  if TipoDoCampoDoFiltro in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [=] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [<>] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [not like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [starting with] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr('')+']) ';
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftDate,ftDateTime] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      6:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        if mes = 1 then
+        begin
+          mes := 1;
+          ano := ano - 1;
+        end
+        else
+        begin
+          mes := mes - 1;
+        end;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      7:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      8:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        if mes = 12 then
+        begin
+          mes := 1;
+          ano := ano + 1;
+        end
+        else
+        begin
+          mes := mes + 1;
+        end;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      9:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        ano := ano - 1;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+      10:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+      11:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        ano := ano + 1;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftBoolean] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = True]) '; //Verdadeiro
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = False]) '; //Falso
+    end;
+  end;
+end;
 
 procedure TfrmGrid.acBuscarExecute(Sender: TObject);
 var
@@ -318,111 +422,6 @@ end;
 procedure TfrmGrid.acImprimirExecute(Sender: TObject);
 begin
   ShowMessage('Em desenvolvimento...');
-end;
-
-procedure TfrmGrid.addCondicaoAoFiltro();
-var
-  dia,mes,ano : Word;
-begin
-  if TipoDoCampoDoFiltro in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
-  begin
-    case cbFiltroOperacao.ItemIndex of
-      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [=] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
-      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [<>] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
-      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
-      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [not like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
-      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [starting with] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
-      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr('')+']) ';
-    end;
-  end
-  else
-  if TipoDoCampoDoFiltro in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
-  begin
-    case cbFiltroOperacao.ItemIndex of
-      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
-    end;
-  end
-  else
-  if TipoDoCampoDoFiltro in [ftDate,ftDateTime] then
-  begin
-    case cbFiltroOperacao.ItemIndex of
-      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
-      6:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        if mes = 1 then
-        begin
-          mes := 1;
-          ano := ano - 1;
-        end
-        else
-        begin
-          mes := mes - 1;
-        end;
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
-          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
-      end;
-      7:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
-          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
-      end;
-      8:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        if mes = 12 then
-        begin
-          mes := 1;
-          ano := ano + 1;
-        end
-        else
-        begin
-          mes := mes + 1;
-        end;
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
-          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
-      end;
-      9:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        ano := ano - 1;
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
-          IntToStr(ano)+']) ';
-      end;
-      10:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
-          IntToStr(ano)+']) ';
-      end;
-      11:
-      begin
-        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
-        ano := ano + 1;
-        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
-          IntToStr(ano)+']) ';
-      end;
-    end;
-  end
-  else
-  if TipoDoCampoDoFiltro in [ftBoolean] then
-  begin
-    case cbFiltroOperacao.ItemIndex of
-      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = True]) '; //Verdadeiro
-      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = False]) '; //Falso
-    end;
-  end;
 end;
 
 procedure TfrmGrid.barBtnCopiarClick(Sender: TObject);
