@@ -213,7 +213,7 @@ inherited frmGrid: TfrmGrid
       Height = 372
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabGrid
+      Properties.ActivePage = cxTabFiltro
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 370
       ClientRectLeft = 2

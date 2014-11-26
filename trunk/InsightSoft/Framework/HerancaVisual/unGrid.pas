@@ -205,9 +205,9 @@ begin
     case cbFiltroOperacao.ItemIndex of
       0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [=] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
       1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [<>] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
-      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
-      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [not like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
-      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [starting with] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper(['+QuotedStr('%'+edtFiltroCondicao.Text+'%')+'])) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [not like] '+' Upper(['+QuotedStr('%'+edtFiltroCondicao.Text+'%')+'])) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text+'%')+'])) ';
       5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr('')+']) ';
     end;
   end
@@ -578,8 +578,8 @@ begin
   dateFiltroCondicao.Clear;
   edtFiltroCondicao.Clear;
   rgFiltroAndOr.ItemIndex := 0;
-  memoFiltroDesenvolvido.Lines.Clear;
-  memoFiltroSQL.Lines.Clear;
+  memoFiltroDesenvolvido.Clear;
+  memoFiltroSQL.Clear;
 end;
 
 procedure TfrmGrid.cbCampoPropertiesChange(Sender: TObject);
@@ -1055,7 +1055,7 @@ begin
         end;
       end;
     end;
-
+    memoFiltroDesenvolvidoPropertiesChange(Sender);
     cxPageControl.ActivePage := cxTabFiltro;
   end;
 end;
