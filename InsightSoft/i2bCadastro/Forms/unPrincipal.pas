@@ -135,7 +135,7 @@ end;
 
 procedure TfrmPrincipal.btnTamanhoClick(Sender: TObject);
 begin
-   DM.cdsEstoqueTamanho.Open;
+   DM.cdsProdutoTamanho.Open;
   if frmCADEstoqueTamanho = nil then
   begin
     frmCADEstoqueTamanho := TfrmCADEstoqueTamanho.Create(Application);
@@ -387,7 +387,7 @@ end;
 
 procedure TfrmPrincipal.btnCorClick(Sender: TObject);
 begin
-  DM.cdsEstoqueCor.Open;
+  DM.cdsProdutoCor.Open;
   if frmCADEstoqueCor = nil then
   begin
     frmCADEstoqueCor := TfrmCADEstoqueCor.Create(Application);

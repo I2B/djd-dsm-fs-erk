@@ -258,6 +258,7 @@ inherited frmCadastro: TfrmCadastro
     inherited cxPageControl: TcxPageControl
       Width = 842
       Height = 371
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 842
       ExplicitHeight = 371
       ClientRectBottom = 369
