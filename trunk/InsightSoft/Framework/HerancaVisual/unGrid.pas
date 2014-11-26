@@ -56,7 +56,6 @@ type
     lblFiltroCondicao: TcxLabel;
     edtFiltroCondicao: TcxTextEdit;
     rgFiltroAndOr: TcxRadioGroup;
-    dateFiltroCondicao: TcxDateEdit;
     gbFiltroDesenvolvido: TcxGroupBox;
     memoFiltroDesenvolvido: TcxMemo;
     cbFiltroCampo: TcxComboBox;
@@ -93,6 +92,7 @@ type
     grdFiltroCarregar: TcxGridColumn;
     imgFiltroSQL: TcxImage;
     memoFiltroSQL: TcxMemo;
+    dateFiltroCondicao: TcxDateEdit;
     procedure dtsDataChange(Sender: TObject; Field: TField);
     procedure FormCreate(Sender: TObject);
     procedure imgExportarClick(Sender: TObject);
@@ -117,12 +117,18 @@ type
     procedure grdFiltroRemoverPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure grdFiltroCarregarPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
     procedure imgFiltroSQLClick(Sender: TObject);
+    procedure memoFiltroDesenvolvidoPropertiesChange(Sender: TObject);
+    procedure btnFiltroLimparClick(Sender: TObject);
+    procedure btnAdicionarFiltroClick(Sender: TObject);
+    procedure btnAplicarFiltroClick(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
     procedure ajustaCbOperacaoParaValor(Combo: TcxComboBox);
     procedure ajustaCbOperacaoParaData(Combo: TcxComboBox);
     procedure ajustaCbOperacaoParaBoleano(Combo: TcxComboBox);
+
+    procedure addCondicaoAoFiltro();
   public
     { Public declarations }
   end;
@@ -314,6 +320,111 @@ begin
   ShowMessage('Em desenvolvimento...');
 end;
 
+procedure TfrmGrid.addCondicaoAoFiltro();
+var
+  dia,mes,ano : Word;
+begin
+  if TipoDoCampoDoFiltro in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [=] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [<>] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [not like] '+' Upper([%'+QuotedStr(edtFiltroCondicao.Text)+'%])) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (Upper(['+cbFiltroSQL.Text+']) '+' [starting with] '+' Upper(['+QuotedStr(edtFiltroCondicao.Text)+'])) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr('')+']) ';
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+StringReplace(edtFiltroCondicao.Text,',','.',[rfReplaceAll])+']) ';
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftDate,ftDateTime] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      2: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      3: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [<>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      4: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>=] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      5: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [>] '+' ['+QuotedStr(StringReplace(dateFiltroCondicao.Text,'/','.',[rfReplaceAll]))+']) ';
+      6:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        if mes = 1 then
+        begin
+          mes := 1;
+          ano := ano - 1;
+        end
+        else
+        begin
+          mes := mes - 1;
+        end;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      7:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      8:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        if mes = 12 then
+        begin
+          mes := 1;
+          ano := ano + 1;
+        end
+        else
+        begin
+          mes := mes + 1;
+        end;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract(Month From '+cbFiltroSQL.Text+') = '+
+          IntToStr(mes)+' and Extract (Ano From '+cbFiltroSQL.Text+') = '+IntToStr(ano)+']) ';
+      end;
+      9:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        ano := ano - 1;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+      10:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+      11:
+      begin
+        DecodeDate(dateFiltroCondicao.Date,ano,mes,dia);
+        ano := ano + 1;
+        memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [Extract (Ano From '+cbFiltroSQL.Text+') = '+
+          IntToStr(ano)+']) ';
+      end;
+    end;
+  end
+  else
+  if TipoDoCampoDoFiltro in [ftBoolean] then
+  begin
+    case cbFiltroOperacao.ItemIndex of
+      0: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = True]) '; //Verdadeiro
+      1: memoFiltroSQL.Text := memoFiltroSQL.Text + ' (['+cbFiltroSQL.Text+'] '+' [ = False]) '; //Falso
+    end;
+  end;
+end;
+
 procedure TfrmGrid.barBtnCopiarClick(Sender: TObject);
 begin
   cxGridDB.CopyToClipboard(True);
@@ -372,9 +483,104 @@ begin
   end;
 end;
 
+procedure TfrmGrid.btnAdicionarFiltroClick(Sender: TObject);
+begin
+  if memoFiltroDesenvolvido.Text <> '' then
+  begin
+    if rgFiltroAndOr.ItemIndex = 0 then
+    begin
+      memoFiltroDesenvolvido.Text := memoFiltroDesenvolvido.Text + ' e ';
+      memoFiltroSQL.Text := memoFiltroSQL.Text + ' [and] ';
+    end
+    else
+    begin
+      memoFiltroDesenvolvido.Text := memoFiltroDesenvolvido.Text + ' ou ';
+      memoFiltroSQL.Text := memoFiltroSQL.Text + ' [or] ';
+    end;
+  end;
+
+  if cbFiltroCampo.ItemIndex <> -1 then
+  begin //Tem Campo selecionado
+    if cbFiltroOperacao.ItemIndex <> -1 then
+    begin //Tem Operação selecionada
+      if edtFiltroCondicao.Visible then
+      begin //Se o campo é String, Valor ou Inteiro
+        if edtFiltroCondicao.Text <> '' then
+        begin //Tem condição do filtro informada
+          //Adiciona condição ao Memo visto pelo usuário
+          memoFiltroDesenvolvido.Text := memoFiltroDesenvolvido.Text +
+            ' ('+cbFiltroCampo.Text+' '+cbFiltroOperacao.Text+' '+QuotedStr(edtFiltroCondicao.Text)+') ';
+          //Adiciona condição ao Memo que será executada a SQL
+          addCondicaoAoFiltro();
+        end
+        else
+        begin
+          Application.MessageBox('Por favor, informe a Condição a ser filtrada.','Filtro incompleto',MB_OK +
+            MB_ICONINFORMATION);
+        end;
+      end
+      else
+      begin //Se o campo é do tipo Data
+        //Adiciona condição ao Memo visto pelo usuário
+        memoFiltroDesenvolvido.Text := memoFiltroDesenvolvido.Text +
+            ' ('+cbFiltroCampo.Text+' '+cbFiltroOperacao.Text+' '+dateFiltroCondicao.Text+') ';
+        //Adiciona condição ao Memo que será executada a SQL
+        addCondicaoAoFiltro();
+      end;
+      cbFiltroCampo.ItemIndex := -1;
+      cbFiltroOperacao.ItemIndex := -1;
+      edtFiltroCondicao.Clear;
+      dateFiltroCondicao.Clear;
+    end
+    else
+    begin
+      Application.MessageBox('Por favor, informe a Operação a ser realizada.','Filtro incompleto',MB_OK +
+        MB_ICONINFORMATION);
+    end;
+  end
+  else
+  begin
+    Application.MessageBox('Por favor, informe o Campo a ser filtrado.','Filtro incompleto',MB_OK + MB_ICONINFORMATION);
+  end;
+end;
+
+procedure TfrmGrid.btnAplicarFiltroClick(Sender: TObject);
+var
+  condicao : String;
+begin
+  try
+    (dts.DataSet as TClientDataSet).Close;
+    condicao := memoFiltroSQL.Text;
+    condicao := StringReplace(condicao,'[','',[rfReplaceAll]);
+    condicao := StringReplace(condicao,']','',[rfReplaceAll]);
+    ServerMethod.Params[0].AsString := condicao;
+    ServerMethod.ExecuteMethod;
+    (dts.DataSet as TClientDataSet).Open;
+    cxPageControl.ActivePage := cxTabGrid;
+  except
+    On E: Exception do
+    begin
+      Application.MessageBox(PWideChar('Falha ao buscar dados do Servidor. Detalhes: '+E.ToString),'',MB_OK + MB_ICONERROR);
+    end;
+  end;
+end;
+
 procedure TfrmGrid.btnFiltroCancelarClick(Sender: TObject);
 begin
+  memoFiltroDesenvolvido.Lines.Clear;
+  memoFiltroSQL.Lines.Clear;
   cxPageControl.ActivePage := cxTabGrid;
+end;
+
+procedure TfrmGrid.btnFiltroLimparClick(Sender: TObject);
+begin
+  cbFiltroCampo.ItemIndex := -1;
+  cbFiltroOperacao.ItemIndex := -1;
+  dateFiltroCondicao.Clear;
+  edtFiltroCondicao.Clear;
+  rgFiltroAndOr.ItemIndex := 0;
+  memoFiltroDesenvolvido.Lines.Clear;
+  memoFiltroSQL.Lines.Clear;
 end;
 
 procedure TfrmGrid.cbCampoPropertiesChange(Sender: TObject);
@@ -389,127 +595,130 @@ end;
 
 procedure TfrmGrid.cbFiltroSQLPropertiesChange(Sender: TObject);
 begin
-  TipoDoCampoDoFiltro := (dts.DataSet as TClientDataSet).FieldByName(cbFiltroSQL.Text).DataType;
-  case TipoDoCampoDoFiltro of
-    ftString:
+  if cbFiltroSQL.ItemIndex <> -1 then
+  begin
+    TipoDoCampoDoFiltro := (dts.DataSet as TClientDataSet).FieldByName(cbFiltroSQL.Text).DataType;
+    case TipoDoCampoDoFiltro of
+      ftString:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftSmallint:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftInteger:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftWord:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftBoolean:
+        begin
+          ajustaCbOperacaoParaBoleano(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := False;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftFloat:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftCurrency:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftBCD:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftDate:
+        begin
+          ajustaCbOperacaoParaData(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := False;
+          dateFiltroCondicao.Visible := True;
+        end;
+      ftDateTime:
+        begin
+          ajustaCbOperacaoParaData(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := False;
+          dateFiltroCondicao.Visible := True;
+        end;
+      ftFixedChar:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftWideString:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftLargeint:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftFMTBcd:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftFixedWideChar:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftLongWord:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftShortint:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftExtended:
+        begin
+          ajustaCbOperacaoParaTexto(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      ftSingle:
+        begin
+          ajustaCbOperacaoParaValor(cbFiltroOperacao);
+          edtFiltroCondicao.Visible := True;
+          dateFiltroCondicao.Visible := False;
+        end;
+      else
       begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
+        raise Exception.Create('Funcionalidade não implementada para o tipo do campo selecionado! Entre em contato com o '+
+          'suporte e reporte a mensagem');
+        btnBuscar.Visible := False;
       end;
-    ftSmallint:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftInteger:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftWord:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftBoolean:
-      begin
-        ajustaCbOperacaoParaBoleano(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := False;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftFloat:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftCurrency:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftBCD:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftDate:
-      begin
-        ajustaCbOperacaoParaData(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := False;
-        dateFiltroCondicao.Visible := True;
-      end;
-    ftDateTime:
-      begin
-        ajustaCbOperacaoParaData(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := False;
-        dateFiltroCondicao.Visible := True;
-      end;
-    ftFixedChar:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftWideString:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftLargeint:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftFMTBcd:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftFixedWideChar:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftLongWord:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftShortint:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftExtended:
-      begin
-        ajustaCbOperacaoParaTexto(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    ftSingle:
-      begin
-        ajustaCbOperacaoParaValor(cbFiltroOperacao);
-        edtFiltroCondicao.Visible := True;
-        dateFiltroCondicao.Visible := False;
-      end;
-    else
-    begin
-      raise Exception.Create('Funcionalidade não implementada para o tipo do campo selecionado! Entre em contato com o '+
-        'suporte e reporte a mensagem');
-      btnBuscar.Visible := False;
     end;
   end;
 end;
@@ -789,6 +998,22 @@ begin
   begin
     memoFiltroSQL.Visible := False;
     memoFiltroDesenvolvido.Visible := True;
+  end;
+end;
+
+procedure TfrmGrid.memoFiltroDesenvolvidoPropertiesChange(Sender: TObject);
+begin
+  if memoFiltroDesenvolvido.Text = '' then
+  begin
+    btnAplicarFiltro.Enabled := False;
+    btnFiltroSalvar.Enabled := False;
+    btnFiltroLimpar.Enabled := False;
+  end
+  else
+  begin
+    btnAplicarFiltro.Enabled := True;
+    btnFiltroSalvar.Enabled := True;
+    btnFiltroLimpar.Enabled := True;
   end;
 end;
 

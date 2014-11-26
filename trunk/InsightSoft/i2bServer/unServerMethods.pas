@@ -1517,7 +1517,7 @@ begin
   Query.SQL.Clear;
   if filtro <> '*' then
   begin //Tem algo a Filtrar
-    if where = '' then
+    if (where = '') or (where = ' ') or (where = '  ') then
     begin
       Query.SQL.Add(select+from+' where '+filtro+' '+order);
     end

@@ -8,7 +8,6 @@ inherited frmGrid: TfrmGrid
   Visible = True
   WindowState = wsMaximized
   OnClose = FormClose
-  OnCreate = FormCreate
   ExplicitWidth = 916
   ExplicitHeight = 439
   PixelsPerInch = 96
@@ -669,8 +668,6 @@ inherited frmGrid: TfrmGrid
             Top = 17
             Align = alClient
             TabOrder = 1
-            ExplicitLeft = 336
-            ExplicitWidth = 497
             Height = 146
             Width = 448
           end
@@ -736,19 +733,12 @@ inherited frmGrid: TfrmGrid
             Height = 44
             Width = 89
           end
-          object dateFiltroCondicao: TcxDateEdit
-            Left = 275
-            Top = 36
-            TabOrder = 5
-            Visible = False
-            Width = 121
-          end
           object gbFiltroDesenvolvido: TcxGroupBox
             Left = 7
             Top = 65
             Anchors = [akLeft, akTop, akRight]
             Caption = 'Filtro Desenvolvido'
-            TabOrder = 6
+            TabOrder = 5
             Height = 64
             Width = 828
             object memoFiltroSQL: TcxMemo
@@ -761,8 +751,6 @@ inherited frmGrid: TfrmGrid
               StyleHot.BorderStyle = ebsNone
               TabOrder = 2
               Visible = False
-              ExplicitLeft = 400
-              ExplicitWidth = 426
               Height = 37
               Width = 801
             end
@@ -770,12 +758,12 @@ inherited frmGrid: TfrmGrid
               Left = 3
               Top = 17
               Align = alClient
+              Properties.OnChange = memoFiltroDesenvolvidoPropertiesChange
               Style.BorderColor = clWindow
               Style.BorderStyle = ebsNone
               StyleFocused.BorderStyle = ebsNone
               StyleHot.BorderStyle = ebsNone
               TabOrder = 0
-              ExplicitWidth = 359
               Height = 37
               Width = 801
             end
@@ -796,7 +784,6 @@ inherited frmGrid: TfrmGrid
               Style.BorderStyle = ebsNone
               TabOrder = 1
               OnClick = imgFiltroSQLClick
-              ExplicitLeft = 379
               Height = 37
               Width = 21
             end
@@ -805,14 +792,14 @@ inherited frmGrid: TfrmGrid
             Left = 7
             Top = 36
             Properties.OnChange = cbFiltroCampoPropertiesChange
-            TabOrder = 7
+            TabOrder = 6
             TextHint = 'Selecione...'
             Width = 142
           end
           object cbFiltroOperacao: TcxComboBox
             Left = 155
             Top = 36
-            TabOrder = 8
+            TabOrder = 7
             TextHint = 'Selecione...'
             Width = 114
           end
@@ -858,7 +845,8 @@ inherited frmGrid: TfrmGrid
               3CFF3C3C3CFF393939F32121218C080808200000000000000000000000000000
               00000000000000000000101010462121218D2F2F2FC7383838F0383838F02F2F
               2FC72121218D1010104600000000000000000000000000000000}
-            TabOrder = 9
+            TabOrder = 8
+            OnClick = btnAdicionarFiltroClick
           end
           object btnFiltroSalvar: TcxButton
             Left = 7
@@ -901,7 +889,7 @@ inherited frmGrid: TfrmGrid
               64FF82695FFF7D645BFF6E544AFF56453BFF3F332BC200000005000000000000
               0002000000030000000400000004000000040000000400000005000000050000
               0005000000050000000500000006000000060000000400000001}
-            TabOrder = 10
+            TabOrder = 9
           end
           object btnFiltroLimpar: TcxButton
             Left = 183
@@ -944,7 +932,8 @@ inherited frmGrid: TfrmGrid
               00053543728E4F63AACD151A2D40000000040000000000000000000000000000
               0000000000000000000000000000000000000000000000000000000000000000
               0001000000030000000400000002000000000000000000000000}
-            TabOrder = 11
+            TabOrder = 10
+            OnClick = btnFiltroLimparClick
           end
           object btnFiltroCancelar: TcxButton
             Left = 665
@@ -988,7 +977,7 @@ inherited frmGrid: TfrmGrid
               EFFF939DE9FF7479DAF83234647D000000080000000200000000000000000000
               000000000000000000031213232D40437D935D61B5D07378DFFC7378DFFC5D61
               B5D040437D951212223000000004000000010000000000000000}
-            TabOrder = 12
+            TabOrder = 11
             OnClick = btnFiltroCancelarClick
           end
           object btnAplicarFiltro: TcxButton
@@ -1033,21 +1022,29 @@ inherited frmGrid: TfrmGrid
               C1FF4BB692FF237F60CB05130E27000000030000000000000000000000000000
               000000000001000000030A241B411B60489D258464CF2C9D77EE258867CF1F71
               56B00E3226560000000600000002000000000000000000000000}
-            TabOrder = 13
+            TabOrder = 12
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
+            OnClick = btnAplicarFiltroClick
           end
           object cbFiltroSQL: TcxComboBox
             Left = 7
             Top = 36
             Properties.OnChange = cbFiltroSQLPropertiesChange
-            TabOrder = 14
+            TabOrder = 13
             Visible = False
             Width = 49
+          end
+          object dateFiltroCondicao: TcxDateEdit
+            Left = 275
+            Top = 36
+            TabOrder = 14
+            Visible = False
+            Width = 121
           end
         end
       end
@@ -1068,7 +1065,6 @@ inherited frmGrid: TfrmGrid
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = -1
     end
   end
   inherited cxHintStyleController: TcxHintStyleController
