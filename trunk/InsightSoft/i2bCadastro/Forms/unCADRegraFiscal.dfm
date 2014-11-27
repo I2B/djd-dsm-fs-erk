@@ -32,14 +32,14 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
       Height = 662
       ExplicitWidth = 1216
       ExplicitHeight = 662
-      ClientRectBottom = 658
-      ClientRectRight = 1212
+      ClientRectBottom = 660
+      ClientRectRight = 1214
       inherited cxTabGrid: TcxTabSheet
         ExplicitWidth = 1212
         ExplicitHeight = 630
         inherited cxGrid: TcxGrid
-          Width = 1208
-          Height = 562
+          Width = 1212
+          Height = 560
           ExplicitWidth = 1212
           ExplicitHeight = 560
           inherited cxGridDB: TcxGridDBTableView
@@ -176,41 +176,56 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
           end
         end
         inherited pnlBottom: TPanel
-          Top = 562
-          Width = 1208
+          Top = 560
+          Width = 1212
           ExplicitTop = 560
           ExplicitWidth = 1212
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 816
-            Width = 812
+            ExplicitWidth = 814
+            ExplicitHeight = 23
+            Width = 814
           end
           inherited btnBuscar: TcxButton
-            Left = 1104
-            ExplicitLeft = 1108
+            Left = 1106
+            ExplicitLeft = 1106
+          end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
+          end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 1212
         ExplicitHeight = 630
         inherited pnlCadastro: TPanel
-          Height = 632
+          Height = 630
           ExplicitHeight = 630
         end
         inline FrameRegraFiscal: TFrameRegraFiscal
           Left = 60
           Top = 0
-          Width = 1148
-          Height = 632
+          Width = 1152
+          Height = 630
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -222,61 +237,69 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 237
-          ExplicitTop = 88
+          ExplicitLeft = 89
+          ExplicitTop = 109
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 1148
-            Height = 632
+            Width = 1152
+            Height = 630
             inherited cxPageControl1: TcxPageControl
               inherited cxTabSheet1: TcxTabSheet
                 inherited dxLayoutControl2: TdxLayoutControl
+                  inherited edtIDMunicipio: TcxDBTextEdit
+                    ExplicitWidth = 106
+                    Width = 106
+                  end
                   inherited edtIDPessoa: TcxDBTextEdit
-                    ExplicitWidth = 91
-                    Width = 91
+                    ExplicitWidth = 112
+                    Width = 112
                   end
                   inherited edtIDObservacao: TcxDBTextEdit
-                    ExplicitWidth = 91
-                    Width = 91
+                    ExplicitWidth = 874
+                    Width = 874
                   end
                   inherited edtMunicipioNome: TcxTextEdit
-                    ExplicitWidth = 818
-                    Width = 818
+                    Left = 125
+                    ExplicitLeft = 125
+                    ExplicitWidth = 953
+                    Width = 953
                   end
                   inherited edtPessoaNome: TcxTextEdit
-                    ExplicitWidth = 668
-                    Width = 668
-                  end
-                  inherited edtObservacaoDescricao: TcxMemo
-                    ExplicitWidth = 814
-                    Width = 814
-                  end
-                  inherited edtRazaoSocial: TcxTextEdit
-                    ExplicitWidth = 801
-                    Width = 801
-                  end
-                  inherited edtIDUnidadeNegocio: TcxDBTextEdit
-                    ExplicitWidth = 91
-                    Width = 91
+                    Left = 131
+                    ExplicitLeft = 131
+                    ExplicitWidth = 819
+                    Width = 819
                   end
                   inherited edtIDPais: TcxDBTextEdit
-                    ExplicitWidth = 93
-                    Width = 93
+                    ExplicitWidth = 110
+                    Width = 110
                   end
                   inherited edtPaisNome: TcxTextEdit
-                    ExplicitWidth = 742
-                    Width = 742
+                    Left = 129
+                    ExplicitLeft = 129
+                    ExplicitWidth = 875
+                    Width = 875
                   end
                   inherited edtEstadp: TcxDBTextEdit
-                    ExplicitWidth = 57
-                    Width = 57
+                    Left = 1011
+                    ExplicitLeft = 1011
+                    ExplicitWidth = 67
+                    Width = 67
                   end
                   inherited edtNCM: TcxDBTextEdit
-                    ExplicitWidth = 99
-                    Width = 99
+                    Left = 957
+                    ExplicitLeft = 957
+                    ExplicitWidth = 121
+                    Width = 121
                   end
                   inherited cxDBCheckBox1: TcxDBCheckBox
-                    ExplicitWidth = 632
-                    Width = 632
+                    Top = 384
+                    ExplicitTop = 384
+                  end
+                  inherited cxDBMemo1: TcxDBMemo
+                    Left = 526
+                    Top = 288
+                    ExplicitLeft = 526
+                    ExplicitTop = 288
                   end
                   inherited dxLayoutControl2Group_Root: TdxLayoutGroup
                     Index = -1
@@ -294,9 +317,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                     Index = 1
                   end
                   inherited dxLayoutControl2Item5: TdxLayoutItem
-                    Index = 1
-                  end
-                  inherited dxLayoutControl2Item9: TdxLayoutItem
                     Index = 1
                   end
                   inherited dxLayoutControl2Item2: TdxLayoutItem
@@ -347,41 +367,39 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                   inherited dxLayoutControl2Group1: TdxLayoutGroup
                     Index = 6
                   end
+                  inherited dxLayoutControl2Item7: TdxLayoutItem
+                    CaptionOptions.Text = 'cxDBMemo1'
+                    Index = 1
+                  end
                 end
               end
               inherited cxTabSheet2: TcxTabSheet
                 inherited dxLayoutControl1: TdxLayoutControl
-                  Height = 447
+                  Height = 407
                   inherited cxPageControl2: TcxPageControl
+                    Width = 1061
+                    ExplicitWidth = 1061
+                    ClientRectRight = 1057
                     inherited cxTabSheet3: TcxTabSheet
+                      ExplicitWidth = 1053
                       inherited dxLayoutControl4: TdxLayoutControl
-                        inherited cxDBTextEdit14: TcxDBTextEdit
-                          Left = 509
-                          ExplicitLeft = 509
+                        Width = 1053
+                        ExplicitWidth = 1053
+                        inherited ectClasseEnquadramentoIPI: TcxDBTextEdit
+                          ExplicitWidth = 121
+                          Width = 121
                         end
-                        inherited cxDBTextEdit13: TcxDBTextEdit
-                          Left = 580
-                          ExplicitLeft = 580
+                        inherited edtCodigoEnquadramentoIPI: TcxDBTextEdit
+                          ExplicitWidth = 121
+                          Width = 121
                         end
-                        inherited cxDBTextEdit5: TcxDBTextEdit
-                          Left = 297
-                          ExplicitLeft = 297
-                        end
-                        inherited cxDBTextEdit2: TcxDBTextEdit
-                          Left = 373
-                          ExplicitLeft = 373
-                        end
-                        inherited cxDBTextEdit7: TcxDBTextEdit
-                          Left = 569
-                          ExplicitLeft = 569
+                        inherited edtAliquotaNormalPIS: TcxDBTextEdit
+                          ExplicitWidth = 73
+                          Width = 73
                         end
                         inherited cxDBTextEdit8: TcxDBTextEdit
-                          Left = 697
-                          ExplicitLeft = 697
-                        end
-                        inherited cxDBTextEdit11: TcxDBTextEdit
-                          Left = 604
-                          ExplicitLeft = 604
+                          ExplicitWidth = 73
+                          Width = 73
                         end
                         inherited dxLayoutControl4Group_Root: TdxLayoutGroup
                           Index = -1
@@ -402,10 +420,10 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                           Index = 1
                         end
                         inherited dxLayoutControl1Item16: TdxLayoutItem
-                          Index = 0
+                          Index = 1
                         end
                         inherited dxLayoutControl1Item15: TdxLayoutItem
-                          Index = 1
+                          Index = 2
                         end
                         inherited dxLayoutControl4Group1: TdxLayoutAutoCreatedGroup
                           Index = 0
@@ -417,33 +435,8 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                         inherited dxLayoutControl1Item5: TdxLayoutItem
                           Index = 0
                         end
-                        inherited dxLayoutControl1Item8: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
-                          Index = 1
-                          AutoCreated = True
-                        end
-                        inherited dxLayoutControl1Group3: TdxLayoutGroup
-                          Index = 1
-                        end
-                        inherited dxLayoutControl1Item7: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl1Item6: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl1Group4: TdxLayoutGroup
-                          Index = 2
-                        end
-                        inherited dxLayoutControl1Item9: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl1Item10: TdxLayoutItem
-                          Index = 1
-                        end
                         inherited dxLayoutControl1Group7: TdxLayoutGroup
-                          Index = 0
+                          Index = 2
                         end
                         inherited dxLayoutControl1Item2: TdxLayoutItem
                           Index = 0
@@ -451,14 +444,7 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                         inherited dxLayoutControl1Item11: TdxLayoutItem
                           Index = 1
                         end
-                        inherited dxLayoutControl4Group3: TdxLayoutAutoCreatedGroup
-                          Index = 2
-                          AutoCreated = True
-                        end
-                        inherited dxLayoutControl1Group9: TdxLayoutGroup
-                          Index = 1
-                        end
-                        inherited dxLayoutControl1Item12: TdxLayoutItem
+                        inherited dxLayoutControl4Item1: TdxLayoutItem
                           Index = 0
                         end
                         inherited dxLayoutControl1Group11: TdxLayoutGroup
@@ -473,64 +459,71 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                         inherited dxLayoutControl1Item17: TdxLayoutItem
                           Index = 2
                         end
+                        inherited dxLayoutControl4Item2: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl4Item3: TdxLayoutItem
+                          Index = 4
+                        end
+                        inherited dxLayoutControl4Item4: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl4Item5: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl1Item8: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl1Group3: TdxLayoutGroup
+                          Index = 1
+                        end
+                        inherited dxLayoutControl1Item7: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl1Item6: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
+                          Index = 1
+                          AutoCreated = True
+                        end
+                        inherited dxLayoutControl1Group4: TdxLayoutGroup
+                          Index = 2
+                        end
+                        inherited dxLayoutControl1Item9: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl1Item10: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl1Group9: TdxLayoutGroup
+                          Index = 2
+                        end
+                        inherited dxLayoutControl1Item12: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl4Item6: TdxLayoutItem
+                          Index = 5
+                        end
                       end
                     end
                     inherited cxTabSheet4: TcxTabSheet
-                      ExplicitLeft = 4
-                      ExplicitTop = 26
-                      ExplicitWidth = 909
-                      ExplicitHeight = 391
                       inherited dxLayoutControl3: TdxLayoutControl
-                        inherited cxDBTextEdit16: TcxDBTextEdit
-                          ExplicitHeight = 23
+                        inherited cxDBTextEdit30: TcxDBTextEdit
+                          ExplicitWidth = 121
+                          Width = 121
                         end
-                        inherited cxDBTextEdit17: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit20: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit21: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit23: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit25: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit27: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit15: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit12: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit18: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit19: TcxDBTextEdit
-                          ExplicitHeight = 23
+                        inherited cxDBTextEdit31: TcxDBTextEdit
+                          ExplicitWidth = 121
+                          Width = 121
                         end
                         inherited cxDBTextEdit22: TcxDBTextEdit
-                          ExplicitHeight = 23
+                          ExplicitWidth = 73
+                          Width = 73
                         end
                         inherited cxDBTextEdit24: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBTextEdit26: TcxDBTextEdit
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBCheckBox6: TcxDBCheckBox
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBCheckBox7: TcxDBCheckBox
-                          ExplicitHeight = 23
-                        end
-                        inherited cxDBCheckBox5: TcxDBCheckBox
-                          ExplicitHeight = 23
+                          ExplicitWidth = 73
+                          Width = 73
                         end
                         inherited dxLayoutControl3Group_Root: TdxLayoutGroup
                           Index = -1
@@ -539,9 +532,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                           Index = 0
                         end
                         inherited dxLayoutControl3Group3: TdxLayoutGroup
-                          Index = 0
-                        end
-                        inherited dxLayoutControl3Group6: TdxLayoutGroup
                           Index = 0
                         end
                         inherited dxLayoutControl3Group8: TdxLayoutGroup
@@ -554,42 +544,13 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                           Index = 0
                           AutoCreated = True
                         end
-                        inherited dxLayoutControl3Group4: TdxLayoutGroup
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup
-                          Index = 1
-                          AutoCreated = True
-                        end
-                        inherited dxLayoutControl3Group5: TdxLayoutGroup
-                          Index = 2
-                        end
-                        inherited dxLayoutControl3Group7: TdxLayoutGroup
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Group11: TdxLayoutAutoCreatedGroup
-                          Index = 2
-                          AutoCreated = True
-                        end
                         inherited dxLayoutControl3Item3: TdxLayoutItem
                           Index = 0
                         end
                         inherited dxLayoutControl3Item4: TdxLayoutItem
-                          Index = 0
+                          Index = 1
                         end
                         inherited dxLayoutControl3Item7: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl3Item8: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl3Item10: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl3Item12: TdxLayoutItem
-                          Index = 0
-                        end
-                        inherited dxLayoutControl3Item14: TdxLayoutItem
                           Index = 0
                         end
                         inherited dxLayoutControl3Item2: TdxLayoutItem
@@ -599,19 +560,7 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                           Index = 2
                         end
                         inherited dxLayoutControl3Item5: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Item6: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Item9: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Item11: TdxLayoutItem
-                          Index = 1
-                        end
-                        inherited dxLayoutControl3Item13: TdxLayoutItem
-                          Index = 1
+                          Index = 2
                         end
                         inherited dxLayoutControl3Item16: TdxLayoutItem
                           Index = 0
@@ -621,6 +570,88 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                         end
                         inherited dxLayoutControl3Item15: TdxLayoutItem
                           Index = 2
+                        end
+                        inherited dxLayoutControl3Item18: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Item19: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl3Item20: TdxLayoutItem
+                          Index = 4
+                        end
+                        inherited dxLayoutControl3Item21: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item22: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item6: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl3Group4: TdxLayoutGroup
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item8: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Item9: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item23: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup
+                          Index = 1
+                          AutoCreated = True
+                        end
+                        inherited dxLayoutControl3Group5: TdxLayoutGroup
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item10: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Item11: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item24: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Group7: TdxLayoutGroup
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item14: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Group6: TdxLayoutGroup
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item12: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Item13: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item30: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item25: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl3Item26: TdxLayoutItem
+                          Index = 4
+                        end
+                        inherited dxLayoutControl3Item27: TdxLayoutItem
+                          Index = 5
+                        end
+                        inherited dxLayoutControl3Item28: TdxLayoutItem
+                          Index = 6
+                        end
+                        inherited dxLayoutControl3Item29: TdxLayoutItem
+                          Index = 7
+                        end
+                        inherited dxLayoutControl3Item31: TdxLayoutItem
+                          Index = 5
                         end
                       end
                     end
@@ -649,57 +680,70 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
         inherited gbFiltroSalvo: TcxGroupBox
           ExplicitWidth = 1212
           ExplicitHeight = 463
-          Height = 465
-          Width = 1208
+          Height = 463
+          Width = 1212
           inherited cxGridFiltro: TcxGrid
-            Height = 443
+            Height = 436
             ExplicitHeight = 436
           end
           inherited cxMemoFiltroSalvo: TcxMemo
             ExplicitWidth = 824
             ExplicitHeight = 436
-            Height = 443
-            Width = 822
+            Height = 436
+            Width = 824
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 1212
-          Width = 1208
+          Width = 1212
           inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitWidth = 642
-            Width = 638
+            ExplicitWidth = 640
+            ExplicitHeight = 23
+            Width = 640
           end
           inherited rgFiltroAndOr: TcxRadioGroup
-            Left = 919
-            ExplicitLeft = 923
+            Left = 921
+            ExplicitLeft = 921
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 1204
-            Width = 1200
+            ExplicitWidth = 1202
+            Width = 1202
             inherited memoFiltroSQL: TcxMemo
-              ExplicitWidth = 1177
+              ExplicitWidth = 1175
               Width = 1175
             end
             inherited memoFiltroDesenvolvido: TcxMemo
-              ExplicitWidth = 1177
+              ExplicitWidth = 1175
               Width = 1175
             end
             inherited imgFiltroSQL: TcxImage
-              Left = 1177
-              ExplicitLeft = 1180
+              Left = 1178
+              ExplicitLeft = 1178
             end
           end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited btnAdicionarFiltro: TcxButton
-            Left = 1014
-            ExplicitLeft = 1018
+            Left = 1016
+            ExplicitLeft = 1016
           end
           inherited btnFiltroCancelar: TcxButton
-            Left = 1037
-            ExplicitLeft = 1041
+            Left = 1039
+            ExplicitLeft = 1039
           end
           inherited btnAplicarFiltro: TcxButton
-            Width = 202
-            ExplicitWidth = 206
+            Width = 204
+            ExplicitWidth = 204
+          end
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
