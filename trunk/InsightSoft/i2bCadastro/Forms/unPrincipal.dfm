@@ -30,6 +30,7 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 4
     TabStop = False
     object tabPrincipal: TdxRibbonTab
+      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -66,7 +67,6 @@ object frmPrincipal: TfrmPrincipal
       Index = 2
     end
     object tabRegraFiscal: TdxRibbonTab
-      Active = True
       Caption = 'Regra Fiscal'
       Groups = <
         item

@@ -1,18 +1,18 @@
 inherited FrameRegraFiscal: TFrameRegraFiscal
-  Width = 975
-  Height = 505
-  ExplicitWidth = 975
-  ExplicitHeight = 505
+  Width = 1081
+  Height = 520
+  ExplicitWidth = 1081
+  ExplicitHeight = 520
   inherited dxLayoutControl: TdxLayoutControl
-    Width = 975
-    Height = 505
+    Width = 1081
+    Height = 520
     ExplicitWidth = 975
     ExplicitHeight = 505
     object cxPageControl1: TcxPageControl [0]
       Left = 12
       Top = 12
-      Width = 949
-      Height = 469
+      Width = 1098
+      Height = 437
       BiDiMode = bdRightToLeft
       Color = clBtnFace
       ParentBiDiMode = False
@@ -20,23 +20,25 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       TabOrder = 0
       Properties.ActivePage = cxTabSheet1
       Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 465
+      ClientRectBottom = 433
       ClientRectLeft = 4
-      ClientRectRight = 945
+      ClientRectRight = 1094
       ClientRectTop = 26
       object cxTabSheet1: TcxTabSheet
         Caption = 'Regra Fiscal'
         ImageIndex = 0
-        ExplicitHeight = 447
+        ExplicitWidth = 941
+        ExplicitHeight = 439
         object dxLayoutControl2: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 941
-          Height = 439
+          Width = 1090
+          Height = 407
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          ExplicitHeight = 447
+          ExplicitWidth = 941
+          ExplicitHeight = 439
           object edtIDMunicipio: TcxDBTextEdit
             Left = 12
             Top = 186
@@ -65,7 +67,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 91
           end
           object edtMunicipioNome: TcxTextEdit
-            Left = 110
+            Left = 125
             Top = 186
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -74,7 +76,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 818
           end
           object edtPessoaNome: TcxTextEdit
-            Left = 115
+            Left = 131
             Top = 237
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -83,7 +85,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 668
           end
           object edtObservacaoDescricao: TcxMemo
-            Left = 111
+            Left = 125
             Top = 267
             Lines.Strings = (
               'edtObservacaoDescricao')
@@ -95,7 +97,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 814
           end
           object edtRazaoSocial: TcxTextEdit
-            Left = 112
+            Left = 127
             Top = 33
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -122,7 +124,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 93
           end
           object edtPaisNome: TcxTextEdit
-            Left = 113
+            Left = 129
             Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -131,7 +133,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 742
           end
           object edtEstadp: TcxDBTextEdit
-            Left = 871
+            Left = 1011
             Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -149,7 +151,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 93
           end
           object edtTipoOperacaoDescricao: TcxTextEdit
-            Left = 112
+            Left = 127
             Top = 84
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -158,7 +160,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Width = 817
           end
           object edtNCM: TcxDBTextEdit
-            Left = 825
+            Left = 957
             Top = 237
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
@@ -385,39 +387,45 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       object cxTabSheet2: TcxTabSheet
         Caption = 'Al'#237'quotas'
         ImageIndex = 1
-        ExplicitHeight = 447
+        ExplicitWidth = 941
+        ExplicitHeight = 439
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 941
-          Height = 439
+          Width = 1090
+          Height = 407
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          ExplicitHeight = 447
+          ExplicitWidth = 941
+          ExplicitHeight = 439
           object cxPageControl2: TcxPageControl
             Left = 12
             Top = 12
-            Width = 917
-            Height = 421
+            Width = 1061
+            Height = 381
             TabOrder = 0
             Properties.ActivePage = cxTabSheet3
             Properties.CustomButtons.Buttons = <>
-            ClientRectBottom = 417
+            ClientRectBottom = 377
             ClientRectLeft = 4
-            ClientRectRight = 913
+            ClientRectRight = 1057
             ClientRectTop = 26
             object cxTabSheet3: TcxTabSheet
               Caption = 'Pessoa F'#237'sica'
               ImageIndex = 0
+              ExplicitWidth = 909
+              ExplicitHeight = 391
               object dxLayoutControl4: TdxLayoutControl
                 Left = 0
                 Top = 0
-                Width = 909
-                Height = 391
+                Width = 1053
+                Height = 351
                 Align = alClient
                 ParentBackground = True
                 TabOrder = 0
+                ExplicitWidth = 909
+                ExplicitHeight = 391
                 object edtCSTICMS: TcxDBTextEdit
                   Left = 26
                   Top = 54
@@ -427,10 +435,10 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 0
-                  Width = 70
+                  Width = 69
                 end
                 object cxDBTextEdit3: TcxDBTextEdit
-                  Left = 103
+                  Left = 102
                   Top = 54
                   DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
@@ -440,7 +448,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Width = 73
                 end
                 object cxDBTextEdit4: TcxDBTextEdit
-                  Left = 183
+                  Left = 182
                   Top = 54
                   DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
@@ -450,22 +458,22 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Width = 117
                 end
                 object cxDBTextEdit14: TcxDBTextEdit
-                  Left = 500
-                  Top = 54
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 3
-                  Width = 64
-                end
-                object cxDBTextEdit13: TcxDBTextEdit
-                  Left = 571
+                  Left = 623
                   Top = 54
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 4
-                  Width = 113
+                  Width = 73
+                end
+                object cxDBTextEdit13: TcxDBTextEdit
+                  Left = 703
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 5
+                  Width = 117
                 end
                 object cxDBTextEdit1: TcxDBTextEdit
                   Left = 26
@@ -473,53 +481,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 5
-                  Width = 69
-                end
-                object cxDBTextEdit6: TcxDBTextEdit
-                  Left = 102
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
                   TabOrder = 6
-                  Width = 73
-                end
-                object cxDBTextEdit5: TcxDBTextEdit
-                  Left = 292
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 7
                   Width = 69
-                end
-                object cxDBTextEdit2: TcxDBTextEdit
-                  Left = 368
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 8
-                  Width = 73
-                end
-                object cxDBTextEdit7: TcxDBTextEdit
-                  Left = 559
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 9
-                  Width = 121
-                end
-                object cxDBTextEdit8: TcxDBTextEdit
-                  Left = 687
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 10
-                  Width = 73
                 end
                 object cxDBTextEdit9: TcxDBTextEdit
                   Left = 26
@@ -527,26 +490,35 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 11
-                  Width = 121
+                  TabOrder = 16
+                  Width = 73
                 end
                 object cxDBTextEdit10: TcxDBTextEdit
-                  Left = 154
+                  Left = 106
                   Top = 226
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 12
-                  Width = 121
+                  TabOrder = 17
+                  Width = 117
                 end
                 object cxDBTextEdit11: TcxDBTextEdit
-                  Left = 593
+                  Left = 658
                   Top = 226
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 13
-                  Width = 121
+                  TabOrder = 18
+                  Width = 117
+                end
+                object cxDBTextEdit28: TcxDBTextEdit
+                  Left = 543
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 3
+                  Width = 73
                 end
                 object cxDBCheckBox2: TcxDBCheckBox
                   Left = 26
@@ -556,30 +528,133 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 14
-                  Width = 149
+                  TabOrder = 19
+                  Width = 135
                 end
                 object cxDBCheckBox3: TcxDBCheckBox
-                  Left = 182
+                  Left = 168
                   Top = 291
                   Caption = 'Controla Parcelas'
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 15
-                  Width = 139
+                  TabOrder = 20
+                  Width = 121
                 end
                 object cxDBCheckBox4: TcxDBCheckBox
-                  Left = 328
+                  Left = 296
                   Top = 291
-                  Caption = 'Soma IPI BC ICMS'
+                  Caption = 'Adiciona IPI na BC ICMS'
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 16
+                  TabOrder = 21
+                  Width = 153
+                end
+                object cxDBCheckBox8: TcxDBCheckBox
+                  Left = 456
+                  Top = 291
+                  Caption = 'Adiciona Frete na BC ICMS'
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 22
+                  Width = 161
+                end
+                object cxDBCheckBox9: TcxDBCheckBox
+                  Left = 624
+                  Top = 291
+                  Caption = 'Adiciona Seguro na BC ICMS'
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 23
+                  Width = 174
+                end
+                object cxDBTextEdit32: TcxDBTextEdit
+                  Left = 102
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 7
                   Width = 121
+                end
+                object cxDBTextEdit33: TcxDBTextEdit
+                  Left = 241
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 8
+                  Width = 121
+                end
+                object cxDBTextEdit6: TcxDBTextEdit
+                  Left = 387
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 9
+                  Width = 73
+                end
+                object cxDBTextEdit5: TcxDBTextEdit
+                  Left = 495
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 10
+                  Width = 69
+                end
+                object cxDBTextEdit2: TcxDBTextEdit
+                  Left = 571
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 11
+                  Width = 73
+                end
+                object cxDBTextEdit34: TcxDBTextEdit
+                  Left = 662
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 12
+                  Width = 73
+                end
+                object cxDBTextEdit7: TcxDBTextEdit
+                  Left = 781
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 13
+                  Width = 69
+                end
+                object cxDBTextEdit8: TcxDBTextEdit
+                  Left = 857
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 14
+                  Width = 73
+                end
+                object cxDBTextEdit35: TcxDBTextEdit
+                  Left = 948
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 15
+                  Width = 84
                 end
                 object dxLayoutControl4Group_Root: TdxLayoutGroup
                   AlignHorz = ahClient
@@ -626,6 +701,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl4Group1
                   AlignHorz = ahClient
                   CaptionOptions.Text = 'ICMS ST'
+                  Visible = False
                   SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
                   SizeOptions.SizableHorz = True
                   SizeOptions.SizableVert = True
@@ -640,7 +716,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit14
                   ControlOptions.ShowBorder = False
-                  Index = 0
+                  Index = 1
                 end
                 object dxLayoutControl1Item15: TdxLayoutItem
                   Parent = dxLayoutControl1Group2
@@ -648,7 +724,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit13
                   ControlOptions.ShowBorder = False
-                  Index = 1
+                  Index = 2
                 end
                 object dxLayoutControl4Group1: TdxLayoutAutoCreatedGroup
                   Parent = dxLayoutControl4Group_Root
@@ -659,6 +735,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                 object dxLayoutControl1Group1: TdxLayoutGroup
                   Parent = dxLayoutControl4Group2
                   AlignHorz = ahClient
+                  AlignVert = avTop
                   CaptionOptions.Text = 'IPI'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
@@ -671,70 +748,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Control = cxDBTextEdit1
                   ControlOptions.ShowBorder = False
                   Index = 0
-                end
-                object dxLayoutControl1Item8: TdxLayoutItem
-                  Parent = dxLayoutControl1Group1
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit6
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
-                  Parent = dxLayoutControl4Group_Root
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                  AutoCreated = True
-                end
-                object dxLayoutControl1Group3: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group2
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'PIS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                end
-                object dxLayoutControl1Item7: TdxLayoutItem
-                  Parent = dxLayoutControl1Group3
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit5
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl1Item6: TdxLayoutItem
-                  Parent = dxLayoutControl1Group3
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit2
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl1Group4: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group2
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'COFINS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 2
-                end
-                object dxLayoutControl1Item9: TdxLayoutItem
-                  Parent = dxLayoutControl1Group4
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit7
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl1Item10: TdxLayoutItem
-                  Parent = dxLayoutControl1Group4
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit8
-                  ControlOptions.ShowBorder = False
-                  Index = 1
                 end
                 object dxLayoutControl1Group7: TdxLayoutGroup
                   Parent = dxLayoutControl4Group3
@@ -783,9 +796,16 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
+                object dxLayoutControl4Item1: TdxLayoutItem
+                  Parent = dxLayoutControl1Group2
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit28
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
                 object dxLayoutControl1Group11: TdxLayoutGroup
                   Parent = dxLayoutControl4Group_Root
-                  AlignHorz = ahClient
                   CaptionOptions.Text = 'Controles'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
@@ -816,23 +836,136 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
+                object dxLayoutControl4Item2: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox8'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox8
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl4Item3: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox9'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox9
+                  ControlOptions.ShowBorder = False
+                  Index = 4
+                end
+                object dxLayoutControl4Item4: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'Classe de Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit32
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl4Item5: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'C'#243'digo do Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit33
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl1Item8: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit6
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl1Group3: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group2
+                  AlignHorz = ahClient
+                  CaptionOptions.Text = 'PIS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                end
+                object dxLayoutControl1Item7: TdxLayoutItem
+                  Parent = dxLayoutControl1Group3
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit5
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl1Item6: TdxLayoutItem
+                  Parent = dxLayoutControl1Group3
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit2
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl4Item6: TdxLayoutItem
+                  Parent = dxLayoutControl1Group3
+                  CaptionOptions.Text = 'Al'#237'quota para ST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit34
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl4Group_Root
+                  AlignVert = avTop
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                  AutoCreated = True
+                end
+                object dxLayoutControl1Group4: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group2
+                  AlignHorz = ahClient
+                  CaptionOptions.Text = 'COFINS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 2
+                end
+                object dxLayoutControl1Item9: TdxLayoutItem
+                  Parent = dxLayoutControl1Group4
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit7
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl1Item10: TdxLayoutItem
+                  Parent = dxLayoutControl1Group4
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit8
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl4Item7: TdxLayoutItem
+                  Parent = dxLayoutControl1Group4
+                  CaptionOptions.Text = 'Al'#237'quota para ST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit35
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
               end
             end
             object cxTabSheet4: TcxTabSheet
               Caption = 'Pessoa Jur'#237'dica'
               ImageIndex = 1
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
+              ExplicitWidth = 892
+              ExplicitHeight = 391
               object dxLayoutControl3: TdxLayoutControl
                 Left = 0
                 Top = 0
-                Width = 909
-                Height = 391
+                Width = 1053
+                Height = 351
                 Align = alClient
                 ParentBackground = True
                 TabOrder = 0
+                ExplicitWidth = 892
+                ExplicitHeight = 391
                 object cxDBTextEdit16: TcxDBTextEdit
                   Left = 26
                   Top = 54
@@ -840,16 +973,16 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 0
-                  Width = 121
+                  Width = 69
                 end
                 object cxDBTextEdit17: TcxDBTextEdit
-                  Left = 554
+                  Left = 623
                   Top = 54
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 3
-                  Width = 121
+                  TabOrder = 4
+                  Width = 73
                 end
                 object cxDBTextEdit20: TcxDBTextEdit
                   Left = 26
@@ -857,26 +990,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 5
-                  Width = 121
-                end
-                object cxDBTextEdit21: TcxDBTextEdit
-                  Left = 323
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 7
-                  Width = 121
-                end
-                object cxDBTextEdit23: TcxDBTextEdit
-                  Left = 621
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 9
-                  Width = 121
+                  TabOrder = 6
+                  Width = 69
                 end
                 object cxDBTextEdit25: TcxDBTextEdit
                   Left = 26
@@ -884,113 +999,200 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 11
-                  Width = 121
+                  TabOrder = 16
+                  Width = 73
                 end
                 object cxDBTextEdit27: TcxDBTextEdit
-                  Left = 604
+                  Left = 658
                   Top = 226
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 13
-                  Width = 121
+                  TabOrder = 18
+                  Width = 117
                 end
                 object cxDBTextEdit15: TcxDBTextEdit
-                  Left = 154
+                  Left = 102
                   Top = 54
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 1
-                  Width = 121
+                  Width = 73
                 end
                 object cxDBTextEdit12: TcxDBTextEdit
-                  Left = 282
+                  Left = 182
                   Top = 54
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 2
-                  Width = 121
+                  Width = 117
                 end
                 object cxDBTextEdit18: TcxDBTextEdit
-                  Left = 682
+                  Left = 703
                   Top = 54
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 4
-                  Width = 121
-                end
-                object cxDBTextEdit19: TcxDBTextEdit
-                  Left = 154
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 6
-                  Width = 121
-                end
-                object cxDBTextEdit22: TcxDBTextEdit
-                  Left = 451
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 8
-                  Width = 121
-                end
-                object cxDBTextEdit24: TcxDBTextEdit
-                  Left = 749
-                  Top = 140
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 10
-                  Width = 121
+                  TabOrder = 5
+                  Width = 117
                 end
                 object cxDBTextEdit26: TcxDBTextEdit
-                  Left = 154
+                  Left = 106
                   Top = 226
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 12
-                  Width = 121
+                  TabOrder = 17
+                  Width = 117
                 end
                 object cxDBCheckBox6: TcxDBCheckBox
                   Left = 26
                   Top = 291
-                  Caption = 'Movimeta Estoque'
+                  Caption = 'Movimenta Estoque'
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 14
-                  Width = 121
+                  TabOrder = 19
+                  Width = 135
                 end
                 object cxDBCheckBox7: TcxDBCheckBox
-                  Left = 154
+                  Left = 168
                   Top = 291
                   Caption = 'Controla Parcelas'
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 15
+                  TabOrder = 20
                   Width = 121
                 end
                 object cxDBCheckBox5: TcxDBCheckBox
-                  Left = 282
+                  Left = 296
                   Top = 291
-                  Caption = 'Soma IPI BC ICMS'
+                  Caption = 'Adiciona IPI na BC ICMS'
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
-                  TabOrder = 16
+                  TabOrder = 21
+                  Width = 153
+                end
+                object cxDBTextEdit29: TcxDBTextEdit
+                  Left = 543
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 3
+                  Width = 73
+                end
+                object cxDBCheckBox10: TcxDBCheckBox
+                  Left = 456
+                  Top = 291
+                  Caption = 'Adiciona Frete na BC ICMS'
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 22
+                  Width = 161
+                end
+                object cxDBCheckBox11: TcxDBCheckBox
+                  Left = 624
+                  Top = 291
+                  Caption = 'Adiciona Seguro na BC ICMS'
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 23
+                  Width = 174
+                end
+                object cxDBTextEdit30: TcxDBTextEdit
+                  Left = 102
+                  Top = 140
+                  Hint = 'Aplic'#225'vel apenas para bebidas e cigarros'
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 7
                   Width = 121
+                end
+                object cxDBTextEdit31: TcxDBTextEdit
+                  Left = 241
+                  Top = 140
+                  Hint = 'Preencher com 999'
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 8
+                  Width = 121
+                end
+                object cxDBTextEdit19: TcxDBTextEdit
+                  Left = 387
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 9
+                  Width = 73
+                end
+                object cxDBTextEdit21: TcxDBTextEdit
+                  Left = 495
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 10
+                  Width = 69
+                end
+                object cxDBTextEdit22: TcxDBTextEdit
+                  Left = 571
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 11
+                  Width = 73
+                end
+                object cxDBTextEdit36: TcxDBTextEdit
+                  Left = 662
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 12
+                  Width = 84
+                end
+                object cxDBTextEdit23: TcxDBTextEdit
+                  Left = 781
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 13
+                  Width = 69
+                end
+                object cxDBTextEdit24: TcxDBTextEdit
+                  Left = 857
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 14
+                  Width = 73
+                end
+                object cxDBTextEdit37: TcxDBTextEdit
+                  Left = 948
+                  Top = 140
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 15
+                  Width = 84
                 end
                 object dxLayoutControl3Group_Root: TdxLayoutGroup
                   AlignHorz = ahClient
@@ -1012,6 +1214,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                 object dxLayoutControl3Group3: TdxLayoutGroup
                   Parent = dxLayoutControl3Group10
                   AlignHorz = ahClient
+                  AlignVert = avTop
                   CaptionOptions.Text = 'IPI'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
@@ -1046,28 +1249,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Index = 0
                   AutoCreated = True
                 end
-                object dxLayoutControl3Group4: TdxLayoutGroup
-                  Parent = dxLayoutControl3Group10
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'PIS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                end
-                object dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup
-                  Parent = dxLayoutControl3Group_Root
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                  AutoCreated = True
-                end
-                object dxLayoutControl3Group5: TdxLayoutGroup
-                  Parent = dxLayoutControl3Group10
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'COFINS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 2
-                end
                 object dxLayoutControl3Group7: TdxLayoutGroup
                   Parent = dxLayoutControl3Group11
                   AlignHorz = ahClient
@@ -1097,7 +1278,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit17
                   ControlOptions.ShowBorder = False
-                  Index = 0
+                  Index = 1
                 end
                 object dxLayoutControl3Item7: TdxLayoutItem
                   Parent = dxLayoutControl3Group3
@@ -1105,24 +1286,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit20
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl3Item8: TdxLayoutItem
-                  Parent = dxLayoutControl3Group4
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit21
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl3Item10: TdxLayoutItem
-                  Parent = dxLayoutControl3Group5
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit23
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1137,6 +1300,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                 end
                 object dxLayoutControl3Item14: TdxLayoutItem
                   Parent = dxLayoutControl3Group7
+                  AlignHorz = ahLeft
                   CaptionOptions.Text = 'CSOSN'
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit27
@@ -1165,31 +1329,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Layout = clTop
                   Control = cxDBTextEdit18
                   ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl3Item6: TdxLayoutItem
-                  Parent = dxLayoutControl3Group3
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit19
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl3Item9: TdxLayoutItem
-                  Parent = dxLayoutControl3Group4
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit22
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl3Item11: TdxLayoutItem
-                  Parent = dxLayoutControl3Group5
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit24
-                  ControlOptions.ShowBorder = False
-                  Index = 1
+                  Index = 2
                 end
                 object dxLayoutControl3Item13: TdxLayoutItem
                   Parent = dxLayoutControl3Group6
@@ -1221,6 +1361,128 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   CaptionOptions.Text = 'cxDBCheckBox5'
                   CaptionOptions.Visible = False
                   Control = cxDBCheckBox5
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl3Item18: TdxLayoutItem
+                  Parent = dxLayoutControl3Group2
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit29
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl3Item19: TdxLayoutItem
+                  Parent = dxLayoutControl3Group8
+                  CaptionOptions.Text = 'cxDBCheckBox10'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox10
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl3Item20: TdxLayoutItem
+                  Parent = dxLayoutControl3Group8
+                  CaptionOptions.Text = 'cxDBCheckBox11'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox11
+                  ControlOptions.ShowBorder = False
+                  Index = 4
+                end
+                object dxLayoutControl3Item21: TdxLayoutItem
+                  Parent = dxLayoutControl3Group3
+                  CaptionOptions.Text = 'Classe de Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit30
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl3Item22: TdxLayoutItem
+                  Parent = dxLayoutControl3Group3
+                  CaptionOptions.Text = 'C'#243'digo do Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit31
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl3Item6: TdxLayoutItem
+                  Parent = dxLayoutControl3Group3
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit19
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl3Group4: TdxLayoutGroup
+                  Parent = dxLayoutControl3Group10
+                  AlignHorz = ahClient
+                  CaptionOptions.Text = 'PIS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                end
+                object dxLayoutControl3Item8: TdxLayoutItem
+                  Parent = dxLayoutControl3Group4
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit21
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl3Item9: TdxLayoutItem
+                  Parent = dxLayoutControl3Group4
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit22
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl3Item23: TdxLayoutItem
+                  Parent = dxLayoutControl3Group4
+                  CaptionOptions.Text = 'Al'#237'quota para ST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit36
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl3Group_Root
+                  AlignVert = avTop
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                  AutoCreated = True
+                end
+                object dxLayoutControl3Group5: TdxLayoutGroup
+                  Parent = dxLayoutControl3Group10
+                  AlignHorz = ahClient
+                  CaptionOptions.Text = 'COFINS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 2
+                end
+                object dxLayoutControl3Item10: TdxLayoutItem
+                  Parent = dxLayoutControl3Group5
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit23
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl3Item11: TdxLayoutItem
+                  Parent = dxLayoutControl3Group5
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit24
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl3Item24: TdxLayoutItem
+                  Parent = dxLayoutControl3Group5
+                  CaptionOptions.Text = 'Al'#237'quota para ST'
+                  CaptionOptions.Layout = clTop
+                  Control = cxDBTextEdit37
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1259,7 +1521,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsRegraFiscal
-    Left = 728
-    Top = 376
+    Left = 736
+    Top = 408
   end
 end
