@@ -114,7 +114,6 @@ type
     dxLayoutControl4Group_Root: TdxLayoutGroup;
     dxLayoutControl4: TdxLayoutControl;
     dxLayoutControl4Group1: TdxLayoutAutoCreatedGroup;
-    dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup;
     dxLayoutControl4Group3: TdxLayoutAutoCreatedGroup;
     dxLayoutControl3Group1: TdxLayoutGroup;
     dxLayoutControl3Group2: TdxLayoutGroup;
@@ -125,7 +124,6 @@ type
     dxLayoutControl3Group7: TdxLayoutGroup;
     dxLayoutControl3Group8: TdxLayoutGroup;
     dxLayoutControl3Group9: TdxLayoutAutoCreatedGroup;
-    dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup;
     dxLayoutControl3Group11: TdxLayoutAutoCreatedGroup;
     cxDBTextEdit12: TcxDBTextEdit;
     dxLayoutControl3Item1: TdxLayoutItem;
@@ -161,6 +159,36 @@ type
     dxLayoutControl3Item16: TdxLayoutItem;
     cxDBCheckBox7: TcxDBCheckBox;
     dxLayoutControl3Item17: TdxLayoutItem;
+    cxDBTextEdit28: TcxDBTextEdit;
+    dxLayoutControl4Item1: TdxLayoutItem;
+    cxDBCheckBox8: TcxDBCheckBox;
+    dxLayoutControl4Item2: TdxLayoutItem;
+    cxDBCheckBox9: TcxDBCheckBox;
+    dxLayoutControl4Item3: TdxLayoutItem;
+    cxDBTextEdit29: TcxDBTextEdit;
+    dxLayoutControl3Item18: TdxLayoutItem;
+    cxDBCheckBox10: TcxDBCheckBox;
+    dxLayoutControl3Item19: TdxLayoutItem;
+    cxDBCheckBox11: TcxDBCheckBox;
+    dxLayoutControl3Item20: TdxLayoutItem;
+    cxDBTextEdit30: TcxDBTextEdit;
+    dxLayoutControl3Item21: TdxLayoutItem;
+    cxDBTextEdit31: TcxDBTextEdit;
+    dxLayoutControl3Item22: TdxLayoutItem;
+    cxDBTextEdit32: TcxDBTextEdit;
+    dxLayoutControl4Item4: TdxLayoutItem;
+    cxDBTextEdit33: TcxDBTextEdit;
+    dxLayoutControl4Item5: TdxLayoutItem;
+    cxDBTextEdit34: TcxDBTextEdit;
+    dxLayoutControl4Item6: TdxLayoutItem;
+    cxDBTextEdit35: TcxDBTextEdit;
+    dxLayoutControl4Item7: TdxLayoutItem;
+    cxDBTextEdit36: TcxDBTextEdit;
+    dxLayoutControl3Item23: TdxLayoutItem;
+    cxDBTextEdit37: TcxDBTextEdit;
+    dxLayoutControl3Item24: TdxLayoutItem;
+    dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup;
+    dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup;
   private
     { Private declarations }
   public
