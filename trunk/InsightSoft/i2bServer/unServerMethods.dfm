@@ -5790,4 +5790,9 @@ object ServerMethods: TServerMethods
     Left = 920
     Top = 592
   end
+  object qrySQL: TFDQuery
+    Connection = conexao
+    Left = 360
+    Top = 8
+  end
 end

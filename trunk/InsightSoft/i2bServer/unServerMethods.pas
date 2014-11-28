@@ -1156,6 +1156,7 @@ type
     qryProdutoTamanhoidprodutotamanho: TIntegerField;
     qryProdutoTamanhocodigo: TWideStringField;
     qryProdutoTamanhonome: TWideStringField;
+    qrySQL: TFDQuery;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1366,7 +1367,10 @@ type
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
 
+    //Procedures de manipulação dos Filtros
     procedure getFiltosSalvos(form, usuario:String);
+    procedure newFiltro(nome,form,usuario,filtroDisplay,filtroSQL: String);
+    procedure deleteFiltro(id : integer);
 
     //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
     procedure setSQLAuditoria(filtro: String);
@@ -1497,6 +1501,26 @@ begin
   Append(arq);
 end;
 
+procedure TServerMethods.newFiltro(nome, form, usuario, filtroDisplay, filtroSQL: String);
+begin
+  LOGopen;
+  LOGadd('Novo Filtro adicionado '+#13+'Nome: '+nome+#13+'Usuario: '+usuario+#13+'Form: '+form+#13+'Display: ['+
+    filtroDisplay+']'+#13+'SQL: ['+filtroSQL+']');
+  LOGclose;
+
+  if not(qryFiltroSalvo.Active) then
+    qryFiltroSalvo.Open();
+  qryFiltroSalvo.Insert;
+  qryFiltroSalvonome.AsString := nome;
+  qryFiltroSalvousuario.AsString := usuario;
+  qryFiltroSalvoform.AsString := form;
+  qryFiltroSalvofiltrodisplay.AsString := filtroDisplay;
+  qryFiltroSalvofiltrosql.AsString := filtroSQL;
+  qryFiltroSalvo.Post;
+
+  qryFiltroSalvo.Close;
+end;
+
 procedure TServerMethods.LOGclose;
 begin
   CloseFile(arq);
@@ -1534,6 +1558,14 @@ begin
   LOGopen;
   LOGadd('SQL de '+Query.Name+' alterada para ['+Trim(Query.SQL.Text)+']');
   LOGclose;
+end;
+
+procedure TServerMethods.deleteFiltro(id: integer);
+begin
+  qrySQL.Close;
+  qrySQL.SQL.Clear;
+  qrySQL.SQL.Add('delete from filtrosalvo where idfiltrosalvo = '+IntToStr(id));
+  qrySQL.ExecSQL;
 end;
 
 procedure TServerMethods.DSServerModuleCreate(Sender: TObject);

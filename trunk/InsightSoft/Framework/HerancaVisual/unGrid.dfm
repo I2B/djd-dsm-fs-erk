@@ -890,6 +890,7 @@ inherited frmGrid: TfrmGrid
               0002000000030000000400000004000000040000000400000005000000050000
               0005000000050000000500000006000000060000000400000001}
             TabOrder = 9
+            OnClick = btnFiltroSalvarClick
           end
           object btnFiltroLimpar: TcxButton
             Left = 183
@@ -1491,22 +1492,7 @@ inherited frmGrid: TfrmGrid
   object cdsFiltroSalvo: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 526
-    Top = 305
-  end
-  object ServerMethodFiltro: TSqlServerMethod
-    Params = <
-      item
-        DataType = ftString
-        Name = 'form'
-        ParamType = ptInput
-      end
-      item
-        DataType = ftString
-        Name = 'usuario'
-        ParamType = ptInput
-      end>
-    Left = 558
-    Top = 305
+    Left = 664
+    Top = 8
   end
 end

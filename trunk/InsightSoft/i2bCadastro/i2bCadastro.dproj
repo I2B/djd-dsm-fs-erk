@@ -383,6 +383,10 @@
             <Form>frmCADNCM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Framework\unF2.pas">
+            <Form>frmF2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
