@@ -69,7 +69,8 @@ uses
   unFrameMunicipio in 'Frames\unFrameMunicipio.pas' {FrameMunicipio: TFrame},
   unCADMunicipio in 'Forms\unCADMunicipio.pas' {frmCADMunicipio},
   unFrameNCM in 'Frames\unFrameNCM.pas' {FrameNCM: TFrame},
-  unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM};
+  unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
+  unF2 in '..\Framework\unF2.pas' {frmF2};
 
 {$R *.res}
 

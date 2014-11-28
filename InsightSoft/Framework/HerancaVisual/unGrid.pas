@@ -88,7 +88,6 @@ type
     grdFiltroSQL: TcxGridColumn;
     cbFiltroSQL: TcxComboBox;
     cdsFiltroSalvo: TClientDataSet;
-    ServerMethodFiltro: TSqlServerMethod;
     grdFiltroCarregar: TcxGridColumn;
     imgFiltroSQL: TcxImage;
     memoFiltroSQL: TcxMemo;
@@ -121,6 +120,7 @@ type
     procedure btnFiltroLimparClick(Sender: TObject);
     procedure btnAdicionarFiltroClick(Sender: TObject);
     procedure btnAplicarFiltroClick(Sender: TObject);
+    procedure btnFiltroSalvarClick(Sender: TObject);
   private
     { Private declarations }
     procedure ajustaCbOperacaoParaTexto(Combo: TcxComboBox);
@@ -128,6 +128,9 @@ type
     procedure ajustaCbOperacaoParaData(Combo: TcxComboBox);
     procedure ajustaCbOperacaoParaBoleano(Combo: TcxComboBox);
 
+    procedure buscarFiltrosSalvos();
+    procedure salvaFiltroCriado(nome,form,usuario,filtroDisplay,filtroSQL: String);
+    procedure removeFiltroSalvo(id : integer);
     procedure addCondicaoAoFiltro();
   public
     { Public declarations }
@@ -135,6 +138,8 @@ type
 
 var
   frmGrid: TfrmGrid;
+  Provider : TDSProviderConnection;
+  SMFiltro : TSqlServerMethod;
   TipoDoCampo: TFieldType;
   TipoDoCampoDoFiltro: TFieldType;
 
@@ -582,6 +587,58 @@ begin
   memoFiltroSQL.Clear;
 end;
 
+procedure TfrmGrid.btnFiltroSalvarClick(Sender: TObject);
+var
+  nome : String;
+begin
+  nome := InputBox('Nome do Filtro','Defina o nome do Filtro:','');
+  if nome <> '' then
+  begin
+    salvaFiltroCriado(nome,self.Name,usuario,memoFiltroDesenvolvido.Text,memoFiltroSQL.Text);
+  end
+  else
+  begin
+    Application.MessageBox('É obrigatório informar um nome para o Filtro.','Dados Incompletos',MB_OK + MB_ICONEXCLAMATION);
+  end;
+end;
+
+procedure TfrmGrid.buscarFiltrosSalvos;
+begin
+  //Buscar os Filtros criados
+  Provider := ((dts.DataSet as TClientDataSet).RemoteServer as TDSProviderConnection);
+  SMFiltro := TSqlServerMethod.Create(Application);
+  SMFiltro.SQLConnection := Provider.SQLConnection;
+  SMFiltro.ServerMethodName := 'TServerMethods.getFiltosSalvos';
+  SMFiltro.Params[0].AsString := Name;
+  SMFiltro.Params[1].AsString := Usuario;
+  SMFiltro.ExecuteMethod;
+
+  cdsFiltroSalvo.Close;
+  cdsFiltroSalvo.RemoteServer := (dts.DataSet as TClientDataSet).RemoteServer;
+  cdsFiltroSalvo.ProviderName := 'dspFiltroSalvo';
+  cdsFiltroSalvo.Open;
+  grdFiltro.DataController.MultiSelect := True;
+  grdFiltro.DataController.SelectAll;
+  grdFiltro.DataController.DeleteSelection;
+  grdFiltro.DataController.MultiSelect := False;
+  if cdsFiltroSalvo.RecordCount > 0 then
+  begin
+    cdsFiltroSalvo.First;
+    while not(cdsFiltroSalvo.Eof) do
+    begin
+      grdFiltro.DataController.Insert;
+      grdFiltroID.EditValue := cdsFiltroSalvo.FieldByName('idfiltrosalvo').AsInteger;
+      grdFiltroDescricao.EditValue := cdsFiltroSalvo.FieldByName('nome').AsString;
+      grdFiltroDisplay.EditValue := cdsFiltroSalvo.FieldByName('filtrodisplay').AsString;
+      grdFiltroSQL.EditValue := cdsFiltroSalvo.FieldByName('filtrosql').AsString;
+      grdFiltro.DataController.Post();
+
+      cdsFiltroSalvo.Next;
+    end;
+  end;
+  FreeAndNil(SMFiltro);
+end;
+
 procedure TfrmGrid.cbCampoPropertiesChange(Sender: TObject);
 begin
   cbSQL.ItemIndex := cbCampo.ItemIndex;
@@ -971,7 +1028,7 @@ begin
   if Application.MessageBox('Confirma a exclusão do Filtro selecionado?','Exclusão de Filtro Salvo',MB_YESNO +
     MB_ICONQUESTION + MB_DEFBUTTON2) = mrYes then
   begin
-    ShowMessage('Excluído');
+    removeFiltroSalvo(grdFiltroID.EditValue);
   end;
 end;
 
@@ -1016,9 +1073,55 @@ begin
   end;
 end;
 
+procedure TfrmGrid.removeFiltroSalvo(id: integer);
+begin
+  //Remover o filtro desenvolvido
+  try
+    Provider := ((dts.DataSet as TClientDataSet).RemoteServer as TDSProviderConnection);
+    SMFiltro := TSqlServerMethod.Create(Application);
+    SMFiltro.SQLConnection := Provider.SQLConnection;
+    SMFiltro.ServerMethodName := 'TServerMethods.deleteFiltro';
+    SMFiltro.Params[0].AsInteger := id;
+    SMFiltro.ExecuteMethod;
+    FreeAndNil(SMFiltro);
+
+    buscarFiltrosSalvos;
+  except
+    On E : Exception do
+    begin
+      Application.MessageBox(PWideChar('Falha ao salvar filtro desenvolvido. Segue detalhes: '+E.ToString),'Falha',
+        MB_OK + MB_ICONERROR);
+    end;
+  end;
+end;
+
+procedure TfrmGrid.salvaFiltroCriado(nome, form, usuario, filtroDisplay, filtroSQL: String);
+begin
+  //Salvar filtro desenvolvido
+  try
+    Provider := ((dts.DataSet as TClientDataSet).RemoteServer as TDSProviderConnection);
+    SMFiltro := TSqlServerMethod.Create(Application);
+    SMFiltro.SQLConnection := Provider.SQLConnection;
+    SMFiltro.ServerMethodName := 'TServerMethods.newFiltro';
+    SMFiltro.Params[0].AsString := nome;
+    SMFiltro.Params[1].AsString := form;
+    SMFiltro.Params[2].AsString := usuario;
+    SMFiltro.Params[3].AsString := filtroDisplay;
+    SMFiltro.Params[4].AsString := filtroSQL;
+    SMFiltro.ExecuteMethod;
+    FreeAndNil(SMFiltro);
+
+    buscarFiltrosSalvos;
+  except
+    On E : Exception do
+    begin
+      Application.MessageBox(PWideChar('Falha ao salvar filtro desenvolvido. Segue detalhes: '+E.ToString),'Falha',
+        MB_OK + MB_ICONERROR);
+    end;
+  end;
+end;
+
 procedure TfrmGrid.acAbaFiltroExecute(Sender: TObject);
-var
-  Provider : TDSProviderConnection;
 begin
   if cxPageControl.ActivePage = cxTabGrid then
   begin
@@ -1028,32 +1131,8 @@ begin
       cbFiltroSQL.Properties.Items := cbSQL.Properties.Items;
       cbFiltroCampo.Properties.Items := cbCampo.Properties.Items;
 
-      //Buscar os Filtros criados
-      Provider := ((dts.DataSet as TClientDataSet).RemoteServer as TDSProviderConnection);
-      ServerMethodFiltro.SQLConnection := Provider.SQLConnection;
-      ServerMethodFiltro.ServerMethodName := 'TServerMethods.getFiltosSalvos';
-      ServerMethodFiltro.Params[0].AsString := Name;
-      ServerMethodFiltro.Params[1].AsString := Usuario;
-      ServerMethodFiltro.ExecuteMethod;
+      buscarFiltrosSalvos();
 
-      cdsFiltroSalvo.RemoteServer := (dts.DataSet as TClientDataSet).RemoteServer;
-      cdsFiltroSalvo.ProviderName := 'dspFiltroSalvo';
-      cdsFiltroSalvo.Open;
-      if cdsFiltroSalvo.RecordCount > 0 then
-      begin
-        cdsFiltroSalvo.First;
-        while not(cdsFiltroSalvo.Eof) do
-        begin
-          grdFiltro.DataController.Insert;
-          grdFiltroID.EditValue := cdsFiltroSalvo.FieldByName('idfiltrosalvo').AsInteger;
-          grdFiltroDescricao.EditValue := cdsFiltroSalvo.FieldByName('nome').AsString;
-          grdFiltroDisplay.EditValue := cdsFiltroSalvo.FieldByName('filtrodisplay').AsString;
-          grdFiltroSQL.EditValue := cdsFiltroSalvo.FieldByName('filtrosql').AsString;
-          grdFiltro.DataController.Post();
-
-          cdsFiltroSalvo.Next;
-        end;
-      end;
     end;
     memoFiltroDesenvolvidoPropertiesChange(Sender);
     cxPageControl.ActivePage := cxTabFiltro;
