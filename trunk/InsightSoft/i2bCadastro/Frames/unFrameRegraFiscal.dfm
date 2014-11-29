@@ -27,7 +27,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       object cxTabSheet1: TcxTabSheet
         Caption = 'Regra Fiscal'
         ImageIndex = 0
-        ExplicitHeight = 407
         object dxLayoutControl2: TdxLayoutControl
           Left = 0
           Top = 0
@@ -36,10 +35,11 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          ExplicitHeight = 407
           object edtIDMunicipio: TcxDBTextEdit
             Left = 12
             Top = 186
+            DataBinding.DataField = 'idmunicipio'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -49,6 +49,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object edtIDPessoa: TcxDBTextEdit
             Left = 12
             Top = 237
+            DataBinding.DataField = 'idpessoa'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -58,6 +60,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object edtIDObservacao: TcxDBTextEdit
             Left = 12
             Top = 288
+            DataBinding.DataField = 'idregrafiscalobservacao'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -94,6 +98,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object edtIDUnidadeNegocio: TcxDBTextEdit
             Left = 12
             Top = 33
+            DataBinding.DataField = 'idunidadenegocio'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -103,6 +109,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object edtIDPais: TcxDBTextEdit
             Left = 12
             Top = 135
+            DataBinding.DataField = 'idpais'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -130,6 +138,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object edtIDTipoOperacao: TcxDBTextEdit
             Left = 12
             Top = 84
+            DataBinding.DataField = 'idtipooperacao'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -158,7 +168,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Left = 12
             Top = 363
             Caption = 'Inativo'
-            DataBinding.DataField = 'ativo'
+            DataBinding.DataField = 'inativo'
             DataBinding.DataSource = DataSource
             Properties.NullStyle = nssUnchecked
             Style.BorderColor = clWindowFrame
@@ -207,7 +217,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object dxLayoutControl2Item18: TdxLayoutItem
             Parent = dxLayoutControl2Group2
             AlignHorz = ahClient
-            CaptionOptions.Text = 'OBserva'#231#227'o'
+            CaptionOptions.Text = 'Observa'#231#227'o'
             CaptionOptions.Layout = clTop
             Control = edtIDObservacao
             ControlOptions.ShowBorder = False
@@ -392,7 +402,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       object cxTabSheet2: TcxTabSheet
         Caption = 'Al'#237'quotas'
         ImageIndex = 1
-        ExplicitHeight = 407
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
@@ -401,7 +410,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          ExplicitHeight = 407
           object cxPageControl2: TcxPageControl
             Left = 12
             Top = 12
@@ -417,7 +425,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             object cxTabSheet3: TcxTabSheet
               Caption = 'Pessoa F'#237'sica'
               ImageIndex = 0
-              ExplicitWidth = 1058
               object dxLayoutControl4: TdxLayoutControl
                 Left = 0
                 Top = 0
@@ -426,11 +433,10 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                 Align = alClient
                 ParentBackground = True
                 TabOrder = 0
-                ExplicitWidth = 1058
-                object edtCSTICMS: TcxDBTextEdit
+                object edtPFICMSCST: TcxDBTextEdit
                   Left = 26
                   Top = 54
-                  DataBinding.DataField = 'idcsticms'
+                  DataBinding.DataField = 'pficmscst'
                   DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -438,9 +444,10 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 0
                   Width = 69
                 end
-                object edtAliquotaICMS: TcxDBTextEdit
+                object edtPFICMSAliquota: TcxDBTextEdit
                   Left = 102
                   Top = 54
+                  DataBinding.DataField = 'pficmsaliquota'
                   DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -448,9 +455,10 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 1
                   Width = 73
                 end
-                object edtPercentualReducaoICMS: TcxDBTextEdit
+                object edtPFICMSPercentualReducao: TcxDBTextEdit
                   Left = 182
                   Top = 54
+                  DataBinding.DataField = 'pficmspercentualreducao'
                   DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -458,7 +466,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 2
                   Width = 117
                 end
-                object edtMVAICMSST: TcxDBTextEdit
+                object edtPFICMSSTMVA: TcxDBTextEdit
                   Left = 522
                   Top = 54
                   Style.BorderColor = clWindowFrame
@@ -467,7 +475,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 4
                   Width = 73
                 end
-                object edtPercentualReducaoICMSST: TcxDBTextEdit
+                object edtPFICMSSTPercentualReducao: TcxDBTextEdit
                   Left = 602
                   Top = 54
                   Style.BorderColor = clWindowFrame
@@ -476,34 +484,40 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 5
                   Width = 117
                 end
-                object edtCSTIPI: TcxDBTextEdit
+                object edtPFIPICST: TcxDBTextEdit
                   Left = 26
                   Top = 140
+                  DataBinding.DataField = 'pfipicst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 7
                   Width = 69
                 end
-                object cxDBTextEdit9: TcxDBTextEdit
+                object edtPFISSAliquota: TcxDBTextEdit
                   Left = 26
                   Top = 226
+                  DataBinding.DataField = 'pfissaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 15
                   Width = 73
                 end
-                object cxDBTextEdit10: TcxDBTextEdit
+                object edtPFISSReducao: TcxDBTextEdit
                   Left = 106
                   Top = 226
+                  DataBinding.DataField = 'pfisspercentualreducao'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 16
                   Width = 117
                 end
-                object edtAliquotaICMSST: TcxDBTextEdit
+                object edtPFICMSSTAliquota: TcxDBTextEdit
                   Left = 442
                   Top = 54
                   Style.BorderColor = clWindowFrame
@@ -516,6 +530,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 26
                   Top = 291
                   Caption = 'Movimenta Estoque'
+                  DataBinding.DataField = 'pfmovimentaestoque'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -527,6 +543,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 168
                   Top = 291
                   Caption = 'Controla Parcelas'
+                  DataBinding.DataField = 'pfcontrolaparcelas'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -538,6 +556,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 296
                   Top = 291
                   Caption = 'Adiciona IPI na BC ICMS'
+                  DataBinding.DataField = 'pfadicionaipibcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -549,6 +569,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 456
                   Top = 291
                   Caption = 'Adiciona Frete na BC ICMS'
+                  DataBinding.DataField = 'pfadicionafretebcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -560,6 +582,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 624
                   Top = 291
                   Caption = 'Adiciona Seguro na BC ICMS'
+                  DataBinding.DataField = 'pfadicionasegurobcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -567,72 +591,88 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 21
                   Width = 174
                 end
-                object ectClasseEnquadramentoIPI: TcxDBTextEdit
+                object ectPFIPIClasseEnquadramento: TcxDBTextEdit
                   Left = 102
                   Top = 140
+                  DataBinding.DataField = 'pfipiclasseenquadramento'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 8
                   Width = 121
                 end
-                object edtCodigoEnquadramentoIPI: TcxDBTextEdit
+                object edtPFIPICodigoEnquadramento: TcxDBTextEdit
                   Left = 241
                   Top = 140
+                  DataBinding.DataField = 'pfipicodigoenquadramento'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 9
                   Width = 121
                 end
-                object edtAliquotaIPI: TcxDBTextEdit
+                object edtPFIPIAliquota: TcxDBTextEdit
                   Left = 387
                   Top = 140
+                  DataBinding.DataField = 'pfipialiquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 10
                   Width = 73
                 end
-                object edtCSTPIS: TcxDBTextEdit
+                object edtPFPISCST: TcxDBTextEdit
                   Left = 595
                   Top = 140
+                  DataBinding.DataField = 'pfpiscst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 11
                   Width = 69
                 end
-                object edtAliquotaNormalPIS: TcxDBTextEdit
+                object edtPFPISAliquotaNormal: TcxDBTextEdit
                   Left = 671
                   Top = 140
+                  DataBinding.DataField = 'pfpisaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 12
                   Width = 73
                 end
-                object cxDBTextEdit7: TcxDBTextEdit
+                object edtPFCOFINSCST: TcxDBTextEdit
                   Left = 831
                   Top = 140
+                  DataBinding.DataField = 'pfcofinscst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 13
                   Width = 69
                 end
-                object cxDBTextEdit8: TcxDBTextEdit
+                object edtPFCOFINSAliquota: TcxDBTextEdit
                   Left = 907
                   Top = 140
+                  DataBinding.DataField = 'pfcofinsaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 14
                   Width = 73
                 end
-                object cxDBTextEdit11: TcxDBTextEdit
+                object edtPFCSOSN: TcxDBTextEdit
                   Left = 863
                   Top = 54
+                  DataBinding.DataField = 'pfcsosn'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
@@ -643,6 +683,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 805
                   Top = 291
                   Caption = 'Adiciona Outras Despesas na BC ICMS'
+                  DataBinding.DataField = 'pfadicionaoutrasdespesasbcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -671,7 +713,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group8
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = edtCSTICMS
+                  Control = edtPFICMSCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -679,7 +721,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group8
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = edtAliquotaICMS
+                  Control = edtPFICMSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -687,7 +729,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group8
                   CaptionOptions.Text = 'Percentual de Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = edtPercentualReducaoICMS
+                  Control = edtPFICMSPercentualReducao
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -695,6 +737,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl4Group1
                   AlignHorz = ahClient
                   CaptionOptions.Text = 'ICMS ST'
+                  Visible = False
                   SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
                   SizeOptions.SizableHorz = True
                   SizeOptions.SizableVert = True
@@ -707,7 +750,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group2
                   CaptionOptions.Text = 'MVA'
                   CaptionOptions.Layout = clTop
-                  Control = edtMVAICMSST
+                  Control = edtPFICMSSTMVA
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -715,7 +758,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group2
                   CaptionOptions.Text = 'Percentual Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = edtPercentualReducaoICMSST
+                  Control = edtPFICMSSTPercentualReducao
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -738,7 +781,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group1
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = edtCSTIPI
+                  Control = edtPFIPICST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -755,7 +798,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit9
+                  Control = edtPFISSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -763,7 +806,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group7
                   CaptionOptions.Text = 'Percentual de Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit10
+                  Control = edtPFISSReducao
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -771,7 +814,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group2
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = edtAliquotaICMSST
+                  Control = edtPFICMSSTAliquota
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -827,7 +870,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group1
                   CaptionOptions.Text = 'Classe de Enquadramento'
                   CaptionOptions.Layout = clTop
-                  Control = ectClasseEnquadramentoIPI
+                  Control = ectPFIPIClasseEnquadramento
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -835,7 +878,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group1
                   CaptionOptions.Text = 'C'#243'digo do Enquadramento'
                   CaptionOptions.Layout = clTop
-                  Control = edtCodigoEnquadramentoIPI
+                  Control = edtPFIPICodigoEnquadramento
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -843,7 +886,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group1
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = edtAliquotaIPI
+                  Control = edtPFIPIAliquota
                   ControlOptions.ShowBorder = False
                   Index = 3
                 end
@@ -860,7 +903,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = edtCSTPIS
+                  Control = edtPFPISCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -868,7 +911,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group3
                   CaptionOptions.Text = 'Al'#237'quota Normal'
                   CaptionOptions.Layout = clTop
-                  Control = edtAliquotaNormalPIS
+                  Control = edtPFPISAliquotaNormal
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -892,7 +935,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit7
+                  Control = edtPFCOFINSCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -900,7 +943,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl1Group4
                   CaptionOptions.Text = 'Al'#237'quota Normal'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit8
+                  Control = edtPFCOFINSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -916,7 +959,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CSOSN'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit11
+                  Control = edtPFCSOSN
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -941,54 +984,66 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                 Align = alClient
                 ParentBackground = True
                 TabOrder = 0
-                object cxDBTextEdit16: TcxDBTextEdit
+                object edtPJICMSCST: TcxDBTextEdit
                   Left = 26
                   Top = 54
+                  DataBinding.DataField = 'pjicmsaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 0
                   Width = 69
                 end
-                object cxDBTextEdit17: TcxDBTextEdit
+                object edtPJICMSSTMVA: TcxDBTextEdit
                   Left = 522
                   Top = 54
+                  DataBinding.DataField = 'pjicmsstmva'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 4
                   Width = 73
                 end
-                object cxDBTextEdit20: TcxDBTextEdit
+                object edtPJIPICST: TcxDBTextEdit
                   Left = 26
                   Top = 140
+                  DataBinding.DataField = 'pjipicst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 7
                   Width = 69
                 end
-                object cxDBTextEdit15: TcxDBTextEdit
+                object edtPJICMSAliquota: TcxDBTextEdit
                   Left = 102
                   Top = 54
+                  DataBinding.DataField = 'pjicmsaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 1
                   Width = 73
                 end
-                object cxDBTextEdit12: TcxDBTextEdit
+                object edtPJICMSReducaoBC: TcxDBTextEdit
                   Left = 182
                   Top = 54
+                  DataBinding.DataField = 'pjicmspercentualreducao'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 2
                   Width = 117
                 end
-                object cxDBTextEdit18: TcxDBTextEdit
+                object edtPJICMSSTReducaoBC: TcxDBTextEdit
                   Left = 602
                   Top = 54
+                  DataBinding.DataField = 'pjicmsstpercentualreducao'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
@@ -999,6 +1054,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 26
                   Top = 291
                   Caption = 'Movimenta Estoque'
+                  DataBinding.DataField = 'pjmovimentaestoque'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -1010,6 +1067,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 168
                   Top = 291
                   Caption = 'Controla Parcelas'
+                  DataBinding.DataField = 'pjcontrolaparcelas'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -1021,6 +1080,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 296
                   Top = 291
                   Caption = 'Adiciona IPI na BC ICMS'
+                  DataBinding.DataField = 'pjadicionaipibcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -1028,9 +1089,11 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 27
                   Width = 153
                 end
-                object cxDBTextEdit29: TcxDBTextEdit
+                object edtPJICMSSTAliquota: TcxDBTextEdit
                   Left = 442
                   Top = 54
+                  DataBinding.DataField = 'pjicmsstaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
@@ -1041,6 +1104,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 456
                   Top = 291
                   Caption = 'Adiciona Frete na BC ICMS'
+                  DataBinding.DataField = 'pjadicionafretebcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -1052,6 +1117,8 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Left = 624
                   Top = 291
                   Caption = 'Adiciona Seguro na BC ICMS'
+                  DataBinding.DataField = 'pjadicionasegurobcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
@@ -1059,180 +1126,218 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   TabOrder = 29
                   Width = 174
                 end
-                object cxDBTextEdit30: TcxDBTextEdit
+                object edtPJIPIClasseEnquadramento: TcxDBTextEdit
                   Left = 102
                   Top = 140
                   Hint = 'Aplic'#225'vel apenas para bebidas e cigarros'
+                  DataBinding.DataField = 'pjipiclasseenquadramento'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 8
                   Width = 121
                 end
-                object cxDBTextEdit31: TcxDBTextEdit
+                object edtPJIPICodigoEnquadramento: TcxDBTextEdit
                   Left = 241
                   Top = 140
                   Hint = 'Preencher com 999'
+                  DataBinding.DataField = 'pjipicodigoenquadramento'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 9
                   Width = 121
                 end
-                object cxDBTextEdit19: TcxDBTextEdit
+                object edtPJIPIAliquota: TcxDBTextEdit
                   Left = 387
                   Top = 140
+                  DataBinding.DataField = 'pjipialiquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 10
                   Width = 73
                 end
-                object cxDBTextEdit21: TcxDBTextEdit
+                object edtPJPISCST: TcxDBTextEdit
                   Left = 495
                   Top = 140
+                  DataBinding.DataField = 'pjpiscst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 11
                   Width = 69
                 end
-                object cxDBTextEdit22: TcxDBTextEdit
+                object edtPJPISAliquota: TcxDBTextEdit
                   Left = 571
                   Top = 140
+                  DataBinding.DataField = 'pjpisaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 12
                   Width = 73
                 end
-                object cxDBTextEdit36: TcxDBTextEdit
+                object edtPJPISAliquotaST: TcxDBTextEdit
                   Left = 662
                   Top = 140
+                  DataBinding.DataField = 'pjpisaliquotast'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 13
                   Width = 84
                 end
-                object cxDBTextEdit23: TcxDBTextEdit
+                object edtPJCOFINSCST: TcxDBTextEdit
                   Left = 781
                   Top = 140
+                  DataBinding.DataField = 'pjcofinscst'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 14
                   Width = 69
                 end
-                object cxDBTextEdit24: TcxDBTextEdit
+                object edtPJCOFINSAliquota: TcxDBTextEdit
                   Left = 857
                   Top = 140
+                  DataBinding.DataField = 'pjcofinsaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 15
                   Width = 73
                 end
-                object cxDBTextEdit37: TcxDBTextEdit
+                object edtPJCOFINSAliquotaST: TcxDBTextEdit
                   Left = 948
                   Top = 140
+                  DataBinding.DataField = 'pjcofinsaliquotast'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 16
                   Width = 84
                 end
-                object cxDBTextEdit27: TcxDBTextEdit
+                object edtPJCSOSN: TcxDBTextEdit
                   Left = 863
                   Top = 54
+                  DataBinding.DataField = 'pjcsosn'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 6
                   Width = 117
                 end
-                object cxDBTextEdit25: TcxDBTextEdit
+                object edtPJISSAliquota: TcxDBTextEdit
                   Left = 26
                   Top = 226
+                  DataBinding.DataField = 'pjissaliquota'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 17
                   Width = 73
                 end
-                object cxDBTextEdit26: TcxDBTextEdit
+                object edtPJISSReducaoBC: TcxDBTextEdit
                   Left = 106
                   Top = 226
+                  DataBinding.DataField = 'pjissreducaobc'
+                  DataBinding.DataSource = DataSource
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 18
                   Width = 117
                 end
-                object cxDBTextEdit6: TcxDBTextEdit
-                  Left = 230
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 19
-                  Width = 121
-                end
-                object cxDBTextEdit1: TcxDBTextEdit
-                  Left = 358
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 20
-                  Width = 121
-                end
-                object cxDBTextEdit2: TcxDBTextEdit
-                  Left = 486
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 21
-                  Width = 121
-                end
-                object cxDBTextEdit3: TcxDBTextEdit
-                  Left = 614
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 22
-                  Width = 121
-                end
-                object cxDBTextEdit4: TcxDBTextEdit
-                  Left = 742
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 23
-                  Width = 121
-                end
-                object cxDBTextEdit5: TcxDBTextEdit
-                  Left = 870
-                  Top = 226
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 24
-                  Width = 121
-                end
                 object cxDBCheckBox12: TcxDBCheckBox
                   Left = 805
                   Top = 291
                   Caption = 'Adiciona Outras Despesas na BC ICMS'
+                  DataBinding.DataField = 'pjadicionaoutrasdespesasbcicms'
+                  DataBinding.DataSource = DataSource
                   Properties.NullStyle = nssUnchecked
                   Style.BorderColor = clWindowFrame
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 30
                   Width = 220
+                end
+                object edtPJISSRetencao: TcxDBTextEdit
+                  Left = 271
+                  Top = 226
+                  DataBinding.DataField = 'pjissretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 19
+                  Width = 121
+                end
+                object edtPJIRRetencao: TcxDBTextEdit
+                  Left = 399
+                  Top = 226
+                  DataBinding.DataField = 'pjirretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 20
+                  Width = 121
+                end
+                object edtPJPISRetencao: TcxDBTextEdit
+                  Left = 527
+                  Top = 226
+                  DataBinding.DataField = 'pjpisretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 21
+                  Width = 121
+                end
+                object edtPJCOFINSRetencao: TcxDBTextEdit
+                  Left = 655
+                  Top = 226
+                  DataBinding.DataField = 'pjcofinsretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 22
+                  Width = 121
+                end
+                object edtPJCSLLRetencao: TcxDBTextEdit
+                  Left = 783
+                  Top = 226
+                  DataBinding.DataField = 'pjcsllretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 23
+                  Width = 121
+                end
+                object edtPJINSSRetencao: TcxDBTextEdit
+                  Left = 911
+                  Top = 226
+                  DataBinding.DataField = 'pjinssretencao'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 24
+                  Width = 121
                 end
                 object dxLayoutControl3Group_Root: TdxLayoutGroup
                   AlignHorz = ahClient
@@ -1286,7 +1391,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit16
+                  Control = edtPJICMSCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1295,7 +1400,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'MVA'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit17
+                  Control = edtPJICMSSTMVA
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -1304,7 +1409,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit20
+                  Control = edtPJIPICST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1312,7 +1417,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group1
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit15
+                  Control = edtPJICMSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -1320,7 +1425,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group1
                   CaptionOptions.Text = 'Percentual de Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit12
+                  Control = edtPJICMSReducaoBC
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1328,7 +1433,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group2
                   CaptionOptions.Text = 'Percentual de Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit18
+                  Control = edtPJICMSSTReducaoBC
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1362,7 +1467,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit29
+                  Control = edtPJICMSSTAliquota
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1386,7 +1491,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group3
                   CaptionOptions.Text = 'Classe de Enquadramento'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit30
+                  Control = edtPJIPIClasseEnquadramento
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -1394,7 +1499,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group3
                   CaptionOptions.Text = 'C'#243'digo do Enquadramento'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit31
+                  Control = edtPJIPICodigoEnquadramento
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1402,7 +1507,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group3
                   CaptionOptions.Text = 'Al'#237'quota'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit19
+                  Control = edtPJIPIAliquota
                   ControlOptions.ShowBorder = False
                   Index = 3
                 end
@@ -1419,7 +1524,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit21
+                  Control = edtPJPISCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1427,7 +1532,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group4
                   CaptionOptions.Text = 'Al'#237'quota Normal'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit22
+                  Control = edtPJPISAliquota
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -1435,7 +1540,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group4
                   CaptionOptions.Text = 'Al'#237'quota para ST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit36
+                  Control = edtPJPISAliquotaST
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1459,7 +1564,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit23
+                  Control = edtPJCOFINSCST
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1467,7 +1572,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group5
                   CaptionOptions.Text = 'Al'#237'quota Normal'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit24
+                  Control = edtPJCOFINSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
@@ -1475,7 +1580,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group5
                   CaptionOptions.Text = 'Al'#237'quota para ST'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit37
+                  Control = edtPJCOFINSAliquotaST
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
@@ -1491,23 +1596,24 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'CSOSN'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit27
+                  Control = edtPJCSOSN
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
                 object dxLayoutControl3Group6: TdxLayoutGroup
-                  Parent = dxLayoutControl3Group_Root
+                  Parent = dxLayoutControl3Group12
+                  AlignHorz = ahClient
                   CaptionOptions.Text = 'Impostos Sobre Servi'#231'o'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
-                  Index = 2
+                  Index = 0
                 end
                 object dxLayoutControl3Item12: TdxLayoutItem
                   Parent = dxLayoutControl3Group6
                   AlignHorz = ahLeft
                   CaptionOptions.Text = 'Al'#237'quota ISS'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit25
+                  Control = edtPJISSAliquota
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1515,57 +1621,9 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Parent = dxLayoutControl3Group6
                   CaptionOptions.Text = 'Percentual de Redu'#231#227'o'
                   CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit26
+                  Control = edtPJISSReducaoBC
                   ControlOptions.ShowBorder = False
                   Index = 1
-                end
-                object dxLayoutControl3Item30: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o ISS'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit6
-                  ControlOptions.ShowBorder = False
-                  Index = 2
-                end
-                object dxLayoutControl3Item25: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o IR'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit1
-                  ControlOptions.ShowBorder = False
-                  Index = 3
-                end
-                object dxLayoutControl3Item26: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o PIS'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit2
-                  ControlOptions.ShowBorder = False
-                  Index = 4
-                end
-                object dxLayoutControl3Item27: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o COFINS'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit3
-                  ControlOptions.ShowBorder = False
-                  Index = 5
-                end
-                object dxLayoutControl3Item28: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o CSLL'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit4
-                  ControlOptions.ShowBorder = False
-                  Index = 6
-                end
-                object dxLayoutControl3Item29: TdxLayoutItem
-                  Parent = dxLayoutControl3Group6
-                  CaptionOptions.Text = 'Reten'#231#227'o INSS'
-                  CaptionOptions.Layout = clTop
-                  Control = cxDBTextEdit5
-                  ControlOptions.ShowBorder = False
-                  Index = 7
                 end
                 object dxLayoutControl3Item31: TdxLayoutItem
                   Parent = dxLayoutControl3Group8
@@ -1574,6 +1632,67 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
                   Control = cxDBCheckBox12
                   ControlOptions.ShowBorder = False
                   Index = 5
+                end
+                object dxLayoutControl3Group11: TdxLayoutGroup
+                  Parent = dxLayoutControl3Group12
+                  CaptionOptions.Text = 'Reten'#231#245'es'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                end
+                object dxLayoutControl3Item30: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o ISS'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJISSRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl3Item25: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o IR'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJIRRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl3Item26: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o PIS'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJPISRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl3Item27: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o COFINS'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJCOFINSRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl3Item28: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o CSLL'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJCSLLRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 4
+                end
+                object dxLayoutControl3Item29: TdxLayoutItem
+                  Parent = dxLayoutControl3Group11
+                  CaptionOptions.Text = 'Reten'#231#227'o INSS'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPJINSSRetencao
+                  ControlOptions.ShowBorder = False
+                  Index = 5
+                end
+                object dxLayoutControl3Group12: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl3Group_Root
+                  LayoutDirection = ldHorizontal
+                  Index = 2
+                  AutoCreated = True
                 end
               end
             end

@@ -5282,14 +5282,6 @@ object ServerMethods: TServerMethods
       FieldName = 'idregrafiscalobservacao'
       Origin = 'idregrafiscalobservacao'
     end
-    object qryRegraFiscalidcstpis: TIntegerField
-      FieldName = 'idcstpis'
-      Origin = 'idcstpis'
-    end
-    object qryRegraFiscalidcstipi: TIntegerField
-      FieldName = 'idcstipi'
-      Origin = 'idcstipi'
-    end
     object qryRegraFiscalidtipooperacao: TIntegerField
       FieldName = 'idtipooperacao'
       Origin = 'idtipooperacao'
@@ -5320,105 +5312,209 @@ object ServerMethods: TServerMethods
       FieldName = 'idncm'
       Origin = 'idncm'
     end
-    object qryRegraFiscalidcstcofins: TIntegerField
-      FieldName = 'idcstcofins'
-      Origin = 'idcstcofins'
+    object qryRegraFiscalpficmscst: TIntegerField
+      FieldName = 'pficmscst'
+      Origin = 'pficmscst'
     end
-    object qryRegraFiscalreducaoipi: TFloatField
-      FieldName = 'reducaoipi'
-      Origin = 'reducaoipi'
+    object qryRegraFiscalpficmsaliquota: TFloatField
+      FieldName = 'pficmsaliquota'
+      Origin = 'pficmsaliquota'
     end
-    object qryRegraFiscalipi: TSmallintField
-      FieldName = 'ipi'
-      Origin = 'ipi'
+    object qryRegraFiscalpficmspercentualreducao: TFloatField
+      FieldName = 'pficmspercentualreducao'
+      Origin = 'pficmspercentualreducao'
     end
-    object qryRegraFiscalreducaoicms: TFloatField
-      FieldName = 'reducaoicms'
-      Origin = 'reducaoicms'
+    object qryRegraFiscalpfcsosn: TIntegerField
+      FieldName = 'pfcsosn'
+      Origin = 'pfcsosn'
     end
-    object qryRegraFiscalicms: TSmallintField
-      FieldName = 'icms'
-      Origin = 'icms'
+    object qryRegraFiscalpfipicst: TIntegerField
+      FieldName = 'pfipicst'
+      Origin = 'pfipicst'
     end
-    object qryRegraFiscalpis: TFloatField
-      FieldName = 'pis'
-      Origin = 'pis'
+    object qryRegraFiscalpfipiclasseenquadramento: TIntegerField
+      FieldName = 'pfipiclasseenquadramento'
+      Origin = 'pfipiclasseenquadramento'
     end
-    object qryRegraFiscalretencaopis: TFloatField
-      FieldName = 'retencaopis'
-      Origin = 'retencaopis'
+    object qryRegraFiscalpfipicodigoenquadramento: TIntegerField
+      FieldName = 'pfipicodigoenquadramento'
+      Origin = 'pfipicodigoenquadramento'
     end
-    object qryRegraFiscalcofins: TFloatField
-      FieldName = 'cofins'
-      Origin = 'cofins'
+    object qryRegraFiscalpfipialiquota: TFloatField
+      FieldName = 'pfipialiquota'
+      Origin = 'pfipialiquota'
     end
-    object qryRegraFiscalretencaocofins: TIntegerField
-      FieldName = 'retencaocofins'
-      Origin = 'retencaocofins'
+    object qryRegraFiscalpfpiscst: TIntegerField
+      FieldName = 'pfpiscst'
+      Origin = 'pfpiscst'
     end
-    object qryRegraFiscalativo: TBooleanField
-      FieldName = 'ativo'
-      Origin = 'ativo'
+    object qryRegraFiscalpfpisaliquota: TFloatField
+      FieldName = 'pfpisaliquota'
+      Origin = 'pfpisaliquota'
     end
-    object qryRegraFiscalmva: TFloatField
-      FieldName = 'mva'
-      Origin = 'mva'
+    object qryRegraFiscalpfcofinscst: TIntegerField
+      FieldName = 'pfcofinscst'
+      Origin = 'pfcofinscst'
     end
-    object qryRegraFiscalst: TFloatField
-      FieldName = 'st'
-      Origin = 'st'
+    object qryRegraFiscalpfcofinsaliquota: TFloatField
+      FieldName = 'pfcofinsaliquota'
+      Origin = 'pfcofinsaliquota'
     end
-    object qryRegraFiscalreducaost: TFloatField
-      FieldName = 'reducaost'
-      Origin = 'reducaost'
+    object qryRegraFiscalpfissaliquota: TIntegerField
+      FieldName = 'pfissaliquota'
+      Origin = 'pfissaliquota'
     end
-    object qryRegraFiscaliss: TFloatField
-      FieldName = 'iss'
-      Origin = 'iss'
+    object qryRegraFiscalpfisspercentualreducao: TFloatField
+      FieldName = 'pfisspercentualreducao'
+      Origin = 'pfisspercentualreducao'
     end
-    object qryRegraFiscalreducaoiss: TFloatField
-      FieldName = 'reducaoiss'
-      Origin = 'reducaoiss'
+    object qryRegraFiscalpfmovimentaestoque: TBooleanField
+      FieldName = 'pfmovimentaestoque'
+      Origin = 'pfmovimentaestoque'
     end
-    object qryRegraFiscalcsosn: TSmallintField
-      FieldName = 'csosn'
-      Origin = 'csosn'
+    object qryRegraFiscalpfcontrolaparcelas: TBooleanField
+      FieldName = 'pfcontrolaparcelas'
+      Origin = 'pfcontrolaparcelas'
     end
-    object qryRegraFiscalcssl: TFloatField
-      FieldName = 'cssl'
-      Origin = 'cssl'
+    object qryRegraFiscalpfadicionaipibcicms: TBooleanField
+      FieldName = 'pfadicionaipibcicms'
+      Origin = 'pfadicionaipibcicms'
     end
-    object qryRegraFiscalinss: TFloatField
-      FieldName = 'inss'
-      Origin = 'inss'
+    object qryRegraFiscalpfadicionafretebcicms: TBooleanField
+      FieldName = 'pfadicionafretebcicms'
+      Origin = 'pfadicionafretebcicms'
     end
-    object qryRegraFiscalir: TSmallintField
-      FieldName = 'ir'
-      Origin = 'ir'
+    object qryRegraFiscalpfadicionasegurobcicms: TBooleanField
+      FieldName = 'pfadicionasegurobcicms'
+      Origin = 'pfadicionasegurobcicms'
     end
-    object qryRegraFiscalfunrural: TFloatField
-      FieldName = 'funrural'
-      Origin = 'funrural'
+    object qryRegraFiscalpfadicionaoutrasdespesasbcicms: TBooleanField
+      FieldName = 'pfadicionaoutrasdespesasbcicms'
+      Origin = 'pfadicionaoutrasdespesasbcicms'
     end
-    object qryRegraFiscalie: TFloatField
-      FieldName = 'ie'
-      Origin = 'ie'
+    object qryRegraFiscalpjicmsaliquota: TFloatField
+      FieldName = 'pjicmsaliquota'
+      Origin = 'pjicmsaliquota'
     end
-    object qryRegraFiscalii: TFloatField
-      FieldName = 'ii'
-      Origin = 'ii'
+    object qryRegraFiscalpjicmspercentualreducao: TFloatField
+      FieldName = 'pjicmspercentualreducao'
+      Origin = 'pjicmspercentualreducao'
     end
-    object qryRegraFiscalcfopdevolucao: TSmallintField
-      FieldName = 'cfopdevolucao'
-      Origin = 'cfopdevolucao'
+    object qryRegraFiscalpjicmsstaliquota: TFloatField
+      FieldName = 'pjicmsstaliquota'
+      Origin = 'pjicmsstaliquota'
     end
-    object qryRegraFiscalidcsticms: TIntegerField
-      FieldName = 'idcsticms'
-      Origin = 'idcsticms'
+    object qryRegraFiscalpjicmsstmva: TFloatField
+      FieldName = 'pjicmsstmva'
+      Origin = 'pjicmsstmva'
     end
-    object qryRegraFiscalidcstcsosn: TIntegerField
-      FieldName = 'idcstcsosn'
-      Origin = 'idcstcsosn'
+    object qryRegraFiscalpjicmsstpercentualreducao: TFloatField
+      FieldName = 'pjicmsstpercentualreducao'
+      Origin = 'pjicmsstpercentualreducao'
+    end
+    object qryRegraFiscalpjcsosn: TIntegerField
+      FieldName = 'pjcsosn'
+      Origin = 'pjcsosn'
+    end
+    object qryRegraFiscalpjipicst: TIntegerField
+      FieldName = 'pjipicst'
+      Origin = 'pjipicst'
+    end
+    object qryRegraFiscalpjipiclasseenquadramento: TIntegerField
+      FieldName = 'pjipiclasseenquadramento'
+      Origin = 'pjipiclasseenquadramento'
+    end
+    object qryRegraFiscalpjipicodigoenquadramento: TIntegerField
+      FieldName = 'pjipicodigoenquadramento'
+      Origin = 'pjipicodigoenquadramento'
+    end
+    object qryRegraFiscalpjipialiquota: TFloatField
+      FieldName = 'pjipialiquota'
+      Origin = 'pjipialiquota'
+    end
+    object qryRegraFiscalpjpiscst: TIntegerField
+      FieldName = 'pjpiscst'
+      Origin = 'pjpiscst'
+    end
+    object qryRegraFiscalpjpisaliquota: TFloatField
+      FieldName = 'pjpisaliquota'
+      Origin = 'pjpisaliquota'
+    end
+    object qryRegraFiscalpjpisaliquotast: TFloatField
+      FieldName = 'pjpisaliquotast'
+      Origin = 'pjpisaliquotast'
+    end
+    object qryRegraFiscalpjcofinscst: TIntegerField
+      FieldName = 'pjcofinscst'
+      Origin = 'pjcofinscst'
+    end
+    object qryRegraFiscalpjcofinsaliquota: TFloatField
+      FieldName = 'pjcofinsaliquota'
+      Origin = 'pjcofinsaliquota'
+    end
+    object qryRegraFiscalpjcofinsaliquotast: TFloatField
+      FieldName = 'pjcofinsaliquotast'
+      Origin = 'pjcofinsaliquotast'
+    end
+    object qryRegraFiscalpjissaliquota: TFloatField
+      FieldName = 'pjissaliquota'
+      Origin = 'pjissaliquota'
+    end
+    object qryRegraFiscalpjissreducaobc: TFloatField
+      FieldName = 'pjissreducaobc'
+      Origin = 'pjissreducaobc'
+    end
+    object qryRegraFiscalpjissretencao: TFloatField
+      FieldName = 'pjissretencao'
+      Origin = 'pjissretencao'
+    end
+    object qryRegraFiscalpjirretencao: TFloatField
+      FieldName = 'pjirretencao'
+      Origin = 'pjirretencao'
+    end
+    object qryRegraFiscalpjpisretencao: TFloatField
+      FieldName = 'pjpisretencao'
+      Origin = 'pjpisretencao'
+    end
+    object qryRegraFiscalpjcofinsretencao: TFloatField
+      FieldName = 'pjcofinsretencao'
+      Origin = 'pjcofinsretencao'
+    end
+    object qryRegraFiscalpjcsllretencao: TFloatField
+      FieldName = 'pjcsllretencao'
+      Origin = 'pjcsllretencao'
+    end
+    object qryRegraFiscalpjinssretencao: TFloatField
+      FieldName = 'pjinssretencao'
+      Origin = 'pjinssretencao'
+    end
+    object qryRegraFiscalpjmovimentaestoque: TBooleanField
+      FieldName = 'pjmovimentaestoque'
+      Origin = 'pjmovimentaestoque'
+    end
+    object qryRegraFiscalpjcontrolaparcelas: TBooleanField
+      FieldName = 'pjcontrolaparcelas'
+      Origin = 'pjcontrolaparcelas'
+    end
+    object qryRegraFiscalpjadicionaipibcicms: TBooleanField
+      FieldName = 'pjadicionaipibcicms'
+      Origin = 'pjadicionaipibcicms'
+    end
+    object qryRegraFiscalpjadicionafretebcicms: TBooleanField
+      FieldName = 'pjadicionafretebcicms'
+      Origin = 'pjadicionafretebcicms'
+    end
+    object qryRegraFiscalpjadicionasegurobcicms: TBooleanField
+      FieldName = 'pjadicionasegurobcicms'
+      Origin = 'pjadicionasegurobcicms'
+    end
+    object qryRegraFiscalpjadicionaoutrasdespesasbcicms: TBooleanField
+      FieldName = 'pjadicionaoutrasdespesasbcicms'
+      Origin = 'pjadicionaoutrasdespesasbcicms'
+    end
+    object qryRegraFiscalinativo: TBooleanField
+      FieldName = 'inativo'
+      Origin = 'inativo'
     end
     object qryRegraFiscalpessoanome: TWideStringField
       AutoGenerateValue = arDefault

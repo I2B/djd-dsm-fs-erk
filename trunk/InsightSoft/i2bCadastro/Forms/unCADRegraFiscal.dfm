@@ -30,6 +30,7 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
     inherited cxPageControl: TcxPageControl
       Width = 1216
       Height = 662
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 1216
       ExplicitHeight = 662
       ClientRectBottom = 660
@@ -238,68 +239,52 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
           ParentFont = False
           TabOrder = 1
           ExplicitLeft = 89
-          ExplicitTop = 109
+          ExplicitTop = 72
           inherited dxLayoutControl: TdxLayoutControl
             Width = 1152
             Height = 630
             inherited cxPageControl1: TcxPageControl
               inherited cxTabSheet1: TcxTabSheet
+                ExplicitLeft = 4
+                ExplicitTop = 26
+                ExplicitWidth = 1090
+                ExplicitHeight = 423
                 inherited dxLayoutControl2: TdxLayoutControl
-                  inherited edtIDMunicipio: TcxDBTextEdit
-                    ExplicitWidth = 106
-                    Width = 106
-                  end
                   inherited edtIDPessoa: TcxDBTextEdit
-                    ExplicitWidth = 112
-                    Width = 112
-                  end
-                  inherited edtIDObservacao: TcxDBTextEdit
-                    ExplicitWidth = 874
-                    Width = 874
-                  end
-                  inherited edtMunicipioNome: TcxTextEdit
-                    Left = 125
-                    ExplicitLeft = 125
-                    ExplicitWidth = 953
-                    Width = 953
+                    ExplicitWidth = 108
+                    Width = 108
                   end
                   inherited edtPessoaNome: TcxTextEdit
-                    Left = 131
-                    ExplicitLeft = 131
-                    ExplicitWidth = 819
-                    Width = 819
+                    ExplicitWidth = 854
+                    Width = 854
                   end
-                  inherited edtIDPais: TcxDBTextEdit
-                    ExplicitWidth = 110
-                    Width = 110
+                  inherited edtRazaoSocial: TcxTextEdit
+                    ExplicitWidth = 801
+                    Width = 801
+                  end
+                  inherited edtIDUnidadeNegocio: TcxDBTextEdit
+                    ExplicitWidth = 91
+                    Width = 91
                   end
                   inherited edtPaisNome: TcxTextEdit
-                    Left = 129
-                    ExplicitLeft = 129
-                    ExplicitWidth = 875
-                    Width = 875
+                    ExplicitWidth = 897
+                    Width = 897
                   end
-                  inherited edtEstadp: TcxDBTextEdit
-                    Left = 1011
-                    ExplicitLeft = 1011
-                    ExplicitWidth = 67
-                    Width = 67
+                  inherited edtIDTipoOperacao: TcxDBTextEdit
+                    ExplicitWidth = 93
+                    Width = 93
+                  end
+                  inherited edtTipoOperacaoDescricao: TcxTextEdit
+                    ExplicitWidth = 817
+                    Width = 817
                   end
                   inherited edtNCM: TcxDBTextEdit
-                    Left = 957
-                    ExplicitLeft = 957
-                    ExplicitWidth = 121
-                    Width = 121
+                    ExplicitWidth = 99
+                    Width = 99
                   end
                   inherited cxDBCheckBox1: TcxDBCheckBox
-                    Top = 384
-                    ExplicitTop = 384
-                  end
-                  inherited cxDBMemo1: TcxDBMemo
-                    Left = 526
-                    Top = 288
-                    ExplicitLeft = 526
-                    ExplicitTop = 288
+                    ExplicitWidth = 632
+                    Width = 632
                   end
                   inherited dxLayoutControl2Group_Root: TdxLayoutGroup
                     Index = -1
@@ -368,38 +353,94 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                     Index = 6
                   end
                   inherited dxLayoutControl2Item7: TdxLayoutItem
-                    CaptionOptions.Text = 'cxDBMemo1'
                     Index = 1
                   end
                 end
               end
               inherited cxTabSheet2: TcxTabSheet
+                ExplicitLeft = 4
+                ExplicitTop = 26
+                ExplicitWidth = 1090
+                ExplicitHeight = 423
                 inherited dxLayoutControl1: TdxLayoutControl
-                  Height = 407
                   inherited cxPageControl2: TcxPageControl
                     Width = 1061
                     ExplicitWidth = 1061
                     ClientRectRight = 1057
                     inherited cxTabSheet3: TcxTabSheet
+                      ExplicitLeft = 4
+                      ExplicitTop = 26
                       ExplicitWidth = 1053
+                      ExplicitHeight = 351
                       inherited dxLayoutControl4: TdxLayoutControl
-                        Width = 1053
-                        ExplicitWidth = 1053
-                        inherited ectClasseEnquadramentoIPI: TcxDBTextEdit
-                          ExplicitWidth = 121
-                          Width = 121
+                        inherited edtPFICMSCST: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited edtCodigoEnquadramentoIPI: TcxDBTextEdit
-                          ExplicitWidth = 121
-                          Width = 121
+                        inherited edtPFICMSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited edtAliquotaNormalPIS: TcxDBTextEdit
-                          ExplicitWidth = 73
-                          Width = 73
+                        inherited edtPFICMSPercentualReducao: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited cxDBTextEdit8: TcxDBTextEdit
-                          ExplicitWidth = 73
-                          Width = 73
+                        inherited edtPFICMSSTMVA: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFICMSSTPercentualReducao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFIPICST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFISSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFISSReducao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFICMSSTAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox2: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox3: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox4: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox8: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox9: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited ectPFIPIClasseEnquadramento: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFIPICodigoEnquadramento: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFIPIAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFPISCST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFPISAliquotaNormal: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFCOFINSCST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFCOFINSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPFCSOSN: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox13: TcxDBCheckBox
+                          ExplicitHeight = 23
                         end
                         inherited dxLayoutControl4Group_Root: TdxLayoutGroup
                           Index = -1
@@ -508,22 +549,104 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                       end
                     end
                     inherited cxTabSheet4: TcxTabSheet
+                      ExplicitLeft = 4
+                      ExplicitTop = 26
+                      ExplicitWidth = 1053
+                      ExplicitHeight = 351
                       inherited dxLayoutControl3: TdxLayoutControl
-                        inherited cxDBTextEdit30: TcxDBTextEdit
-                          ExplicitWidth = 121
-                          Width = 121
+                        Width = 1058
+                        inherited edtPJICMSCST: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited cxDBTextEdit31: TcxDBTextEdit
-                          ExplicitWidth = 121
-                          Width = 121
+                        inherited edtPJICMSSTMVA: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited cxDBTextEdit22: TcxDBTextEdit
-                          ExplicitWidth = 73
-                          Width = 73
+                        inherited edtPJIPICST: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
-                        inherited cxDBTextEdit24: TcxDBTextEdit
-                          ExplicitWidth = 73
-                          Width = 73
+                        inherited edtPJICMSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJICMSReducaoBC: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJICMSSTReducaoBC: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox6: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox7: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox5: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJICMSSTAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox10: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox11: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJIPIClasseEnquadramento: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJIPICodigoEnquadramento: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJIPIAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJPISCST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJPISAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJPISAliquotaST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCOFINSCST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCOFINSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCOFINSAliquotaST: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCSOSN: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJISSAliquota: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJISSReducaoBC: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited cxDBCheckBox12: TcxDBCheckBox
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJISSRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJIRRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJPISRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCOFINSRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJCSLLRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
+                        end
+                        inherited edtPJINSSRetencao: TcxDBTextEdit
+                          ExplicitHeight = 23
                         end
                         inherited dxLayoutControl3Group_Root: TdxLayoutGroup
                           Index = -1
@@ -624,7 +747,7 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                           Index = 0
                         end
                         inherited dxLayoutControl3Group6: TdxLayoutGroup
-                          Index = 2
+                          Index = 0
                         end
                         inherited dxLayoutControl3Item12: TdxLayoutItem
                           Index = 0
@@ -632,26 +755,33 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                         inherited dxLayoutControl3Item13: TdxLayoutItem
                           Index = 1
                         end
-                        inherited dxLayoutControl3Item30: TdxLayoutItem
-                          Index = 2
-                        end
-                        inherited dxLayoutControl3Item25: TdxLayoutItem
-                          Index = 3
-                        end
-                        inherited dxLayoutControl3Item26: TdxLayoutItem
-                          Index = 4
-                        end
-                        inherited dxLayoutControl3Item27: TdxLayoutItem
-                          Index = 5
-                        end
-                        inherited dxLayoutControl3Item28: TdxLayoutItem
-                          Index = 6
-                        end
-                        inherited dxLayoutControl3Item29: TdxLayoutItem
-                          Index = 7
-                        end
                         inherited dxLayoutControl3Item31: TdxLayoutItem
                           Index = 5
+                        end
+                        inherited dxLayoutControl3Group11: TdxLayoutGroup
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item30: TdxLayoutItem
+                          Index = 0
+                        end
+                        inherited dxLayoutControl3Item25: TdxLayoutItem
+                          Index = 1
+                        end
+                        inherited dxLayoutControl3Item26: TdxLayoutItem
+                          Index = 2
+                        end
+                        inherited dxLayoutControl3Item27: TdxLayoutItem
+                          Index = 3
+                        end
+                        inherited dxLayoutControl3Item28: TdxLayoutItem
+                          Index = 4
+                        end
+                        inherited dxLayoutControl3Item29: TdxLayoutItem
+                          Index = 5
+                        end
+                        inherited dxLayoutControl3Group12: TdxLayoutAutoCreatedGroup
+                          Index = 2
+                          AutoCreated = True
                         end
                       end
                     end
