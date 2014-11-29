@@ -2840,6 +2840,10 @@ object DM: TDM
       FieldName = 'suframa'
       Size = 9
     end
+    object cdsPessoanome: TWideStringField
+      FieldName = 'nome'
+      Size = 250
+    end
   end
   object cdsPessoaCliente: TClientDataSet
     Aggregates = <>
