@@ -75,6 +75,7 @@ type
     btnModelo: TdxBarLargeButton;
     btnMunicipio: TdxBarLargeButton;
     btnNCM: TdxBarLargeButton;
+    btnPais: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -106,6 +107,7 @@ type
     procedure btnModeloClick(Sender: TObject);
     procedure btnMunicipioClick(Sender: TObject);
     procedure btnNCMClick(Sender: TObject);
+    procedure btnPaisClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -123,7 +125,8 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
   unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
-  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM;
+  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM,
+  unCADPais;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -500,6 +503,20 @@ begin
   else
   begin
     frmCADRegraFiscalObservacao.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnPaisClick(Sender: TObject);
+begin
+  DM.cdsPais.Open;
+  if frmCADPAIS = nil then
+  begin
+    frmCADPAIS := TfrmCADPAIS.Create(Application);
+    frmCADPAIS.pnlTop.Caption := frmCADPAIS.Caption+'  ';
+  end
+  else
+  begin
+    frmCADPAIS.Show;
   end;
 end;
 

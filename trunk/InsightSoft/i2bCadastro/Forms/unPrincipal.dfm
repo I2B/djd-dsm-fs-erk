@@ -30,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 4
     TabStop = False
     object tabPrincipal: TdxRibbonTab
-      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -42,6 +41,7 @@ object frmPrincipal: TfrmPrincipal
       Index = 0
     end
     object tabPessoas: TdxRibbonTab
+      Active = True
       Caption = 'Pessoas'
       Groups = <
         item
@@ -293,7 +293,7 @@ object frmPrincipal: TfrmPrincipal
     object barEstrutura: TdxBar
       Caption = 'Estrutura'
       CaptionButtons = <>
-      DockedLeft = 244
+      DockedLeft = 281
       DockedTop = 0
       FloatLeft = 1058
       FloatTop = 8
@@ -399,6 +399,10 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'btnEstado'
+        end
+        item
+          Visible = True
+          ItemName = 'btnPais'
         end>
       OneOnRow = False
       Row = 0
@@ -1641,6 +1645,13 @@ object frmPrincipal: TfrmPrincipal
       Hint = 'Munic'#237'pio'
       Visible = ivAlways
       OnClick = btnMunicipioClick
+    end
+    object btnPais: TdxBarLargeButton
+      Caption = 'Pa'#237's'
+      Category = 1
+      Hint = 'Pa'#237's'
+      Visible = ivAlways
+      OnClick = btnPaisClick
     end
     object btnCor: TdxBarLargeButton
       Caption = 'Cor'

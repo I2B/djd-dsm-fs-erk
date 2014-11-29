@@ -71,6 +71,11 @@ uses
   unFrameNCM in 'Frames\unFrameNCM.pas' {FrameNCM: TFrame},
   unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
   unF2 in '..\Framework\unF2.pas' {frmF2};
+  unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
+  unFramePais in 'Frames\unFramePais.pas' {FramePais: TFrame},
+  unCADPais in 'Forms\unCADPais.pas' {frmCADPais},
+  unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
+  unCADPessoa in 'Forms\unCADPessoa.pas' {frmCADPessoa};
 
 {$R *.res}
 
@@ -79,5 +84,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCADPessoa, frmCADPessoa);
   Application.Run;
 end.
