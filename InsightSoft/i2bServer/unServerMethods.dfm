@@ -5891,4 +5891,25 @@ object ServerMethods: TServerMethods
     Left = 360
     Top = 8
   end
+  object qryTabelaPreco: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from tabelaPreco order by idTabelaPreco limit 0')
+    Left = 992
+    Top = 88
+    object qryTabelaPrecoidtabelapreco: TIntegerField
+      FieldName = 'idtabelapreco'
+      Origin = 'idtabelapreco'
+    end
+    object qryTabelaPreconome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+  end
+  object dspTabelaPreco: TDataSetProvider
+    DataSet = qryTabelaPreco
+    Left = 1024
+    Top = 88
+  end
 end

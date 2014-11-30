@@ -1181,6 +1181,10 @@ type
     qryRegraFiscalmunicipionome: TWideStringField;
     qryRegraFiscalnomefantasia: TWideStringField;
     qryRegraFiscalcfopdescricao: TWideStringField;
+    qryTabelaPreco: TFDQuery;
+    dspTabelaPreco: TDataSetProvider;
+    qryTabelaPrecoidtabelapreco: TIntegerField;
+    qryTabelaPreconome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1378,6 +1382,7 @@ type
       ' order by idRegraFiscalObservacao',' limit 0 ');
     const selectSerie: array[1..5] of string = ('select * ',' from serie ',' ',' order by idserie ',' limit 0 ');
     const selectSetor: array[1..5] of string = ('select *',' from setor',' ',' order by idSetor',' limit 0 ');
+    const selectTabelaPreco: array[1..5] of string = ('select * ','from tabelaPreco ',' ','order by idTabelaPreco ','limit 0');
     const selectTelefone: array[1..5] of string = ('select *',' from telefone',' ',' order by idTelefone',' limit 0 ');
     const selectTipoOperacao: array[1..5] of string = ('select *',' from tipoOperacao',' ',' order by tipoOperacao',' limit 0 ');
     const selectTipoTelefone: array[1..5] of string = ('select *',' from tipoTelefone',' ',' order by idTipoTelefone',' limit 0 ');
@@ -1481,6 +1486,7 @@ type
     procedure setSQLRegraFiscalObservacao(filtro: String);
     procedure setSQLSerie(filtro: String);
     procedure setSQLSetor(filtro: String);
+    procedure setSQLTabelaPreco(filtro: String);
     procedure setSQLTelefone(filtro: String);
     procedure setSQLTipoOperacao(filtro: String);
     procedure setSQLTipoTelefone(filtro: String);
@@ -2101,11 +2107,11 @@ begin
     for I := 1 to 5 do
       SQL.Add(selectSetor[I]);
   end;
-  With qryTelefone do
+  With qryTabelaPreco do
   begin
     SQL.Clear;
     for I := 1 to 5 do
-      SQL.Add(selectTelefone[I]);
+      SQL.Add(selectTabelaPreco[I]);
   end;
   With qryTelefone do
   begin
@@ -2614,6 +2620,11 @@ end;
 procedure TServerMethods.setSQLSetor(filtro: String);
 begin
   alteraSQL(qrySetor,filtro,selectSetor[1],selectSetor[2],selectSetor[3],selectSetor[4]);
+end;
+
+procedure TServerMethods.setSQLTabelaPreco(filtro: String);
+begin
+  alteraSQL(qryTabelaPreco,filtro,selectTabelaPreco[1],selectTabelaPreco[2],selectTabelaPreco[3],selectTabelaPreco[4]);
 end;
 
 procedure TServerMethods.setSQLTelefone(filtro: String);

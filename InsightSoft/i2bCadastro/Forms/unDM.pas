@@ -1034,6 +1034,9 @@ type
     cdsRegraFiscalmunicipionome: TWideStringField;
     cdsRegraFiscalnomefantasia: TWideStringField;
     cdsRegraFiscalcfopdescricao: TWideStringField;
+    cdsTabelaPreco: TClientDataSet;
+    cdsTabelaPrecoidtabelapreco: TIntegerField;
+    cdsTabelaPreconome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

@@ -70,8 +70,10 @@ uses
   unCADMunicipio in 'Forms\unCADMunicipio.pas' {frmCADMunicipio},
   unFrameNCM in 'Frames\unFrameNCM.pas' {FrameNCM: TFrame},
   unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
-  unF2 in '..\Framework\unF2.pas' {frmF2};
-  unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
+  unF2 in '..\Framework\unF2.pas' {frmF2},
+  unFrameTabelaPreco in 'Frames\unFrameTabelaPreco.pas' {FrameTabelaPreco: TFrame};
+
+unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
   unFramePais in 'Frames\unFramePais.pas' {FramePais: TFrame},
   unCADPais in 'Forms\unCADPais.pas' {frmCADPais},
   unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
