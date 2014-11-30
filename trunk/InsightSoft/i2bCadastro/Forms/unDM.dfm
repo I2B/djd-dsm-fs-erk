@@ -3952,4 +3952,19 @@ object DM: TDM
       BlobType = ftWideMemo
     end
   end
+  object cdsTabelaPreco: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspTabelaPreco'
+    RemoteServer = dspConnection
+    Left = 608
+    Top = 592
+    object cdsTabelaPrecoidtabelapreco: TIntegerField
+      FieldName = 'idtabelapreco'
+    end
+    object cdsTabelaPreconome: TWideStringField
+      FieldName = 'nome'
+      Size = 255
+    end
+  end
 end
