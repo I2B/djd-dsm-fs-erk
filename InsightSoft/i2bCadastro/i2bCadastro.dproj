@@ -392,6 +392,33 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="Frames\unFrameProdutoSubGrupo.pas">
+            <Form>FrameProdutoSubGrupo</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADProdutoSubGrupo.pas">
+            <Form>frmCADProdutoSubGrupo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFramePais.pas">
+            <Form>FramePais</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADPais.pas">
+            <Form>frmCADPais</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frames\unFrameProdutoGrupo.pas">
+            <Form>FrameProdutoGrupo</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADProdutoGrupo.pas">
+            <Form>frmCADProdutoGrupo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

@@ -3344,13 +3344,17 @@ object DM: TDM
     Top = 144
     object cdsProdutoGrupoidgrupoprodutos: TIntegerField
       FieldName = 'idgrupoprodutos'
+      Origin = 'idgrupoprodutos'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsProdutoGruponome: TWideStringField
       FieldName = 'nome'
+      Origin = 'nome'
       Size = 100
     end
     object cdsProdutoGrupodescricao: TWideMemoField
       FieldName = 'descricao'
+      Origin = 'descricao'
       BlobType = ftWideMemo
     end
   end
@@ -3398,16 +3402,21 @@ object DM: TDM
     Top = 256
     object cdsProdutoSubGrupoidsubgrupoprodutos: TIntegerField
       FieldName = 'idsubgrupoprodutos'
+      Origin = 'idsubgrupoprodutos'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsProdutoSubGrupoidgrupoprodutos: TIntegerField
       FieldName = 'idgrupoprodutos'
+      Origin = 'idgrupoprodutos'
     end
     object cdsProdutoSubGruponome: TWideStringField
       FieldName = 'nome'
+      Origin = 'nome'
       Size = 100
     end
     object cdsProdutoSubGrupodescricao: TWideMemoField
       FieldName = 'descricao'
+      Origin = 'descricao'
       BlobType = ftWideMemo
     end
   end

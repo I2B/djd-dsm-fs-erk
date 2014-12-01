@@ -30,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 4
     TabStop = False
     object tabPrincipal: TdxRibbonTab
-      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -56,6 +55,7 @@ object frmPrincipal: TfrmPrincipal
       Index = 1
     end
     object tabProdutos: TdxRibbonTab
+      Active = True
       Caption = 'Produtos'
       Groups = <
         item
@@ -475,6 +475,14 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'btnUnidadeConversao'
+        end
+        item
+          Visible = True
+          ItemName = 'btnGrupo'
+        end
+        item
+          Visible = True
+          ItemName = 'btnSubGrupo'
         end>
       OneOnRow = False
       Row = 0
@@ -948,6 +956,26 @@ object frmPrincipal: TfrmPrincipal
         000000000000000000000202020710101034494949BDA2A2A2FFA9A9A9FF5A5A
         5AC0151515450606061200000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+    end
+    object btnGrupo: TdxBarLargeButton
+      Caption = 'Grupo'
+      Category = 0
+      Hint = 'Grupo'
+      Visible = ivAlways
+      OnClick = btnGrupoClick
+    end
+    object dxBarButton1: TdxBarButton
+      Caption = 'New Button'
+      Category = 0
+      Hint = 'New Button'
+      Visible = ivAlways
+    end
+    object btnSubGrupo: TdxBarLargeButton
+      Caption = 'Sub-Grupo'
+      Category = 0
+      Hint = 'Sub-Grupo'
+      Visible = ivAlways
+      OnClick = btnSubGrupoClick
     end
     object btnCBO: TdxBarLargeButton
       Caption = 'CBO'
