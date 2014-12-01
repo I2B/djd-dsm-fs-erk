@@ -76,6 +76,9 @@ type
     btnMunicipio: TdxBarLargeButton;
     btnNCM: TdxBarLargeButton;
     btnPais: TdxBarLargeButton;
+    btnGrupo: TdxBarLargeButton;
+    dxBarButton1: TdxBarButton;
+    btnSubGrupo: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -108,6 +111,8 @@ type
     procedure btnMunicipioClick(Sender: TObject);
     procedure btnNCMClick(Sender: TObject);
     procedure btnPaisClick(Sender: TObject);
+    procedure btnSubGrupoClick(Sender: TObject);
+    procedure btnGrupoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -125,8 +130,8 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
   unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
-  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM,
-  unCADPais;
+  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais,
+  unCADProdutoGrupo;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -139,6 +144,20 @@ begin
   else
   begin
     frmSerie.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.btnSubGrupoClick(Sender: TObject);
+begin
+  DM.cdsProdutoSubGrupo.Open;
+  if frmCADProdutoSubGrupo = nil then
+  begin
+    frmCADProdutoSubGrupo := TfrmCADProdutoSubGrupo.Create(Application);
+    frmCADProdutoSubGrupo.pnlTop.Caption := frmCADProdutoSubGrupo.Caption+'  ';
+  end
+  else
+  begin
+    frmCADProdutoTamanho.Show;
   end;
 end;
 
@@ -296,10 +315,24 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.btnGrupoClick(Sender: TObject);
+begin
+  DM.cdsProdutoGrupo.Open;
+  if frmCADProdutoGrupo = nil then
+  begin
+    frmCADProdutoGrupo := TfrmCADProdutoGrupo .Create(Application);
+    frmCADProdutoGrupo.pnlTop.Caption := frmCADProdutoGrupo.Caption+'  ';
+  end
+  else
+  begin
+    frmCADProdutoGrupo.Show;
+  end;
+end;
+
 procedure TfrmPrincipal.barProdutoUnidadeClick(Sender: TObject);
 begin
   DM.cdsProdutoUnidade.Open;
-  if frmCADAuditoria = nil then
+  if frmCADProdutoUnidade = nil then
   begin
     frmCADProdutoUnidade := TfrmCADProdutoUnidade.Create(Application);
     frmCADProdutoUnidade.pnlTop.Caption := frmCADProdutoUnidade.Caption+'  ';

@@ -5022,16 +5022,19 @@ object ServerMethods: TServerMethods
     Left = 784
     Top = 256
     object qryProdutoGrupoidgrupoprodutos: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idgrupoprodutos'
       Origin = 'idgrupoprodutos'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object qryProdutoGruponome2: TWideStringField
+      DisplayLabel = 'Nome'
       FieldName = 'nome'
       Origin = 'nome'
       Size = 100
     end
     object qryProdutoGrupodescricao: TWideMemoField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       Origin = 'descricao'
       BlobType = ftWideMemo

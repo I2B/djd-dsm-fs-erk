@@ -71,13 +71,13 @@ uses
   unFrameNCM in 'Frames\unFrameNCM.pas' {FrameNCM: TFrame},
   unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
   unF2 in '..\Framework\unF2.pas' {frmF2},
-  unFrameTabelaPreco in 'Frames\unFrameTabelaPreco.pas' {FrameTabelaPreco: TFrame};
-
-unCADNCM in 'Forms\unCADNCM.pas' {frmCADNCM},
+  unFrameTabelaPreco in 'Frames\unFrameTabelaPreco.pas' {FrameTabelaPreco: TFrame},
+  unFrameProdutoSubGrupo in 'Frames\unFrameProdutoSubGrupo.pas' {FrameProdutoSubGrupo: TFrame},
+  unCADProdutoSubGrupo in 'Forms\unCADProdutoSubGrupo.pas' {frmCADProdutoSubGrupo},
   unFramePais in 'Frames\unFramePais.pas' {FramePais: TFrame},
   unCADPais in 'Forms\unCADPais.pas' {frmCADPais},
-  unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
-  unCADPessoa in 'Forms\unCADPessoa.pas' {frmCADPessoa};
+  unFrameProdutoGrupo in 'Frames\unFrameProdutoGrupo.pas' {FrameProdutoGrupo: TFrame},
+  unCADProdutoGrupo in 'Forms\unCADProdutoGrupo.pas' {frmCADProdutoGrupo};
 
 {$R *.res}
 
@@ -86,6 +86,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmCADPessoa, frmCADPessoa);
   Application.Run;
 end.
