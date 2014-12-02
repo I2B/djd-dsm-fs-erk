@@ -851,19 +851,6 @@ type
     cdsPessoaContadorcpf: TWideStringField;
     cdsPessoaContadorcrc: TWideStringField;
     cdsPessoaContadoremail: TWideStringField;
-    cdsPessoaFornecedoridpessoafornecedor: TIntegerField;
-    cdsPessoaFornecedoridpessoa: TIntegerField;
-    cdsPessoaFornecedordesde: TDateField;
-    cdsPessoaFornecedoroptandesimples: TBooleanField;
-    cdsPessoaFornecedorlocalizacao: TBooleanField;
-    cdsPessoaFornecedordatacadastro: TDateField;
-    cdsPessoaFornecedorsofreretencao: TBooleanField;
-    cdsPessoaFornecedorobservacao: TWideMemoField;
-    cdsPessoaFornecedorprazomedioentrega: TIntegerField;
-    cdsPessoaFornecedorgerafaturamento: TBooleanField;
-    cdsPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
-    cdsPessoaFornecedornumerodiasintervalo: TIntegerField;
-    cdsPessoaFornecedorquantidadeparcelas: TIntegerField;
     dspProdutoPromocaoidprodutopromocao: TIntegerField;
     dspProdutoPromocaoidproduto: TIntegerField;
     dspProdutoPromocaodatainicio: TDateField;
@@ -1037,6 +1024,18 @@ type
     cdsTabelaPreco: TClientDataSet;
     cdsTabelaPrecoidtabelapreco: TIntegerField;
     cdsTabelaPreconome: TWideStringField;
+    cdsPessoaFornecedoridpessoa: TIntegerField;
+    cdsPessoaFornecedordesde: TDateField;
+    cdsPessoaFornecedoroptandesimples: TBooleanField;
+    cdsPessoaFornecedorlocalizacao: TBooleanField;
+    cdsPessoaFornecedordatacadastro: TDateField;
+    cdsPessoaFornecedorsofreretencao: TBooleanField;
+    cdsPessoaFornecedorobservacao: TWideMemoField;
+    cdsPessoaFornecedorprazomedioentrega: TIntegerField;
+    cdsPessoaFornecedorgerafaturamento: TBooleanField;
+    cdsPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
+    cdsPessoaFornecedornumerodiasintervalo: TIntegerField;
+    cdsPessoaFornecedorquantidadeparcelas: TIntegerField;
   private
     FInstanceOwner: Boolean;
   public

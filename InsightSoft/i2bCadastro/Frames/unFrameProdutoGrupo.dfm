@@ -6,7 +6,6 @@ inherited FrameProdutoGrupo: TFrameProdutoGrupo
   inherited dxLayoutControl: TdxLayoutControl
     Width = 805
     Height = 298
-    ExplicitTop = 3
     ExplicitWidth = 805
     ExplicitHeight = 298
     object edtProdutoGrupoNome: TcxDBTextEdit [0]

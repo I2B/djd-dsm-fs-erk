@@ -77,7 +77,9 @@ uses
   unFramePais in 'Frames\unFramePais.pas' {FramePais: TFrame},
   unCADPais in 'Forms\unCADPais.pas' {frmCADPais},
   unFrameProdutoGrupo in 'Frames\unFrameProdutoGrupo.pas' {FrameProdutoGrupo: TFrame},
-  unCADProdutoGrupo in 'Forms\unCADProdutoGrupo.pas' {frmCADProdutoGrupo};
+  unCADProdutoGrupo in 'Forms\unCADProdutoGrupo.pas' {frmCADProdutoGrupo},
+  unFrameProdutoFornecedor in 'Frames\unFrameProdutoFornecedor.pas' {FrameProdutoFornecedor: TFrame},
+  unCADProdutoFornecedor in 'Forms\unCADProdutoFornecedor.pas' {frmCADProdutoFornecedor};
 
 {$R *.res}
 

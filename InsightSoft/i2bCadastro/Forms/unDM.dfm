@@ -6,10 +6,16 @@ object DM: TDM
     DriverName = 'DataSnap'
     LoginPrompt = False
     Params.Strings = (
+      'DriverUnit=Data.DBXDataSnap'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXClientDriverLoader,Borland' +
+        '.Data.DbxClientDriver,Version=21.0.0.0,Culture=neutral,PublicKey' +
+        'Token=91d62ebb5b0d1b1b'
       'Port=211'
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
-      'DatasnapContext=datasnap/')
+      'DatasnapContext=datasnap/'
+      'Filters={}')
     Connected = True
     Left = 408
     Top = 24
@@ -2988,9 +2994,6 @@ object DM: TDM
     RemoteServer = dspConnection
     Left = 536
     Top = 144
-    object cdsPessoaFornecedoridpessoafornecedor: TIntegerField
-      FieldName = 'idpessoafornecedor'
-    end
     object cdsPessoaFornecedoridpessoa: TIntegerField
       FieldName = 'idpessoa'
     end
@@ -3320,18 +3323,23 @@ object DM: TDM
     Left = 608
     Top = 88
     object cdsProdutoFornecedoridprodutofornecedor: TIntegerField
+      DisplayLabel = 'ID Fornecedor'
       FieldName = 'idprodutofornecedor'
     end
     object cdsProdutoFornecedorcodigoprodutofornecedor: TWideStringField
+      DisplayLabel = 'C'#243'digo do Produto no Fornecedor'
       FieldName = 'codigoprodutofornecedor'
     end
     object cdsProdutoFornecedoridproduto: TIntegerField
+      DisplayLabel = 'ID Produto'
       FieldName = 'idproduto'
     end
     object cdsProdutoFornecedordataultimacompra: TDateField
+      DisplayLabel = 'Data da '#218'ltima Compra'
       FieldName = 'dataultimacompra'
     end
     object cdsProdutoFornecedorprecoultimacompra: TFloatField
+      DisplayLabel = 'Pre'#231'o da '#218'ltima Compra'
       FieldName = 'precoultimacompra'
     end
   end
@@ -3343,16 +3351,19 @@ object DM: TDM
     Left = 608
     Top = 144
     object cdsProdutoGrupoidgrupoprodutos: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idgrupoprodutos'
       Origin = 'idgrupoprodutos'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsProdutoGruponome: TWideStringField
+      DisplayLabel = 'Nome'
       FieldName = 'nome'
       Origin = 'nome'
       Size = 100
     end
     object cdsProdutoGrupodescricao: TWideMemoField
+      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       Origin = 'descricao'
       BlobType = ftWideMemo
