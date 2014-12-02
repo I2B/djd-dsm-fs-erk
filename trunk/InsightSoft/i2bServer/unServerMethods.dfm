@@ -4470,19 +4470,13 @@ object ServerMethods: TServerMethods
   object qryPessoaFornecedor: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      
-        'select * from pessoaFornecedor order by idPessoaFornecedor limit' +
-        ' 0')
+      'select * from pessoaFornecedor order by idPessoa limit 0')
     Left = 680
     Top = 256
-    object qryPessoaFornecedoridpessoafornecedor: TIntegerField
-      FieldName = 'idpessoafornecedor'
-      Origin = 'idpessoafornecedor'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
     object qryPessoaFornecedoridpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object qryPessoaFornecedordesde: TDateField
       FieldName = 'desde'

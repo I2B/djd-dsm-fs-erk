@@ -79,6 +79,8 @@ type
     btnGrupo: TdxBarLargeButton;
     dxBarButton1: TdxBarButton;
     btnSubGrupo: TdxBarLargeButton;
+    dxBarManagerBar2: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -113,6 +115,7 @@ type
     procedure btnPaisClick(Sender: TObject);
     procedure btnSubGrupoClick(Sender: TObject);
     procedure btnGrupoClick(Sender: TObject);
+    procedure dxBarLargeButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -131,7 +134,7 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
   unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
   unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais,
-  unCADProdutoGrupo;
+  unCADProdutoGrupo, unCADProdutoFornecedor;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -242,6 +245,20 @@ begin
   else
   begin
     frmCADUnidadeNegocio.Show;
+  end;
+end;
+
+procedure TfrmPrincipal.dxBarLargeButton1Click(Sender: TObject);
+begin
+  DM.cdsProdutoFornecedor.Open;
+  if frmCADProdutoFornecedor = nil then
+  begin
+    frmCADProdutoFornecedor := TfrmCADProdutoFornecedor.Create(Application);
+    frmCADProdutoFornecedor.pnlTop.Caption := frmCADProdutoFornecedor.Caption+'  ';
+  end
+  else
+  begin
+    frmCADProdutoFornecedor.Show;
   end;
 end;
 

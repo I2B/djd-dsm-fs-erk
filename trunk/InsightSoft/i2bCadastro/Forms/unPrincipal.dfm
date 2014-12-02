@@ -63,6 +63,11 @@ object frmPrincipal: TfrmPrincipal
         end
         item
           ToolbarName = 'barEngenhariaProduto'
+        end
+        item
+        end
+        item
+          ToolbarName = 'dxBarManagerBar2'
         end>
       Index = 2
     end
@@ -453,7 +458,7 @@ object frmPrincipal: TfrmPrincipal
           ItemName = 'btnTamanho'
         end>
       OneOnRow = False
-      Row = 0
+      Row = 1
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -485,7 +490,7 @@ object frmPrincipal: TfrmPrincipal
           ItemName = 'btnSubGrupo'
         end>
       OneOnRow = False
-      Row = 0
+      Row = 1
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -545,6 +550,25 @@ object frmPrincipal: TfrmPrincipal
           ItemName = 'barTelefone'
         end>
       OneOnRow = False
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object dxBarManagerBar2: TdxBar
+      CaptionButtons = <>
+      DockedLeft = 382
+      DockedTop = 0
+      FloatLeft = 1058
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end>
+      OneOnRow = True
       Row = 0
       UseOwnFont = False
       Visible = True
@@ -976,6 +1000,13 @@ object frmPrincipal: TfrmPrincipal
       Hint = 'Sub-Grupo'
       Visible = ivAlways
       OnClick = btnSubGrupoClick
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Caption = 'Produto Fornecedor'
+      Category = 0
+      Hint = 'Produto Fornecedor'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton1Click
     end
     object btnCBO: TdxBarLargeButton
       Caption = 'CBO'

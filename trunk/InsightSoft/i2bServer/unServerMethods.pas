@@ -944,19 +944,6 @@ type
     qryPessoaContadorcrc: TWideStringField;
     qryPessoaContadoremail: TWideStringField;
     qryPessoaContadoridunidadenegocio: TIntegerField;
-    qryPessoaFornecedoridpessoafornecedor: TIntegerField;
-    qryPessoaFornecedoridpessoa: TIntegerField;
-    qryPessoaFornecedordesde: TDateField;
-    qryPessoaFornecedoroptandesimples: TBooleanField;
-    qryPessoaFornecedorlocalizacao: TBooleanField;
-    qryPessoaFornecedordatacadastro: TDateField;
-    qryPessoaFornecedorsofreretencao: TBooleanField;
-    qryPessoaFornecedorobservacao: TWideMemoField;
-    qryPessoaFornecedorprazomedioentrega: TIntegerField;
-    qryPessoaFornecedorgerafaturamento: TBooleanField;
-    qryPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
-    qryPessoaFornecedornumerodiasintervalo: TIntegerField;
-    qryPessoaFornecedorquantidadeparcelas: TIntegerField;
     qryPessoaTransportadoraidpessoa: TIntegerField;
     qryPessoaTransportadoradatacadastro: TDateField;
     qryPessoaTransportadoraobservacao: TWideMemoField;
@@ -1185,6 +1172,18 @@ type
     dspTabelaPreco: TDataSetProvider;
     qryTabelaPrecoidtabelapreco: TIntegerField;
     qryTabelaPreconome: TWideStringField;
+    qryPessoaFornecedoridpessoa: TIntegerField;
+    qryPessoaFornecedordesde: TDateField;
+    qryPessoaFornecedoroptandesimples: TBooleanField;
+    qryPessoaFornecedorlocalizacao: TBooleanField;
+    qryPessoaFornecedordatacadastro: TDateField;
+    qryPessoaFornecedorsofreretencao: TBooleanField;
+    qryPessoaFornecedorobservacao: TWideMemoField;
+    qryPessoaFornecedorprazomedioentrega: TIntegerField;
+    qryPessoaFornecedorgerafaturamento: TBooleanField;
+    qryPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
+    qryPessoaFornecedornumerodiasintervalo: TIntegerField;
+    qryPessoaFornecedorquantidadeparcelas: TIntegerField;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -1329,7 +1328,7 @@ type
     const selectPessoaContador: array[1..5] of string = ('select pessoaContador.*, unidadeNegocio.nomeFantasia',
       ' from pessoaContador inner join unidadeNegocio on pessoaContador.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
       ' ',' order by idPessoa',' limit 0 ');
-    const selectPessoaFornecedor: array[1..5] of string = ('select *',' from pessoaFornecedor',' ',' order by idPessoaFornecedor',' limit 0 ');
+    const selectPessoaFornecedor: array[1..5] of string = ('select *',' from pessoaFornecedor',' ',' order by idPessoa',' limit 0 ');
     const selectPessoaRepresentante: array[1..5] of string = ('select pessoaRepresentante.*, unidadeNegocio.nomeFantasia',
       ' from pessoaRepresentante inner join unidadeNegocio on pessoaRepresentante.idUnidadeNegocio = unidadeNegocio.idUnidadeNegocio',
       ' ',' order by idPessoa',' limit 0 ');
