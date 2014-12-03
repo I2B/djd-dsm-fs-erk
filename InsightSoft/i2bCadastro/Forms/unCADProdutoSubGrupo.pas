@@ -28,6 +28,7 @@ type
     cxGridDBidgrupoprodutos: TcxGridDBColumn;
     cxGridDBnome: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
+    cxGridDBgruponome: TcxGridDBColumn;
   private
     { Private declarations }
   public
