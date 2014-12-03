@@ -30,6 +30,7 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
     inherited cxPageControl: TcxPageControl
       Width = 788
       Height = 354
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 788
       ExplicitHeight = 354
       ClientRectBottom = 352
@@ -41,6 +42,7 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
           Width = 784
           Height = 252
           ExplicitWidth = 784
+          ExplicitHeight = 252
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidprodutounidade: TcxGridDBColumn
               DataBinding.FieldName = 'idprodutounidade'
@@ -64,19 +66,32 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 724
+            ExplicitHeight = 23
             Width = 724
           end
           inherited btnBuscar: TcxButton
             Left = 680
             ExplicitLeft = 680
           end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
@@ -157,15 +172,12 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
           Width = 784
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 214
-            ExplicitHeight = 21
+            ExplicitHeight = 23
             Width = 214
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 495
             ExplicitLeft = 495
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 21
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitWidth = 776
@@ -184,10 +196,10 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
             end
           end
           inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
           end
           inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 590
@@ -200,7 +212,10 @@ inherited frmCADProdutoUnidade: TfrmCADProdutoUnidade
             ExplicitLeft = 613
           end
           inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end

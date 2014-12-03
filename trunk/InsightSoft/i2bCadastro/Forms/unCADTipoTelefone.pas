@@ -18,7 +18,7 @@ uses
   Data.FMTBcd, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint,
   cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
-  Vcl.ExtCtrls, unFramePai, unFrameTipoTelefone;
+  Vcl.ExtCtrls, unFramePai, unFrameTipoTelefone, cxButtonEdit, Datasnap.DBClient, cxGroupBox, cxRadioGroup, cxMemo;
 
 type
   TfrmCADTipoTelefone = class(TfrmCadastro)

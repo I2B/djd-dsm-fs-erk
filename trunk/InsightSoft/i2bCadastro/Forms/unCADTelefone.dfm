@@ -30,6 +30,7 @@ inherited frmCADTelefone: TfrmCADTelefone
     inherited cxPageControl: TcxPageControl
       Width = 738
       Height = 395
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 738
       ExplicitHeight = 395
       ClientRectBottom = 393
@@ -77,19 +78,32 @@ inherited frmCADTelefone: TfrmCADTelefone
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 332
+            ExplicitHeight = 23
             Width = 332
           end
           inherited btnBuscar: TcxButton
             Left = 624
             ExplicitLeft = 624
           end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
@@ -124,6 +138,18 @@ inherited frmCADTelefone: TfrmCADTelefone
             Height = 363
             ExplicitWidth = 674
             ExplicitHeight = 363
+            inherited edtIDPessoa: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtIDUnidadeNegocio: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtIDTipoTelefone: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtNumero: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -152,6 +178,7 @@ inherited frmCADTelefone: TfrmCADTelefone
           Width = 734
           inherited cxGridFiltro: TcxGrid
             Height = 169
+            ExplicitHeight = 169
           end
           inherited cxMemoFiltroSalvo: TcxMemo
             ExplicitWidth = 346
@@ -165,15 +192,12 @@ inherited frmCADTelefone: TfrmCADTelefone
           Width = 734
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 158
-            ExplicitHeight = 21
+            ExplicitHeight = 23
             Width = 158
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 439
             ExplicitLeft = 439
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 21
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitWidth = 720
@@ -192,10 +216,10 @@ inherited frmCADTelefone: TfrmCADTelefone
             end
           end
           inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
           end
           inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 534
@@ -208,7 +232,10 @@ inherited frmCADTelefone: TfrmCADTelefone
             ExplicitLeft = 557
           end
           inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 21
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end

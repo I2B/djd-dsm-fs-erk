@@ -9,7 +9,10 @@ object ServerMethods: TServerMethods
       'User_Name=postgres'
       'Password=defd'
       'Server=127.0.0.1'
+      'CharacterSet=utf8'
       'DriverID=PG')
+    FetchOptions.AssignedValues = [evMode]
+    ResourceOptions.AssignedValues = [rvAutoReconnect]
     Connected = True
     LoginPrompt = False
     Left = 176
@@ -5152,7 +5155,7 @@ object ServerMethods: TServerMethods
   object qryProdutoGrupo: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from produtoGrupo order by idGrupoProdutos limit 0')
+      'select * from produtogrupo order by idgrupoprodutos limit 0')
     Left = 784
     Top = 256
     object qryProdutoGrupoidgrupoprodutos: TIntegerField

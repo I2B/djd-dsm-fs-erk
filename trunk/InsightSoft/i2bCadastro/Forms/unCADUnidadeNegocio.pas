@@ -26,7 +26,7 @@ uses
   cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
-  Vcl.ExtCtrls, unFramePai, unFrameUnidadeNegocio;
+  Vcl.ExtCtrls, unFramePai, unFrameUnidadeNegocio, cxButtonEdit, Datasnap.DBClient, cxGroupBox, cxRadioGroup, cxMemo;
 
 type
   TfrmCADUnidadeNegocio = class(TfrmCadastro)

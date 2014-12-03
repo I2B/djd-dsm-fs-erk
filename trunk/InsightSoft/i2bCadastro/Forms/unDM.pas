@@ -858,10 +858,6 @@ type
     dspProdutoPromocaoquantidadeempromocao: TFMTBCDField;
     dspProdutoPromocaoquantidademaximacliente: TFMTBCDField;
     dspProdutoPromocaovalor: TFMTBCDField;
-    cdsProdutoSubGrupoidsubgrupoprodutos: TIntegerField;
-    cdsProdutoSubGrupoidgrupoprodutos: TIntegerField;
-    cdsProdutoSubGruponome: TWideStringField;
-    cdsProdutoSubGrupodescricao: TWideMemoField;
     cdsProdutoTabelaPrecoidprodutotabelapreco: TIntegerField;
     cdsProdutoTabelaPrecoidproduto: TIntegerField;
     cdsProdutoTabelaPreconome: TWideStringField;
@@ -1036,6 +1032,11 @@ type
     cdsPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
     cdsPessoaFornecedornumerodiasintervalo: TIntegerField;
     cdsPessoaFornecedorquantidadeparcelas: TIntegerField;
+    cdsProdutoSubGrupoidsubgrupoprodutos: TIntegerField;
+    cdsProdutoSubGrupoidgrupoprodutos: TIntegerField;
+    cdsProdutoSubGruponome: TWideStringField;
+    cdsProdutoSubGrupodescricao: TWideMemoField;
+    cdsProdutoSubGrupogruponome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

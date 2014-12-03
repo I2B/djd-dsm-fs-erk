@@ -30,6 +30,7 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
     inherited cxPageControl: TcxPageControl
       Width = 673
       Height = 381
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 673
       ExplicitHeight = 381
       ClientRectBottom = 379
@@ -68,19 +69,32 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 571
+            ExplicitHeight = 23
             Width = 571
           end
           inherited btnBuscar: TcxButton
             Left = 565
             ExplicitLeft = 565
           end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
@@ -157,6 +171,7 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
           Width = 669
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 99
+            ExplicitHeight = 23
             Width = 99
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -179,6 +194,12 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
               ExplicitLeft = 637
             end
           end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 475
             ExplicitLeft = 475
@@ -190,6 +211,12 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
           inherited btnAplicarFiltro: TcxButton
             Width = 133
             ExplicitWidth = 133
+          end
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
