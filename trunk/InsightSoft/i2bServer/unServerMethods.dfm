@@ -71,6 +71,8 @@ object ServerMethods: TServerMethods
   end
   object dspAuditoria: TDataSetProvider
     DataSet = qryAuditoria
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 88
   end
@@ -293,36 +295,50 @@ object ServerMethods: TServerMethods
   end
   object dspBanco: TDataSetProvider
     DataSet = qryBanco
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 144
   end
   object dspCargo: TDataSetProvider
     DataSet = qryCargo
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 200
   end
   object dspCBO: TDataSetProvider
     DataSet = qryCBO
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 256
   end
   object dspCEP: TDataSetProvider
     DataSet = qryCEP
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 312
   end
   object dspCFOP: TDataSetProvider
     DataSet = qryCFOP
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 368
   end
   object dspCNAE: TDataSetProvider
     DataSet = qryCNAE
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 424
   end
   object dspControle: TDataSetProvider
     DataSet = qryControle
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 480
   end
@@ -350,6 +366,8 @@ object ServerMethods: TServerMethods
   end
   object dspCSTCOFINS: TDataSetProvider
     DataSet = qryCSTCOFINS
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 536
   end
@@ -377,6 +395,8 @@ object ServerMethods: TServerMethods
   end
   object dspCSTIPI: TDataSetProvider
     DataSet = qryCSTIPI
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 88
     Top = 592
   end
@@ -1476,51 +1496,71 @@ object ServerMethods: TServerMethods
   end
   object dspCSTPIS: TDataSetProvider
     DataSet = qryCSTPIS
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 88
   end
   object dspDocumento: TDataSetProvider
     DataSet = qryDocumento
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 144
   end
   object dspECFCabecalho: TDataSetProvider
     DataSet = qryECFCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 200
   end
   object dspECFItem: TDataSetProvider
     DataSet = qryECFItem
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 256
   end
   object dspEmpresa: TDataSetProvider
     DataSet = qryEmpresa
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 312
   end
   object dspEndereco: TDataSetProvider
     DataSet = qryEndereco
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 368
   end
   object dspEntradaCabecalho: TDataSetProvider
     DataSet = qryEntradaCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 424
   end
   object dspEntradaDuplicata: TDataSetProvider
     DataSet = qryEntradaDuplicata
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 480
   end
   object dspEntradaItem: TDataSetProvider
     DataSet = qryEntradaItem
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 536
   end
   object dspEntradaItemImposto: TDataSetProvider
     DataSet = qryEntradaItemImposto
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 192
     Top = 592
   end
@@ -1968,51 +2008,71 @@ object ServerMethods: TServerMethods
   end
   object dspEntradaLocalEntregaRetirada: TDataSetProvider
     DataSet = qryEntradaLocalEntregaRetirada
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 88
   end
   object dspEntradaTransportadora: TDataSetProvider
     DataSet = qryEntradaTransportadora
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 144
   end
   object dspEntradaTransportadoraReboque: TDataSetProvider
     DataSet = qryEntradaTransportadoraReboque
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 200
   end
   object dspEstado: TDataSetProvider
     DataSet = qryEstado
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 256
   end
   object dspEstoqueContagemCabecalho: TDataSetProvider
     DataSet = qryEstoqueContagemCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 312
   end
   object dspProdutoCor: TDataSetProvider
     DataSet = qryProdutoCor
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 368
   end
   object dspEstoqueContagemDetalhe: TDataSetProvider
     DataSet = qryEstoqueContagemDetalhe
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 424
   end
   object dspProdutoGrade: TDataSetProvider
     DataSet = qryProdutoGrade
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 480
   end
   object dspProdutoTamanho: TDataSetProvider
     DataSet = qryProdutoTamanho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 536
   end
   object dspHistoricoMovimento: TDataSetProvider
     DataSet = qryHistoricoMovimento
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 296
     Top = 592
   end
@@ -2687,51 +2747,71 @@ object ServerMethods: TServerMethods
   end
   object dspIndicadorEconomico: TDataSetProvider
     DataSet = qryIndicadorEconomico
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 88
   end
   object dspIndice: TDataSetProvider
     DataSet = qryIndice
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 144
   end
   object dspLicitacao: TDataSetProvider
     DataSet = qryLicitacao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 200
   end
   object dspLicitacaoDocumento: TDataSetProvider
     DataSet = qryLicitacaoDocumento
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 256
   end
   object dspModelo: TDataSetProvider
     DataSet = qryModelo
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 312
   end
   object dspMovimento: TDataSetProvider
     DataSet = qryMovimento
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 368
   end
   object dspMovimentoCheque: TDataSetProvider
     DataSet = qryMovimentoCheque
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 424
   end
   object dspMunicipio: TDataSetProvider
     DataSet = qryMunicipio
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 480
   end
   object dspNCM: TDataSetProvider
     DataSet = qryNCM
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 536
   end
   object dspNFeCabecalho: TDataSetProvider
     DataSet = qryNFeCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 400
     Top = 592
   end
@@ -3471,51 +3551,71 @@ object ServerMethods: TServerMethods
   end
   object dspNFeCupomFiscalReferenciado: TDataSetProvider
     DataSet = qryNFeCupomFiscalReferenciado
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 88
   end
   object dspNFeDeclaracaoImportacao: TDataSetProvider
     DataSet = qryNFeDeclaracaoImportacao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 144
   end
   object dspNFeDestinatario: TDataSetProvider
     DataSet = qryNFeDestinatario
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 200
   end
   object dspNFeDuplicata: TDataSetProvider
     DataSet = qryNFeDuplicata
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 256
   end
   object dspNFeImportacaoDetalhe: TDataSetProvider
     DataSet = qryNFeImportacaoDetalhe
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 312
   end
   object dspNFeItem: TDataSetProvider
     DataSet = qryNFeItem
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 368
   end
   object dspNFeItemII: TDataSetProvider
     DataSet = qryNFeItemII
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 424
   end
   object dspNFeItemImposto: TDataSetProvider
     DataSet = qryNFeItemImposto
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 480
   end
   object dspNFeLocalEntregaRetirada: TDataSetProvider
     DataSet = qryNFeLocalEntregaRetirada
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 536
   end
   object dspNFeNFReferenciada: TDataSetProvider
     DataSet = qryNFeNFReferenciada
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 504
     Top = 592
   end
@@ -4224,51 +4324,71 @@ object ServerMethods: TServerMethods
   end
   object dspNFeProdutorRuralReferenciada: TDataSetProvider
     DataSet = qryNFeProdutorRuralReferenciada
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 88
   end
   object dspNFeReferenciada: TDataSetProvider
     DataSet = qryNFeReferenciada
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 144
   end
   object dspNFeTransportadora: TDataSetProvider
     DataSet = qryNFeTransportadora
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 200
   end
   object dspNFeTransportadoraReboque: TDataSetProvider
     DataSet = qryNFeTransportadoraReboque
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 256
   end
   object dspOrcamentoCabecalho: TDataSetProvider
     DataSet = qryOrcamentoCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 312
   end
   object dspOrcamentoItem: TDataSetProvider
     DataSet = qryOrcamentoItem
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 368
   end
   object dspPais: TDataSetProvider
     DataSet = qryPais
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 424
   end
   object dspPedidoCabecalho: TDataSetProvider
     DataSet = qryPedidoCabecalho
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 480
   end
   object dspPedidoItem: TDataSetProvider
     DataSet = qryPedidoItem
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 536
   end
   object dspPessoa: TDataSetProvider
     DataSet = qryPessoa
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 592
   end
@@ -4719,51 +4839,71 @@ object ServerMethods: TServerMethods
   end
   object dspPessoaCliente: TDataSetProvider
     DataSet = qryPessoaCliente
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 88
   end
   object dspPessoaColaborador: TDataSetProvider
     DataSet = qryPessoaColaborador
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 144
   end
   object dspPessoaContador: TDataSetProvider
     DataSet = qryPessoaContador
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 200
   end
   object dspPessoaFornecedor: TDataSetProvider
     DataSet = qryPessoaFornecedor
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 256
   end
   object dspPessoaRepresentante: TDataSetProvider
     DataSet = qryPessoaRepresentante
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 312
   end
   object dspPessoaTransportadora: TDataSetProvider
     DataSet = qryPessoaTransportadora
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 368
   end
   object dspPessoaVendedor: TDataSetProvider
     DataSet = qryPessoaVendedor
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 424
   end
   object dspPlanoContasFinanceiro: TDataSetProvider
     DataSet = qryPlanoContasFinanceiro
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 480
   end
   object dspPlanoContasGerencial: TDataSetProvider
     DataSet = qryPlanoContasGerencial
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 536
   end
   object dspPortador: TDataSetProvider
     DataSet = qryPortador
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 712
     Top = 592
   end
@@ -5551,51 +5691,71 @@ object ServerMethods: TServerMethods
   end
   object dspPortadorHistorico: TDataSetProvider
     DataSet = qryPortadorHistorico
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 88
   end
   object dspProduto: TDataSetProvider
     DataSet = qryProduto
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 144
   end
   object dspProdutoFornecedor: TDataSetProvider
     DataSet = qryProdutoFornecedor
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 200
   end
   object dspProdutoGrupo: TDataSetProvider
     DataSet = qryProdutoGrupo
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 256
   end
   object dspProdutoPromocao: TDataSetProvider
     DataSet = qryProdutoPromocao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 312
   end
   object dspProdutoSubGrupo: TDataSetProvider
     DataSet = qryProdutoSubGrupo
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 368
   end
   object dspProdutoTabelaPreco: TDataSetProvider
     DataSet = qryProdutoTabelaPreco
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 424
   end
   object dspProdutoUnidade: TDataSetProvider
     DataSet = qryProdutoUnidade
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 480
   end
   object dspProdutoUnidadeConversao: TDataSetProvider
     DataSet = qryProdutoUnidadeConversao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 536
   end
   object dspRegraFiscal: TDataSetProvider
     DataSet = qryRegraFiscal
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 816
     Top = 592
   end
@@ -5769,36 +5929,50 @@ object ServerMethods: TServerMethods
   end
   object dspRegraFiscalObservacao: TDataSetProvider
     DataSet = qryRegraFiscalObservacao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 88
   end
   object dspSerie: TDataSetProvider
     DataSet = qrySerie
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 144
   end
   object dspSetor: TDataSetProvider
     DataSet = qrySetor
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 200
   end
   object dspTelefone: TDataSetProvider
     DataSet = qryTelefone
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 256
   end
   object dspTipoOperacao: TDataSetProvider
     DataSet = qryTipoOperacao
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 312
   end
   object dspTipoTelefone: TDataSetProvider
     DataSet = qryTipoTelefone
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 368
   end
   object dspUnidadeNegocio: TDataSetProvider
     DataSet = qryUnidadeNegocio
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 424
   end
@@ -5832,11 +6006,15 @@ object ServerMethods: TServerMethods
   end
   object dspCSTICMS: TDataSetProvider
     DataSet = qryCSTICMS
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 480
   end
   object dspCSTCSOSN: TDataSetProvider
     DataSet = qryCSTCSOSN
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 536
   end
@@ -5862,24 +6040,26 @@ object ServerMethods: TServerMethods
       Origin = 'usuario'
       Size = 60
     end
-    object qryFiltroSalvofiltrosql: TWideMemoField
-      FieldName = 'filtrosql'
-      Origin = 'filtrosql'
-      BlobType = ftWideMemo
-    end
-    object qryFiltroSalvofiltrodisplay: TWideMemoField
-      FieldName = 'filtrodisplay'
-      Origin = 'filtrodisplay'
-      BlobType = ftWideMemo
-    end
     object qryFiltroSalvoform: TWideStringField
       FieldName = 'form'
       Origin = 'form'
       Size = 50
     end
+    object qryFiltroSalvofiltrosql: TMemoField
+      FieldName = 'filtrosql'
+      Origin = 'filtrosql'
+      BlobType = ftMemo
+    end
+    object qryFiltroSalvofiltrodisplay: TMemoField
+      FieldName = 'filtrodisplay'
+      Origin = 'filtrodisplay'
+      BlobType = ftMemo
+    end
   end
   object dspFiltroSalvo: TDataSetProvider
     DataSet = qryFiltroSalvo
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 920
     Top = 592
   end
@@ -5906,6 +6086,8 @@ object ServerMethods: TServerMethods
   end
   object dspTabelaPreco: TDataSetProvider
     DataSet = qryTabelaPreco
+    OnUpdateError = UpdateError
+    BeforeUpdateRecord = BeforeUpdateRecord
     Left = 1024
     Top = 88
   end

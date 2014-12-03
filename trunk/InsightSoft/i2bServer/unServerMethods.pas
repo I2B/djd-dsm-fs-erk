@@ -9,7 +9,7 @@ uses System.SysUtils, System.Classes, System.Json,
   FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
   FireDAC.Comp.UI, Data.DB, FireDAC.Comp.Client, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Datasnap.Provider,
-  FireDAC.Comp.DataSet;
+  FireDAC.Comp.DataSet, Datasnap.DBClient;
 
 type
   TServerMethods = class(TDSServerModule)
@@ -1082,8 +1082,6 @@ type
     qryFiltroSalvoidfiltrosalvo: TIntegerField;
     qryFiltroSalvonome: TWideStringField;
     qryFiltroSalvousuario: TWideStringField;
-    qryFiltroSalvofiltrosql: TWideMemoField;
-    qryFiltroSalvofiltrodisplay: TWideMemoField;
     qryFiltroSalvoform: TWideStringField;
     qryProdutoCorcodigo: TWideStringField;
     qryProdutoCornome: TWideStringField;
@@ -1184,7 +1182,13 @@ type
     qryPessoaFornecedornumerodiasprimeirovencimento: TIntegerField;
     qryPessoaFornecedornumerodiasintervalo: TIntegerField;
     qryPessoaFornecedorquantidadeparcelas: TIntegerField;
+    qryFiltroSalvofiltrosql: TMemoField;
+    qryFiltroSalvofiltrodisplay: TMemoField;
     procedure DSServerModuleCreate(Sender: TObject);
+    procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+      UpdateKind: TUpdateKind; var Applied: Boolean);
+    procedure UpdateError(Sender: TObject; DataSet: TCustomClientDataSet; E: EUpdateError;
+      UpdateKind: TUpdateKind; var Response: TResolverResponse);
   private
     { Private declarations }
     //Funções para gestão do Arquivo LOG - DJD
@@ -1595,6 +1599,59 @@ begin
   qrySQL.SQL.Clear;
   qrySQL.SQL.Add('delete from filtrosalvo where idfiltrosalvo = '+IntToStr(id));
   qrySQL.ExecSQL;
+end;
+
+procedure TServerMethods.UpdateError(Sender: TObject; DataSet: TCustomClientDataSet; E: EUpdateError;
+  UpdateKind: TUpdateKind; var Response: TResolverResponse);
+begin
+  LOGopen;
+  LOGadd('Falha ocorrida: '+e.ToString);
+  LOGclose;
+  Response := rrAbort;
+  raise Exception.Create(E.ToString);
+end;
+
+procedure TServerMethods.BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+  UpdateKind: TUpdateKind; var Applied: Boolean);
+var
+  TextoDeUpdate : String;
+  I : Integer;
+begin
+  LOGopen;
+  if UpdateKind = ukModify then
+  begin
+    TextoDeUpdate := 'Edição em '+SourceDS.Name+#13;
+    for I := 0 to SourceDS.FieldCount - 1 do
+    begin
+      if DeltaDS.Fields[I].AsString <> '' then
+        TextoDeUpdate := TextoDeUpdate + DeltaDS.Fields[I].DisplayName+' alterado para ['+DeltaDS.Fields[I].AsString+']'+#13;
+    end;
+  end
+  else if UpdateKind = ukInsert then
+  begin
+    TextoDeUpdate := 'Inserção em '+SourceDS.Name+#13;
+    for I := 0 to SourceDS.FieldCount - 1 do
+    begin
+      if DeltaDS.Fields[I].DataType in [ftString,ftWord,ftFixedChar,ftWideString,ftFixedWideChar,ftLongWord,ftExtended] then
+      begin
+        TextoDeUpdate := TextoDeUpdate + SourceDS.Fields[I].DisplayName+' = '+'['+DeltaDS.Fields[I].AsString+']'+#13;
+      end
+      else if DeltaDS.Fields[I].DataType in [ftSmallint,ftInteger,ftFloat,ftCurrency,ftBCD,ftLargeint,ftFMTBcd,ftShortint,ftSingle] then
+      begin
+        TextoDeUpdate := TextoDeUpdate + SourceDS.Fields[I].DisplayName+' = '+'['+IntToStr(DeltaDS.Fields[I].AsInteger)+']'+#13;
+      end
+      else if DeltaDS.Fields[I].DataType in [ftDate,ftDateTime] then
+      begin
+        TextoDeUpdate := TextoDeUpdate + SourceDS.Fields[I].DisplayName+' = '+'['+DateTimeToStr(DeltaDS.Fields[I].AsDateTime)+']'+#13;
+      end;
+    end;
+  end
+  else
+  begin
+    TextoDeUpdate := 'Removido registro de '+SourceDS.Name;
+  end;
+  LOGadd(TextoDeUpdate);
+  LOGclose;
 end;
 
 procedure TServerMethods.DSServerModuleCreate(Sender: TObject);
