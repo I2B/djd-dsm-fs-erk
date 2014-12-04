@@ -458,7 +458,7 @@ object frmPrincipal: TfrmPrincipal
           ItemName = 'btnTamanho'
         end>
       OneOnRow = False
-      Row = 1
+      Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -490,7 +490,7 @@ object frmPrincipal: TfrmPrincipal
           ItemName = 'btnSubGrupo'
         end>
       OneOnRow = False
-      Row = 1
+      Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -568,7 +568,7 @@ object frmPrincipal: TfrmPrincipal
           Visible = True
           ItemName = 'dxBarLargeButton1'
         end>
-      OneOnRow = True
+      OneOnRow = False
       Row = 0
       UseOwnFont = False
       Visible = True
