@@ -118,6 +118,7 @@ type
     procedure dxBarLargeButton1Click(Sender: TObject);
   private
     { Private declarations }
+    function abaExiste(Formulario : TForm):boolean;
   public
     { Public declarations }
   end;
@@ -138,477 +139,492 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
-  DM.cdsSerie.Open;
-  if frmSerie = nil then
+  if abaExiste(frmSerie) then
   begin
-    frmSerie := TfrmSerie.Create(Application);
-    frmSerie.pnlTop.Caption := frmSerie.Caption+'  ';
+    frmSerie.Show;
   end
   else
   begin
-    frmSerie.Show;
+    DM.cdsSerie.Open;
+    frmSerie := TfrmSerie.Create(Application);
+    frmSerie.pnlTop.Caption := frmSerie.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnSubGrupoClick(Sender: TObject);
 begin
-  DM.cdsProdutoSubGrupo.Open;
-  if frmCADProdutoSubGrupo = nil then
+  if abaExiste(frmCADProdutoSubGrupo) then
   begin
-    frmCADProdutoSubGrupo := TfrmCADProdutoSubGrupo.Create(Application);
-    frmCADProdutoSubGrupo.pnlTop.Caption := frmCADProdutoSubGrupo.Caption+'  ';
+    frmCADProdutoSubGrupo.Show;
   end
   else
   begin
-    frmCADProdutoTamanho.Show;
+    DM.cdsProdutoSubGrupo.Open;
+    frmCADProdutoSubGrupo := TfrmCADProdutoSubGrupo.Create(Application);
+    frmCADProdutoSubGrupo.pnlTop.Caption := frmCADProdutoSubGrupo.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnTamanhoClick(Sender: TObject);
 begin
-   DM.cdsProdutoTamanho.Open;
-  if frmCADProdutoTamanho = nil then
+  if abaExiste(frmCADProdutoTamanho) then
   begin
-    frmCADProdutoTamanho := TfrmCADProdutoTamanho.Create(Application);
-    frmCADProdutoTamanho.pnlTop.Caption := frmCADProdutoTamanho.Caption+'  ';
+    frmCADProdutoTamanho.Show;
   end
   else
   begin
-    frmCADProdutoTamanho.Show;
+    DM.cdsProdutoTamanho.Open;
+    frmCADProdutoTamanho := TfrmCADProdutoTamanho.Create(Application);
+    frmCADProdutoTamanho.pnlTop.Caption := frmCADProdutoTamanho.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCBOClick(Sender: TObject);
 begin
-  DM.cdsCBO.Open;
-  if frmCADCBO = nil then
+  if abaExiste(frmCADCBO) then
   begin
-    frmCADCBO := TfrmCADCBO.Create(Application);
-    frmCADCBO.pnlTop.Caption := frmCADCBO.Caption+'  ';
+    frmCADCBO.Show;
   end
   else
   begin
-    frmCADCBO.Show;
+    DM.cdsCBO.Open;
+    frmCADCBO := TfrmCADCBO.Create(Application);
+    frmCADCBO.pnlTop.Caption := frmCADCBO.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCepClick(Sender: TObject);
 begin
-    DM.cdsCEP.Open;
-  if frmCADCEP = nil then
+  if abaExiste(frmCADCEP) then
   begin
-    frmCADCEP := TfrmCADCEP.Create(Application);
-    frmCADCEP.pnlTop.Caption := frmCADCEP.Caption+'  ';
+    frmCADCEP.Show;
   end
   else
   begin
-    frmCADCEP.Show;
+    DM.cdsCEP.Open;
+    frmCADCEP := TfrmCADCEP.Create(Application);
+    frmCADCEP.pnlTop.Caption := frmCADCEP.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCFOPClick(Sender: TObject);
 begin
-  DM.cdsCFOP.Open;
-  if frmCADCFOP = nil then
+  if abaExiste(frmCADCFOP) then
   begin
-    frmCADCFOP := TfrmCADCFOP.Create(Application);
-    frmCADCFOP.pnlTop.Caption := frmCADCFOP.Caption+'  ';
+    frmCADCFOP.Show;
   end
   else
   begin
-    frmCADCFOP.Show;
+    DM.cdsCFOP.Open;
+    frmCADCFOP := TfrmCADCFOP.Create(Application);
+    frmCADCFOP.pnlTop.Caption := frmCADCFOP.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnUnidadeConversaoClick(Sender: TObject);
 begin
-  DM.cdsProdutoUnidadeConversao.Open;
-  if frmCADProdutoUnidadeConversao = nil then
+  if abaExiste(frmCADProdutoUnidadeConversao) then
   begin
-    frmCADProdutoUnidadeConversao := TfrmCADProdutoUnidadeConversao.Create(Application);
-    frmCADProdutoUnidadeConversao.pnlTop.Caption := frmCADProdutoUnidadeConversao.Caption+'  ';
+    frmCADProdutoUnidadeConversao.Show;
   end
   else
   begin
-    frmCADProdutoUnidadeConversao.Show;
+    DM.cdsProdutoUnidadeConversao.Open;
+    frmCADProdutoUnidadeConversao := TfrmCADProdutoUnidadeConversao.Create(Application);
+    frmCADProdutoUnidadeConversao.pnlTop.Caption := frmCADProdutoUnidadeConversao.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnUnidadeNegocioClick(Sender: TObject);
 begin
-  DM.cdsUnidadeNegocio.Open;
-  if frmCADUnidadeNegocio = nil then
+  if abaExiste(frmCADUnidadeNegocio) then
   begin
-    frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
-    frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
+    frmCADUnidadeNegocio.Show;
   end
   else
   begin
-    frmCADUnidadeNegocio.Show;
+    DM.cdsUnidadeNegocio.Open;
+    frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
+    frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.dxBarLargeButton1Click(Sender: TObject);
 begin
-  DM.cdsProdutoFornecedor.Open;
-  if frmCADProdutoFornecedor = nil then
+  if abaExiste(frmCADProdutoFornecedor) then
   begin
-    frmCADProdutoFornecedor := TfrmCADProdutoFornecedor.Create(Application);
-    frmCADProdutoFornecedor.pnlTop.Caption := frmCADProdutoFornecedor.Caption+'  ';
+    frmCADProdutoFornecedor.Show;
   end
   else
   begin
-    frmCADProdutoFornecedor.Show;
+    DM.cdsProdutoFornecedor.Open;
+    frmCADProdutoFornecedor := TfrmCADProdutoFornecedor.Create(Application);
+    frmCADProdutoFornecedor.pnlTop.Caption := frmCADProdutoFornecedor.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnICMSClick(Sender: TObject);
 begin
-  DM.cdsCSTICMS.Open;
-  if frmCADCSTICMS = nil then
+  if abaExiste(frmCADCSTICMS) then
   begin
-    frmCADCSTICMS := TfrmCADCSTICMS.Create(Application);
-    frmCADCSTICMS.pnlTop.Caption := frmCADCSTICMS.Caption+'  ';
+    frmCADCSTICMS.Show;
   end
   else
   begin
-    frmCADCSTICMS.Show;
+    DM.cdsCSTICMS.Open;
+    frmCADCSTICMS := TfrmCADCSTICMS.Create(Application);
+    frmCADCSTICMS.pnlTop.Caption := frmCADCSTICMS.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCNAEClick(Sender: TObject);
 begin
-  DM.cdsCNAE.Open;
-  if frmCADCNAE = nil then
+  if abaExiste(frmCADCNAE) then
   begin
-    frmCADCNAE := TfrmCADCNAE.Create(Application);
-    frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
+    frmCADCNAE.Show;
   end
   else
   begin
-    frmCADCNAE.Show;
+    DM.cdsCNAE.Open;
+    frmCADCNAE := TfrmCADCNAE.Create(Application);
+    frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCSOSNClick(Sender: TObject);
 begin
-  DM.cdsCSTCSOSN.Open;
-  if frmCADCSTCSOSN = nil then
+  if abaExiste(frmCADCSTCSOSN) then
   begin
-    frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
-    frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
+    frmCADCSTCSOSN.Show;
   end
   else
   begin
-    frmCADCSTCSOSN.Show;
+    DM.cdsCSTCSOSN.Open;
+    frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
+    frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnEmpresaClick(Sender: TObject);
 begin
-  DM.cdsEmpresa.Open;
-  if frmCADEmpresa = nil then
+  if abaExiste(frmCADEmpresa) then
   begin
-    frmCADEmpresa := TfrmCADEmpresa.Create(Application);
-    frmCADEmpresa.pnlTop.Caption := frmCADEmpresa.Caption+'  ';
+    frmCADEmpresa.Show;
   end
   else
   begin
-    frmCADEmpresa.Show;
+    DM.cdsEmpresa.Open;
+    frmCADEmpresa := TfrmCADEmpresa.Create(Application);
+    frmCADEmpresa.pnlTop.Caption := frmCADEmpresa.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnEstadoClick(Sender: TObject);
 begin
-  DM.cdsEstado.Open;
-  if frmCADEstado = nil then
+  if abaExiste(frmCADEstado) then
   begin
-    frmCADEstado := TfrmCADEstado.Create(Application);
-    frmCADEstado.pnlTop.Caption := frmCADEstado.Caption+'  ';
+    frmCADEstado.Show;
   end
   else
   begin
-    frmCADEstado.Show;
+    DM.cdsEstado.Open;
+    frmCADEstado := TfrmCADEstado.Create(Application);
+    frmCADEstado.pnlTop.Caption := frmCADEstado.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnGrupoClick(Sender: TObject);
 begin
-  DM.cdsProdutoGrupo.Open;
-  if frmCADProdutoGrupo = nil then
+  if abaExiste(frmCADProdutoGrupo) then
   begin
-    frmCADProdutoGrupo := TfrmCADProdutoGrupo .Create(Application);
-    frmCADProdutoGrupo.pnlTop.Caption := frmCADProdutoGrupo.Caption+'  ';
+    frmCADProdutoGrupo.Show;
   end
   else
   begin
-    frmCADProdutoGrupo.Show;
+    DM.cdsProdutoGrupo.Open;
+    frmCADProdutoGrupo := TfrmCADProdutoGrupo.Create(Application);
+    frmCADProdutoGrupo.pnlTop.Caption := frmCADProdutoGrupo.Caption+'  ';
+  end;
+end;
+
+function TfrmPrincipal.abaExiste(Formulario: TForm): boolean;
+var
+  I: Integer;
+begin
+  result := false;
+  for I := 0 to dxTabbedMDIManager.TabProperties.PageCount - 1 do
+  begin
+    if dxTabbedMDIManager.TabProperties.Pages[I].MDIChild = Formulario then
+    begin
+      result := true;
+      break;
+    end;
   end;
 end;
 
 procedure TfrmPrincipal.barProdutoUnidadeClick(Sender: TObject);
 begin
-  DM.cdsProdutoUnidade.Open;
-  if frmCADProdutoUnidade = nil then
+  if abaExiste(frmCADProdutoUnidade) then
   begin
-    frmCADProdutoUnidade := TfrmCADProdutoUnidade.Create(Application);
-    frmCADProdutoUnidade.pnlTop.Caption := frmCADProdutoUnidade.Caption+'  ';
+    frmCADProdutoUnidade.Show;
   end
   else
   begin
-    frmCADProdutoUnidade.Show;
+    DM.cdsProdutoUnidade.Open;
+    frmCADProdutoUnidade := TfrmCADProdutoUnidade.Create(Application);
+    frmCADProdutoUnidade.pnlTop.Caption := frmCADProdutoUnidade.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.barSetorClick(Sender: TObject);
 begin
-  DM.cdsSetor.Open;
-  if frmCADSetor = nil then
+  if abaExiste(frmCADSetor) then
   begin
-    frmCADSetor := TfrmCADSetor.Create(Application);
-    frmCADSetor.pnlTop.Caption := frmCADSetor.Caption+'  ';
+    frmCADSetor.Show;
   end
   else
   begin
-    frmCADSetor.Show;
+    DM.cdsSetor.Open;
+    frmCADSetor := TfrmCADSetor.Create(Application);
+    frmCADSetor.pnlTop.Caption := frmCADSetor.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.barTelefoneClick(Sender: TObject);
 begin
-  DM.cdsTelefone.Open;
-  if frmCADTelefone = nil then
+  if abaExiste(frmCADTelefone) then
   begin
-    frmCADTelefone := TfrmCADTelefone.Create(Application);
-    frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
+    frmCADTelefone.Show;
   end
   else
   begin
-    frmCADTelefone.Show;
+    DM.cdsTelefone.Open;
+    frmCADTelefone := TfrmCADTelefone.Create(Application);
+    frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnAuditoriaClick(Sender: TObject);
 begin
-  DM.cdsAuditoria.Open;
-  if frmCADAuditoria = nil then
+  if abaExiste(frmCADAuditoria) then
   begin
-    frmCADAuditoria := TfrmCADAuditoria.Create(Application);
-    frmCADAuditoria.pnlTop.Caption := frmCADAuditoria.Caption+'  ';
+    frmCADAuditoria.Show;
   end
   else
   begin
-    frmCADAuditoria.Show;
+    DM.cdsAuditoria.Open;
+    frmCADAuditoria := TfrmCADAuditoria.Create(Application);
+    frmCADAuditoria.pnlTop.Caption := frmCADAuditoria.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnBancoClick(Sender: TObject);
 begin
-  DM.cdsBanco.Open;
-  if frmCADBanco = nil then
+  if abaExiste(frmCADBanco) then
   begin
-    frmCADBanco := TfrmCADBanco.Create(Application);
-    frmCADBanco.pnlTop.Caption := frmCADBanco.Caption+'  ';
+    frmCADBanco.Show;
   end
   else
   begin
-    frmCADBanco.Show;
+    DM.cdsBanco.Open;
+    frmCADBanco := TfrmCADBanco.Create(Application);
+    frmCADBanco.pnlTop.Caption := frmCADBanco.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnClienteClick(Sender: TObject);
 begin
-  DM.cdsCSTCSOSN.Open;
-  if frmCADCSTCSOSN = nil then
+  if abaExiste(frmCADCSTCSOSN) then
   begin
-    frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
-    frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
+    frmCADCSTCSOSN.Show;
   end
   else
   begin
-    frmCADCSTCSOSN.Show;
+    DM.cdsCSTCSOSN.Open;
+    frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
+    frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCofinsClick(Sender: TObject);
 begin
-  DM.cdsCSTCofins.Open;
-  if frmCADCSTCofins = nil then
+  if abaExiste(frmCADCSTCofins) then
   begin
-    frmCADCSTCofins := TfrmCADCSTCofins.Create(Application);
-    frmCADCSTCofins.pnlTop.Caption := frmCADCSTCofins.Caption+'  ';
+    frmCADCSTCofins.Show;
   end
   else
   begin
-    frmCADCSTCofins.Show;
+    DM.cdsCSTCofins.Open;
+    frmCADCSTCofins := TfrmCADCSTCofins.Create(Application);
+    frmCADCSTCofins.pnlTop.Caption := frmCADCSTCofins.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnCorClick(Sender: TObject);
 begin
-  DM.cdsProdutoCor.Open;
-  if frmCADProdutoCor = nil then
+  if abaExiste(frmCADProdutoCor) then
   begin
-    frmCADProdutoCor := TfrmCADProdutoCor.Create(Application);
-    frmCADProdutoCor.pnlTop.Caption := frmCADProdutoCor.Caption+'  ';
+    frmCADProdutoCor.Show;
   end
   else
   begin
-    frmCADProdutoCor.Show;
+    DM.cdsProdutoCor.Open;
+    frmCADProdutoCor := TfrmCADProdutoCor.Create(Application);
+    frmCADProdutoCor.pnlTop.Caption := frmCADProdutoCor.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
 begin
-  DM.cdsIndicadorEconomico.Open;
-  if frmCADIndicadorEconomico = nil then
+  if abaExiste(frmCADIndicadorEconomico) then
   begin
-    frmCADIndicadorEconomico := TfrmCADIndicadorEconomico.Create(Application);
-    frmCADIndicadorEconomico.pnlTop.Caption := frmCADIndicadorEconomico.Caption+'  ';
+    frmCADIndicadorEconomico.Show;
   end
   else
   begin
-    frmCADIndicadorEconomico.Show;
+    DM.cdsIndicadorEconomico.Open;
+    frmCADIndicadorEconomico := TfrmCADIndicadorEconomico.Create(Application);
+    frmCADIndicadorEconomico.pnlTop.Caption := frmCADIndicadorEconomico.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnIndiceClick(Sender: TObject);
 begin
-  DM.cdsIndice.Open;
-  if frmCADIndice = nil then
+  if abaExiste(frmCADIndice) then
   begin
-    frmCADIndice := TfrmCADIndice.Create(Application);
-    frmCADIndice.pnlTop.Caption := frmCADIndice.Caption+'  ';
+    frmCADIndice.Show;
   end
   else
   begin
-    frmCADIndice.Show;
+    DM.cdsIndice.Open;
+    frmCADIndice := TfrmCADIndice.Create(Application);
+    frmCADIndice.pnlTop.Caption := frmCADIndice.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnIPIClick(Sender: TObject);
 begin
-  DM.cdsCSTIPI.Open;
-  if frmCADCSTIPI = nil then
+  if abaExiste(frmCADCSTIPI) then
   begin
-    frmCADCSTIPI := TfrmCADCSTIPI.Create(Application);
-    frmCADCSTIPI.pnlTop.Caption := frmCADCSTIPI.Caption+'  ';
+    frmCADCSTIPI.Show;
   end
   else
   begin
-    frmCADCSTIPI.Show;
+    DM.cdsCSTIPI.Open;
+    frmCADCSTIPI := TfrmCADCSTIPI.Create(Application);
+    frmCADCSTIPI.pnlTop.Caption := frmCADCSTIPI.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnModeloClick(Sender: TObject);
 begin
-  DM.cdsModelo.Open;
-  if frmCADModelo = nil then
+  if abaExiste(frmCADModelo) then
   begin
-    frmCADModelo := TfrmCADModelo.Create(Application);
-    frmCADModelo.pnlTop.Caption := frmCADModelo.Caption+'  ';
+    frmCADModelo.Show;
   end
   else
   begin
-    frmCADModelo.Show;
+    DM.cdsModelo.Open;
+    frmCADModelo := TfrmCADModelo.Create(Application);
+    frmCADModelo.pnlTop.Caption := frmCADModelo.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnMunicipioClick(Sender: TObject);
 begin
-  DM.cdsMunicipio.Open;
-  if frmCADMunicipio = nil then
+  if abaExiste(frmCADMunicipio) then
   begin
-    frmCADMunicipio := TfrmCADMunicipio.Create(Application);
-    frmCADMunicipio.pnlTop.Caption := frmCADMunicipio.Caption + '  ';
+    frmCADMunicipio.Show;
   end
   else
   begin
-    frmCADMunicipio.Show;
+    DM.cdsMunicipio.Open;
+    frmCADMunicipio := TfrmCADMunicipio.Create(Application);
+    frmCADMunicipio.pnlTop.Caption := frmCADMunicipio.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnNCMClick(Sender: TObject);
 begin
-  DM.cdsNCM.Open;
-  if frmCADNCM = nil then
+  if abaExiste(frmCADNCM) then
   begin
-    frmCADNCM := TfrmCADNCM.Create(Application);
-    frmCADNCM.pnlTop.Caption := frmCADNCM.Caption+'  ';
+    frmCADNCM.Show;
   end
   else
   begin
-    frmCADNCM.Show;
+    DM.cdsNCM.Open;
+    frmCADNCM := TfrmCADNCM.Create(Application);
+    frmCADNCM.pnlTop.Caption := frmCADNCM.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnObservacaoClick(Sender: TObject);
 begin
-  DM.cdsRegraFiscalObservacao.Open;
-  if frmCADRegraFiscalObservacao = nil then
+  if abaExiste(frmCADRegraFiscalObservacao) then
   begin
-    frmCADRegraFiscalObservacao := TfrmCADRegraFiscalObservacao.Create(Application);
-    frmCADRegraFiscalObservacao.pnlTop.Caption := frmCADRegraFiscalObservacao.Caption+'  ';
+    frmCADRegraFiscalObservacao.Show;
   end
   else
   begin
-    frmCADRegraFiscalObservacao.Show;
+    DM.cdsRegraFiscalObservacao.Open;
+    frmCADRegraFiscalObservacao := TfrmCADRegraFiscalObservacao.Create(Application);
+    frmCADRegraFiscalObservacao.pnlTop.Caption := frmCADRegraFiscalObservacao.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnPaisClick(Sender: TObject);
 begin
-  DM.cdsPais.Open;
-  if frmCADPAIS = nil then
+  if abaExiste(frmCADPAIS) then
   begin
-    frmCADPAIS := TfrmCADPAIS.Create(Application);
-    frmCADPAIS.pnlTop.Caption := frmCADPAIS.Caption+'  ';
+    frmCADPAIS.Show;
   end
   else
   begin
-    frmCADPAIS.Show;
+    DM.cdsPais.Open;
+    frmCADPAIS := TfrmCADPAIS.Create(Application);
+    frmCADPAIS.pnlTop.Caption := frmCADPAIS.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnPISClick(Sender: TObject);
 begin
-  DM.cdsCSTPIS.Open;
-  if frmCADCSTPIS = nil then
+  if abaExiste(frmCADCSTPIS) then
   begin
-    frmCADCSTPIS := TfrmCADCSTPIS.Create(Application);
-    frmCADCSTPIS.pnlTop.Caption := frmCADCSTPIS.Caption+'  ';
+    frmCADCSTPIS.Show;
   end
   else
   begin
-    frmCADCSTPIS.Show;
+    DM.cdsCSTPIS.Open;
+    frmCADCSTPIS := TfrmCADCSTPIS.Create(Application);
+    frmCADCSTPIS.pnlTop.Caption := frmCADCSTPIS.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnPortadorClick(Sender: TObject);
 begin
-  DM.cdsPortador.Open;
-  if frmCadPortador = nil then
+  if abaExiste(frmCadPortador) then
   begin
-    frmCadPortador := TfrmCadPortador.Create(Application);
-    frmCadPortador.pnlTop.Caption := frmCadPortador.Caption+'  ';
+    frmCadPortador.Show;
   end
   else
   begin
-    frmCadPortador.Show;
+    DM.cdsPortador.Open;
+    frmCadPortador := TfrmCadPortador.Create(Application);
+    frmCadPortador.pnlTop.Caption := frmCadPortador.Caption+'  ';
   end;
 end;
 
 procedure TfrmPrincipal.btnRegraFiscalClick(Sender: TObject);
 begin
-  DM.cdsRegraFiscal.Open;
-  if frmCADRegraFiscal = nil then
+  if abaExiste(frmCADRegraFiscal) then
   begin
-    frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
-    frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
+    frmCADRegraFiscal.Show;
   end
   else
   begin
-    frmCADRegraFiscal.Show;
+    DM.cdsRegraFiscal.Open;
+    frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
+    frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
   end;
 end;
 

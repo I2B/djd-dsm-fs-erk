@@ -973,7 +973,7 @@ end;
 procedure TfrmGrid.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
-  Action := caFree;
+  Destroy
 end;
 
 procedure TfrmGrid.FormCreate(Sender: TObject);
