@@ -428,6 +428,7 @@
             <Form>frmCADProdutoFornecedor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Framework\unI2BFuncoes.pas"/>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
