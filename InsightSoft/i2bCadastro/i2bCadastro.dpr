@@ -79,7 +79,8 @@ uses
   unFrameProdutoGrupo in 'Frames\unFrameProdutoGrupo.pas' {FrameProdutoGrupo: TFrame},
   unCADProdutoGrupo in 'Forms\unCADProdutoGrupo.pas' {frmCADProdutoGrupo},
   unFrameProdutoFornecedor in 'Frames\unFrameProdutoFornecedor.pas' {FrameProdutoFornecedor: TFrame},
-  unCADProdutoFornecedor in 'Forms\unCADProdutoFornecedor.pas' {frmCADProdutoFornecedor};
+  unCADProdutoFornecedor in 'Forms\unCADProdutoFornecedor.pas' {frmCADProdutoFornecedor},
+  unI2BFuncoes in '..\Framework\unI2BFuncoes.pas';
 
 {$R *.res}
 
