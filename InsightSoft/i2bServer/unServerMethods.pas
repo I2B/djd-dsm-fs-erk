@@ -911,19 +911,16 @@ type
     qryPessoasuframa: TWideStringField;
     qryPessoanome: TWideStringField;
     qryPessoaClienteidpessoa: TIntegerField;
-    qryPessoaClientedatacadastro: TDateField;
     qryPessoaClienteobservacao: TWideMemoField;
     qryPessoaClientegerafinanceiro: TBooleanField;
     qryPessoaClientelimitecredito: TFloatField;
     qryPessoaClienteativo: TBooleanField;
-    qryPessoaClienteestadocivil: TWideStringField;
     qryPessoaColaboradoridbanco: TWideStringField;
     qryPessoaColaboradoridsetor: TIntegerField;
     qryPessoaColaboradoridcargo: TIntegerField;
     qryPessoaColaboradoridpessoa: TIntegerField;
     qryPessoaColaboradormatricula: TWideStringField;
     qryPessoaColaboradorfoto3x4: TWideMemoField;
-    qryPessoaColaboradordatacadastro: TDateField;
     qryPessoaColaboradordataadmissao: TDateField;
     qryPessoaColaboradorfgtsconta: TSmallintField;
     qryPessoaColaboradorformapagamento: TWideStringField;
@@ -945,7 +942,6 @@ type
     qryPessoaContadoremail: TWideStringField;
     qryPessoaContadoridunidadenegocio: TIntegerField;
     qryPessoaTransportadoraidpessoa: TIntegerField;
-    qryPessoaTransportadoradatacadastro: TDateField;
     qryPessoaTransportadoraobservacao: TWideMemoField;
     qryPessoaVendedoridpessoa: TIntegerField;
     qryPessoaVendedorcomissao: TFloatField;
@@ -1184,6 +1180,8 @@ type
     qryPessoaFornecedorquantidadeparcelas: TIntegerField;
     qryFiltroSalvofiltrosql: TMemoField;
     qryFiltroSalvofiltrodisplay: TMemoField;
+    qryPessoarepresentante2: TBooleanField;
+    qryPessoadatacadastro: TDateField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);

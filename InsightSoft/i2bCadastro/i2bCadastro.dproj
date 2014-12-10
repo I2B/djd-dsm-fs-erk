@@ -429,10 +429,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Framework\unI2BFuncoes.pas"/>
-        <DCCReference Include="Frames\unFrameProduto.pas">
-            <Form>FrameProduto</Form>
+        <DCCReference Include="Frames\unFramePessoa.pas">
+            <Form>FramePessoa</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADPessoa.pas">
+            <Form>frmCADPessoa</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">

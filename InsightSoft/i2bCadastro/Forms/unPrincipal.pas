@@ -81,6 +81,7 @@ type
     btnSubGrupo: TdxBarLargeButton;
     dxBarManagerBar2: TdxBar;
     dxBarLargeButton1: TdxBarLargeButton;
+    btnPessoa: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -116,6 +117,7 @@ type
     procedure btnSubGrupoClick(Sender: TObject);
     procedure btnGrupoClick(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure btnPessoaClick(Sender: TObject);
   private
     { Private declarations }
     function abaExiste(Formulario : TForm):boolean;
@@ -135,7 +137,7 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
   unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
   unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais,
-  unCADProdutoGrupo, unCADProdutoFornecedor;
+  unCADProdutoGrupo, unCADProdutoFornecedor, unCADPessoa;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
@@ -583,6 +585,20 @@ begin
     DM.cdsPais.Open;
     frmCADPAIS := TfrmCADPAIS.Create(Application);
     frmCADPAIS.pnlTop.Caption := frmCADPAIS.Caption+'  ';
+  end;
+end;
+
+procedure TfrmPrincipal.btnPessoaClick(Sender: TObject);
+begin
+  DM.cdsPessoa.Open;
+  if frmCADPessoa = nil then
+  begin
+    frmCADPessoa := TfrmCADPessoa.Create(Application);
+    frmCADPessoa.pnlTop.Caption := frmCADPessoa.Caption+'  ';
+  end
+  else
+  begin
+    frmCADPessoa.Show;
   end;
 end;
 
