@@ -302,8 +302,6 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 0
-        ExplicitTop = 0
         ExplicitWidth = 838
         ExplicitHeight = 339
         object pnlCadastro: TPanel
@@ -804,7 +802,6 @@ inherited frmCadastro: TfrmCadastro
           Width = 838
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 268
-            ExplicitHeight = 21
             Width = 268
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -827,12 +824,6 @@ inherited frmCadastro: TfrmCadastro
               ExplicitLeft = 806
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 21
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 21
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 644
             ExplicitLeft = 644
@@ -844,12 +835,6 @@ inherited frmCadastro: TfrmCadastro
           inherited btnAplicarFiltro: TcxButton
             Width = 302
             ExplicitWidth = 302
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 21
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 21
           end
         end
       end

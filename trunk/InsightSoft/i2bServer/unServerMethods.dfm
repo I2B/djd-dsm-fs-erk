@@ -4324,6 +4324,14 @@ object ServerMethods: TServerMethods
       Origin = 'nome'
       Size = 250
     end
+    object qryPessoarepresentante2: TBooleanField
+      FieldName = 'representante'
+      Origin = 'representante'
+    end
+    object qryPessoadatacadastro: TDateField
+      FieldName = 'datacadastro'
+      Origin = 'datacadastro'
+    end
   end
   object dspNFeProdutorRuralReferenciada: TDataSetProvider
     DataSet = qryNFeProdutorRuralReferenciada
@@ -4405,10 +4413,6 @@ object ServerMethods: TServerMethods
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
     end
-    object qryPessoaClientedatacadastro: TDateField
-      FieldName = 'datacadastro'
-      Origin = 'datacadastro'
-    end
     object qryPessoaClienteobservacao: TWideMemoField
       FieldName = 'observacao'
       Origin = 'observacao'
@@ -4425,10 +4429,6 @@ object ServerMethods: TServerMethods
     object qryPessoaClienteativo: TBooleanField
       FieldName = 'ativo'
       Origin = 'ativo'
-    end
-    object qryPessoaClienteestadocivil: TWideStringField
-      FieldName = 'estadocivil'
-      Origin = 'estadocivil'
     end
   end
   object qryPessoaColaborador: TFDQuery
@@ -4470,10 +4470,6 @@ object ServerMethods: TServerMethods
       FieldName = 'foto3x4'
       Origin = 'foto3x4'
       BlobType = ftWideMemo
-    end
-    object qryPessoaColaboradordatacadastro: TDateField
-      FieldName = 'datacadastro'
-      Origin = 'datacadastro'
     end
     object qryPessoaColaboradordataadmissao: TDateField
       FieldName = 'dataadmissao'
@@ -4691,10 +4687,6 @@ object ServerMethods: TServerMethods
     object qryPessoaTransportadoraidpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
-    end
-    object qryPessoaTransportadoradatacadastro: TDateField
-      FieldName = 'datacadastro'
-      Origin = 'datacadastro'
     end
     object qryPessoaTransportadoraobservacao: TWideMemoField
       FieldName = 'observacao'

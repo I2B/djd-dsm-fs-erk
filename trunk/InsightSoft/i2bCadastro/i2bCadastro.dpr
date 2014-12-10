@@ -81,7 +81,8 @@ uses
   unFrameProdutoFornecedor in 'Frames\unFrameProdutoFornecedor.pas' {FrameProdutoFornecedor: TFrame},
   unCADProdutoFornecedor in 'Forms\unCADProdutoFornecedor.pas' {frmCADProdutoFornecedor},
   unI2BFuncoes in '..\Framework\unI2BFuncoes.pas',
-  unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame};
+  unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
+  unCADPessoa in 'Forms\unCADPessoa.pas' {frmCADPessoa};
 
 {$R *.res}
 

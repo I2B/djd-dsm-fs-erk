@@ -64,26 +64,34 @@ object DM: TDM
     Top = 88
     object cdsAuditoriaidauditoria: TIntegerField
       FieldName = 'idauditoria'
+      Origin = 'idauditoria'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsAuditoriadataregistro: TDateField
       FieldName = 'dataregistro'
+      Origin = 'dataregistro'
     end
     object cdsAuditoriahoraregistro: TTimeField
       FieldName = 'horaregistro'
+      Origin = 'horaregistro'
     end
     object cdsAuditoriaacao: TWideStringField
       FieldName = 'acao'
+      Origin = 'acao'
       Size = 50
     end
     object cdsAuditoriadescricao: TWideMemoField
       FieldName = 'descricao'
+      Origin = 'descricao'
       BlobType = ftWideMemo
     end
     object cdsAuditoriaidunidadenegocio: TIntegerField
       FieldName = 'idunidadenegocio'
+      Origin = 'idunidadenegocio'
     end
     object cdsAuditorianomefantasia: TWideStringField
       FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
       Size = 60
     end
   end
@@ -2747,122 +2755,181 @@ object DM: TDM
     Top = 480
     object cdsPessoaidpessoa: TIntegerField
       FieldName = 'idpessoa'
+      Origin = 'idpessoa'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
-    object cdsPessoatipo: TWideStringField
+    object r: TWideStringField
       FieldName = 'tipo'
+      Origin = 'tipo'
       FixedChar = True
       Size = 1
     end
     object cdsPessoaemail: TWideStringField
       FieldName = 'email'
+      Origin = 'email'
       Size = 250
     end
     object cdsPessoasite: TWideStringField
       FieldName = 'site'
+      Origin = 'site'
       Size = 250
     end
     object cdsPessoacliente2: TBooleanField
       FieldName = 'cliente'
+      Origin = 'cliente'
     end
     object cdsPessoafornecedor2: TBooleanField
       FieldName = 'fornecedor'
+      Origin = 'fornecedor'
     end
     object cdsPessoacolaborador2: TBooleanField
       FieldName = 'colaborador'
+      Origin = 'colaborador'
     end
     object cdsPessoacontador2: TBooleanField
       FieldName = 'contador'
+      Origin = 'contador'
     end
     object cdsPessoatransportadora2: TBooleanField
       FieldName = 'transportadora'
+      Origin = 'transportadora'
     end
     object cdsPessoavendedor2: TBooleanField
       FieldName = 'vendedor'
+      Origin = 'vendedor'
     end
     object cdsPessoacpf: TWideStringField
       FieldName = 'cpf'
+      Origin = 'cpf'
       Size = 14
     end
     object cdsPessoacnpj: TWideStringField
       FieldName = 'cnpj'
+      Origin = 'cnpj'
       Size = 9
     end
     object cdsPessoarg: TWideStringField
       FieldName = 'rg'
+      Origin = 'rg'
     end
     object cdsPessoadatanascimento: TDateField
       FieldName = 'datanascimento'
+      Origin = 'datanascimento'
     end
     object cdsPessoasexo: TWideStringField
       FieldName = 'sexo'
+      Origin = 'sexo'
       FixedChar = True
       Size = 1
     end
     object cdsPessoaestadocivil: TWideStringField
       FieldName = 'estadocivil'
+      Origin = 'estadocivil'
     end
     object cdsPessoacnhnumero: TWideStringField
       FieldName = 'cnhnumero'
+      Origin = 'cnhnumero'
     end
     object cdsPessoacnhcategoria: TWideStringField
       FieldName = 'cnhcategoria'
+      Origin = 'cnhcategoria'
       FixedChar = True
       Size = 2
     end
     object cdsPessoacnhvencimento: TDateField
       FieldName = 'cnhvencimento'
+      Origin = 'cnhvencimento'
     end
     object cdsPessoanomemae: TWideStringField
       FieldName = 'nomemae'
+      Origin = 'nomemae'
       Size = 60
     end
     object cdsPessoanomepai: TWideStringField
       FieldName = 'nomepai'
+      Origin = 'nomepai'
       Size = 60
     end
     object cdsPessoanomefantasia: TWideStringField
       FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
       Size = 60
     end
     object cdsPessoainscricaomunicipal: TWideStringField
       FieldName = 'inscricaomunicipal'
+      Origin = 'inscricaomunicipal'
       Size = 30
     end
     object cdsPessoainscricaoestadual: TWideStringField
       FieldName = 'inscricaoestadual'
+      Origin = 'inscricaoestadual'
       Size = 30
     end
     object cdsPessoatiporegime: TWideStringField
       FieldName = 'tiporegime'
+      Origin = 'tiporegime'
       FixedChar = True
       Size = 1
     end
     object cdsPessoacrt: TWideStringField
       FieldName = 'crt'
+      Origin = 'crt'
       FixedChar = True
       Size = 1
     end
     object cdsPessoasuframa: TWideStringField
       FieldName = 'suframa'
+      Origin = 'suframa'
       Size = 9
     end
     object cdsPessoanome: TWideStringField
       FieldName = 'nome'
+      Origin = 'nome'
       Size = 250
+    end
+    object cdsPessoarepresentante2: TBooleanField
+      FieldName = 'representante'
+    end
+    object cdsPessoadatacadastro: TDateField
+      FieldName = 'datacadastro'
     end
   end
   object cdsPessoaCliente: TClientDataSet
     Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'idpessoa'
+        DataType = ftInteger
+      end
+      item
+        Name = 'observacao'
+        DataType = ftWideMemo
+      end
+      item
+        Name = 'gerafinanceiro'
+        DataType = ftBoolean
+      end
+      item
+        Name = 'limitecredito'
+        DataType = ftFloat
+      end
+      item
+        Name = 'ativo'
+        DataType = ftBoolean
+      end>
+    IndexDefs = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaCliente'
     RemoteServer = dspConnection
+    StoreDefs = True
     Left = 392
     Top = 536
     object cdsPessoaClienteidpessoa: TIntegerField
       FieldName = 'idpessoa'
-    end
-    object cdsPessoaClientedatacadastro: TDateField
-      FieldName = 'datacadastro'
     end
     object cdsPessoaClienteobservacao: TWideMemoField
       FieldName = 'observacao'
@@ -2877,12 +2944,13 @@ object DM: TDM
     object cdsPessoaClienteativo: TBooleanField
       FieldName = 'ativo'
     end
-    object cdsPessoaClienteestadocivil: TWideStringField
-      FieldName = 'estadocivil'
-    end
   end
   object cdsPessoaColaborador: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaColaborador'
     RemoteServer = dspConnection
@@ -2902,19 +2970,9 @@ object DM: TDM
     object cdsPessoaColaboradoridempresa: TIntegerField
       FieldName = 'idempresa'
     end
-    object cdsPessoaColaboradoridpessoa: TIntegerField
-      FieldName = 'idpessoa'
-    end
-    object cdsPessoaColaboradormatricula: TWideStringField
-      FieldName = 'matricula'
-      Size = 10
-    end
     object cdsPessoaColaboradorfoto3x4: TWideMemoField
       FieldName = 'foto3x4'
       BlobType = ftWideMemo
-    end
-    object cdsPessoaColaboradordatacadastro: TDateField
-      FieldName = 'datacadastro'
     end
     object cdsPessoaColaboradordataadmissao: TDateField
       FieldName = 'dataadmissao'
@@ -2956,9 +3014,31 @@ object DM: TDM
     object cdsPessoaColaboradordatademissao: TDateField
       FieldName = 'datademissao'
     end
+    object cdsPessoaColaboradoridunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+    end
+    object cdsPessoaColaboradorsetornome: TWideStringField
+      FieldName = 'setornome'
+      Size = 50
+    end
+    object cdsPessoaColaboradorcargonome: TWideStringField
+      FieldName = 'cargonome'
+      Size = 30
+    end
+    object cdsPessoaColaboradoridpessoa: TIntegerField
+      FieldName = 'idpessoa'
+    end
+    object cdsPessoaColaboradormatricula: TWideStringField
+      FieldName = 'matricula'
+      Size = 10
+    end
   end
   object cdsPessoaContador: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaContador'
     RemoteServer = dspConnection
@@ -2989,6 +3069,10 @@ object DM: TDM
   end
   object cdsPessoaFornecedor: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaFornecedor'
     RemoteServer = dspConnection
@@ -3034,14 +3118,15 @@ object DM: TDM
   end
   object cdsPessoaRepresentante: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaRepresentante'
     RemoteServer = dspConnection
     Left = 464
     Top = 200
-    object cdsPessoaRepresentanteidempresa: TIntegerField
-      FieldName = 'idempresa'
-    end
     object cdsPessoaRepresentanteidpessoa: TIntegerField
       FieldName = 'idpessoa'
     end
@@ -3051,9 +3136,20 @@ object DM: TDM
     object cdsPessoaRepresentantemetavendas: TFloatField
       FieldName = 'metavendas'
     end
+    object cdsPessoaRepresentanteidunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+    end
+    object cdsPessoaRepresentantenomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Size = 60
+    end
   end
   object cdsPessoaTransportadora: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaTransportadora'
     RemoteServer = dspConnection
@@ -3062,9 +3158,6 @@ object DM: TDM
     object cdsPessoaTransportadoraidpessoa: TIntegerField
       FieldName = 'idpessoa'
     end
-    object cdsPessoaTransportadoradatacadastro: TDateField
-      FieldName = 'datacadastro'
-    end
     object cdsPessoaTransportadoraobservacao: TWideMemoField
       FieldName = 'observacao'
       BlobType = ftWideMemo
@@ -3072,14 +3165,39 @@ object DM: TDM
   end
   object cdsPessoaVendedor: TClientDataSet
     Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'idpessoa'
+        DataType = ftInteger
+      end
+      item
+        Name = 'comissao'
+        DataType = ftFloat
+      end
+      item
+        Name = 'metavendas'
+        DataType = ftFloat
+      end
+      item
+        Name = 'idunidadenegocio'
+        DataType = ftInteger
+      end
+      item
+        Name = 'nomefantasia'
+        DataType = ftWideString
+        Size = 60
+      end>
+    IndexDefs = <>
+    IndexFieldNames = 'idpessoa'
+    MasterFields = 'idpessoa'
+    MasterSource = dsPessoa
+    PacketRecords = 0
     Params = <>
     ProviderName = 'dspPessoaVendedor'
     RemoteServer = dspConnection
+    StoreDefs = True
     Left = 464
     Top = 312
-    object cdsPessoaVendedoridempresa: TIntegerField
-      FieldName = 'idempresa'
-    end
     object cdsPessoaVendedoridpessoa: TIntegerField
       FieldName = 'idpessoa'
     end
@@ -3088,6 +3206,13 @@ object DM: TDM
     end
     object cdsPessoaVendedormetavendas: TFloatField
       FieldName = 'metavendas'
+    end
+    object cdsPessoaVendedoridunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+    end
+    object cdsPessoaVendedornomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Size = 60
     end
   end
   object cdsPlanoContasFinanceiro: TClientDataSet
@@ -3985,5 +4110,11 @@ object DM: TDM
       FieldName = 'nome'
       Size = 255
     end
+  end
+  object dsPessoa: TDataSource
+    AutoEdit = False
+    DataSet = cdsPessoa
+    Left = 688
+    Top = 544
   end
 end

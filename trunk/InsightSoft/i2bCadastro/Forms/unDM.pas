@@ -704,7 +704,7 @@ type
     cdsPedidoItemvalordesconto: TFloatField;
     cdsPedidoItemvalortotal: TFloatField;
     cdsPessoaidpessoa: TIntegerField;
-    cdsPessoatipo: TWideStringField;
+    r: TWideStringField;
     cdsPessoaemail: TWideStringField;
     cdsPessoasite: TWideStringField;
     cdsPessoacliente2: TBooleanField;
@@ -731,20 +731,15 @@ type
     cdsPessoacrt: TWideStringField;
     cdsPessoasuframa: TWideStringField;
     cdsPessoaClienteidpessoa: TIntegerField;
-    cdsPessoaClientedatacadastro: TDateField;
     cdsPessoaClienteobservacao: TWideMemoField;
     cdsPessoaClientegerafinanceiro: TBooleanField;
     cdsPessoaClientelimitecredito: TFloatField;
     cdsPessoaClienteativo: TBooleanField;
-    cdsPessoaClienteestadocivil: TWideStringField;
     cdsPessoaColaboradoridbanco: TWideStringField;
     cdsPessoaColaboradoridsetor: TIntegerField;
     cdsPessoaColaboradoridcargo: TIntegerField;
     cdsPessoaColaboradoridempresa: TIntegerField;
-    cdsPessoaColaboradoridpessoa: TIntegerField;
-    cdsPessoaColaboradormatricula: TWideStringField;
     cdsPessoaColaboradorfoto3x4: TWideMemoField;
-    cdsPessoaColaboradordatacadastro: TDateField;
     cdsPessoaColaboradordataadmissao: TDateField;
     cdsPessoaColaboradorfgtsconta: TSmallintField;
     cdsPessoaColaboradorformapagamento: TWideStringField;
@@ -781,14 +776,11 @@ type
     cdsNFeTransportadoraReboqueidestado: TWideStringField;
     cdsNFeTransportadoraReboqueplaca: TWideStringField;
     cdsNFeTransportadoraReboquerntc: TWideStringField;
-    cdsPessoaRepresentanteidempresa: TIntegerField;
     cdsPessoaRepresentanteidpessoa: TIntegerField;
     cdsPessoaRepresentantecomissao: TFloatField;
     cdsPessoaRepresentantemetavendas: TFloatField;
     cdsPessoaTransportadoraidpessoa: TIntegerField;
-    cdsPessoaTransportadoradatacadastro: TDateField;
     cdsPessoaTransportadoraobservacao: TWideMemoField;
-    cdsPessoaVendedoridempresa: TIntegerField;
     cdsPessoaVendedoridpessoa: TIntegerField;
     cdsPessoaVendedorcomissao: TFloatField;
     cdsPessoaVendedormetavendas: TFloatField;
@@ -1037,6 +1029,18 @@ type
     cdsProdutoSubGruponome: TWideStringField;
     cdsProdutoSubGrupodescricao: TWideMemoField;
     cdsProdutoSubGrupogruponome: TWideStringField;
+    cdsPessoarepresentante2: TBooleanField;
+    dsPessoa: TDataSource;
+    cdsPessoadatacadastro: TDateField;
+    cdsPessoaRepresentanteidunidadenegocio: TIntegerField;
+    cdsPessoaRepresentantenomefantasia: TWideStringField;
+    cdsPessoaVendedoridunidadenegocio: TIntegerField;
+    cdsPessoaVendedornomefantasia: TWideStringField;
+    cdsPessoaColaboradoridunidadenegocio: TIntegerField;
+    cdsPessoaColaboradorsetornome: TWideStringField;
+    cdsPessoaColaboradorcargonome: TWideStringField;
+    cdsPessoaColaboradoridpessoa: TIntegerField;
+    cdsPessoaColaboradormatricula: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
