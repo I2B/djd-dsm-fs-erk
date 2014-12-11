@@ -78,6 +78,11 @@ type
     dxLayoutControlItem26: TdxLayoutItem;
     cxDBTextEdit8: TcxDBTextEdit;
     dxLayoutControlItem27: TdxLayoutItem;
+    cxDBTextEdit9: TcxDBTextEdit;
+    dxLayoutControlItem28: TdxLayoutItem;
+    dxLayoutControlGroup7: TdxLayoutAutoCreatedGroup;
+    cxDBTextEdit10: TcxDBTextEdit;
+    dxLayoutControlItem29: TdxLayoutItem;
   private
     { Private declarations }
   public
