@@ -12,6 +12,7 @@ object frmF2: TfrmF2
   Font.Name = 'Segoe UI Light'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
@@ -25,7 +26,6 @@ object frmF2: TfrmF2
     Color = 5177344
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 63
     object pnlLeft: TPanel
       Left = 0
       Top = 0
@@ -36,7 +36,6 @@ object frmF2: TfrmF2
       Color = 5177344
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 347
     end
     object pnlRight: TPanel
       Left = 846
@@ -48,8 +47,6 @@ object frmF2: TfrmF2
       Color = 5177344
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 8
-      ExplicitHeight = 347
     end
     object pnlBottom: TPanel
       Left = 0
@@ -61,7 +58,6 @@ object frmF2: TfrmF2
       Color = 5177344
       ParentBackground = False
       TabOrder = 2
-      ExplicitTop = 324
       object lblCadastro: TLabel
         AlignWithMargins = True
         Left = 3
@@ -71,7 +67,7 @@ object frmF2: TfrmF2
         Align = alClient
         Alignment = taRightJustify
         Caption = 
-          'Caso n'#227'o encontrou o registro desejado, pressione [F12] para rea' +
+          'Caso n'#227'o encontrou o registro desejado, pressione [F10] para rea' +
           'lizar o cadastro'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindow
@@ -79,8 +75,7 @@ object frmF2: TfrmF2
         Font.Name = 'Segoe UI Light'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 450
-        ExplicitTop = 4
+        ExplicitLeft = 454
         ExplicitWidth = 403
         ExplicitHeight = 15
       end
@@ -92,10 +87,6 @@ object frmF2: TfrmF2
       Height = 323
       Align = alClient
       TabOrder = 3
-      ExplicitLeft = 264
-      ExplicitTop = 48
-      ExplicitWidth = 449
-      ExplicitHeight = 225
       object cxGridDBTableView: TcxGridDBTableView
         OnDblClick = cxGridDBTableViewDblClick
         Navigator.Buttons.CustomButtons = <>
@@ -114,6 +105,7 @@ object frmF2: TfrmF2
         OptionsSelection.CellSelect = False
         OptionsSelection.InvertSelect = False
         OptionsView.NoDataToDisplayInfoText = '<Nenhum registro para ser exibido>'
+        OptionsView.ColumnAutoWidth = True
         OptionsView.GroupByBox = False
         OptionsView.Indicator = True
       end
@@ -247,15 +239,25 @@ object frmF2: TfrmF2
     object edtInformacao: TcxTextEdit
       Left = 357
       Top = 27
+      Properties.OnChange = edtInformacaoPropertiesChange
       TabOrder = 0
       TextHint = 'Digite a informa'#231#227'o que deseja buscar...'
       OnKeyDown = edtInformacaoKeyDown
       Width = 334
     end
+    object cbSQL: TcxComboBox
+      Left = 14
+      Top = 27
+      Properties.OnChange = cbSQLPropertiesChange
+      TabOrder = 5
+      Visible = False
+      Width = 49
+    end
   end
   object cds: TClientDataSet
     Aggregates = <>
     Params = <>
+    RemoteServer = DSProvider
     Left = 216
     Top = 168
   end
@@ -294,7 +296,16 @@ object frmF2: TfrmF2
     end
     object acCadastrar: TAction
       Caption = 'acCadastrar'
-      ShortCut = 123
+      ShortCut = 121
     end
+  end
+  object sqlSM: TSqlServerMethod
+    Params = <>
+    Left = 184
+    Top = 169
+  end
+  object DSProvider: TDSProviderConnection
+    Left = 144
+    Top = 169
   end
 end

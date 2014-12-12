@@ -29,6 +29,7 @@ type
     Label2: TLabel;
     dxLayoutControlItem5: TdxLayoutItem;
     procedure FrameResize(Sender: TObject);
+    procedure cxDBTextEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -42,7 +43,26 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BFuncoes;
+
+procedure TFrameSerie.cxDBTextEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(
+      cxDBTextEdit1,
+      cxDBTextEdit2,
+      'Selecione alguma coisa aqui',
+      'idcbo',
+      'nome',
+      'idcbo|codigo2002|nome',
+      'ID|CBO 2002|Nome',
+      'cbo',
+      '',
+      DM.conServer);
+  end;
+end;
 
 procedure TFrameSerie.FrameResize(Sender: TObject);
 begin

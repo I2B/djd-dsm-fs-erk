@@ -6060,8 +6060,8 @@ object ServerMethods: TServerMethods
   end
   object qrySQL: TFDQuery
     Connection = conexao
-    Left = 360
-    Top = 8
+    Left = 424
+    Top = 16
   end
   object qryTabelaPreco: TFDQuery
     Connection = conexao
@@ -6085,5 +6085,10 @@ object ServerMethods: TServerMethods
     BeforeUpdateRecord = BeforeUpdateRecord
     Left = 1024
     Top = 88
+  end
+  object dspSQL: TDataSetProvider
+    DataSet = qrySQL
+    Left = 456
+    Top = 16
   end
 end

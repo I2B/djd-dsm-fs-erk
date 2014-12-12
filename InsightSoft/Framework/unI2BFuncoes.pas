@@ -6,16 +6,16 @@ uses
   cxTextEdit, cxDBEdit, Data.DBXFirebird, Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider, Data.DB, Data.SqlExpr,
   System.SysUtils, System.Classes, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows;
 
-function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis:String;
-  Client:TClientDataSet; whereAdicional:String) : Boolean;
+function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection) : Boolean;
 
 implementation
 
 uses
   unF2;
 
-function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis:String;
-  Client:TClientDataSet; whereAdicional:String) : Boolean;
+function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection) : Boolean;
 var
   seleciona: TfrmF2;
 var
@@ -23,8 +23,8 @@ var
 begin
   if edtID.DataBinding.DataSource.State in [dsEdit, dsInsert] then
   begin
-    seleciona := TfrmF2.Create(Application, titulo, campoRetorno, campoPadraoBusca, camposVisiveis,
-      Client, whereAdicional);
+    seleciona := TfrmF2.Create(Application, titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+      Tabela, whereAdicional, BancoDeDados);
     seleciona.ShowModal;
     if seleciona.cancelado then
       result := false
