@@ -28,6 +28,7 @@ inherited FrameSerie: TFrameSerie
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
+      OnKeyDown = cxDBTextEdit1KeyDown
       Width = 55
     end
     object cxDBTextEdit2: TcxDBTextEdit [3]

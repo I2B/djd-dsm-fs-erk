@@ -114,15 +114,6 @@ inherited frmSerie: TfrmSerie
             Height = 379
             ExplicitWidth = 768
             ExplicitHeight = 309
-            inherited cxDBTextEdit1: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited cxDBTextEdit2: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited cxDBTextEdit3: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -154,17 +145,33 @@ inherited frmSerie: TfrmSerie
           Width = 828
           inherited cxGridFiltro: TcxGrid
             Height = 185
+            ExplicitHeight = 185
           end
           inherited cxMemoFiltroSalvo: TcxMemo
-            ExplicitWidth = 520
+            ExplicitWidth = 440
             ExplicitHeight = 185
             Height = 185
-            Width = 520
+            Width = 440
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 828
           Width = 828
+          inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitHeight = 21
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 21
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 21
+          end
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 21
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 21
+          end
         end
       end
     end

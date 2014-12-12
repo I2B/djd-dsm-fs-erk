@@ -443,6 +443,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\Framework\unI2BString.pas"/>
         <DCCReference Include="Forms\unCADProduto.pas">
             <Form>frmCADProduto</Form>
             <FormType>dfm</FormType>

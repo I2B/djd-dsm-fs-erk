@@ -1182,6 +1182,7 @@ type
     qryFiltroSalvofiltrodisplay: TMemoField;
     qryPessoarepresentante2: TBooleanField;
     qryPessoadatacadastro: TDateField;
+    dspSQL: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1404,6 +1405,8 @@ type
     procedure deleteFiltro(id : integer);
 
     //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
+    procedure setSQL(SQL: String);
+
     procedure setSQLAuditoria(filtro: String);
     procedure setSQLBanco(filtro: String);
     procedure setSQLCargo(filtro: String);
@@ -2221,6 +2224,21 @@ begin
   qryFiltroSalvo.Close;
   qryFiltroSalvo.SQL.Clear;
   qryFiltroSalvo.SQL.Add('select * from filtrosalvo where form = '+QuotedStr(form)+' and usuario = '+QuotedStr(usuario));
+end;
+
+procedure TServerMethods.setSQL(SQL: String);
+begin
+  qrySQL.Close;
+  qrySQL.SQL.Clear;
+
+  if (SQL <> '') then
+  begin
+    qrySQL.SQL.Add(SQL);
+  end;
+
+  LOGopen;
+  LOGadd('Realizada busca no Banco de Dados: ['+Trim(qrySQL.SQL.Text)+']');
+  LOGclose;
 end;
 
 procedure TServerMethods.setSQLAuditoria(filtro: String);
