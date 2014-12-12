@@ -83,7 +83,8 @@ uses
   unI2BFuncoes in '..\Framework\unI2BFuncoes.pas',
   unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
   unCADPessoa in 'Forms\unCADPessoa.pas' {frmCADPessoa},
-  unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame};
+  unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame},
+  unCADProduto in 'Forms\unCADProduto.pas' {frmCADProduto};
 
 {$R *.res}
 
