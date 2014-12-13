@@ -84,9 +84,9 @@ uses
   unFramePessoa in 'Frames\unFramePessoa.pas' {FramePessoa: TFrame},
   unCADPessoa in 'Forms\unCADPessoa.pas' {frmCADPessoa},
   unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame},
-  unI2BString in '..\Framework\unI2BString.pas';
-  unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame},
-  unCADProduto in 'Forms\unCADProduto.pas' {frmCADProduto};
+  unI2BString in '..\Framework\unI2BString.pas',
+  unCADProduto in 'Forms\unCADProduto.pas' {frmCADProduto},
+  unF2Cadastro in '..\Framework\unF2Cadastro.pas' {frmF2Cadastro};
 
 {$R *.res}
 
@@ -95,5 +95,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmF2Cadastro, frmF2Cadastro);
   Application.Run;
 end.
