@@ -43,7 +43,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unI2BFuncoes;
+uses unDM, unI2BFuncoes, unFrameCBO;
 
 procedure TFrameSerie.cxDBTextEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
@@ -53,14 +53,16 @@ begin
     i2bF2(
       cxDBTextEdit1,
       cxDBTextEdit2,
-      'Selecione alguma coisa aqui',
-      'idcbo',
+      'Selecione a CBO desejada',
+      'idcbo|nome',
       'nome',
       'idcbo|codigo2002|nome',
       'ID|CBO 2002|Nome',
       'cbo',
       '',
-      DM.conServer);
+      DM.conServer,
+      FrameCBO,
+      DM.cdsCBO);
   end;
 end;
 

@@ -3,44 +3,48 @@ unit unF2;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, unFramePai,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxStyles, dxSkinsCore, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinscxPCPainter,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxContainer, cxLabel,
   Vcl.StdCtrls, Datasnap.DBClient, Vcl.Menus, cxButtons, System.Actions, Vcl.ActnList, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxGroupBox, cxRadioGroup, Data.FMTBcd, Data.SqlExpr, Datasnap.DSConnect;
+  cxDropDownEdit, cxGroupBox, cxRadioGroup, Data.FMTBcd, Data.SqlExpr, Datasnap.DSConnect, dxBarBuiltInMenu, cxPC;
 
 type
   TfrmF2 = class(TForm)
     cds: TClientDataSet;
     ds: TDataSource;
-    pnlTop: TPanel;
-    Label1: TLabel;
-    btnVoltar: TcxButton;
     ActionList: TActionList;
     acFechar: TAction;
+    acCampoProximo: TAction;
+    acCampoAnterior: TAction;
+    acIniciaCom: TAction;
+    acContem: TAction;
+    acCadastrar: TAction;
+    sqlSM: TSqlServerMethod;
+    DSProvider: TDSProviderConnection;
+    acTodos: TAction;
+    cxPageControl: TcxPageControl;
+    cxTabSheet: TcxTabSheet;
     pnlClient: TPanel;
     pnlLeft: TPanel;
     pnlRight: TPanel;
     pnlBottom: TPanel;
+    lblCadastro: TLabel;
     cxGrid: TcxGrid;
     cxGridDBTableView: TcxGridDBTableView;
     cxGridLevel: TcxGridLevel;
+    pnlTop: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    btnVoltar: TcxButton;
     cbCampos: TcxComboBox;
-    acCampoProximo: TAction;
-    acCampoAnterior: TAction;
     rbIniciaCom: TcxRadioButton;
     rbContem: TcxRadioButton;
-    acIniciaCom: TAction;
-    acContem: TAction;
-    lblCadastro: TLabel;
-    acCadastrar: TAction;
-    Label2: TLabel;
     edtInformacao: TcxTextEdit;
-    sqlSM: TSqlServerMethod;
     cbSQL: TcxComboBox;
-    DSProvider: TDSProviderConnection;
     procedure acIniciaComExecute(Sender: TObject);
     procedure acContemExecute(Sender: TObject);
     procedure acCampoProximoExecute(Sender: TObject);
@@ -52,10 +56,14 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtInformacaoPropertiesChange(Sender: TObject);
     procedure cbSQLPropertiesChange(Sender: TObject);
+    procedure acTodosExecute(Sender: TObject);
+    procedure acCadastrarExecute(Sender: TObject);
   private
     { Private declarations }
     fSQLoriginal:String;
     fSlNomesCampos:TStringList;
+    slSplit:TStringList;
+    slDisplay:TStringList;
     fCancelado:Boolean;
     fcampoRetorno:String;
     fcampoRetorno2:String;
@@ -68,13 +76,16 @@ type
     SQLDeBusca : String;
     SQLCampos : String;
     fTabela : String;
+    fNomeDosCampos : String;
+    fFrameCadastro : TFramePai;
+    fClientCadastro : TClientDataSet;
   public
     { Public declarations }
     valorSelecionado:String;
     valorSelecionado2:String;
     property cancelado:Boolean read fCancelado;
     constructor Create( AOwner: TComponent; titulo, campoRetorno, campoPadraoBusca,camposVisiveis, NomeDosCampos, Tabela,
-      WhereAdicional:String; BancoDeDados:TSQLConnection);
+      WhereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet);
   end;
 
 var
@@ -85,7 +96,24 @@ implementation
 
 {$R *.dfm}
 
-uses unI2BString;
+uses unI2BString, unF2Cadastro;
+
+procedure TfrmF2.acCadastrarExecute(Sender: TObject);
+var
+  cadastro: TfrmF2Cadastro;
+begin
+  cadastro := TfrmF2Cadastro.Create(Application,fFrameCadastro,fClientCadastro);
+  cadastro.ShowModal;
+  if cadastro.cancelado then
+  begin
+    edtInformacao.Clear;
+    edtInformacaoPropertiesChange(Sender);
+  end
+  else
+  begin
+
+  end;
+end;
 
 procedure TfrmF2.acCampoAnteriorExecute(Sender: TObject);
 begin
@@ -123,6 +151,24 @@ begin
   rbIniciaCom.Checked := True;
 end;
 
+procedure TfrmF2.acTodosExecute(Sender: TObject);
+var
+  I : integer;
+begin
+  cds.Close;
+  sqlSM.Params[0].AsString := 'select '+SQLCampos+' from '+fTabela;
+  sqlSM.ExecuteMethod;
+
+  cds.RemoteServer := DSProvider;
+  cds.ProviderName := 'dspSQL';
+  cds.Open;
+
+  for I := 0 to cds.Fields.Count - 1 do
+  begin
+    cds.Fields[I].DisplayLabel := slDisplay[I];
+  end;
+end;
+
 procedure TfrmF2.cbCamposPropertiesChange(Sender: TObject);
 begin
   cbSQL.ItemIndex := cbCampos.ItemIndex;
@@ -137,7 +183,7 @@ begin
 end;
 
 constructor TfrmF2.Create(AOwner: TComponent; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
-  Tabela, WhereAdicional: String; BancoDeDados: TSQLConnection);
+  Tabela, WhereAdicional: String; BancoDeDados: TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet);
 var
   I, IndicePadrao : integer;
   slNomeDosCampos:TStringList;
@@ -145,6 +191,7 @@ begin
   IndicePadrao := 0;
   fTabela := Tabela;
   fWhereAdicional := WhereAdicional;
+  fNomeDosCampos := NomeDosCampos;
 
   if trim(campoRetorno) = '' then
   begin
@@ -179,6 +226,7 @@ begin
   if cds.FieldCount > 0 then
   begin
     slNomeDosCampos := i2bSplit(NomeDosCampos,'|');
+    slDisplay := TStringList.Create;
 
     //Carrega os campos para os Combos
     for I := 0 to cds.FieldCount - 1 do
@@ -190,6 +238,7 @@ begin
         //Adiciona o campo nos combos
         cbSQL.Properties.Items.Add(cds.Fields[I].FieldName);
         cds.Fields[I].DisplayLabel := slNomeDosCampos[I];
+        slDisplay.Add(slNomeDosCampos[I]);
         cbCampos.Properties.Items.Add(slNomeDosCampos[I]);
 
         //Pega qual é o campo padrão de busca
@@ -203,6 +252,20 @@ begin
   ds.DataSet := cds;
   cxGridDBTableView.DataController.CreateAllItems();
   cbCampos.ItemIndex := IndicePadrao;
+
+  if pos('|',campoRetorno) > 0 then
+  begin
+    slSplit := i2bSplit(campoRetorno,'|');
+    fcampoRetorno := slSplit[0];
+    fcampoRetorno2 := slSplit[1];
+    FreeAndNil(slSplit);
+  end
+  else
+    fcampoRetorno := campoRetorno;
+
+  cxTabSheet.Caption := '        '+titulo+'        ';
+  fFrameCadastro := FrameCadastro;
+  fClientCadastro := ClientCadastro;
 end;
 
 procedure TfrmF2.cxGridDBTableViewDblClick(Sender: TObject);
@@ -268,25 +331,25 @@ begin
 
     if fWhereAdicional <> '' then
     begin
-      novoSQL := novoSQL + ' where ' + fWhereAdicional + ' ';
+      novoSQL := novoSQL + ' where (' + fWhereAdicional + ') ';
       if rbIniciaCom.Checked then
       begin
-        novoSQL := novoSQL + ' and '+cbSQL.Text+' like '''+AnsiUpperCase(edtInformacao.Text)+'%''';
+        novoSQL := novoSQL + ' and (Upper('+cbSQL.Text+') like '''+AnsiUpperCase(edtInformacao.Text)+'%'')';
       end
       else
       begin
-        novoSQL := novoSQL + ' and '+cbSQL.Text+' like ''%'+AnsiUpperCase(edtInformacao.Text)+'%''';
+        novoSQL := novoSQL + ' and (Upper('+cbSQL.Text+') like ''%'+AnsiUpperCase(edtInformacao.Text)+'%'')';
       end;
     end
     else
     begin
       if rbIniciaCom.Checked then
       begin
-        novoSQL := novoSQL + ' where ' + cbSQL.Text+' like '''+AnsiUpperCase(edtInformacao.Text)+'%''';
+        novoSQL := novoSQL + ' where (Upper(' + cbSQL.Text+') like '''+AnsiUpperCase(edtInformacao.Text)+'%'')';
       end
       else
       begin
-        novoSQL := novoSQL + ' where ' + cbSQL.Text+' like ''%'+AnsiUpperCase(edtInformacao.Text)+'%''';
+        novoSQL := novoSQL + ' where (Upper(' + cbSQL.Text+') like ''%'+AnsiUpperCase(edtInformacao.Text)+'%'')';
       end;
     end;
   end
@@ -302,11 +365,21 @@ begin
   cds.RemoteServer := DSProvider;
   cds.ProviderName := 'dspSQL';
   cds.Open;
+
+  for I := 0 to cds.Fields.Count - 1 do
+  begin
+    cds.Fields[I].DisplayLabel := slDisplay[I];
+  end;
 end;
 
 procedure TfrmF2.FormShow(Sender: TObject);
 begin
   cbCamposPropertiesChange(cbCampos);
+
+  if edtInformacao.CanFocus then
+  begin
+    edtInformacao.SetFocus;
+  end;
 end;
 
 end.

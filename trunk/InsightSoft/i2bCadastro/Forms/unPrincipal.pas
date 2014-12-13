@@ -138,9 +138,9 @@ implementation
 uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
-  unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor,
-  unCADProdutoTamanho, unCADIndice, unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais,
-  unCADProdutoGrupo, unCADProdutoFornecedor, unCADPessoa, unCADProduto;
+  unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor, unCADProdutoTamanho, unCADIndice,
+  unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais, unCADProdutoGrupo, unCADProdutoFornecedor,
+  unCADPessoa, unCADProduto;
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
