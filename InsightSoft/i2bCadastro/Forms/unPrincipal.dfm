@@ -121,6 +121,15 @@ object frmPrincipal: TfrmPrincipal
     Font.Style = []
     Color = 5177344
   end
+  object cxButton1: TcxButton
+    Left = 584
+    Top = 240
+    Width = 75
+    Height = 25
+    Caption = 'cxButton1'
+    TabOrder = 6
+    OnClick = cxButton1Click
+  end
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
