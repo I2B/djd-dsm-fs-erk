@@ -6091,4 +6091,14 @@ object ServerMethods: TServerMethods
     Left = 456
     Top = 16
   end
+  object qryGetClient: TFDQuery
+    Connection = conexao
+    Left = 624
+    Top = 24
+  end
+  object dspGetClient: TDataSetProvider
+    DataSet = qryGetClient
+    Left = 656
+    Top = 24
+  end
 end

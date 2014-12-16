@@ -86,7 +86,8 @@ uses
   unFrameProduto in 'Frames\unFrameProduto.pas' {FrameProduto: TFrame},
   unI2BString in '..\Framework\unI2BString.pas',
   unCADProduto in 'Forms\unCADProduto.pas' {frmCADProduto},
-  unF2Cadastro in '..\Framework\unF2Cadastro.pas' {frmF2Cadastro};
+  unF2Cadastro in '..\Framework\unF2Cadastro.pas' {frmF2Cadastro},
+  unI2BBD in '..\Framework\unI2BBD.pas';
 
 {$R *.res}
 

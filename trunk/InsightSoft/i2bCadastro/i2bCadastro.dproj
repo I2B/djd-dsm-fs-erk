@@ -452,6 +452,7 @@
             <Form>frmF2Cadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Framework\unI2BBD.pas"/>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

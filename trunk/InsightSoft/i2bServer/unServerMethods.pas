@@ -1183,6 +1183,8 @@ type
     qryPessoarepresentante2: TBooleanField;
     qryPessoadatacadastro: TDateField;
     dspSQL: TDataSetProvider;
+    qryGetClient: TFDQuery;
+    dspGetClient: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1403,6 +1405,8 @@ type
     procedure getFiltosSalvos(form, usuario:String);
     procedure newFiltro(nome,form,usuario,filtroDisplay,filtroSQL: String);
     procedure deleteFiltro(id : integer);
+
+    procedure getClient(SQL: String);
 
     //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
     procedure setSQL(SQL: String);
@@ -2217,6 +2221,22 @@ end;
 function TServerMethods.ReverseString(Value: string): string;
 begin
   Result := System.StrUtils.ReverseString(Value);
+end;
+
+procedure TServerMethods.getClient(SQL: String);
+begin
+  try
+    if qryGetClient.Active then
+      qryGetClient.Close;
+    qryGetClient.SQL.Clear;
+
+    if (SQL <> '') then
+    begin
+      qryGetClient.SQL.Add(SQL);
+    end;
+  finally
+
+  end;
 end;
 
 procedure TServerMethods.getFiltosSalvos(form, usuario:String);
