@@ -4,10 +4,12 @@ interface
 
 uses
   cxTextEdit, cxDBEdit, Data.DBXFirebird, Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider, Data.DB, Data.SqlExpr,
-  System.SysUtils, System.Classes, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, unFramePai;
+  System.SysUtils, System.Classes, Vcl.Dialogs, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, fileCtrl, unframepai;
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
   Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet) : Boolean;
+function i2bGetDiretorio(Caption, DirDefault: string): string;
+Function i2bGetArquivo(Filter: string): String;
 
 implementation
 
@@ -46,6 +48,29 @@ begin
     end;
     FreeAndNil(seleciona);
   end;
+end;
+
+function i2bGetDiretorio(Caption, DirDefault: string): string;
+begin
+  SelectDirectory(Caption, DirDefault, result);
+end;
+
+function i2bGetArquivo(filter: string): string;
+var
+  OpenDialog: TOpenDialog;
+begin
+  OpenDialog := TOpenDialog.Create(nil);
+  OpenDialog.Filter:= filter;
+  if OpenDialog.Execute() then
+  begin
+    Result := OpenDialog.FileName
+  end
+  else
+  begin
+    MessageDlg('Nenhum arquivo foi selecionado.', mtError, [mbOK], 0);
+    result:= '';
+  end;
+  OpenDialog.Free();
 end;
 
 end.

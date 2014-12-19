@@ -4555,25 +4555,10 @@ object ServerMethods: TServerMethods
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
     end
-    object qryPessoaContadornome: TWideStringField
-      FieldName = 'nome'
-      Origin = 'nome'
-      Size = 60
-    end
-    object qryPessoaContadorcpf: TWideStringField
-      FieldName = 'cpf'
-      Origin = 'cpf'
-      Size = 14
-    end
     object qryPessoaContadorcrc: TWideStringField
       FieldName = 'crc'
       Origin = 'crc'
       Size = 8
-    end
-    object qryPessoaContadoremail: TWideStringField
-      FieldName = 'email'
-      Origin = 'email'
-      Size = 150
     end
     object qryPessoaContadoridunidadenegocio: TIntegerField
       FieldName = 'idunidadenegocio'
@@ -4601,17 +4586,9 @@ object ServerMethods: TServerMethods
       FieldName = 'desde'
       Origin = 'desde'
     end
-    object qryPessoaFornecedoroptandesimples: TBooleanField
-      FieldName = 'optandesimples'
-      Origin = 'optandesimples'
-    end
     object qryPessoaFornecedorlocalizacao: TBooleanField
       FieldName = 'localizacao'
       Origin = 'localizacao'
-    end
-    object qryPessoaFornecedordatacadastro: TDateField
-      FieldName = 'datacadastro'
-      Origin = 'datacadastro'
     end
     object qryPessoaFornecedorsofreretencao: TBooleanField
       FieldName = 'sofreretencao'

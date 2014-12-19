@@ -2967,9 +2967,6 @@ object DM: TDM
     object cdsPessoaColaboradoridcargo: TIntegerField
       FieldName = 'idcargo'
     end
-    object cdsPessoaColaboradoridempresa: TIntegerField
-      FieldName = 'idempresa'
-    end
     object cdsPessoaColaboradorfoto3x4: TWideMemoField
       FieldName = 'foto3x4'
       BlobType = ftWideMemo
@@ -3044,27 +3041,19 @@ object DM: TDM
     RemoteServer = dspConnection
     Left = 536
     Top = 88
-    object cdsPessoaContadoridempresa: TIntegerField
-      FieldName = 'idempresa'
-    end
     object cdsPessoaContadoridpessoa: TIntegerField
       FieldName = 'idpessoa'
-    end
-    object cdsPessoaContadornome: TWideStringField
-      FieldName = 'nome'
-      Size = 60
-    end
-    object cdsPessoaContadorcpf: TWideStringField
-      FieldName = 'cpf'
-      Size = 14
     end
     object cdsPessoaContadorcrc: TWideStringField
       FieldName = 'crc'
       Size = 8
     end
-    object cdsPessoaContadoremail: TWideStringField
-      FieldName = 'email'
-      Size = 150
+    object cdsPessoaContadoridunidadenegocio: TIntegerField
+      FieldName = 'idunidadenegocio'
+    end
+    object cdsPessoaContadornomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Size = 60
     end
   end
   object cdsPessoaFornecedor: TClientDataSet
@@ -3084,14 +3073,8 @@ object DM: TDM
     object cdsPessoaFornecedordesde: TDateField
       FieldName = 'desde'
     end
-    object cdsPessoaFornecedoroptandesimples: TBooleanField
-      FieldName = 'optandesimples'
-    end
     object cdsPessoaFornecedorlocalizacao: TBooleanField
       FieldName = 'localizacao'
-    end
-    object cdsPessoaFornecedordatacadastro: TDateField
-      FieldName = 'datacadastro'
     end
     object cdsPessoaFornecedorsofreretencao: TBooleanField
       FieldName = 'sofreretencao'

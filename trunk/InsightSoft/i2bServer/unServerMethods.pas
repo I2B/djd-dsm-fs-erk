@@ -936,10 +936,7 @@ type
     qryPessoaColaboradorsetornome: TWideStringField;
     qryPessoaColaboradorcargonome: TWideStringField;
     qryPessoaContadoridpessoa: TIntegerField;
-    qryPessoaContadornome: TWideStringField;
-    qryPessoaContadorcpf: TWideStringField;
     qryPessoaContadorcrc: TWideStringField;
-    qryPessoaContadoremail: TWideStringField;
     qryPessoaContadoridunidadenegocio: TIntegerField;
     qryPessoaTransportadoraidpessoa: TIntegerField;
     qryPessoaTransportadoraobservacao: TWideMemoField;
@@ -1168,9 +1165,7 @@ type
     qryTabelaPreconome: TWideStringField;
     qryPessoaFornecedoridpessoa: TIntegerField;
     qryPessoaFornecedordesde: TDateField;
-    qryPessoaFornecedoroptandesimples: TBooleanField;
     qryPessoaFornecedorlocalizacao: TBooleanField;
-    qryPessoaFornecedordatacadastro: TDateField;
     qryPessoaFornecedorsofreretencao: TBooleanField;
     qryPessoaFornecedorobservacao: TWideMemoField;
     qryPessoaFornecedorprazomedioentrega: TIntegerField;
