@@ -738,7 +738,6 @@ type
     cdsPessoaColaboradoridbanco: TWideStringField;
     cdsPessoaColaboradoridsetor: TIntegerField;
     cdsPessoaColaboradoridcargo: TIntegerField;
-    cdsPessoaColaboradoridempresa: TIntegerField;
     cdsPessoaColaboradorfoto3x4: TWideMemoField;
     cdsPessoaColaboradordataadmissao: TDateField;
     cdsPessoaColaboradorfgtsconta: TSmallintField;
@@ -837,12 +836,8 @@ type
     cdsProdutopeso: TFloatField;
     cdsProdutopercentualcomissao: TFloatField;
     cdsProdutoinativo: TWideStringField;
-    cdsPessoaContadoridempresa: TIntegerField;
     cdsPessoaContadoridpessoa: TIntegerField;
-    cdsPessoaContadornome: TWideStringField;
-    cdsPessoaContadorcpf: TWideStringField;
     cdsPessoaContadorcrc: TWideStringField;
-    cdsPessoaContadoremail: TWideStringField;
     dspProdutoPromocaoidprodutopromocao: TIntegerField;
     dspProdutoPromocaoidproduto: TIntegerField;
     dspProdutoPromocaodatainicio: TDateField;
@@ -1014,9 +1009,7 @@ type
     cdsTabelaPreconome: TWideStringField;
     cdsPessoaFornecedoridpessoa: TIntegerField;
     cdsPessoaFornecedordesde: TDateField;
-    cdsPessoaFornecedoroptandesimples: TBooleanField;
     cdsPessoaFornecedorlocalizacao: TBooleanField;
-    cdsPessoaFornecedordatacadastro: TDateField;
     cdsPessoaFornecedorsofreretencao: TBooleanField;
     cdsPessoaFornecedorobservacao: TWideMemoField;
     cdsPessoaFornecedorprazomedioentrega: TIntegerField;
@@ -1041,6 +1034,8 @@ type
     cdsPessoaColaboradorcargonome: TWideStringField;
     cdsPessoaColaboradoridpessoa: TIntegerField;
     cdsPessoaColaboradormatricula: TWideStringField;
+    cdsPessoaContadoridunidadenegocio: TIntegerField;
+    cdsPessoaContadornomefantasia: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

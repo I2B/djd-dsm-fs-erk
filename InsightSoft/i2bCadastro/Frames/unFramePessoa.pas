@@ -9,7 +9,8 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinscxPCPainter, Data.DB,
   dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit,
   dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit, cxGroupBox, cxRadioGroup,
-  cxCheckBox, cxMaskEdit, cxDropDownEdit, cxCalendar, cxCurrencyEdit, cxMemo;
+  cxCheckBox, cxMaskEdit, cxDropDownEdit, cxCalendar, cxCurrencyEdit, cxMemo,
+  Vcl.ExtCtrls, cxButtonEdit, dxGDIPlusClasses;
 
 type
   TFramePessoa = class(TFramePai)
@@ -31,8 +32,6 @@ type
     dxLayoutControlItem8: TdxLayoutItem;
     edtCnhCategoria: TcxDBTextEdit;
     dxLayoutControlItem9: TdxLayoutItem;
-    edtCnhVencimento: TcxDBTextEdit;
-    dxLayoutControlItem10: TdxLayoutItem;
     grpContador: TdxLayoutGroup;
     grpVendedor: TdxLayoutGroup;
     grpColaborador: TdxLayoutGroup;
@@ -56,7 +55,6 @@ type
     grpTipoPessoa: TdxLayoutGroup;
     dxLayoutControlGroup7: TdxLayoutAutoCreatedGroup;
     dxLayoutControlGroup13: TdxLayoutAutoCreatedGroup;
-    grpOculto: TdxLayoutGroup;
     grpPessoaFisica: TdxLayoutGroup;
     grpPessoaJuridica: TdxLayoutGroup;
     grpSexo: TcxDBRadioGroup;
@@ -105,7 +103,7 @@ type
     dsRepresentante: TDataSource;
     edtRepresentanteMeta: TcxDBCurrencyEdit;
     dxLayoutControlItem32: TdxLayoutItem;
-    edtRepresentanteEmpresa: TcxDBTextEdit;
+    edtRepresentanteUnidadeNegocio: TcxDBTextEdit;
     dxLayoutControlItem33: TdxLayoutItem;
     memTransportadoraObservacao: TcxDBMemo;
     dxLayoutControlItem34: TdxLayoutItem;
@@ -116,7 +114,7 @@ type
     dxLayoutControlItem36: TdxLayoutItem;
     edtVendedorMeta: TcxDBCurrencyEdit;
     dxLayoutControlItem37: TdxLayoutItem;
-    edtVendedorEmpresa: TcxDBTextEdit;
+    edtVendedorUnidadeNegocio: TcxDBTextEdit;
     dxLayoutControlItem38: TdxLayoutItem;
     dsTransportadora: TDataSource;
     dsVendedor: TDataSource;
@@ -130,6 +128,80 @@ type
     chkClienteAtivo: TcxDBCheckBox;
     dxLayoutControlItem42: TdxLayoutItem;
     dxLayoutControlGroup10: TdxLayoutAutoCreatedGroup;
+    dsColaborador: TDataSource;
+    edtCargo: TcxDBTextEdit;
+    dxLayoutControlItem43: TdxLayoutItem;
+    edtCTPSUF: TcxDBTextEdit;
+    dxLayoutControlItem44: TdxLayoutItem;
+    edtMatricula: TcxDBTextEdit;
+    dxLayoutControlItem45: TdxLayoutItem;
+    edtSetor: TcxDBTextEdit;
+    dxLayoutControlItem46: TdxLayoutItem;
+    edtBanco: TcxDBTextEdit;
+    dxLayoutControlItem47: TdxLayoutItem;
+    imgFoto3x4: TImage;
+    dxLayoutControlItem49: TdxLayoutItem;
+    dxLayoutControlGroup12: TdxLayoutAutoCreatedGroup;
+    edtDataAdmissao: TcxDBDateEdit;
+    dxLayoutControlItem50: TdxLayoutItem;
+    edtFGTSConta: TcxDBTextEdit;
+    dxLayoutControlItem51: TdxLayoutItem;
+    edtExameData: TcxDBDateEdit;
+    dxLayoutControlItem52: TdxLayoutItem;
+    edtExameDataUltimo: TcxDBDateEdit;
+    dxLayoutControlItem53: TdxLayoutItem;
+    edtCTPSSerie: TcxDBTextEdit;
+    dxLayoutControlItem54: TdxLayoutItem;
+    edtCTPSNumero: TcxDBTextEdit;
+    dxLayoutControlItem55: TdxLayoutItem;
+    cmbFormaDePagamento: TcxDBComboBox;
+    dxLayoutControlItem56: TdxLayoutItem;
+    edtCTPSDataExpedicao: TcxDBDateEdit;
+    dxLayoutControlItem57: TdxLayoutItem;
+    memObservacao: TcxDBMemo;
+    dxLayoutControlItem58: TdxLayoutItem;
+    dxLayoutControlGroup25: TdxLayoutAutoCreatedGroup;
+    edtDataDemissão: TcxDBDateEdit;
+    dxLayoutControlItem59: TdxLayoutItem;
+    edtUnidadeNegocio: TcxDBTextEdit;
+    dxLayoutControlItem60: TdxLayoutItem;
+    edtContadorUnidadeNegocio: TcxDBTextEdit;
+    dxLayoutControlItem64: TdxLayoutItem;
+    edtCRC: TcxDBTextEdit;
+    dxLayoutControlItem65: TdxLayoutItem;
+    dsContador: TDataSource;
+    dxLayoutControlGroup11: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup14: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup15: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup;
+    edtDesde: TcxDBDateEdit;
+    dxLayoutControlItem61: TdxLayoutItem;
+    dsFornecedor: TDataSource;
+    chkFornecedorLocalização: TcxDBCheckBox;
+    dxLayoutControlItem62: TdxLayoutItem;
+    chkRetencao: TcxDBCheckBox;
+    dxLayoutControlItem63: TdxLayoutItem;
+    memFornecedorObservacao: TcxDBMemo;
+    dxLayoutControlItem66: TdxLayoutItem;
+    dxLayoutControlGroup18: TdxLayoutAutoCreatedGroup;
+    edtPrazoMedioEntrega: TcxDBTextEdit;
+    dxLayoutControlItem67: TdxLayoutItem;
+    dxLayoutControlGroup27: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup28: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup26: TdxLayoutAutoCreatedGroup;
+    chkFornecedorGeraFaturamento: TcxDBCheckBox;
+    dxLayoutControlItem68: TdxLayoutItem;
+    edtParcelas: TcxDBCurrencyEdit;
+    dxLayoutControlItem70: TdxLayoutItem;
+    edtNumeroDiasIntervalo: TcxDBCurrencyEdit;
+    dxLayoutControlItem71: TdxLayoutItem;
+    edtPrimeiroVencimento: TcxDBCurrencyEdit;
+    dxLayoutControlItem69: TdxLayoutItem;
+    dxLayoutControlGroup30: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup31: TdxLayoutAutoCreatedGroup;
+    edtCNHVencimento: TcxDBDateEdit;
+    dxLayoutControlItem48: TdxLayoutItem;
+    dxLayoutControlGroup9: TdxLayoutAutoCreatedGroup;
     procedure grpTipoClick(Sender: TObject);
     procedure chkClienteClick(Sender: TObject);
     procedure chkFornecedorClick(Sender: TObject);
@@ -138,17 +210,10 @@ type
     procedure chkVendedorClick(Sender: TObject);
     procedure chkContadorClick(Sender: TObject);
     procedure chkRepresentanteClick(Sender: TObject);
+    procedure imgFoto3x4Click(Sender: TObject);
   private
     { Private declarations }
   public
-    procedure EscolheTipoPessoa (Tipo:string);
-    procedure EscolheTipoPessoaCliente (situacao:boolean);
-    procedure EscolheTipoPessoaFornecedor (situacao:boolean);
-    procedure EscolheTipoPessoaTransportadora (situacao:boolean);
-    procedure EscolheTipoPessoaColaborador (situacao:boolean);
-    procedure EscolheTipoPessoaVendedor (situacao:boolean);
-    procedure EscolheTipoPessoaContador (situacao:boolean);
-    procedure EscolheTipoPessoaRepresentante (situacao:boolean);
     { Public declarations }
   end;
 
@@ -159,152 +224,147 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BFuncoes;
 
 procedure TFramePessoa.chkClienteClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaCliente(chkCliente.Checked);
+  if chkCliente.Checked then
+  begin
+    grpCliente.Visible:= True;
+  end
+  else
+  begin
+    grpCliente.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkColaboradorClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaColaborador(chkColaborador.Checked);
+  if chkColaborador.Checked then
+  begin
+    grpColaborador.Visible:= True;
+  end
+  else
+  begin
+    grpColaborador.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkContadorClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaContador(chkContador.Checked);
+  if chkContador.Checked then
+  begin
+    grpContador.Visible:= True;
+  end
+  else
+  begin
+    grpContador.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkFornecedorClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaFornecedor(chkFornecedor.Checked);
+  if chkFornecedor.Checked then
+  begin
+    grpFornecedor.Visible:= True;
+  end
+  else
+  begin
+    grpFornecedor.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkRepresentanteClick(Sender: TObject);
 begin
   inherited;
-    EscolheTipoPessoaRepresentante(chkRepresentante.Checked);
+  if chkRepresentante.Checked then
+  begin
+    grpRepresentante.Visible:= True;
+  end
+  else
+  begin
+    grpRepresentante.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkTransportadoraClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaTransportadora(chkTransportadora.Checked);
+  if chkTransportadora.Checked then
+  begin
+    grpTransportadora.Visible:= True;
+  end
+  else
+  begin
+    grpTransportadora.Visible:= False;
+  end;
 end;
 
 procedure TFramePessoa.chkVendedorClick(Sender: TObject);
 begin
   inherited;
-  EscolheTipoPessoaVendedor(chkVendedor.Checked);
-end;
-
-procedure TFramePessoa.EscolheTipoPessoa(Tipo:string);
-begin
-  if Tipo = 'F' then
+  if chkVendedor.Checked then
   begin
-    grpPessoaFisica.Move(grpTela, 1, True);
-    grpPessoaJuridica.Move(grpOculto, 0, True);
+    grpVendedor.Visible:= True;
   end
   else
   begin
-    grpPessoaFisica.Move(grpOculto, 1, True);
-    grpPessoaJuridica.Move(grpTela, 0, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaCliente(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpCliente.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpCliente.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaColaborador(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpColaborador.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpColaborador.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaContador(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpContador.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpContador.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaFornecedor(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpFornecedor.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpFornecedor.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaRepresentante(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpRepresentante.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpRepresentante.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaTransportadora(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpTransportadora.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpTransportadora.Move(grpOculto, 2, True);
-  end;
-end;
-
-procedure TFramePessoa.EscolheTipoPessoaVendedor(situacao: boolean);
-begin
-  if situacao then
-  begin
-    grpVendedor.Move(grpTela, 2, True);
-  end
-  else
-  begin
-    grpVendedor.Move(grpOculto, 2, True);
+    grpVendedor.Visible:= False;
   end;
 end;
 
 procedure TFramePessoa.grpTipoClick(Sender: TObject);
 begin
   inherited;
-    EscolheTipoPessoa(grpTipo.EditValue);
+  if grpTipo.EditValue = 'F' then
+  begin
+    grpPessoaFisica.Visible:= True;
+    grpPessoaJuridica.Visible:= False;
+    chkColaborador.Enabled:=  True;
+    chkTransportadora.Checked:= False;
+    chkTransportadora.Enabled:= False;
+    chkFornecedor.Checked:= False;
+    chkFornecedor.Enabled:= False;
+    chkVendedor.Enabled:= True;
+    chkContador.Enabled:= True;
+    chkRepresentante.Checked:= False;
+    chkRepresentante.Enabled:= False;
+  end
+  else
+  begin
+    grpPessoaFisica.Visible:= False;
+    grpPessoaJuridica.Visible:= True;
+    chkColaborador.Checked:=  False;
+    chkColaborador.Enabled:=  False;
+    chkTransportadora.Enabled:= True;
+    chkFornecedor.Enabled:= True;
+    chkVendedor.Checked:= False;
+    chkVendedor.Enabled:= False;
+    chkContador.Checked:= False;
+    chkContador.Enabled:= False;
+    chkRepresentante.Enabled:= True;
+  end;
+end;
+
+procedure TFramePessoa.imgFoto3x4Click(Sender: TObject);
+begin
+  inherited;
+  if dsColaborador.State in [dsInsert, dsEdit] then
+  begin
+    DM.cdsPessoaColaboradorfoto3x4.AsString:= i2bGetArquivo('JPG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|Bitmaps');
+    if DM.cdsPessoaColaboradorfoto3x4.AsString= '' then
+    begin
+      imgFoto3x4.Picture.LoadFromFile('C:\djd-dsm-fs-erk\Desenvolvimento\Imagens\AvatarDefault.png');
+    end
+    else
+    begin
+      imgFoto3x4.Picture.LoadFromFile(DM.cdsPessoaColaboradorfoto3x4.AsString);
+    end;
+  end;
 end;
 
 end.

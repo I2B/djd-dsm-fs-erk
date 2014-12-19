@@ -258,6 +258,7 @@ inherited frmCadastro: TfrmCadastro
     inherited cxPageControl: TcxPageControl
       Width = 842
       Height = 371
+      Properties.ActivePage = cxTabCadastro
       ExplicitWidth = 842
       ExplicitHeight = 371
       ClientRectBottom = 369
@@ -285,23 +286,38 @@ inherited frmCadastro: TfrmCadastro
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 442
+            ExplicitHeight = 23
             Width = 442
           end
           inherited btnBuscar: TcxButton
             Left = 734
             ExplicitLeft = 734
           end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 838
         ExplicitHeight = 339
         object pnlCadastro: TPanel
