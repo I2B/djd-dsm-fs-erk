@@ -65,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BFuncoes;
 
 procedure TfrmCADPessoa.acCancelarExecute(Sender: TObject);
 begin
@@ -174,7 +174,8 @@ begin
   DM.cdsPessoa.ApplyUpdates(-1);
   if FramePessoa.chkCliente.Checked then
   begin
-    DM.cdsPessoaCliente.Post;
+    DM.cdsPessoaCliente.Edit;
+    DM.cdsPessoaClienteidpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaCliente.ApplyUpdates(-1);
   end;
   if FramePessoa.chkColaborador.Checked then

@@ -4191,6 +4191,7 @@ object ServerMethods: TServerMethods
     Left = 576
     Top = 592
     object qryPessoaidpessoa: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -4399,6 +4400,7 @@ object ServerMethods: TServerMethods
   object dspPessoa: TDataSetProvider
     DataSet = qryPessoa
     OnUpdateError = UpdateError
+    AfterUpdateRecord = dspPessoaAfterUpdateRecord
     BeforeUpdateRecord = BeforeUpdateRecord
     Left = 608
     Top = 592
@@ -4445,6 +4447,7 @@ object ServerMethods: TServerMethods
   end
   object qryPessoaColaborador: TFDQuery
     MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
     DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (

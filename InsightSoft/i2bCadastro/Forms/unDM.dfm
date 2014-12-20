@@ -16,13 +16,11 @@ object DM: TDM
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/'
       'Filters={}')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -2754,6 +2752,7 @@ object DM: TDM
     Left = 392
     Top = 480
     object cdsPessoaidpessoa: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -2889,9 +2888,11 @@ object DM: TDM
     end
     object cdsPessoarepresentante2: TBooleanField
       FieldName = 'representante'
+      Origin = 'representante'
     end
     object cdsPessoadatacadastro: TDateField
       FieldName = 'datacadastro'
+      Origin = 'datacadastro'
     end
   end
   object cdsPessoaCliente: TClientDataSet
