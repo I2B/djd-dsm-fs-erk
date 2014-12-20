@@ -27,7 +27,7 @@ object frmPrincipal: TfrmPrincipal
     ColorSchemeAccent = rcsaBlue
     ColorSchemeName = 'Office2013White'
     Contexts = <>
-    TabOrder = 4
+    TabOrder = 3
     TabStop = False
     object tabPrincipal: TdxRibbonTab
       Active = True
@@ -120,15 +120,6 @@ object frmPrincipal: TfrmPrincipal
     Font.Name = 'Segoe UI Light'
     Font.Style = []
     Color = 5177344
-  end
-  object cxButton1: TcxButton
-    Left = 584
-    Top = 240
-    Width = 75
-    Height = 25
-    Caption = 'cxButton1'
-    TabOrder = 6
-    OnClick = cxButton1Click
   end
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
