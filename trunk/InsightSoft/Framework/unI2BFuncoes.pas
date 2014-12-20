@@ -4,12 +4,17 @@ interface
 
 uses
   cxTextEdit, cxDBEdit, Data.DBXFirebird, Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider, Data.DB, Data.SqlExpr,
-  System.SysUtils, System.Classes, Vcl.Dialogs, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, fileCtrl, unframepai;
+  System.SysUtils, System.Classes, Vcl.Dialogs, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, fileCtrl, unframepai,
+  Data.DBXCommon, Datasnap.DSConnect;
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
   Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet) : Boolean;
+
 function i2bGetDiretorio(Caption, DirDefault: string): string;
+
 Function i2bGetArquivo(Filter: string): String;
+
+function getIDPessoaInserida(ServidorRemoto: TCustomRemoteServer):Integer;
 
 implementation
 
@@ -71,6 +76,21 @@ begin
     result:= '';
   end;
   OpenDialog.Free();
+end;
+
+function getIDPessoaInserida(ServidorRemoto: TCustomRemoteServer):Integer;
+var
+  SMgetID : TSqlServerMethod;
+begin
+  try
+    SMgetID := TSqlServerMethod.Create((ServidorRemoto as TDSProviderConnection).SQLConnection);
+    SMgetID.SQLConnection := (ServidorRemoto as TDSProviderConnection).SQLConnection;
+    SMgetID.ServerMethodName := 'TServerMethods.getIDPessoaManipulado';
+    SMgetID.ExecuteMethod;
+    Result := SMgetID.Params[0].AsInteger;
+  except
+    Result := 0;
+  end;
 end;
 
 end.

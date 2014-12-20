@@ -1186,6 +1186,8 @@ type
       UpdateKind: TUpdateKind; var Applied: Boolean);
     procedure UpdateError(Sender: TObject; DataSet: TCustomClientDataSet; E: EUpdateError;
       UpdateKind: TUpdateKind; var Response: TResolverResponse);
+    procedure dspPessoaAfterUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+      UpdateKind: TUpdateKind);
   private
     { Private declarations }
     //Funções para gestão do Arquivo LOG - DJD
@@ -1323,22 +1325,22 @@ type
     const selectpedidoitem: array[1..5] of string = ('select pedidoitem.*, produto.nome as produtonome',
       ' from pedidoitem inner join produto on pedidoitem.idproduto = produto.idproduto',' ',' order by idpedidoitem',' limit 0 ');
     const selectpessoa: array[1..5] of string = ('select *',' from pessoa',' ',' order by idpessoa',' limit 0 ');
-    const selectpessoacliente: array[1..5] of string = ('select *',' from pessoacliente',' ',' order by idpessoa',' limit 0 ');
+    const selectpessoacliente: array[1..5] of string = ('select *',' from pessoacliente',' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoacolaborador: array[1..5] of string = ('select pessoacolaborador.*, setor.nome as setornome, '+
       ' cargo.nome as cargonome',' from pessoacolaborador inner join setor on pessoacolaborador.idsetor = setor.idsetor'+
-      ' inner join cargo on pessoacolaborador.idcargo = cargo.idcargo',' ',' order by idpessoa',' limit 0 ');
+      ' inner join cargo on pessoacolaborador.idcargo = cargo.idcargo',' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoacontador: array[1..5] of string = ('select pessoacontador.*, unidadenegocio.nomefantasia',
       ' from pessoacontador inner join unidadenegocio on pessoacontador.idunidadenegocio = unidadenegocio.idunidadenegocio',
-      ' ',' order by idpessoa',' limit 0 ');
-    const selectpessoafornecedor: array[1..5] of string = ('select *',' from pessoafornecedor',' ',' order by idpessoa',' limit 0 ');
+      ' where idpessoa = :idpessoa ',' ',' ');
+    const selectpessoafornecedor: array[1..5] of string = ('select *',' from pessoafornecedor',' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoarepresentante: array[1..5] of string = ('select pessoarepresentante.*, unidadenegocio.nomefantasia',
       ' from pessoarepresentante inner join unidadenegocio on pessoarepresentante.idunidadenegocio = unidadenegocio.idunidadenegocio',
-      ' ',' order by idpessoa',' limit 0 ');
-    const selectpessoatransportadora: array[1..5] of string = ('select *',' from pessoatransportadora',' ',
-      ' order by idpessoa',' limit 0 ');
+      ' where idpessoa = :idpessoa ',' ',' ');
+    const selectpessoatransportadora: array[1..5] of string = ('select *',' from pessoatransportadora',
+      ' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoavendedor: array[1..5] of string = ('select pessoavendedor.*, unidadenegocio.nomefantasia',
       ' from pessoavendedor inner join unidadenegocio on pessoavendedor.idunidadenegocio = unidadenegocio.idunidadenegocio',
-      ' ',' order by idpessoa',' limit 0 ');
+      ' where idpessoa = :idpessoa ',' ',' ');
     const selectplanocontasfinanceiro: array[1..5] of string = ('select *',' from planocontasfinanceiro',' ',
       ' order by idplanocontasfinanceiro',' limit 0 ');
     const selectplanocontasgerencial: array[1..5] of string = ('select *',' from planocontasgerencial',' ',
@@ -1498,10 +1500,16 @@ type
     procedure setSQLUnidadeNegocio(filtro: String);
     procedure setSQLCSTICMS(filtro: String);
     procedure setSQLCSTCSOSN(filtro: String);
+
+    function getIDPessoaManipulado(): Integer;
+    function pessoaBloqueada():Boolean;
+    procedure setPessoaBloqueio(Bloquear:Boolean);
   end;
 
   var
     arq : TextFile;
+    IDPessoaManipulada : Integer;
+    bloqueiaPessoa : Boolean;
 
 implementation
 
@@ -1556,6 +1564,11 @@ begin
   qryFiltroSalvo.Close;
 end;
 
+function TServerMethods.pessoaBloqueada: Boolean;
+begin
+  Result := bloqueiaPessoa;
+end;
+
 procedure TServerMethods.LOGclose;
 begin
   CloseFile(arq);
@@ -1601,6 +1614,26 @@ begin
   qrySQL.SQL.Clear;
   qrySQL.SQL.Add('delete from filtrosalvo where idfiltrosalvo = '+IntToStr(id));
   qrySQL.ExecSQL;
+end;
+
+procedure TServerMethods.dspPessoaAfterUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+  UpdateKind: TUpdateKind);
+begin
+  if UpdateKind = ukInsert then
+  begin
+    getClient('select max(idpessoa) as idpessoa from pessoa');
+    qryGetClient.Open();
+    IDPessoaManipulada := qryGetClient.FieldByName('idpessoa').AsInteger;
+    qryGetClient.Close;
+  end
+  else
+  begin
+    IDPessoaManipulada := DeltaDS.FieldByName('idpessoa').AsInteger;
+  end;
+
+  LOGopen;
+  LOGadd('ID Pessoa: '+IntToStr(IDPessoaManipulada));
+  LOGclose;
 end;
 
 procedure TServerMethods.UpdateError(Sender: TObject; DataSet: TCustomClientDataSet; E: EUpdateError;
@@ -2240,6 +2273,26 @@ begin
   qryFiltroSalvo.Close;
   qryFiltroSalvo.SQL.Clear;
   qryFiltroSalvo.SQL.Add('select * from filtrosalvo where form = '+QuotedStr(form)+' and usuario = '+QuotedStr(usuario));
+end;
+
+function TServerMethods.getIDPessoaManipulado: Integer;
+begin
+  while pessoaBloqueada do
+  begin
+    LOGopen;
+    LOGadd('Aguardou outro usuário concluir o cadastro de Pessoa');
+    LOGclose;
+    sleep(1000);
+  end;
+
+  setPessoaBloqueio(True);
+  Result := IDPessoaManipulada;
+  setPessoaBloqueio(False);
+end;
+
+procedure TServerMethods.setPessoaBloqueio(Bloquear: Boolean);
+begin
+  bloqueiaPessoa := Bloquear;
 end;
 
 procedure TServerMethods.setSQL(SQL: String);

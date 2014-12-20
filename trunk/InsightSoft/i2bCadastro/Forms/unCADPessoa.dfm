@@ -30,7 +30,7 @@
     inherited cxPageControl: TcxPageControl
       Width = 825
       Height = 606
-      Properties.ActivePage = cxTabGrid
+      Properties.ActivePage = cxTabCadastro
       ExplicitWidth = 825
       ExplicitHeight = 606
       ClientRectBottom = 604
