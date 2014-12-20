@@ -191,176 +191,46 @@
               ExplicitWidth = 177
             end
             inherited grpTipo: TcxDBRadioGroup
-              Top = 33
-              ExplicitTop = 33
               ExplicitWidth = 330
               Width = 330
             end
             inherited chkCliente: TcxDBCheckBox
               Left = 375
-              Top = 54
               ExplicitLeft = 375
-              ExplicitTop = 54
             end
             inherited chkColaborador: TcxDBCheckBox
               Left = 375
-              Top = 84
               ExplicitLeft = 375
-              ExplicitTop = 84
             end
             inherited chkFornecedor: TcxDBCheckBox
               Left = 483
-              Top = 54
               ExplicitLeft = 483
-              ExplicitTop = 54
             end
             inherited chkVendedor: TcxDBCheckBox
               Left = 483
-              Top = 84
               ExplicitLeft = 483
-              ExplicitTop = 84
             end
             inherited chkTransportadora: TcxDBCheckBox
               Left = 591
-              Top = 54
               ExplicitLeft = 591
-              ExplicitTop = 54
               ExplicitWidth = 123
               Width = 123
             end
-            inherited edtRazaoSocial: TcxDBTextEdit
-              Top = 409
-              ExplicitTop = 409
-            end
-            inherited edtFantasia: TcxDBTextEdit
-              Top = 409
-              ExplicitTop = 409
-            end
-            inherited edtCNPJ: TcxDBTextEdit
-              Top = 460
-              ExplicitTop = 460
-            end
-            inherited edtInscricaoMunicipal: TcxDBTextEdit
-              Top = 511
-              ExplicitTop = 511
-            end
-            inherited edtInscricaoEstadual: TcxDBTextEdit
-              Top = 572
-              ExplicitTop = 572
-            end
-            inherited grpCodigoRegimeTributario: TcxDBRadioGroup
-              Top = 439
-              ExplicitTop = 439
-            end
-            inherited edtDataFundacao: TcxDBDateEdit
-              Top = 572
-              ExplicitTop = 572
-            end
-            inherited grpRegimeTributario: TcxDBRadioGroup
-              Top = 439
-              ExplicitTop = 439
-            end
             inherited chkRepresentante: TcxDBCheckBox
               Left = 591
-              Top = 84
               Properties.DisplayGrayed = 'false'
               ExplicitLeft = 591
-              ExplicitTop = 84
               ExplicitWidth = 121
               Width = 121
             end
-            inherited chkContador: TcxDBCheckBox
-              Top = 54
-              ExplicitTop = 54
-            end
-            inherited edtRepresentanteComissao: TcxDBCurrencyEdit
-              Top = 1334
-              ExplicitTop = 1334
-            end
             inherited memTransportadoraObservacao: TcxDBMemo
-              Top = 1420
-              ExplicitTop = 1420
               ExplicitWidth = 947
               Width = 947
             end
-            inherited edtVendedorComissao: TcxDBCurrencyEdit
-              Top = 1572
-              ExplicitTop = 1572
-            end
-            inherited edtVendedorMeta: TcxDBCurrencyEdit
-              Top = 1572
-              ExplicitTop = 1572
-            end
-            inherited edtRepresentanteUnidadeNegocio: TcxDBTextEdit
-              Top = 1334
-              ExplicitTop = 1334
-            end
-            inherited edtRepresentanteMeta: TcxDBCurrencyEdit
-              Top = 1334
-              ExplicitTop = 1334
-            end
-            inherited edtVendedorUnidadeNegocio: TcxDBTextEdit
-              Top = 1572
-              ExplicitTop = 1572
-            end
-            inherited chkClienteAtivo: TcxDBCheckBox
-              Top = 1242
-              ExplicitTop = 1242
-            end
-            inherited memClienteObservacao: TcxDBMemo
-              Top = 1182
-              ExplicitTop = 1182
-            end
-            inherited chkGeraFinanceiro: TcxDBCheckBox
-              Top = 1212
-              ExplicitTop = 1212
-            end
-            inherited edtLimiteCredito: TcxDBCurrencyEdit
-              Top = 1182
-              ExplicitTop = 1182
-            end
-            inherited edtNome: TcxDBTextEdit
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited edtCPF: TcxDBTextEdit
-              Top = 221
-              ExplicitTop = 221
-            end
-            inherited edtRG: TcxDBTextEdit
-              Top = 221
-              ExplicitTop = 221
-            end
-            inherited edtNomeDoPai: TcxDBTextEdit
-              Top = 272
-              ExplicitTop = 272
-            end
-            inherited edtCnhNumero: TcxDBTextEdit
-              Top = 323
-              ExplicitTop = 323
-            end
-            inherited edtDataAniversário: TcxDBDateEdit
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited cmbEstadoCivil: TcxDBComboBox
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited grpSexo: TcxDBRadioGroup
-              Top = 200
-              ExplicitTop = 200
-            end
-            inherited edtNomeDaMae: TcxDBTextEdit
-              Top = 272
-              ExplicitTop = 272
-            end
             inherited edtCnhCategoria: TcxDBTextEdit
               Left = 601
-              Top = 323
               TabOrder = 18
               ExplicitLeft = 601
-              ExplicitTop = 323
             end
             inherited edtCTPSNumero: TcxDBTextEdit
               Top = 959
@@ -380,14 +250,6 @@
               Top = 806
               TabOrder = 28
               ExplicitTop = 806
-            end
-            inherited edtCRC: TcxDBTextEdit
-              Top = 1658
-              ExplicitTop = 1658
-            end
-            inherited edtContadorUnidadeNegocio: TcxDBTextEdit
-              Top = 1658
-              ExplicitTop = 1658
             end
             inherited edtDataDemissão: TcxDBDateEdit
               Top = 806
@@ -438,42 +300,6 @@
               ExplicitLeft = 227
               ExplicitTop = 857
             end
-            inherited edtDesde: TcxDBDateEdit
-              Top = 1744
-              ExplicitTop = 1744
-            end
-            inherited memFornecedorObservacao: TcxDBMemo
-              Top = 1876
-              ExplicitTop = 1876
-            end
-            inherited edtPrazoMedioEntrega: TcxDBTextEdit
-              Top = 1744
-              ExplicitTop = 1744
-            end
-            inherited edtPrimeiroVencimento: TcxDBCurrencyEdit
-              Top = 1795
-              ExplicitTop = 1795
-            end
-            inherited edtParcelas: TcxDBCurrencyEdit
-              Top = 1795
-              ExplicitTop = 1795
-            end
-            inherited edtNumeroDiasIntervalo: TcxDBCurrencyEdit
-              Top = 1795
-              ExplicitTop = 1795
-            end
-            inherited chkRetencao: TcxDBCheckBox
-              Top = 1825
-              ExplicitTop = 1825
-            end
-            inherited chkFornecedorGeraFaturamento: TcxDBCheckBox
-              Top = 1825
-              ExplicitTop = 1825
-            end
-            inherited chkFornecedorLocalização: TcxDBCheckBox
-              Top = 1825
-              ExplicitTop = 1825
-            end
             inherited edtDataCadastro: TcxDBDateEdit
               Top = 1045
               TabOrder = 43
@@ -520,10 +346,8 @@
             end
             inherited edtCNHVencimento: TcxDBDateEdit
               Left = 414
-              Top = 323
               TabOrder = 17
               ExplicitLeft = 414
-              ExplicitTop = 323
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -758,130 +582,130 @@
             inherited dxLayoutControlItem64: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlItem52: TdxLayoutItem [142]
-              Index = 2
-            end
-            inherited dxLayoutControlItem53: TdxLayoutItem [143]
-              Index = 3
-            end
-            inherited dxLayoutControlGroup14: TdxLayoutAutoCreatedGroup [144]
+            inherited dxLayoutControlGroup14: TdxLayoutAutoCreatedGroup
               Index = 2
               AutoCreated = True
             end
-            inherited dxLayoutControlItem59: TdxLayoutItem [145]
+            inherited dxLayoutControlItem59: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlItem47: TdxLayoutItem [146]
+            inherited dxLayoutControlItem47: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem45: TdxLayoutItem [147]
-              Index = 2
-            end
-            inherited dxLayoutControlItem57: TdxLayoutItem [148]
+            inherited dxLayoutControlItem57: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlGroup15: TdxLayoutAutoCreatedGroup [149]
+            inherited dxLayoutControlGroup15: TdxLayoutAutoCreatedGroup
               Index = 4
               AutoCreated = True
             end
-            inherited dxLayoutControlItem60: TdxLayoutItem [150]
+            inherited dxLayoutControlItem60: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem43: TdxLayoutItem [151]
+            inherited dxLayoutControlItem43: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup [152]
+            inherited dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup
               Index = 3
               AutoCreated = True
             end
-            inherited dxLayoutControlItem46: TdxLayoutItem [153]
+            inherited dxLayoutControlItem46: TdxLayoutItem
               Index = 2
             end
-            inherited dxLayoutControlItem56: TdxLayoutItem [154]
+            inherited dxLayoutControlItem54: TdxLayoutItem
+              Index = 2
+            end
+            inherited dxLayoutControlItem44: TdxLayoutItem
               Index = 3
             end
-            inherited dxLayoutControlItem54: TdxLayoutItem [155]
+            inherited dxLayoutControlItem51: TdxLayoutItem
+              Index = 1
+            end
+            inherited dxLayoutControlItem61: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlItem66: TdxLayoutItem
+              Index = 1
+            end
+            inherited dxLayoutControlGroup18: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
+            end
+            inherited dxLayoutControlGroup27: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
+            end
+            inherited dxLayoutControlItem67: TdxLayoutItem
+              Index = 1
+            end
+            inherited dxLayoutControlGroup28: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
+            end
+            inherited dxLayoutControlGroup26: TdxLayoutAutoCreatedGroup
+              Index = 1
+              AutoCreated = True
+            end
+            inherited dxLayoutControlItem69: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlItem70: TdxLayoutItem
+              Index = 1
+            end
+            inherited dxLayoutControlGroup30: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
+            end
+            inherited dxLayoutControlItem71: TdxLayoutItem
               Index = 2
             end
-            inherited dxLayoutControlItem44: TdxLayoutItem [156]
-              Index = 3
-            end
-            inherited dxLayoutControlItem51: TdxLayoutItem [157]
+            inherited dxLayoutControlItem63: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlItem61: TdxLayoutItem [158]
-              Index = 0
-            end
-            inherited dxLayoutControlItem66: TdxLayoutItem [159]
-              Index = 1
-            end
-            inherited dxLayoutControlGroup18: TdxLayoutAutoCreatedGroup [160]
-              Index = 0
-              AutoCreated = True
-            end
-            inherited dxLayoutControlGroup27: TdxLayoutAutoCreatedGroup [161]
-              Index = 0
-              AutoCreated = True
-            end
-            inherited dxLayoutControlItem67: TdxLayoutItem [162]
-              Index = 1
-            end
-            inherited dxLayoutControlGroup28: TdxLayoutAutoCreatedGroup [163]
-              Index = 0
-              AutoCreated = True
-            end
-            inherited dxLayoutControlGroup26: TdxLayoutAutoCreatedGroup [164]
+            inherited dxLayoutControlGroup31: TdxLayoutAutoCreatedGroup
               Index = 1
               AutoCreated = True
             end
-            inherited dxLayoutControlItem69: TdxLayoutItem [165]
-              Index = 0
-            end
-            inherited dxLayoutControlItem70: TdxLayoutItem [166]
-              Index = 1
-            end
-            inherited dxLayoutControlGroup30: TdxLayoutAutoCreatedGroup [167]
-              Index = 0
-              AutoCreated = True
-            end
-            inherited dxLayoutControlItem71: TdxLayoutItem [168]
+            inherited dxLayoutControlItem68: TdxLayoutItem
               Index = 2
             end
-            inherited dxLayoutControlItem63: TdxLayoutItem [169]
-              Index = 1
-            end
-            inherited dxLayoutControlGroup31: TdxLayoutAutoCreatedGroup [170]
-              Index = 1
-              AutoCreated = True
-            end
-            inherited dxLayoutControlItem68: TdxLayoutItem [171]
-              Index = 2
-            end
-            inherited dxLayoutControlItem62: TdxLayoutItem [172]
+            inherited dxLayoutControlItem62: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlGroup5: TdxLayoutGroup [173]
+            inherited dxLayoutControlGroup5: TdxLayoutGroup
               Index = 4
             end
-            inherited dxLayoutControlGroup8: TdxLayoutAutoCreatedGroup [174]
+            inherited dxLayoutControlGroup8: TdxLayoutAutoCreatedGroup
               Index = 0
               AutoCreated = True
             end
-            inherited dxLayoutControlItem35: TdxLayoutItem [175]
+            inherited dxLayoutControlItem35: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem29: TdxLayoutItem [176]
+            inherited dxLayoutControlItem29: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlGroup11: TdxLayoutAutoCreatedGroup [177]
+            inherited dxLayoutControlGroup11: TdxLayoutAutoCreatedGroup
               Index = 1
               AutoCreated = True
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem [178]
+            inherited dxLayoutControlItem2: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem3: TdxLayoutItem [179]
+            inherited dxLayoutControlItem3: TdxLayoutItem
               Index = 1
+            end
+            inherited dxLayoutControlItem45: TdxLayoutItem
+              Index = 2
+            end
+            inherited dxLayoutControlItem52: TdxLayoutItem
+              Index = 2
+            end
+            inherited dxLayoutControlItem53: TdxLayoutItem
+              Index = 3
+            end
+            inherited dxLayoutControlItem56: TdxLayoutItem
+              Index = 3
             end
             inherited dxLayoutControlItem48: TdxLayoutItem
               Index = 0

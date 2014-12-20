@@ -110,13 +110,21 @@ begin
   begin
     DM.cdsPessoaVendedor.Open;
   end;
-  DM.cdsPessoaCliente.Edit;
   DM.cdsPessoaColaborador.Edit;
   DM.cdsPessoaContador.Edit;
   DM.cdsPessoaFornecedor.Edit;
   DM.cdsPessoaRepresentante.Edit;
   DM.cdsPessoaTransportadora.Edit;
   DM.cdsPessoaVendedor.Edit;
+  DM.cdsPessoaCliente.Edit;
+  FramePessoa.grpTipoClick(Sender);
+  FramePessoa.chkColaboradorClick(Sender);
+  FramePessoa.chkContadorClick(Sender);
+  FramePessoa.chkFornecedorClick(Sender);
+  FramePessoa.chkRepresentanteClick(Sender);
+  FramePessoa.chkTransportadoraClick(Sender);
+  FramePessoa.chkVendedorClick(Sender);
+  FramePessoa.chkClienteClick(Sender);
 end;
 
 procedure TfrmCADPessoa.acNovoExecute(Sender: TObject);
@@ -164,48 +172,42 @@ begin
   //inherited;
   DM.cdsPessoa.Post;
   DM.cdsPessoa.ApplyUpdates(-1);
-  DM.cdsPessoaClienteidpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaCliente.Post;
-  DM.cdsPessoaColaboradoridpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaColaborador.Post;
-  DM.cdsPessoaContadoridpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaContador.Post;
-  DM.cdsPessoaFornecedoridpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaFornecedor.Post;
-  DM.cdsPessoaRepresentanteidpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaRepresentante.Post;
-  DM.cdsPessoaTransportadoraidpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaTransportadora.Post;
-  DM.cdsPessoaVendedoridpessoa.AsInteger:= DM.cdsPessoaidpessoa.AsInteger;
-  DM.cdsPessoaVendedor.Post;
-  if DM.cdsPessoaCliente.ChangeCount>0 then
+  if FramePessoa.chkCliente.Checked then
   begin
+    DM.cdsPessoaCliente.Post;
     DM.cdsPessoaCliente.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaColaborador.ChangeCount>0 then
+  if FramePessoa.chkColaborador.Checked then
   begin
+    DM.cdsPessoaColaborador.Post;
     DM.cdsPessoaColaborador.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaContador.ChangeCount>0 then
+  if FramePessoa.chkContador.Checked then
   begin
+    DM.cdsPessoaContador.Post;
     DM.cdsPessoaContador.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaFornecedor.ChangeCount>0 then
+  if FramePessoa.chkFornecedor.Checked then
   begin
+    DM.cdsPessoaFornecedor.Post;
     DM.cdsPessoaFornecedor.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaRepresentante.ChangeCount>0 then
+  if FramePessoa.chkRepresentante.Checked then
   begin
+    DM.cdsPessoaRepresentante.Post;
     DM.cdsPessoaRepresentante.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaTransportadora.ChangeCount>0 then
+  if FramePessoa.chkTransportadora.Checked then
   begin
+    DM.cdsPessoaTransportadora.Post;
     DM.cdsPessoaTransportadora.ApplyUpdates(-1);
   end;
-  if DM.cdsPessoaVendedor.ChangeCount>0 then
+  if FramePessoa.chkVendedor.Checked then
   begin
+    DM.cdsPessoaVendedor.Post;
     DM.cdsPessoaVendedor.ApplyUpdates(-1);
   end;
+  DM.cdsPessoa.ApplyUpdates(-1);
 end;
 
 end.

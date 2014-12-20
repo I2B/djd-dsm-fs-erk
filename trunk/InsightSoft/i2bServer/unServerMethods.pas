@@ -1180,6 +1180,7 @@ type
     qryPessoanome: TWideStringField;
     qryPessoarepresentante2: TBooleanField;
     qryPessoadatacadastro: TDateField;
+    dsPessoa: TDataSource;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);

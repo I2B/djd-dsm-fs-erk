@@ -4187,7 +4187,7 @@ object ServerMethods: TServerMethods
   object qryPessoa: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from pessoa order by idPessoa limit 0')
+      'select * from pessoa order by idpessoa limit 0')
     Left = 576
     Top = 592
     object qryPessoaidpessoa: TIntegerField
@@ -4404,11 +4404,23 @@ object ServerMethods: TServerMethods
     Top = 592
   end
   object qryPessoaCliente: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
-      'select * from pessoaCliente order by idPessoa limit 0')
+      'select * from pessoaCliente '
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 88
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaClienteidpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -4432,6 +4444,8 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaColaborador: TFDQuery
+    MasterSource = dsPessoa
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
       
@@ -4440,9 +4454,17 @@ object ServerMethods: TServerMethods
       'from pessoaColaborador '
       'inner join setor on pessoaColaborador.idSetor = setor.idSetor'
       'inner join cargo on pessoaColaborador.idCargo = cargo.idCargo'
-      'order by idPessoa limit 0')
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 144
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaColaboradoridbanco: TWideStringField
       FieldName = 'idbanco'
       Origin = 'idbanco'
@@ -4540,6 +4562,9 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaContador: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
       
@@ -4548,9 +4573,17 @@ object ServerMethods: TServerMethods
       
         'inner join unidadeNegocio on pessoaContador.idUnidadeNegocio = u' +
         'nidadeNegocio.idUnidadeNegocio'
-      'order by idPessoa limit 0')
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 200
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaContadoridpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -4572,11 +4605,23 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaFornecedor: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
-      'select * from pessoaFornecedor order by idPessoa limit 0')
+      'select * from pessoaFornecedor '
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 256
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaFornecedoridpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -4621,6 +4666,9 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaRepresentante: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
       
@@ -4629,9 +4677,17 @@ object ServerMethods: TServerMethods
       
         'inner join unidadeNegocio on pessoaRepresentante.idUnidadeNegoci' +
         'o = unidadeNegocio.idUnidadeNegocio '
-      'order by idPessoa limit 0')
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 312
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaRepresentanteidpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -4656,11 +4712,23 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaTransportadora: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
-      'select * from pessoaTransportadora order by idPessoa limit 0')
+      'select * from pessoaTransportadora '
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 368
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaTransportadoraidpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -4672,6 +4740,9 @@ object ServerMethods: TServerMethods
     end
   end
   object qryPessoaVendedor: TFDQuery
+    MasterSource = dsPessoa
+    MasterFields = 'idpessoa'
+    DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
       
@@ -4680,9 +4751,17 @@ object ServerMethods: TServerMethods
       
         'inner join unidadeNegocio on pessoaVendedor.idUnidadeNegocio = u' +
         'nidadeNegocio.idUnidadeNegocio'
-      'order by idPessoa limit 0')
+      ''
+      'where idpessoa = :idpessoa')
     Left = 680
     Top = 424
+    ParamData = <
+      item
+        Name = 'IDPESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object qryPessoaVendedoridpessoa: TIntegerField
       FieldName = 'idpessoa'
       Origin = 'idpessoa'
@@ -6077,5 +6156,10 @@ object ServerMethods: TServerMethods
     DataSet = qryGetClient
     Left = 656
     Top = 24
+  end
+  object dsPessoa: TDataSource
+    DataSet = qryPessoa
+    Left = 544
+    Top = 32
   end
 end

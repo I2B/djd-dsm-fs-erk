@@ -84,7 +84,6 @@ type
     btnPessoa: TdxBarLargeButton;
     BarCadProduto: TdxBar;
     dxBarLargeButton2: TdxBarLargeButton;
-    cxButton1: TcxButton;
     procedure btnSerieClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
@@ -122,7 +121,6 @@ type
     procedure dxBarLargeButton1Click(Sender: TObject);
     procedure btnPessoaClick(Sender: TObject);
     procedure dxBarLargeButton2Click(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
   private
     { Private declarations }
     function abaExiste(Formulario : TForm):boolean;
@@ -253,22 +251,6 @@ begin
     DM.cdsUnidadeNegocio.Open;
     frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
     frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
-  end;
-end;
-
-procedure TfrmPrincipal.cxButton1Click(Sender: TObject);
-var
-  clientds : TClientDataSet;
-begin
-  clientds := i2bGetClient('select * from serie',DM.dspConnection);
-
-  clientds.First;
-  while not clientds.Eof do
-  begin
-    clientds.FieldByName('idserie').AsInteger;
-    clientds.FieldByName('descricao').AsString;
-
-    clientds.Next;
   end;
 end;
 
