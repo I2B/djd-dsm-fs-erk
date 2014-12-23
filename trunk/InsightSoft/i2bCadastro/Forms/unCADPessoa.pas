@@ -48,6 +48,9 @@ type
     cxGridDBcrt: TcxGridDBColumn;
     cxGridDBsuframa: TcxGridDBColumn;
     FramePessoa: TFramePessoa;
+    cxGridDBnome: TcxGridDBColumn;
+    cxGridDBrepresentante: TcxGridDBColumn;
+    cxGridDBdatacadastro: TcxGridDBColumn;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acCancelarExecute(Sender: TObject);
@@ -176,39 +179,51 @@ begin
   begin
     DM.cdsPessoaCliente.Edit;
     DM.cdsPessoaClienteidpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
+    DM.cdsPessoaCliente.Post;
     DM.cdsPessoaCliente.ApplyUpdates(-1);
   end;
   if FramePessoa.chkColaborador.Checked then
   begin
+    DM.cdsPessoaColaborador.Edit;
+    DM.cdsPessoaColaboradoridpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaColaborador.Post;
     DM.cdsPessoaColaborador.ApplyUpdates(-1);
   end;
   if FramePessoa.chkContador.Checked then
   begin
+    DM.cdsPessoaContador.Edit;
+    DM.cdsPessoaContadoridpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaContador.Post;
     DM.cdsPessoaContador.ApplyUpdates(-1);
   end;
   if FramePessoa.chkFornecedor.Checked then
   begin
+    DM.cdsPessoaFornecedor.Edit;
+    DM.cdsPessoaFornecedoridpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaFornecedor.Post;
     DM.cdsPessoaFornecedor.ApplyUpdates(-1);
   end;
   if FramePessoa.chkRepresentante.Checked then
   begin
+    DM.cdsPessoaRepresentante.Edit;
+    DM.cdsPessoaRepresentanteidpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaRepresentante.Post;
     DM.cdsPessoaRepresentante.ApplyUpdates(-1);
   end;
   if FramePessoa.chkTransportadora.Checked then
   begin
+    DM.cdsPessoaTransportadora.Edit;
+    DM.cdsPessoaTransportadoraidpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaTransportadora.Post;
     DM.cdsPessoaTransportadora.ApplyUpdates(-1);
   end;
   if FramePessoa.chkVendedor.Checked then
   begin
+    DM.cdsPessoaVendedor.Edit;
+    DM.cdsPessoaVendedoridpessoa.AsInteger := getIDPessoaInserida(DM.dspConnection);
     DM.cdsPessoaVendedor.Post;
     DM.cdsPessoaVendedor.ApplyUpdates(-1);
   end;
-  DM.cdsPessoa.ApplyUpdates(-1);
 end;
 
 end.

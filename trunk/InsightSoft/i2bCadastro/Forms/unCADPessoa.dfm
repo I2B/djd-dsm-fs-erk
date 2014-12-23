@@ -30,7 +30,6 @@
     inherited cxPageControl: TcxPageControl
       Width = 825
       Height = 606
-      Properties.ActivePage = cxTabCadastro
       ExplicitWidth = 825
       ExplicitHeight = 606
       ClientRectBottom = 604
@@ -45,35 +44,56 @@
           ExplicitHeight = 504
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidpessoa: TcxGridDBColumn
+              Caption = 'ID'
               DataBinding.FieldName = 'idpessoa'
             end
+            object cxGridDBnome: TcxGridDBColumn
+              Caption = 'Nome'
+              DataBinding.FieldName = 'nome'
+              Width = 395
+            end
+            object cxGridDBdatacadastro: TcxGridDBColumn
+              Caption = 'Data Cadastro'
+              DataBinding.FieldName = 'datacadastro'
+              Width = 78
+            end
             object cxGridDBtipo: TcxGridDBColumn
+              Caption = 'Tipo'
               DataBinding.FieldName = 'tipo'
               Width = 46
             end
             object cxGridDBemail: TcxGridDBColumn
+              Caption = 'e-Mail'
               DataBinding.FieldName = 'email'
-              Width = 389
+              Width = 233
             end
             object cxGridDBsite: TcxGridDBColumn
+              Caption = 'Site'
               DataBinding.FieldName = 'site'
+              Width = 395
             end
             object cxGridDBcliente: TcxGridDBColumn
+              Caption = 'Cliente'
               DataBinding.FieldName = 'cliente'
             end
             object cxGridDBfornecedor: TcxGridDBColumn
+              Caption = 'Fornecedor'
               DataBinding.FieldName = 'fornecedor'
             end
             object cxGridDBcolaborador: TcxGridDBColumn
+              Caption = 'Colaborador'
               DataBinding.FieldName = 'colaborador'
             end
             object cxGridDBcontador: TcxGridDBColumn
+              Caption = 'Contador'
               DataBinding.FieldName = 'contador'
             end
             object cxGridDBtransportadora: TcxGridDBColumn
+              Caption = 'Transportadora'
               DataBinding.FieldName = 'transportadora'
             end
             object cxGridDBvendedor: TcxGridDBColumn
+              Caption = 'Vendedor'
               DataBinding.FieldName = 'vendedor'
             end
             object cxGridDBcpf: TcxGridDBColumn
@@ -105,12 +125,15 @@
             end
             object cxGridDBnomemae: TcxGridDBColumn
               DataBinding.FieldName = 'nomemae'
+              Width = 306
             end
             object cxGridDBnomepai: TcxGridDBColumn
               DataBinding.FieldName = 'nomepai'
+              Width = 276
             end
             object cxGridDBnomefantasia: TcxGridDBColumn
               DataBinding.FieldName = 'nomefantasia'
+              Width = 258
             end
             object cxGridDBinscricaomunicipal: TcxGridDBColumn
               DataBinding.FieldName = 'inscricaomunicipal'
@@ -126,6 +149,9 @@
             end
             object cxGridDBsuframa: TcxGridDBColumn
               DataBinding.FieldName = 'suframa'
+            end
+            object cxGridDBrepresentante: TcxGridDBColumn
+              DataBinding.FieldName = 'representante'
             end
           end
         end
