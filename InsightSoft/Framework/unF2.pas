@@ -77,7 +77,7 @@ type
     SQLCampos : String;
     fTabela : String;
     fNomeDosCampos : String;
-    fFrameCadastro : TFramePai;
+    fFrameCadastro : String;
     fClientCadastro : TClientDataSet;
   public
     { Public declarations }
@@ -85,7 +85,7 @@ type
     valorSelecionado2:String;
     property cancelado:Boolean read fCancelado;
     constructor Create( AOwner: TComponent; titulo, campoRetorno, campoPadraoBusca,camposVisiveis, NomeDosCampos, Tabela,
-      WhereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet);
+      WhereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String; ClientCadastro:TClientDataSet);
   end;
 
 var
@@ -100,18 +100,17 @@ uses unI2BString, unF2Cadastro;
 
 procedure TfrmF2.acCadastrarExecute(Sender: TObject);
 var
-  cadastro: TfrmF2Cadastro;
+  cadastro : TfrmF2Cadastro;
 begin
-  cadastro := TfrmF2Cadastro.Create(Application,fFrameCadastro,fClientCadastro);
-  cadastro.ShowModal;
-  if cadastro.cancelado then
+  cadastro := TfrmF2Cadastro.Create(Application,fFrameCadastro);
+  if cadastro.frameLocalizado then
   begin
-    edtInformacao.Clear;
-    edtInformacaoPropertiesChange(Sender);
+    Application.MessageBox('Cadastro não disponível, requisite o desenvolvimento entrando em contato com a equipe I2B.',
+      'Cadastro indisponível',MB_ICONINFORMATION + MB_OK);
   end
   else
   begin
-
+    cadastro.ShowModal;
   end;
 end;
 
@@ -183,7 +182,7 @@ begin
 end;
 
 constructor TfrmF2.Create(AOwner: TComponent; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
-  Tabela, WhereAdicional: String; BancoDeDados: TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet);
+  Tabela, WhereAdicional: String; BancoDeDados: TSQLConnection; FrameCadastro:String; ClientCadastro:TClientDataSet);
 var
   I, IndicePadrao : integer;
   slNomeDosCampos:TStringList;

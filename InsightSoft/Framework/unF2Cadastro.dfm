@@ -29,7 +29,6 @@ object frmF2Cadastro: TfrmF2Cadastro
     Color = 5177344
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 339
     object imgSalvar: TcxImage
       Left = 0
       Top = 0
