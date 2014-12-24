@@ -8,7 +8,8 @@ uses
   Data.DBXCommon, Datasnap.DSConnect;
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
-  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet) : Boolean;
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String;
+  ClientCadastro:TClientDataSet) : Boolean;
 
 function i2bGetDiretorio(Caption, DirDefault: string): string;
 
@@ -22,7 +23,8 @@ uses
   unF2;
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
-  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:TFramePai; ClientCadastro:TClientDataSet) : Boolean;
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String;
+  ClientCadastro:TClientDataSet) : Boolean;
 var
   seleciona: TfrmF2;
 var

@@ -34,10 +34,6 @@ object frmF2: TfrmF2
     Properties.Style = 9
     Properties.TabPosition = tpLeft
     Properties.TabsScroll = False
-    ExplicitLeft = 64
-    ExplicitTop = 24
-    ExplicitWidth = 289
-    ExplicitHeight = 193
     ClientRectBottom = 404
     ClientRectLeft = 28
     ClientRectRight = 860
@@ -45,10 +41,6 @@ object frmF2: TfrmF2
     object cxTabSheet: TcxTabSheet
       Caption = 'titulo'
       ImageIndex = 0
-      ExplicitLeft = 2
-      ExplicitTop = 30
-      ExplicitWidth = 856
-      ExplicitHeight = 372
       object pnlClient: TPanel
         Left = 0
         Top = 57
@@ -59,7 +51,6 @@ object frmF2: TfrmF2
         Color = 5177344
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 860
         object pnlLeft: TPanel
           Left = 0
           Top = 0
@@ -70,7 +61,6 @@ object frmF2: TfrmF2
           Color = 5177344
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 348
         end
         object pnlRight: TPanel
           Left = 818
@@ -82,8 +72,6 @@ object frmF2: TfrmF2
           Color = 5177344
           ParentBackground = False
           TabOrder = 1
-          ExplicitLeft = 842
-          ExplicitHeight = 348
         end
         object pnlBottom: TPanel
           Left = 0
@@ -95,8 +83,6 @@ object frmF2: TfrmF2
           Color = 5177344
           ParentBackground = False
           TabOrder = 2
-          ExplicitTop = 348
-          ExplicitWidth = 856
           object lblCadastro: TLabel
             AlignWithMargins = True
             Left = 3
@@ -114,7 +100,7 @@ object frmF2: TfrmF2
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
-            ExplicitLeft = 450
+            ExplicitLeft = 426
             ExplicitWidth = 403
             ExplicitHeight = 15
           end
@@ -132,8 +118,6 @@ object frmF2: TfrmF2
           Font.Style = []
           ParentFont = False
           TabOrder = 3
-          ExplicitWidth = 828
-          ExplicitHeight = 348
           object cxGridDBTableView: TcxGridDBTableView
             OnDblClick = cxGridDBTableViewDblClick
             OnKeyDown = edtInformacaoKeyDown
@@ -174,8 +158,6 @@ object frmF2: TfrmF2
         ParentBackground = False
         ParentCtl3D = False
         TabOrder = 1
-        ExplicitTop = 8
-        ExplicitWidth = 856
         DesignSize = (
           832
           57)
@@ -267,7 +249,6 @@ object frmF2: TfrmF2
           Font.Name = 'Segoe UI Light'
           Font.Style = []
           ParentFont = False
-          ExplicitLeft = 742
         end
         object cbCampos: TcxComboBox
           Left = 14
