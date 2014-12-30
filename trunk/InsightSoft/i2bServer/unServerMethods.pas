@@ -2,14 +2,11 @@ unit unServerMethods;
 
 interface
 
-uses System.SysUtils, System.Classes, System.Json,
-    Datasnap.DSServer, Datasnap.DSAuth, DataSnap.DSProviderDataModuleAdapter,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
-  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
-  FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI, Data.DB, FireDAC.Comp.Client, FireDAC.Stan.Param,
-  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Datasnap.Provider,
-  FireDAC.Comp.DataSet, Datasnap.DBClient;
+uses System.SysUtils, System.Classes, System.Json, Datasnap.DSServer, Datasnap.DSAuth, DataSnap.DSProviderDataModuleAdapter,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
+  FireDAC.Comp.UI, Data.DB, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  Datasnap.Provider, FireDAC.Comp.DataSet, Datasnap.DBClient;
 
 type
   TServerMethods = class(TDSServerModule)
@@ -1409,6 +1406,10 @@ type
     //Procedures utilizadas pelo Cliente para aplicação de filtros - DJD
     procedure setSQL(SQL: String);
 
+    //Function que manipula a qrySQL para INSERT, UPDATE e DELETE no Banco de Dados
+    function executaSQL(SQL: String): Boolean;
+    function getErroExecutaSQL(): String;
+
     procedure setSQLAuditoria(filtro: String);
     procedure setSQLBanco(filtro: String);
     procedure setSQLCargo(filtro: String);
@@ -1510,6 +1511,7 @@ type
     arq : TextFile;
     IDPessoaManipulada : Integer;
     bloqueiaPessoa : Boolean;
+    erroExecutaSQL : String;
 
 implementation
 
@@ -2247,6 +2249,36 @@ begin
   Result := Value;
 end;
 
+function TServerMethods.executaSQL(SQL: String): Boolean;
+begin
+  try
+    if qrySQL.Active then
+      qrySQL.Close;
+    qrySQL.SQL.Clear;
+
+    if (SQL <> '') then
+    begin
+      qrySQL.SQL.Add(SQL);
+      qrySQL.ExecSQL;
+      Result := True;
+
+      LOGopen;
+      LOGadd('SQL executada com Sucesso: ['+Trim(qrySQL.SQL.Text)+']');
+      LOGclose;
+    end;
+  except
+    On E : Exception do
+    begin
+      Result := False;
+      erroExecutaSQL := E.ToString;
+      LOGopen;
+      LOGadd('SQL Falhou: ['+Trim(qrySQL.SQL.Text)+']');
+      LOGadd('Motivo: ['+Trim(E.ToString)+']');
+      LOGclose;
+    end;
+  end;
+end;
+
 function TServerMethods.ReverseString(Value: string): string;
 begin
   Result := System.StrUtils.ReverseString(Value);
@@ -2266,6 +2298,11 @@ begin
   finally
 
   end;
+end;
+
+function TServerMethods.getErroExecutaSQL: String;
+begin
+  Result := erroExecutaSQL;
 end;
 
 procedure TServerMethods.getFiltosSalvos(form, usuario:String);
