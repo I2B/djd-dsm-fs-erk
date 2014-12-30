@@ -30,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 3
     TabStop = False
     object tabPrincipal: TdxRibbonTab
-      Active = True
       Caption = 'I2B - Insight To Business'
       Groups = <
         item
@@ -56,6 +55,7 @@ object frmPrincipal: TfrmPrincipal
       Index = 1
     end
     object tabProdutos: TdxRibbonTab
+      Active = True
       Caption = 'Produtos'
       Groups = <
         item
@@ -457,6 +457,10 @@ object frmPrincipal: TfrmPrincipal
         item
           Visible = True
           ItemName = 'btnTamanho'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton3'
         end>
       OneOnRow = False
       Row = 0
@@ -562,7 +566,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object dxBarManagerBar2: TdxBar
       CaptionButtons = <>
-      DockedLeft = 448
+      DockedLeft = 495
       DockedTop = 0
       FloatLeft = 1058
       FloatTop = 8
@@ -1114,6 +1118,13 @@ object frmPrincipal: TfrmPrincipal
         0001000000010101010401010104010101040101010401010104000101040001
         0104000101040001010400010104000101040001010401010104010101040101
         0104010101040101010401010104000000010000000100000000}
+    end
+    object dxBarLargeButton3: TdxBarLargeButton
+      Caption = 'Grade'
+      Category = 0
+      Hint = 'Grade de Produtos'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton3Click
     end
     object btnCBO: TdxBarLargeButton
       Caption = 'CBO'
