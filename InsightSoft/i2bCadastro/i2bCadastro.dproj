@@ -452,7 +452,16 @@
             <Form>frmF2Cadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Frames\unFrameProdutoGrade.pas">
+            <Form>FrameProdutoGrade</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="..\Framework\unI2BBD.pas"/>
+        <DCCReference Include="Forms\unCADProdutoGrade.pas">
+            <Form>frmCADProdutoGrade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

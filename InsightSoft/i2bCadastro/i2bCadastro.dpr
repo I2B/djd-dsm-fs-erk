@@ -87,7 +87,9 @@ uses
   unI2BString in '..\Framework\unI2BString.pas',
   unCADProduto in 'Forms\unCADProduto.pas' {frmCADProduto},
   unF2Cadastro in '..\Framework\unF2Cadastro.pas' {frmF2Cadastro},
-  unI2BBD in '..\Framework\unI2BBD.pas';
+  unFrameProdutoGrade in 'Frames\unFrameProdutoGrade.pas' {FrameProdutoGrade: TFrame},
+  unI2BBD in '..\Framework\unI2BBD.pas',
+  unCADProdutoGrade in 'Forms\unCADProdutoGrade.pas' {frmCADProdutoGrade};
 
 {$R *.res}
 
@@ -96,6 +98,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmF2Cadastro, frmF2Cadastro);
   Application.Run;
 end.
