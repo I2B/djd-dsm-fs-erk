@@ -128,6 +128,7 @@ begin
       Campos.Add(CDS.FieldByName(Retornos[I]).AsString);
     end;
     Result := Campos;
+    FreeAndNil(CDS);
   end
   else
   begin
