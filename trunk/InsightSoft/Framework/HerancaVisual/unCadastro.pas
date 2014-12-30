@@ -114,14 +114,17 @@ begin
   pnlSide.Visible := False;
   cxPageControl.ActivePage := cxTabCadastro;
   (dts.DataSet as TClientDataSet).Insert;
-  try
-    Frame := TFrame(FindComponent(lblFrame.Caption));
-    (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
-    (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
-  except
-    MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
-      lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
-      'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+  if lblPrimeiroEdit.Caption <> 'lblPrimeiroEdit' then
+  begin
+    try
+      Frame := TFrame(FindComponent(lblFrame.Caption));
+      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
+      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
+    except
+      MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
+        lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
+        'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+    end;
   end;
 end;
 
