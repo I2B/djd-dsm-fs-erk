@@ -27,6 +27,12 @@ type
   public
     { Public declarations }
     frameLocalizado : Boolean;
+
+    campoID : String;
+    campoDesc : String;
+
+    valorCadastrado : String;
+    valorCadastrado2 : String;
     property cancelado:Boolean read fCancelado;
     constructor Create( AOwner: TComponent; FrameCadastro:String);
   end;
@@ -44,6 +50,7 @@ uses unFrameCBO;
 
 procedure TfrmF2Cadastro.acCancelarExecute(Sender: TObject);
 begin
+  (fDataSource.DataSet as TClientDataSet).Cancel;
   fClientCadastro.Cancel;
   fCancelado := False;
   close();
@@ -51,6 +58,18 @@ end;
 
 procedure TfrmF2Cadastro.acSalvarExecute(Sender: TObject);
 begin
+  try
+    (fDataSource.DataSet as TClientDataSet).Post;
+
+    valorCadastrado := (fDataSource.DataSet as TClientDataSet).FieldByName(campoID).AsString;
+    if campoDesc <> '' then
+      valorCadastrado2 := (fDataSource.DataSet as TClientDataSet).FieldByName(campoDesc).AsString;
+
+    (fDataSource.DataSet as TClientDataSet).ApplyUpdates(-1);
+  except
+
+  end;
+
   fCancelado := False;
   close();
 end;
