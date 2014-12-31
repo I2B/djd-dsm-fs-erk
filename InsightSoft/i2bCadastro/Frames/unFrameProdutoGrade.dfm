@@ -37,12 +37,56 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
     object edtProduto: TcxTextEdit [3]
       Left = 12
       Top = 33
+      Properties.OnChange = cxDBTextEdit1PropertiesChange
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
       Text = 'edtProduto'
       Width = 121
+    end
+    object grdGrade: TcxGrid [4]
+      Left = 12
+      Top = 202
+      Width = 250
+      Height = 200
+      TabOrder = 4
+      object tvGrade: TcxGridTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsCustomize.ColumnFiltering = False
+        OptionsCustomize.ColumnGrouping = False
+        OptionsCustomize.ColumnHidingOnGrouping = False
+        OptionsCustomize.ColumnHorzSizing = False
+        OptionsCustomize.ColumnMoving = False
+        OptionsCustomize.ColumnSorting = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Inserting = False
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GroupByBox = False
+        object tvGradeTamanhos: TcxGridColumn
+          Caption = 'Tamanhos'
+          FooterAlignmentHorz = taCenter
+          GroupSummaryAlignment = taCenter
+          HeaderAlignmentHorz = taCenter
+          HeaderGlyphAlignmentHorz = taCenter
+          Options.Editing = False
+        end
+        object tvGradeColumn1: TcxGridColumn
+          DataBinding.ValueType = 'Boolean'
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Properties.Alignment = taCenter
+          Properties.NullStyle = nssUnchecked
+          Visible = False
+          Styles.Header = cxStyle1
+        end
+      end
+      object LevelGrade: TcxGridLevel
+        GridView = tvGrade
+      end
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       CaptionOptions.Visible = False
@@ -107,8 +151,25 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       ControlOptions.ShowBorder = False
       Index = 0
     end
+    object dxLayoutControlItem5: TdxLayoutItem
+      Parent = dxLayoutControlGroup_Root
+      CaptionOptions.Text = 'cxGrid1'
+      CaptionOptions.Visible = False
+      Control = grdGrade
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsProdutoGrade
+  end
+  object cxStyleRepository: TcxStyleRepository
+    Left = 248
+    Top = 304
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor]
+      Color = 33023
+    end
   end
 end

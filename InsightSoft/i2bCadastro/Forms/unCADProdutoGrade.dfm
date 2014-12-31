@@ -98,6 +98,10 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             Height = 406
             ExplicitWidth = 843
             ExplicitHeight = 406
+            inherited grdGrade: TcxGrid
+              Width = 250
+              ExplicitWidth = 250
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -127,6 +131,12 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
+            inherited dxLayoutControlItem5: TdxLayoutItem
+              Index = 2
+            end
+          end
+          inherited cxStyleRepository: TcxStyleRepository
+            PixelsPerInch = 96
           end
         end
       end
@@ -207,11 +217,6 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
     inherited pnlTop: TPanel
       Width = 907
       ExplicitWidth = 907
-      inherited lblPrimeiroEdit: TLabel
-        Width = 92
-        Caption = 'edtProduto'
-        ExplicitWidth = 92
-      end
       inherited lblFrame: TLabel
         Left = 115
         Width = 164
