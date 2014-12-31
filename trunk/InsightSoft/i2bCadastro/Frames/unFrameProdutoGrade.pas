@@ -14,7 +14,9 @@ uses
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit,
-  Datasnap.DBClient, cxCheckListBox, cxDBCheckListBox, cxListBox;
+  Datasnap.DBClient, cxCheckListBox, cxDBCheckListBox, cxListBox, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxNavigator, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxClasses, cxGridLevel, cxGrid,
+  cxCheckBox;
 
 type
   TFrameProdutoGrade = class(TFramePai)
@@ -30,6 +32,14 @@ type
     dxLayoutControlItem4: TdxLayoutItem;
     edtProduto: TcxTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
+    LevelGrade: TcxGridLevel;
+    grdGrade: TcxGrid;
+    dxLayoutControlItem5: TdxLayoutItem;
+    tvGrade: TcxGridTableView;
+    tvGradeTamanhos: TcxGridColumn;
+    cxStyleRepository: TcxStyleRepository;
+    cxStyle1: TcxStyle;
+    tvGradeColumn1: TcxGridColumn;
     procedure cxDBTextEdit1PropertiesChange(Sender: TObject);
   private
     { Private declarations }
@@ -50,10 +60,38 @@ uses unDM, unI2BBD;
 procedure TFrameProdutoGrade.cxDBTextEdit1PropertiesChange(Sender: TObject);
 var
   cdsProdutoTamanho: TClientDataSet;
+  checkBox : TcxCustomEditProperties;
+  I: Integer;
 begin
   inherited;
+  cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho', DM.dspConnection);
+
+  while not(cdsProdutoTamanho.Eof) do
+  begin
+    tvGrade.CreateColumn;
+    tvGrade.Columns[tvGrade.ColumnCount-1].Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+    tvGrade.Columns[tvGrade.ColumnCount-1].Properties := tvGradeColumn1.Properties;
+    tvGrade.Columns[tvGrade.ColumnCount-1].DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
+    tvGrade.Columns[tvGrade.ColumnCount-1].HeaderAlignmentHorz := taCenter;
+
+    cdsProdutoTamanho.Next;
+  end;
+
   cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
-  if cdsProdutoCor.RecordCount <> 0 then
+  while not(cdsProdutoCor.Eof) do
+  begin
+    tvGrade.DataController.Insert;
+    tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
+    for I := 2 to tvGrade.ColumnCount - 1 do
+    begin
+      tvGrade.Columns[I].EditValue := False;
+    end;
+
+    cdsProdutoCor.Next;
+  end;
+
+
+  {if cdsProdutoCor.RecordCount <> 0 then
   begin
     with cdsProdutoCor do
     begin
@@ -76,9 +114,11 @@ begin
   else
   begin
      Application.MessageBox('Não encontrado nenhuma cor no cadastro!','Aviso',MB_ICONINFORMATION + MB_OK);
-  end;
-  cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho', DM.dspConnection);
-  if cdsProdutoTamanho.RecordCount <> 0 then
+  end;}
+
+
+
+  {if cdsProdutoTamanho.RecordCount <> 0 then
   begin
     with cdsProdutoTamanho do
     begin
@@ -101,7 +141,7 @@ begin
   else
   begin
      Application.MessageBox('Não encontrado nenhuma tamanho no cadastro!','Aviso',MB_ICONINFORMATION + MB_OK);
-  end;
+  end;}
 end;
 
 end.
