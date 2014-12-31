@@ -103,14 +103,23 @@ var
   cadastro : TfrmF2Cadastro;
 begin
   cadastro := TfrmF2Cadastro.Create(Application,fFrameCadastro);
-  if cadastro.frameLocalizado then
+  if not(cadastro.frameLocalizado) then
   begin
-    Application.MessageBox('Cadastro não disponível, requisite o desenvolvimento entrando em contato com a equipe I2B.',
-      'Cadastro indisponível',MB_ICONINFORMATION + MB_OK);
+    Application.MessageBox('Cadastro não disponível, realize o mesmo pelo Módulo de Cadastro ou requisite o '+
+      'desenvolvimento entrando em contato com a equipe I2B.','Cadastro indisponível',MB_ICONINFORMATION + MB_OK);
   end
   else
   begin
+    cadastro.campoID := fcampoRetorno;
+    cadastro.campoDesc := fcampoRetorno2;
+
     cadastro.ShowModal;
+    valorSelecionado := cadastro.valorCadastrado;
+    if fcampoRetorno2 <> '' then
+    begin
+      valorSelecionado2 := cadastro.valorCadastrado2;
+    end;
+    close;
   end;
 end;
 
