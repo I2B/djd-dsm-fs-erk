@@ -11,16 +11,16 @@ uses
   dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls,
-  unFramePai, unFrameCEP, cxMemo, cxGroupBox, cxRadioGroup;
+  unFramePai, unFrameCEP, cxMemo, cxGroupBox, cxRadioGroup, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADCEP = class(TfrmCadastro)
     cxGridDBidcep: TcxGridDBColumn;
-    cxGridDBidmunicipio: TcxGridDBColumn;
     cxGridDBlogradouro: TcxGridDBColumn;
     cxGridDBcomplemento: TcxGridDBColumn;
     cxGridDBbairro: TcxGridDBColumn;
     FrameCEP: TFrameCEP;
+    cxGridDBmunicipionome: TcxGridDBColumn;
   private
     { Private declarations }
   public

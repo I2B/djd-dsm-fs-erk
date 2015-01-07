@@ -9,7 +9,10 @@ uses
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
   Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String;
-  ClientCadastro:TClientDataSet) : Boolean;
+  ClientCadastro:TClientDataSet) : Boolean; overload;
+function i2bF2(edtID:TcxDBCurrencyEdit;edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String;
+  ClientCadastro:TClientDataSet) : Boolean; overload;
 
 function i2bGetDiretorio(Caption, DirDefault: string): string;
 
@@ -23,11 +26,9 @@ uses
   unF2;
 
 function i2bF2(edtID,edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
-  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String;
-  ClientCadastro:TClientDataSet) : Boolean;
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String; ClientCadastro:TClientDataSet) : Boolean;
 var
   seleciona: TfrmF2;
-var
   cds: TClientDataSet;
 begin
   if edtID.DataBinding.DataSource.State in [dsEdit, dsInsert] then
@@ -51,6 +52,39 @@ begin
           cds.FieldByName(edtDetalhe.DataBinding.DataField).AsString := seleciona.valorSelecionado2
         else
           edtDetalhe.Text := seleciona.valorSelecionado2;
+      end;
+    end;
+    FreeAndNil(seleciona);
+  end;
+end;
+
+function i2bF2(edtID:TcxDBCurrencyEdit;edtDetalhe:TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+  Tabela, whereAdicional:String; BancoDeDados:TSQLConnection; FrameCadastro:String; ClientCadastro:TClientDataSet) : Boolean;
+var
+  seleciona: TfrmF2;
+  cds: TClientDataSet;
+begin
+  if edtID.DataBinding.DataSource.State in [dsEdit, dsInsert] then
+  begin
+    seleciona := TfrmF2.Create(Application, titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
+      Tabela, whereAdicional, BancoDeDados, FrameCadastro, ClientCadastro);
+    seleciona.ShowModal;
+    if seleciona.cancelado then
+      result := false
+    else
+    begin
+      result:= true;
+      cds:= edtID.DataBinding.DataSource.DataSet as TClientDataSet;
+      if cds.State in [dsEdit, dsInsert] then
+        cds.FieldByName(edtID.DataBinding.DataField).AsString := seleciona.valorSelecionado
+      else
+        edtID.Text:= seleciona.valorSelecionado;
+      if (edtDetalhe <> nil) and (seleciona.valorSelecionado2 <> '') then
+      begin
+        if cds.State in [dsEdit, dsInsert] then
+          cds.FieldByName(edtDetalhe.DataBinding.DataField).AsString:= seleciona.valorSelecionado2
+        else
+          edtDetalhe.Text:= seleciona.valorSelecionado2;
       end;
     end;
     FreeAndNil(seleciona);

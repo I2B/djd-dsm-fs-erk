@@ -22,7 +22,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider, Data.FMTBcd,
   Data.SqlExpr, Vcl.ComCtrls, dxCore, cxDateUtils, cxCalendar, cxGroupBox, cxListBox, cxRadioGroup, cxMemo,
-  cxButtonEdit;
+  cxButtonEdit, strUtils;
 
 type
   TfrmCadastro = class(TfrmGrid)
@@ -109,22 +109,33 @@ end;
 procedure TfrmCadastro.acNovoExecute(Sender: TObject);
 var
   Frame : TFrame;
+  Tipo: string;
+  PrimeiroEdit: string;
 begin
   inherited;
   pnlSide.Visible := False;
   cxPageControl.ActivePage := cxTabCadastro;
   (dts.DataSet as TClientDataSet).Insert;
-  if lblPrimeiroEdit.Caption <> 'lblPrimeiroEdit' then
-  begin
-    try
-      Frame := TFrame(FindComponent(lblFrame.Caption));
-      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
-      (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
-    except
-      MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
-        lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
-        'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+  try
+    Frame := TFrame(FindComponent(lblFrame.Caption));
+    PrimeiroEdit:= copy(lblPrimeiroEdit.Caption, 1, pos('|', lblPrimeiroEdit.Caption)-1);
+    Tipo:= copy(lblPrimeiroEdit.Caption, pos('|', lblPrimeiroEdit.Caption)+1, length(lblPrimeiroEdit.Caption));
+    case AnsiIndexStr(UpperCase(tipo), ['TCXDBTEXTEDIT', 'TCXDBCURRENCYEDIT']) of
+      0:
+      begin
+        (Frame.FindComponent(PrimeiroEdit) as TcxDBTextEdit).SetFocus;
+        (Frame.FindComponent(PrimeiroEdit) as TcxDBTextEdit).SelectAll;
+      end;
+      1:
+      begin
+        (Frame.FindComponent(PrimeiroEdit) as TcxDBCurrencyEdit).SetFocus;
+        (Frame.FindComponent(PrimeiroEdit) as TcxDBCurrencyEdit).SelectAll;
+      end;
     end;
+  except
+    MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
+      lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
+      'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
   end;
 end;
 

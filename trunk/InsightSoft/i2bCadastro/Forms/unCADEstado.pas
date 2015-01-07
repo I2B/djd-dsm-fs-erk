@@ -16,7 +16,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Datasnap.DBClient;
 
 type
   TfrmCADEstado = class(TfrmCadastro)
@@ -25,6 +25,7 @@ type
     cxGridDBnome: TcxGridDBColumn;
     cxGridDBidpais: TcxGridDBColumn;
     FrameEstado: TFrameEstado;
+    cxGridDBpaisnome: TcxGridDBColumn;
   private
     { Private declarations }
   public

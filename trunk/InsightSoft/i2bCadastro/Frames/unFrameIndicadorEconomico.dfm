@@ -9,7 +9,7 @@ inherited frameIndicadorEconomico: TframeIndicadorEconomico
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
-      Width = 285
+      Width = 333
     end
     object edtID: TcxDBTextEdit [1]
       Left = 12
@@ -23,7 +23,7 @@ inherited frameIndicadorEconomico: TframeIndicadorEconomico
       Width = 121
     end
     object cxDBCheckBox1: TcxDBCheckBox [2]
-      Left = 176
+      Left = 224
       Top = 33
       Caption = 'Ativo'
       DataBinding.DataField = 'ativo'

@@ -16,11 +16,13 @@ object DM: TDM
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/'
       'Filters={}')
+    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
+    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -193,6 +195,11 @@ object DM: TDM
     object cdsCEPbairro: TWideStringField
       FieldName = 'bairro'
       Size = 60
+    end
+    object cdsCEPmunicipionome: TWideStringField
+      FieldName = 'municipionome'
+      ProviderFlags = []
+      Size = 150
     end
   end
   object cdsCFOP: TClientDataSet
@@ -1265,6 +1272,11 @@ object DM: TDM
     object cdsEstadoidpais: TIntegerField
       FieldName = 'idpais'
     end
+    object cdsEstadopaisnome: TWideStringField
+      FieldName = 'paisnome'
+      ProviderFlags = []
+      Size = 100
+    end
   end
   object cdsEstoqueContagemCabecalho: TClientDataSet
     Aggregates = <>
@@ -1458,6 +1470,11 @@ object DM: TDM
     end
     object cdsIndicevalor: TFloatField
       FieldName = 'valor'
+    end
+    object cdsIndiceindicadordescricao: TWideStringField
+      FieldName = 'indicadordescricao'
+      ProviderFlags = []
+      Size = 30
     end
   end
   object cdsLicitacao: TClientDataSet

@@ -205,6 +205,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'municipionome'
       Origin = 'municipionome'
+      ProviderFlags = []
       Size = 150
     end
   end
@@ -252,6 +253,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'tipooperacaodescricao'
       Origin = 'tipooperacaodescricao'
+      ProviderFlags = []
     end
   end
   object qryCNAE: TFDQuery
@@ -1784,6 +1786,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'paisnome'
       Origin = 'paisnome'
+      ProviderFlags = []
       Size = 100
     end
   end
@@ -2135,6 +2138,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'indicadordescricao'
       Origin = 'indicadordescricao'
+      ProviderFlags = []
       Size = 30
     end
   end
