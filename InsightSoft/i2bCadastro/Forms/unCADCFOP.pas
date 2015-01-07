@@ -11,11 +11,10 @@ uses
   dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls,
-  unFramePai, unFrameCFOP, cxMemo, cxGroupBox, cxRadioGroup;
+  unFramePai, unFrameCFOP, cxMemo, cxGroupBox, cxRadioGroup, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADCFOP = class(TfrmCadastro)
-    FrameCFOP: TFrameCFOP;
     cxGridDBidcfop: TcxGridDBColumn;
     cxGridDBidtipooperacao: TcxGridDBColumn;
     cxGridDBcfop: TcxGridDBColumn;
@@ -23,6 +22,7 @@ type
     cxGridDBdescricaonf: TcxGridDBColumn;
     cxGridDBaplicacao: TcxGridDBColumn;
     cxGridDBtipooperacaodescricao: TcxGridDBColumn;
+    FrameCFOP: TFrameCFOP;
   private
     { Private declarations }
   public

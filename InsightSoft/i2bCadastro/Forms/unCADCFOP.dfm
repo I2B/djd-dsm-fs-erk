@@ -84,32 +84,19 @@ inherited frmCADCFOP: TfrmCADCFOP
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 668
-            ExplicitHeight = 23
             Width = 668
           end
           inherited btnBuscar: TcxButton
             Left = 656
             ExplicitLeft = 656
           end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end
@@ -136,35 +123,51 @@ inherited frmCADCFOP: TfrmCADCFOP
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 60
-          ExplicitWidth = 706
-          ExplicitHeight = 364
+          ExplicitLeft = 186
+          ExplicitTop = 56
           inherited dxLayoutControl: TdxLayoutControl
             Width = 706
             Height = 364
-            ExplicitWidth = 706
-            ExplicitHeight = 364
+            inherited memAplicacao: TcxDBMemo
+              ExplicitWidth = 365
+              Width = 365
+            end
+            inherited edtIDTipoOperacao: TcxDBCurrencyEdit
+              ExplicitWidth = 109
+              Width = 109
+            end
+            inherited edtDescricaoNF: TcxDBTextEdit
+              ExplicitWidth = 365
+              Width = 365
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem
-              Index = 1
-            end
-            inherited dxLayoutControlItem3: TdxLayoutItem
-              Index = 2
-            end
             inherited dxLayoutControlItem5: TdxLayoutItem
               Index = 3
+            end
+            inherited dxLayoutControlItem7: TdxLayoutItem
+              Index = 0
             end
             inherited dxLayoutControlItem4: TdxLayoutItem
               Index = 1
             end
             inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+              Index = 2
+              AutoCreated = True
+            end
+            inherited dxLayoutControlItem2: TdxLayoutItem
+              Index = 1
+            end
+            inherited dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup
               Index = 0
               AutoCreated = True
+            end
+            inherited dxLayoutControlItem3: TdxLayoutItem
+              Index = 1
             end
           end
         end
@@ -172,13 +175,26 @@ inherited frmCADCFOP: TfrmCADCFOP
       inherited cxTabFiltro: TcxTabSheet
         ExplicitWidth = 766
         ExplicitHeight = 364
+        inherited gbFiltroSalvo: TcxGroupBox
+          ExplicitWidth = 766
+          ExplicitHeight = 197
+          Height = 197
+          Width = 766
+          inherited cxGridFiltro: TcxGrid
+            Height = 170
+            ExplicitHeight = 170
+          end
+          inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 378
+            ExplicitHeight = 170
+            Height = 170
+            Width = 378
+          end
+        end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 766
           Width = 766
           inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
             ExplicitHeight = 23
           end
           inherited cbFiltroCampo: TcxComboBox
@@ -187,12 +203,12 @@ inherited frmCADCFOP: TfrmCADCFOP
           inherited cbFiltroOperacao: TcxComboBox
             ExplicitHeight = 23
           end
-        end
-        inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 766
-          ExplicitHeight = 197
-          Height = 197
-          Width = 766
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
+          end
         end
       end
     end

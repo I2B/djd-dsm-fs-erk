@@ -16,7 +16,7 @@ uses
   cxMemo, cxGridCustomTableView, cxGridTableView, cxDropDownEdit, cxCalendar,
   Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, cxCurrencyEdit;
 
 type
   TfrmCADIndice = class(TfrmCadastro)
@@ -24,6 +24,7 @@ type
     cxGridDBidindicadoreconomico: TcxGridDBColumn;
     cxGridDBdataatualizacao: TcxGridDBColumn;
     cxGridDBvalor: TcxGridDBColumn;
+    cxGridDBindicadordescricao: TcxGridDBColumn;
     FrameIndice: TFrameIndice;
   private
     { Private declarations }

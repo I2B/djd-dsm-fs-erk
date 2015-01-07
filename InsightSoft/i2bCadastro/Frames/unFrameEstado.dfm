@@ -11,64 +11,83 @@ inherited FrameEstado: TFrameEstado
       TabOrder = 0
       Width = 70
     end
-    object edtEstado: TcxDBTextEdit [1]
+    object edtCodigoIBGE: TcxDBTextEdit [1]
       Left = 12
       Top = 84
-      DataBinding.DataField = 'nome'
-      DataBinding.DataSource = DataSource
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 3
-      Width = 121
-    end
-    object edtCodigoIBGE: TcxDBTextEdit [2]
-      Left = 89
-      Top = 33
       DataBinding.DataField = 'codigoibge'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 1
-      Width = 153
+      TabOrder = 2
+      Width = 69
     end
-    object edtPais: TcxDBTextEdit [3]
-      Left = 249
+    object edtEstado: TcxDBTextEdit [2]
+      Left = 89
       Top = 33
-      DataBinding.DataField = 'idpais'
+      DataBinding.DataField = 'nome'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 2
-      Width = 70
+      TabOrder = 1
+      Width = 208
+    end
+    object edtIDPais: TcxDBCurrencyEdit [3]
+      Left = 88
+      Top = 84
+      DataBinding.DataField = 'idpais'
+      DataBinding.DataSource = DataSource
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 3
+      OnExit = edtIDPaisExit
+      OnKeyDown = edtIDPaisKeyDown
+      Width = 65
+    end
+    object edtPais: TcxDBTextEdit [4]
+      Left = 160
+      Top = 84
+      DataBinding.DataField = 'paisnome'
+      DataBinding.DataSource = DataSource
+      Properties.ReadOnly = True
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 4
+      Width = 193
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
     end
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup1
-      AlignHorz = ahClient
+      AlignHorz = ahLeft
       CaptionOptions.Text = 'UF'
       CaptionOptions.Layout = clTop
       Control = edtUF
       ControlOptions.ShowBorder = False
       Index = 0
     end
-    object dxLayoutControlItem2: TdxLayoutItem
-      Parent = dxLayoutControlGroup_Root
-      CaptionOptions.Text = 'Estado'
-      CaptionOptions.Layout = clTop
-      Control = edtEstado
-      ControlOptions.ShowBorder = False
-      Index = 1
-    end
     object dxLayoutControlItem3: TdxLayoutItem
-      Parent = dxLayoutControlGroup1
+      Parent = dxLayoutControlGroup2
+      AlignHorz = ahLeft
       CaptionOptions.Text = 'C'#243'digo IBGE'
       CaptionOptions.Layout = clTop
       Control = edtCodigoIBGE
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutControlItem2: TdxLayoutItem
+      Parent = dxLayoutControlGroup1
+      AlignHorz = ahClient
+      CaptionOptions.Text = 'Estado'
+      CaptionOptions.Layout = clTop
+      Control = edtEstado
       ControlOptions.ShowBorder = False
       Index = 1
     end
@@ -78,9 +97,24 @@ inherited FrameEstado: TFrameEstado
       Index = 0
       AutoCreated = True
     end
+    object dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup
+      Parent = dxLayoutControlGroup_Root
+      LayoutDirection = ldHorizontal
+      Index = 1
+      AutoCreated = True
+    end
+    object dxLayoutControlItem5: TdxLayoutItem
+      Parent = dxLayoutControlGroup2
+      CaptionOptions.Text = 'ID Pa'#237's [F2]'
+      CaptionOptions.Layout = clTop
+      Control = edtIDPais
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
     object dxLayoutControlItem4: TdxLayoutItem
-      Parent = dxLayoutControlGroup1
-      CaptionOptions.Text = 'ID Pa'#237's'
+      Parent = dxLayoutControlGroup2
+      AlignHorz = ahClient
+      CaptionOptions.Text = 'Pa'#237's'
       CaptionOptions.Layout = clTop
       Control = edtPais
       ControlOptions.ShowBorder = False
@@ -89,5 +123,7 @@ inherited FrameEstado: TFrameEstado
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsEstado
+    Left = 336
+    Top = 184
   end
 end

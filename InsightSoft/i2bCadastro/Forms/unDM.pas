@@ -1036,6 +1036,9 @@ type
     cdsPessoaColaboradormatricula: TWideStringField;
     cdsPessoaContadoridunidadenegocio: TIntegerField;
     cdsPessoaContadornomefantasia: TWideStringField;
+    cdsCEPmunicipionome: TWideStringField;
+    cdsEstadopaisnome: TWideStringField;
+    cdsIndiceindicadordescricao: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
