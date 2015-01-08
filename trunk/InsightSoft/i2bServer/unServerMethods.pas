@@ -1014,7 +1014,6 @@ type
     qryProdutoGradeidprodutocor: TIntegerField;
     qryProdutoGradeidprodutotamanho: TIntegerField;
     qryProdutoGradecodigo: TWideStringField;
-    qryProdutoGradequantidade: TFloatField;
     qryProdutoGradeprodutonome: TWideStringField;
     qryProdutoGradecornome: TWideStringField;
     qryProdutoGradetamanhonome: TWideStringField;

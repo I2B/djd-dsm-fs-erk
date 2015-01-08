@@ -1933,10 +1933,6 @@ object ServerMethods: TServerMethods
       Origin = 'codigo'
       Size = 50
     end
-    object qryProdutoGradequantidade: TFloatField
-      FieldName = 'quantidade'
-      Origin = 'quantidade'
-    end
     object qryProdutoGradeprodutonome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'produtonome'
