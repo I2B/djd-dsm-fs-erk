@@ -22,14 +22,7 @@ type
   TFrameProdutoGrade = class(TFramePai)
     edtProdutoNome: TcxTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
-    dxLayoutControlGroup1: TdxLayoutGroup;
-    dxLayoutControlGroup2: TdxLayoutGroup;
     dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
-    dxLayoutControlGroup4: TdxLayoutAutoCreatedGroup;
-    clbCor: TcxCheckListBox;
-    dxLayoutControlItem3: TdxLayoutItem;
-    clbTamanho: TcxCheckListBox;
-    dxLayoutControlItem4: TdxLayoutItem;
     edtProduto: TcxTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
     LevelGrade: TcxGridLevel;
@@ -70,7 +63,7 @@ begin
   while not(cdsProdutoTamanho.Eof) do
   begin
     SetLength(idTamanho, length(idTamanho)+1);
-    idTamanho[length(idTamanho)] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
+    idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
     tvGrade.CreateColumn;
     tvGrade.Columns[tvGrade.ColumnCount-1].Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
     tvGrade.Columns[tvGrade.ColumnCount-1].Properties := tvGradeColumn1.Properties;
@@ -85,7 +78,7 @@ begin
   begin
     tvGrade.DataController.Insert;
     SetLength(idCor, length(idCor)+1);
-    idCor[length(idCor)] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
+    idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
     tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
     for I := 2 to tvGrade.ColumnCount - 1 do
     begin

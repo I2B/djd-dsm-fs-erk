@@ -45,25 +45,15 @@ var
   i: Integer;
   n: Integer;
 begin
-  inherited;
-  if DM.cdsProdutoGrade.State in [dsBrowse] then
+  for i := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
   begin
-
-  for i := 0 to FrameProdutoGrade.clbCor.Items.Count - 1 do
+    for n := 0 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
     begin
-      if FrameProdutoGrade.clbCor.Items.Items[i].Checked = True then
+      if FrameProdutoGrade.tvGrade.Columns[n+1].EditValue = true then
       begin
-        for n := 0 to FrameProdutoGrade.clbTamanho.Items.Count - 1 do
-        begin
-          if FrameProdutoGrade.clbTamanho.Items.Items[n].Checked = true then
-          begin
-            DM.cdsProdutoGrade.Insert;
-            i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
-            +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[i]+','+idTamanho[n]
-            +','+FrameProdutoGrade.edtProduto.Text+idCor[i]+idTamanho[n]+')',dm.dspConnection);
-            DM.cdsProdutoGrade.Post;
-          end;
-        end;
+          i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
+          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[i]+','+idTamanho[n]
+          +','+FrameProdutoGrade.edtProduto.Text+idCor[i]+idTamanho[n]+')',dm.dspConnection);
       end;
     end;
   end;
