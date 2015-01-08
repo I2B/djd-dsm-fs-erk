@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD;
 
 procedure TfrmCADProdutoGrade.acSalvarExecute(Sender: TObject);
 var
@@ -46,16 +46,23 @@ var
   n: Integer;
 begin
   inherited;
-  for i := 0 to FrameProdutoGrade.clbCor.Items.Count - 1 do
+  if DM.cdsProdutoGrade.State in [dsBrowse] then
   begin
-    if FrameProdutoGrade.clbCor.Items.Items[i].Checked = True then
-    begin
-      for n := 0 to FrameProdutoGrade.clbTamanho.Items.Count - 1 do
-      begin
-        if FrameProdutoGrade.clbTamanho.Items.Items[n].Checked = true then
-        begin
-          //falta o executa sql para persistir os dados no banco
 
+  for i := 0 to FrameProdutoGrade.clbCor.Items.Count - 1 do
+    begin
+      if FrameProdutoGrade.clbCor.Items.Items[i].Checked = True then
+      begin
+        for n := 0 to FrameProdutoGrade.clbTamanho.Items.Count - 1 do
+        begin
+          if FrameProdutoGrade.clbTamanho.Items.Items[n].Checked = true then
+          begin
+            DM.cdsProdutoGrade.Insert;
+            i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
+            +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[i]+','+idTamanho[n]
+            +','+FrameProdutoGrade.edtProduto.Text+idCor[i]+idTamanho[n]+')',dm.dspConnection);
+            DM.cdsProdutoGrade.Post;
+          end;
         end;
       end;
     end;

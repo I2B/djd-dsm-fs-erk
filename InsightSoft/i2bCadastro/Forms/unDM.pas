@@ -930,7 +930,6 @@ type
     cdsProdutoGradeidprodutocor: TIntegerField;
     cdsProdutoGradeidprodutotamanho: TIntegerField;
     cdsProdutoGradecodigo: TWideStringField;
-    cdsProdutoGradequantidade: TFloatField;
     cdsProdutoGradeprodutonome: TWideStringField;
     cdsProdutoGradecornome: TWideStringField;
     cdsProdutoGradetamanhonome: TWideStringField;

@@ -50,6 +50,8 @@ type
 var
   FrameProdutoGrade: TFrameProdutoGrade;
   cdsProdutoCor: TClientDataSet;
+  idTamanho: array of string;
+  idCor: array of string;
 
 implementation
 
@@ -60,14 +62,15 @@ uses unDM, unI2BBD;
 procedure TFrameProdutoGrade.cxDBTextEdit1PropertiesChange(Sender: TObject);
 var
   cdsProdutoTamanho: TClientDataSet;
-  checkBox : TcxCustomEditProperties;
   I: Integer;
 begin
   inherited;
-  cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho', DM.dspConnection);
+  cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
 
   while not(cdsProdutoTamanho.Eof) do
   begin
+    SetLength(idTamanho, length(idTamanho)+1);
+    idTamanho[length(idTamanho)] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
     tvGrade.CreateColumn;
     tvGrade.Columns[tvGrade.ColumnCount-1].Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
     tvGrade.Columns[tvGrade.ColumnCount-1].Properties := tvGradeColumn1.Properties;
@@ -81,67 +84,15 @@ begin
   while not(cdsProdutoCor.Eof) do
   begin
     tvGrade.DataController.Insert;
+    SetLength(idCor, length(idCor)+1);
+    idCor[length(idCor)] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
     tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
     for I := 2 to tvGrade.ColumnCount - 1 do
     begin
       tvGrade.Columns[I].EditValue := False;
     end;
-
     cdsProdutoCor.Next;
   end;
-
-
-  {if cdsProdutoCor.RecordCount <> 0 then
-  begin
-    with cdsProdutoCor do
-    begin
-      clbCor.Clear;
-      if (RecordCount > 10) and (RecordCount <= 20) then
-      begin
-        clbCor.Columns := 2;
-      end
-      else if RecordCount > 20 then
-      begin
-        clbCor.Columns := 3;
-      end;
-      while not Eof do
-      begin
-        clbCor.Items.Add.Text := FieldByName('nome').AsString;
-        Next;
-      end;
-    end;
-  end
-  else
-  begin
-     Application.MessageBox('Não encontrado nenhuma cor no cadastro!','Aviso',MB_ICONINFORMATION + MB_OK);
-  end;}
-
-
-
-  {if cdsProdutoTamanho.RecordCount <> 0 then
-  begin
-    with cdsProdutoTamanho do
-    begin
-      clbTamanho.Clear;
-      if (RecordCount > 10) and (RecordCount <= 20) then
-      begin
-        clbTamanho.Columns := 2;
-      end
-      else if RecordCount > 20 then
-      begin
-        clbTamanho.Columns := 3;
-      end;
-      while not Eof do
-      begin
-        clbTamanho.Items.Add.Text := FieldByName('codigo').AsString;
-        Next;
-      end;
-    end;
-  end
-  else
-  begin
-     Application.MessageBox('Não encontrado nenhuma tamanho no cadastro!','Aviso',MB_ICONINFORMATION + MB_OK);
-  end;}
 end;
 
 end.

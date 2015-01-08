@@ -1369,9 +1369,6 @@ object DM: TDM
       FieldName = 'codigo'
       Size = 50
     end
-    object cdsProdutoGradequantidade: TFloatField
-      FieldName = 'quantidade'
-    end
     object cdsProdutoGradeprodutonome: TWideStringField
       FieldName = 'produtonome'
       Size = 100

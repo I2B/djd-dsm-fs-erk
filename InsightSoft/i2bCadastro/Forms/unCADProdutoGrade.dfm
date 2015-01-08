@@ -30,6 +30,7 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
     inherited cxPageControl: TcxPageControl
       Width = 907
       Height = 438
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 907
       ExplicitHeight = 438
       ClientRectBottom = 436
@@ -98,10 +99,6 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             Height = 406
             ExplicitWidth = 843
             ExplicitHeight = 406
-            inherited grdGrade: TcxGrid
-              Width = 250
-              ExplicitWidth = 250
-            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
