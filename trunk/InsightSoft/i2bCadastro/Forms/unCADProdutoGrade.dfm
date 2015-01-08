@@ -105,31 +105,15 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             inherited dxLayoutControlItem2: TdxLayoutItem
               Index = 1
             end
-            inherited dxLayoutControlGroup1: TdxLayoutGroup
-              Index = 0
-            end
             inherited dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup
               Index = 0
               AutoCreated = True
-            end
-            inherited dxLayoutControlGroup2: TdxLayoutGroup
-              Index = 1
-            end
-            inherited dxLayoutControlGroup4: TdxLayoutAutoCreatedGroup
-              Index = 1
-              AutoCreated = True
-            end
-            inherited dxLayoutControlItem3: TdxLayoutItem
-              Index = 0
-            end
-            inherited dxLayoutControlItem4: TdxLayoutItem
-              Index = 0
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
             inherited dxLayoutControlItem5: TdxLayoutItem
-              Index = 2
+              Index = 1
             end
           end
           inherited cxStyleRepository: TcxStyleRepository

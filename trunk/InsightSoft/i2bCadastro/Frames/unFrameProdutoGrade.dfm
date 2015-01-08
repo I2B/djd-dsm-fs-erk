@@ -17,24 +17,7 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       TabOrder = 1
       Width = 445
     end
-    object clbCor: TcxCheckListBox [1]
-      Left = 26
-      Top = 84
-      Width = 255
-      Height = 97
-      Items = <>
-      Style.TransparentBorder = True
-      TabOrder = 2
-    end
-    object clbTamanho: TcxCheckListBox [2]
-      Left = 316
-      Top = 84
-      Width = 255
-      Height = 97
-      Items = <>
-      TabOrder = 3
-    end
-    object edtProduto: TcxTextEdit [3]
+    object edtProduto: TcxTextEdit [1]
       Left = 12
       Top = 33
       Properties.OnChange = cxDBTextEdit1PropertiesChange
@@ -45,12 +28,12 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       Text = 'edtProduto'
       Width = 121
     end
-    object grdGrade: TcxGrid [4]
+    object grdGrade: TcxGrid [2]
       Left = 12
-      Top = 202
+      Top = 63
       Width = 250
       Height = 200
-      TabOrder = 4
+      TabOrder = 2
       object tvGrade: TcxGridTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -100,47 +83,11 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       ControlOptions.ShowBorder = False
       Index = 1
     end
-    object dxLayoutControlGroup1: TdxLayoutGroup
-      Parent = dxLayoutControlGroup4
-      AlignHorz = ahClient
-      CaptionOptions.Text = 'Cor'
-      ButtonOptions.Buttons = <>
-      Index = 0
-    end
     object dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup
       Parent = dxLayoutControlGroup_Root
       LayoutDirection = ldHorizontal
       Index = 0
       AutoCreated = True
-    end
-    object dxLayoutControlGroup2: TdxLayoutGroup
-      Parent = dxLayoutControlGroup4
-      AlignHorz = ahClient
-      CaptionOptions.Text = 'Tamanho'
-      ButtonOptions.Buttons = <>
-      Index = 1
-    end
-    object dxLayoutControlGroup4: TdxLayoutAutoCreatedGroup
-      Parent = dxLayoutControlGroup_Root
-      LayoutDirection = ldHorizontal
-      Index = 1
-      AutoCreated = True
-    end
-    object dxLayoutControlItem3: TdxLayoutItem
-      Parent = dxLayoutControlGroup1
-      CaptionOptions.Text = 'cxCheckListBox1'
-      CaptionOptions.Visible = False
-      Control = clbCor
-      ControlOptions.ShowBorder = False
-      Index = 0
-    end
-    object dxLayoutControlItem4: TdxLayoutItem
-      Parent = dxLayoutControlGroup2
-      CaptionOptions.Text = 'cxCheckListBox1'
-      CaptionOptions.Visible = False
-      Control = clbTamanho
-      ControlOptions.ShowBorder = False
-      Index = 0
     end
     object dxLayoutControlItem1: TdxLayoutItem
       Parent = dxLayoutControlGroup3
@@ -157,14 +104,14 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       CaptionOptions.Visible = False
       Control = grdGrade
       ControlOptions.ShowBorder = False
-      Index = 2
+      Index = 1
     end
   end
   inherited DataSource: TDataSource
     DataSet = DM.cdsProdutoGrade
   end
   object cxStyleRepository: TcxStyleRepository
-    Left = 248
+    Left = 152
     Top = 304
     PixelsPerInch = 96
     object cxStyle1: TcxStyle
