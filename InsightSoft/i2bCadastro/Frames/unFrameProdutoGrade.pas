@@ -56,6 +56,7 @@ procedure TFrameProdutoGrade.cxDBTextEdit1PropertiesChange(Sender: TObject);
 var
   cdsProdutoTamanho: TClientDataSet;
   I: Integer;
+  coluna : TcxGridColumn;
 begin
   inherited;
   cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
@@ -64,11 +65,12 @@ begin
   begin
     SetLength(idTamanho, length(idTamanho)+1);
     idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
-    tvGrade.CreateColumn;
-    tvGrade.Columns[tvGrade.ColumnCount-1].Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
-    tvGrade.Columns[tvGrade.ColumnCount-1].Properties := tvGradeColumn1.Properties;
-    tvGrade.Columns[tvGrade.ColumnCount-1].DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
-    tvGrade.Columns[tvGrade.ColumnCount-1].HeaderAlignmentHorz := taCenter;
+    coluna := tvGrade.CreateColumn;
+    coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+    coluna.PropertiesClassName := 'TcxCheckBoxProperties';
+    coluna.Properties := tvGradeColumn1.Properties;
+    coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
+    coluna.HeaderAlignmentHorz := taCenter;
 
     cdsProdutoTamanho.Next;
   end;
