@@ -106,8 +106,8 @@
             <Form>frmCadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Forms\unSerie.pas">
-            <Form>frmSerie</Form>
+        <DCCReference Include="Forms\unCADSerie.pas">
+            <Form>frmCADSerie</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Framework\HerancaVisual\unFramePai.pas">

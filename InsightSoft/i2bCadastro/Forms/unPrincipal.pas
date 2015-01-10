@@ -137,7 +137,7 @@ implementation
 
 {$R *.dfm}
 
-uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
+uses unCADSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPortador, unCADCBO, unCADCEP, unCADCFOP,
   unCADCNAE, unCADUnidadeNegocio, unCADTipoTelefone, unCADTipoOperacao, unCADTelefone, unCADCSTCofins, unCADCSTIPI,
   unCADCSTPIS, unCADEmpresa, unCADSetor, unCADRegraFiscalObservacao, unCADProdutoUnidadeConversao, unCADProdutoUnidade,
   unCADRegraFiscal, UnCADCSTCSOSN, unCADCSTICMS, unCADEstado, unCADProdutoCor, unCADProdutoTamanho, unCADIndice,
@@ -146,15 +146,15 @@ uses unSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPorta
 
 procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
 begin
-  if abaExiste(frmSerie) then
+  if abaExiste(frmCADSerie) then
   begin
-    frmSerie.Show;
+    frmCADSerie.Show;
   end
   else
   begin
     DM.cdsSerie.Open;
-    frmSerie := TfrmSerie.Create(Application);
-    frmSerie.pnlTop.Caption := frmSerie.Caption+'  ';
+    frmCADSerie := TfrmCADSerie.Create(Application);
+    frmCADSerie.pnlTop.Caption := frmCADSerie.Caption+'  ';
   end;
 end;
 

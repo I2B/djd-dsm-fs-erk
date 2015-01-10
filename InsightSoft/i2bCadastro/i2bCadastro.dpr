@@ -7,7 +7,7 @@ uses
   unBase in '..\Framework\HerancaVisual\unBase.pas' {frmBase},
   unGrid in '..\Framework\HerancaVisual\unGrid.pas' {frmGrid},
   unCadastro in '..\Framework\HerancaVisual\unCadastro.pas' {frmCadastro},
-  unSerie in 'Forms\unSerie.pas' {frmSerie},
+  unCADSerie in 'Forms\unCADSerie.pas' {frmCADSerie},
   unFramePai in '..\Framework\HerancaVisual\unFramePai.pas' {FramePai: TFrame},
   unFrameSerie in 'Frames\unFrameSerie.pas' {FrameSerie: TFrame},
   unFrameIndicadorEconomico in 'Frames\unFrameIndicadorEconomico.pas' {frameIndicadorEconomico: TFrame},

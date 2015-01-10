@@ -1,4 +1,4 @@
-unit unSerie;
+unit unCADSerie;
 
 interface
 
@@ -21,7 +21,7 @@ uses
   cxTextEdit, cxMaskEdit, cxLabel, cxButtonEdit, cxGroupBox, cxRadioGroup, cxMemo, Datasnap.DBClient;
 
 type
-  TfrmSerie = class(TfrmCadastro)
+  TfrmCADSerie = class(TfrmCadastro)
     cxGridDBidserie: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     cxGridDBnumeracao: TcxGridDBColumn;
@@ -34,7 +34,7 @@ type
   end;
 
 var
-  frmSerie: TfrmSerie;
+  frmCADSerie: TfrmCADSerie;
 
 implementation
 
@@ -42,10 +42,10 @@ implementation
 
 uses unDM;
 
-procedure TfrmSerie.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmCADSerie.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
-  frmSerie := nil;
+  frmCADSerie := nil;
 end;
 
 end.

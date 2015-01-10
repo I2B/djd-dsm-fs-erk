@@ -1,4 +1,4 @@
-inherited frmSerie: TfrmSerie
+inherited frmCADSerie: TfrmCADSerie
   Caption = 'S'#233'rie'
   ClientHeight = 439
   ClientWidth = 892
@@ -42,6 +42,7 @@ inherited frmSerie: TfrmSerie
     inherited cxPageControl: TcxPageControl
       Width = 832
       Height = 411
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 832
       ExplicitHeight = 411
       ClientRectBottom = 409
@@ -113,7 +114,16 @@ inherited frmSerie: TfrmSerie
             Width = 768
             Height = 379
             ExplicitWidth = 768
-            ExplicitHeight = 309
+            ExplicitHeight = 379
+            inherited cxDBTextEdit1: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited cxDBTextEdit2: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited cxDBTextEdit3: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -157,21 +167,6 @@ inherited frmSerie: TfrmSerie
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 828
           Width = 828
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 21
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 21
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 21
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 21
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 21
-          end
         end
       end
     end
