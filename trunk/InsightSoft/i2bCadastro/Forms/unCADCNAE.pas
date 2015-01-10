@@ -11,7 +11,7 @@ uses
   unFrameCNAE, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, Data.SqlExpr, dxBar, dxRibbonRadialMenu,
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit,
   cxMaskEdit, cxLabel, cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls,
-  cxMemo, cxGroupBox, cxRadioGroup;
+  cxMemo, cxGroupBox, cxRadioGroup, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADCNAE = class(TfrmCadastro)

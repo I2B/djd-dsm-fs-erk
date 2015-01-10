@@ -38,6 +38,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure limpaGrade;
   end;
 
 var
@@ -59,6 +60,8 @@ var
   coluna : TcxGridColumn;
 begin
   inherited;
+  limpaGrade;
+
   cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
 
   while not(cdsProdutoTamanho.Eof) do
@@ -88,6 +91,26 @@ begin
     end;
     cdsProdutoCor.Next;
   end;
+end;
+
+procedure TFrameProdutoGrade.limpaGrade;
+begin
+  if tvGrade.DataController.RecordCount > 0 then
+  begin
+    tvGrade.DataController.MultiSelect := True;
+    tvGrade.DataController.SelectAll;
+    tvGrade.DataController.DeleteSelection;
+    tvGrade.DataController.MultiSelect := False;
+  end;
+
+  if tvGrade.ColumnCount > 2 then
+  begin
+    while tvGrade.ColumnCount > 2 do
+    begin
+      tvGrade.Columns[2].Destroy;
+    end;
+  end;
+
 end;
 
 end.

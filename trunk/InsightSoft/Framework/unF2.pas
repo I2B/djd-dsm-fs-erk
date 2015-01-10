@@ -114,12 +114,13 @@ begin
     cadastro.campoDesc := fcampoRetorno2;
 
     cadastro.ShowModal;
-    valorSelecionado := cadastro.valorCadastrado;
-    if fcampoRetorno2 <> '' then
+    FreeAndNil(cadastro);
+
+    edtInformacao.Clear;
+    if edtInformacao.CanFocus then
     begin
-      valorSelecionado2 := cadastro.valorCadastrado2;
+      edtInformacao.SetFocus;
     end;
-    close;
   end;
 end;
 
