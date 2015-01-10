@@ -11,7 +11,7 @@ uses
   dxCustomHint, cxHint, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel, cxGridLevel,
   cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC,
   dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameCBO, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd,
-  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar;
+  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADCBO = class(TfrmCadastro)

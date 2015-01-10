@@ -99,6 +99,16 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             Height = 406
             ExplicitWidth = 843
             ExplicitHeight = 406
+            inherited edtProdutoNome: TcxTextEdit
+              ExplicitHeight = 21
+            end
+            inherited edtProduto: TcxTextEdit
+              ExplicitHeight = 21
+            end
+            inherited grdGrade: TcxGrid
+              Width = 250
+              ExplicitWidth = 250
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end

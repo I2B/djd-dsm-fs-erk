@@ -2344,7 +2344,6 @@ inherited frmCADPais: TfrmCADPais
     inherited cxPageControl: TcxPageControl
       Width = 837
       Height = 440
-      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 837
       ExplicitHeight = 440
       ClientRectBottom = 438

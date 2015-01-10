@@ -42,18 +42,19 @@ uses unDM, unI2BBD;
 
 procedure TfrmCADProdutoGrade.acSalvarExecute(Sender: TObject);
 var
-  i: Integer;
-  n: Integer;
+  Linha: Integer;
+  Coluna: Integer;
 begin
-  for i := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
+  FrameProdutoGrade.tvGrade.DataController.GotoFirst;
+  for Linha := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
   begin
-    for n := 0 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
+    for Coluna := 2 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
     begin
-      if FrameProdutoGrade.tvGrade.Columns[n+1].EditValue = true then
+      if FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True then
       begin
           i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
-          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[i]+','+idTamanho[n]
-          +','+FrameProdutoGrade.edtProduto.Text+idCor[i]+idTamanho[n]+')',dm.dspConnection);
+          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[Linha]+','+idTamanho[Coluna]
+          +','+FrameProdutoGrade.edtProduto.Text+idCor[Linha]+idTamanho[Coluna]+')',dm.dspConnection);
       end;
     end;
   end;
