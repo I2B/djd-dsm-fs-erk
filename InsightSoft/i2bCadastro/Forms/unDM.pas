@@ -438,9 +438,6 @@ type
     cdsMovimentoChequeconta: TSmallintField;
     cdsMovimentoChequecontadigito: TWideStringField;
     cdsMovimentoChequenumero: TWideStringField;
-    cdsMunicipioidmunicipio: TIntegerField;
-    cdsMunicipionome: TWideStringField;
-    cdsMunicipioidestado: TWideStringField;
     cdsNCMidncm: TIntegerField;
     cdsNCMdescricao: TWideStringField;
     dspNFeCabecalhoidnfecabecalho: TIntegerField;
@@ -1038,6 +1035,10 @@ type
     cdsCEPmunicipionome: TWideStringField;
     cdsEstadopaisnome: TWideStringField;
     cdsIndiceindicadordescricao: TWideStringField;
+    cdsMunicipioidmunicipio: TIntegerField;
+    cdsMunicipionome: TWideStringField;
+    cdsMunicipioidestado: TWideStringField;
+    cdsMunicipioestadonome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

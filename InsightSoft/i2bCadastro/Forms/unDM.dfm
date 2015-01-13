@@ -1660,6 +1660,7 @@ object DM: TDM
     Top = 480
     object cdsMunicipioidmunicipio: TIntegerField
       FieldName = 'idmunicipio'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsMunicipionome: TWideStringField
       FieldName = 'nome'
@@ -1669,6 +1670,11 @@ object DM: TDM
       FieldName = 'idestado'
       FixedChar = True
       Size = 2
+    end
+    object cdsMunicipioestadonome: TWideStringField
+      FieldName = 'estadonome'
+      ProviderFlags = []
+      Size = 100
     end
   end
   object cdsNCM: TClientDataSet

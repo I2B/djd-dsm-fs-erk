@@ -1717,28 +1717,30 @@ inherited frmCADMunicipio: TfrmCADMunicipio
   TextHeight = 15
   inherited pnlSide: TPanel
     Height = 428
-    ExplicitHeight = 0
+    ExplicitHeight = 428
     inherited lblRegistros: TLabel
       Top = 411
+      ExplicitTop = 411
     end
     inherited imgImprimir: TcxImage
       Top = 297
-      ExplicitTop = -131
+      ExplicitTop = 297
     end
     inherited imgExportar: TcxImage
       Top = 354
-      ExplicitTop = -74
+      ExplicitTop = 354
     end
   end
   inherited pnlClient: TPanel
     Width = 837
     Height = 428
-    ExplicitWidth = 64
-    ExplicitHeight = 0
+    ExplicitWidth = 837
+    ExplicitHeight = 428
     inherited cxPageControl: TcxPageControl
       Width = 837
       Height = 400
-      ExplicitWidth = 64
+      ExplicitWidth = 837
+      ExplicitHeight = 400
       ClientRectBottom = 398
       ClientRectRight = 835
       inherited cxTabGrid: TcxTabSheet
@@ -1764,6 +1766,10 @@ inherited frmCADMunicipio: TfrmCADMunicipio
               Caption = 'UF'
               DataBinding.FieldName = 'idestado'
               Width = 70
+            end
+            object cxGridDBestadonome: TcxGridDBColumn
+              Caption = 'Estado'
+              DataBinding.FieldName = 'estadonome'
             end
           end
         end
@@ -1792,9 +1798,11 @@ inherited frmCADMunicipio: TfrmCADMunicipio
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 60
+        ExplicitWidth = 833
+        ExplicitHeight = 368
         inherited pnlCadastro: TPanel
           Height = 368
+          ExplicitHeight = 368
         end
         inline FrameMunicipio: TFrameMunicipio
           Left = 60
@@ -1812,91 +1820,122 @@ inherited frmCADMunicipio: TfrmCADMunicipio
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 60
-          ExplicitWidth = 0
-          ExplicitHeight = 339
+          ExplicitLeft = 253
+          ExplicitTop = 60
           inherited dxLayoutControl: TdxLayoutControl
             Width = 773
             Height = 368
-            ExplicitWidth = 0
-            ExplicitHeight = 339
-            inherited edtMunicipio: TcxDBTextEdit
-              ExplicitHeight = 23
-            end
-            inherited edtUF: TcxDBTextEdit
-              ExplicitHeight = 23
+            inherited edtUFDescricao: TcxDBTextEdit
+              ExplicitWidth = 265
+              Width = 265
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
-              Index = 0
+              Index = 1
             end
             inherited dxLayoutControlItem2: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlItem3: TdxLayoutItem
               Index = 1
+            end
+            inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+              Index = 1
+              AutoCreated = True
+            end
+            inherited dxLayoutControlItem4: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
             end
           end
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 60
+        ExplicitWidth = 833
+        ExplicitHeight = 368
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 60
+          ExplicitWidth = 833
+          ExplicitHeight = 201
           Height = 201
           Width = 833
           inherited cxGridFiltro: TcxGrid
             Height = 174
+            ExplicitHeight = 174
           end
           inherited cxMemoFiltroSalvo: TcxMemo
+            ExplicitWidth = 445
+            ExplicitHeight = 174
             Height = 174
             Width = 445
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 60
+          ExplicitWidth = 833
           Width = 833
           inherited edtFiltroCondicao: TcxTextEdit
+            ExplicitWidth = 263
+            ExplicitHeight = 23
             Width = 263
           end
           inherited rgFiltroAndOr: TcxRadioGroup
             Left = 544
-            ExplicitLeft = -229
+            ExplicitLeft = 544
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 52
+            ExplicitWidth = 825
             Width = 825
             inherited memoFiltroSQL: TcxMemo
-              ExplicitWidth = 25
+              ExplicitWidth = 798
               Width = 798
             end
             inherited memoFiltroDesenvolvido: TcxMemo
-              ExplicitWidth = 25
+              ExplicitWidth = 798
               Width = 798
             end
             inherited imgFiltroSQL: TcxImage
               Left = 801
-              ExplicitLeft = 28
+              ExplicitLeft = 801
             end
+          end
+          inherited cbFiltroCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited cbFiltroOperacao: TcxComboBox
+            ExplicitHeight = 23
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 639
+            ExplicitLeft = 639
           end
           inherited btnFiltroCancelar: TcxButton
             Left = 662
+            ExplicitLeft = 662
           end
           inherited btnAplicarFiltro: TcxButton
             Width = 297
+            ExplicitWidth = 297
+          end
+          inherited cbFiltroSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateFiltroCondicao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
     end
     inherited pnlTop: TPanel
       Width = 837
-      ExplicitWidth = 64
+      ExplicitWidth = 837
       inherited lblPrimeiroEdit: TLabel
-        Width = 105
-        Caption = 'edtMunicipio'
-        ExplicitWidth = 105
+        Width = 274
+        Caption = 'edtIDMunicipio|TcxDBCurrencyedit'
+        ExplicitWidth = 274
       end
       inherited lblFrame: TLabel
         Width = 128
