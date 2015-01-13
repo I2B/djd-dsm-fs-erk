@@ -24,6 +24,7 @@ type
     cxGridDBnome: TcxGridDBColumn;
     cxGridDBidestado: TcxGridDBColumn;
     FrameMunicipio: TFrameMunicipio;
+    cxGridDBestadonome: TcxGridDBColumn;
   private
     { Private declarations }
   public

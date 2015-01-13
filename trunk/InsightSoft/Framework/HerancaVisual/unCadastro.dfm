@@ -263,13 +263,12 @@ inherited frmCadastro: TfrmCadastro
       ClientRectBottom = 369
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitHeight = 337
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 269
-          ExplicitWidth = 838
-          ExplicitHeight = 269
+          ExplicitWidth = 834
+          ExplicitHeight = 271
           inherited cxGridDB: TcxGridDBTableView
             FilterRow.InfoText = 'Clique aqui para filtrar os dados da Grid'
           end
@@ -277,8 +276,7 @@ inherited frmCadastro: TfrmCadastro
         inherited pnlBottom: TPanel
           Top = 269
           Width = 838
-          ExplicitTop = 269
-          ExplicitWidth = 838
+          ExplicitTop = 267
           DesignSize = (
             838
             70)
@@ -292,13 +290,11 @@ inherited frmCadastro: TfrmCadastro
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 442
             ExplicitHeight = 23
             Width = 442
           end
           inherited btnBuscar: TcxButton
             Left = 734
-            ExplicitLeft = 734
           end
           inherited cbSQL: TcxComboBox
             ExplicitHeight = 23
@@ -791,8 +787,7 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitHeight = 337
         inherited gbFiltroSalvo: TcxGroupBox
           ExplicitWidth = 838
           ExplicitHeight = 172
@@ -800,7 +795,7 @@ inherited frmCadastro: TfrmCadastro
           Width = 838
           inherited cxGridFiltro: TcxGrid
             Height = 145
-            ExplicitHeight = 145
+            ExplicitHeight = 152
           end
           inherited cxMemoFiltroSalvo: TcxMemo
             ExplicitWidth = 450
@@ -810,13 +805,11 @@ inherited frmCadastro: TfrmCadastro
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 838
           DesignSize = (
             838
             160)
           Width = 838
           inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitWidth = 268
             Width = 268
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -841,15 +834,12 @@ inherited frmCadastro: TfrmCadastro
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 644
-            ExplicitLeft = 644
           end
           inherited btnFiltroCancelar: TcxButton
             Left = 667
-            ExplicitLeft = 667
           end
           inherited btnAplicarFiltro: TcxButton
             Width = 302
-            ExplicitWidth = 302
           end
         end
       end

@@ -573,9 +573,6 @@ type
     qryMovimentoChequecontadigito: TWideStringField;
     qryMovimentoChequenumero: TWideStringField;
     qryMovimentoChequebanconome: TWideStringField;
-    qryMunicipioidmunicipio: TIntegerField;
-    qryMunicipionome: TWideStringField;
-    qryMunicipioidestado: TWideStringField;
     qryNCMidncm: TIntegerField;
     qryNCMdescricao: TWideStringField;
     qryNFeCabecalhoidnfecabecalho: TIntegerField;
@@ -1177,6 +1174,10 @@ type
     qryPessoarepresentante2: TBooleanField;
     qryPessoadatacadastro: TDateField;
     dsPessoa: TDataSource;
+    qryMunicipioidmunicipio: TIntegerField;
+    qryMunicipionome: TWideStringField;
+    qryMunicipioidestado: TWideStringField;
+    qryMunicipioestadonome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1271,7 +1272,8 @@ type
       ' inner join pessoa on movimento.idpessoa = pessoa.idpessoa',' ',' order by idmovimento',' limit 0 ');
     const selectmovimentocheque: array[1..5] of string = ('select movimentocheque.*, banco.nome as banconome',
       ' from movimentocheque inner join banco on movimentocheque.idbanco = banco.idbanco',' ',' order by idmovimentocheque',' limit 0 ');
-    const selectmunicipio: array[1..5] of string = ('select *',' from municipio',' ',' order by idestado, nome',' limit 0 ');
+    const selectmunicipio: array[1..5] of string = ('select municipio.*, estado.nome as estadonome',
+      ' from municipio left join estado on municipio.idestado=estado.idestado',' ',' order by idestado, municipio.nome',' limit 0 ');
     const selectncm: array[1..5] of string = ('select *',' from ncm',' ',' order by idncm',' limit 0 ');
     const selectnfecabecalho: array[1..5] of string = ('select nfecabecalho.*, unidadenegocio.nomefantasia',
       ' from nfecabecalho inner join unidadenegocio on nfecabecalho.idunidadenegocio = unidadenegocio.idunidadenegocio','',

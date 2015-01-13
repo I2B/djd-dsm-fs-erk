@@ -2441,7 +2441,11 @@ object ServerMethods: TServerMethods
   object qryMunicipio: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select * from municipio order by idEstado, nome limit 0')
+      'select municipio.*, estado.nome as estadonome from municipio '
+      ''
+      'left join estado on municipio.idestado=estado.idestado'
+      ''
+      'order by municipio.idestado, municipio.nome limit 0')
     Left = 368
     Top = 480
     object qryMunicipioidmunicipio: TIntegerField
@@ -2459,6 +2463,13 @@ object ServerMethods: TServerMethods
       Origin = 'idestado'
       FixedChar = True
       Size = 2
+    end
+    object qryMunicipioestadonome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'estadonome'
+      Origin = 'estadonome'
+      ProviderFlags = []
+      Size = 100
     end
   end
   object qryNCM: TFDQuery

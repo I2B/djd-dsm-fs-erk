@@ -55,6 +55,7 @@ object frmPrincipal: TfrmPrincipal
       Index = 1
     end
     object tabProdutos: TdxRibbonTab
+      Active = True
       Caption = 'Produtos'
       Groups = <
         item
@@ -72,7 +73,6 @@ object frmPrincipal: TfrmPrincipal
       Index = 2
     end
     object tabRegraFiscal: TdxRibbonTab
-      Active = True
       Caption = 'Regra Fiscal'
       Groups = <
         item
