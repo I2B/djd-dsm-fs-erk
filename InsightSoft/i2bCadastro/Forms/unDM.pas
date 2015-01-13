@@ -1039,6 +1039,7 @@ type
     cdsMunicipionome: TWideStringField;
     cdsMunicipioidestado: TWideStringField;
     cdsMunicipioestadonome: TWideStringField;
+    cdsPaisindicadordescricao: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

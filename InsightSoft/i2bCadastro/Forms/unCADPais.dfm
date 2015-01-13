@@ -2358,6 +2358,7 @@ inherited frmCADPais: TfrmCADPais
           ExplicitHeight = 338
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidpais: TcxGridDBColumn
+              Caption = 'ID Pais'
               DataBinding.FieldName = 'idpais'
               Width = 86
             end
@@ -2365,7 +2366,12 @@ inherited frmCADPais: TfrmCADPais
               DataBinding.FieldName = 'nome'
             end
             object cxGridDBidindicadoreconomico: TcxGridDBColumn
+              Caption = 'ID'
               DataBinding.FieldName = 'idindicadoreconomico'
+            end
+            object cxGridDBindicadordescricao: TcxGridDBColumn
+              Caption = 'Moeda'
+              DataBinding.FieldName = 'indicadordescricao'
             end
           end
         end
@@ -2430,6 +2436,9 @@ inherited frmCADPais: TfrmCADPais
             inherited edtMoeda: TcxDBTextEdit
               ExplicitHeight = 23
             end
+            inherited edtIDMoeda: TcxDBCurrencyEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -2438,6 +2447,13 @@ inherited frmCADPais: TfrmCADPais
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 1
+            end
+            inherited dxLayoutControlItem3: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+              Index = 1
+              AutoCreated = True
             end
           end
         end
@@ -2497,15 +2513,15 @@ inherited frmCADPais: TfrmCADPais
           end
           inherited btnAdicionarFiltro: TcxButton
             Left = 639
-            ExplicitLeft = -134
+            ExplicitLeft = 639
           end
           inherited btnFiltroCancelar: TcxButton
             Left = 662
-            ExplicitLeft = -111
+            ExplicitLeft = 662
           end
           inherited btnAplicarFiltro: TcxButton
             Width = 773
-            ExplicitWidth = 0
+            ExplicitWidth = 773
           end
           inherited cbFiltroSQL: TcxComboBox
             ExplicitHeight = 23
@@ -2520,9 +2536,9 @@ inherited frmCADPais: TfrmCADPais
       Width = 837
       ExplicitWidth = 837
       inherited lblPrimeiroEdit: TLabel
-        Width = 56
-        Caption = 'edtPais'
-        ExplicitWidth = 56
+        Width = 168
+        Caption = 'edtPais|TcxDBTextEdit'
+        ExplicitWidth = 168
       end
       inherited lblFrame: TLabel
         Width = 79
