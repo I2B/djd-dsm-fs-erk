@@ -31,6 +31,7 @@ type
     cxGridDBidindicadoreconomico: TcxGridDBColumn;
     cxGridDBnome: TcxGridDBColumn;
     FramePais: TFramePais;
+    cxGridDBindicadordescricao: TcxGridDBColumn;
   private
     { Private declarations }
   public

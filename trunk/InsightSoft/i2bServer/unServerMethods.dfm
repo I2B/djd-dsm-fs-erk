@@ -4043,6 +4043,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'indicadordescricao'
       Origin = 'indicadordescricao'
+      ProviderFlags = []
       Size = 30
     end
   end

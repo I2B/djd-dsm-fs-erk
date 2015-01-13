@@ -54,6 +54,11 @@ object DM: TDM
       Origin = 'nome'
       Size = 100
     end
+    object cdsPaisindicadordescricao: TWideStringField
+      FieldName = 'indicadordescricao'
+      ProviderFlags = []
+      Size = 30
+    end
   end
   object cdsAuditoria: TClientDataSet
     Aggregates = <>
