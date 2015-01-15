@@ -24,6 +24,14 @@ uses
 type
   TfrmCADProdutoGrade = class(TfrmCadastro)
     FrameProdutoGrade: TFrameProdutoGrade;
+    cxGridDBidprodutograde: TcxGridDBColumn;
+    cxGridDBidproduto: TcxGridDBColumn;
+    cxGridDBidprodutocor: TcxGridDBColumn;
+    cxGridDBidprodutotamanho: TcxGridDBColumn;
+    cxGridDBcodigo: TcxGridDBColumn;
+    cxGridDBprodutonome: TcxGridDBColumn;
+    cxGridDBcornome: TcxGridDBColumn;
+    cxGridDBtamanhonome: TcxGridDBColumn;
     procedure acSalvarExecute(Sender: TObject);
   private
     { Private declarations }
@@ -44,6 +52,7 @@ procedure TfrmCADProdutoGrade.acSalvarExecute(Sender: TObject);
 var
   Linha: Integer;
   Coluna: Integer;
+  colunaGrade: Integer;
 begin
   FrameProdutoGrade.tvGrade.DataController.GotoFirst;
   for Linha := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
@@ -52,9 +61,10 @@ begin
     begin
       if FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True then
       begin
+          colunaGrade := coluna;
           i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
-          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[Linha]+','+idTamanho[Coluna]
-          +','+FrameProdutoGrade.edtProduto.Text+idCor[Linha]+idTamanho[Coluna]+')',dm.dspConnection);
+          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[Linha]+','+idTamanho[ColunaGrade-2]
+          +','+FrameProdutoGrade.edtProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+')',dm.dspConnection);
       end;
     end;
   end;

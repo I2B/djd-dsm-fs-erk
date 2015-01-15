@@ -58,38 +58,85 @@ var
   cdsProdutoTamanho: TClientDataSet;
   I: Integer;
   coluna : TcxGridColumn;
+  cadastrado: TClientDataSet;
+  carregaGrade: TClientDataSet;
 begin
   inherited;
   limpaGrade;
-
-  cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
-
-  while not(cdsProdutoTamanho.Eof) do
+  cadastrado := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtProduto.Text,dm.dspConnection);
+  if cadastrado.RecordCount = 0 then
   begin
-    SetLength(idTamanho, length(idTamanho)+1);
-    idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
-    coluna := tvGrade.CreateColumn;
-    coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
-    coluna.PropertiesClassName := 'TcxCheckBoxProperties';
-    coluna.Properties := tvGradeColumn1.Properties;
-    coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
-    coluna.HeaderAlignmentHorz := taCenter;
+    cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
 
-    cdsProdutoTamanho.Next;
-  end;
-
-  cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
-  while not(cdsProdutoCor.Eof) do
-  begin
-    tvGrade.DataController.Insert;
-    SetLength(idCor, length(idCor)+1);
-    idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
-    tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
-    for I := 2 to tvGrade.ColumnCount - 1 do
+    while not(cdsProdutoTamanho.Eof) do
     begin
-      tvGrade.Columns[I].EditValue := False;
+      SetLength(idTamanho, length(idTamanho)+1);
+      idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
+      coluna := tvGrade.CreateColumn;
+      coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+      coluna.PropertiesClassName := 'TcxCheckBoxProperties';
+      coluna.Properties := tvGradeColumn1.Properties;
+      coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
+      coluna.HeaderAlignmentHorz := taCenter;
+
+      cdsProdutoTamanho.Next;
     end;
-    cdsProdutoCor.Next;
+
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
+    while not(cdsProdutoCor.Eof) do
+    begin
+      tvGrade.DataController.Insert;
+      SetLength(idCor, length(idCor)+1);
+      idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
+      tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
+      for I := 2 to tvGrade.ColumnCount - 1 do
+      begin
+        tvGrade.Columns[I].EditValue := False;
+      end;
+      cdsProdutoCor.Next;
+    end;
+  end
+  else
+  begin
+    cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
+
+    while not(cdsProdutoTamanho.Eof) do
+    begin
+      SetLength(idTamanho, length(idTamanho)+1);
+      idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
+      coluna := tvGrade.CreateColumn;
+      coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+      coluna.PropertiesClassName := 'TcxCheckBoxProperties';
+      coluna.Properties := tvGradeColumn1.Properties;
+      coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
+      coluna.HeaderAlignmentHorz := taCenter;
+
+      cdsProdutoTamanho.Next;
+    end;
+
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
+    while not(cdsProdutoCor.Eof) do
+    begin
+      tvGrade.DataController.Insert;
+      SetLength(idCor, length(idCor)+1);
+      idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
+      tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
+      for I := 2 to tvGrade.ColumnCount - 1 do
+      begin
+        carregaGrade := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtProduto.Text
+        +' and idprodutocor = '+cdsProdutoCor.FieldByName('idProdutoCor').AsString+' and idprodutotamanho = '
+        +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString,dm.dspConnection);
+        if carregaGrade.RecordCount = 0 then
+        begin
+          tvGrade.Columns[I].EditValue := False;
+        end
+        else
+        begin
+          tvGrade.Columns[I].EditValue := true;
+        end;
+      end;
+      cdsProdutoCor.Next;
+    end;
   end;
 end;
 
