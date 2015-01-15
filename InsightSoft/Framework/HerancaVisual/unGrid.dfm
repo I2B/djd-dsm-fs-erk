@@ -20,8 +20,11 @@ inherited frmGrid: TfrmGrid
     Align = alLeft
     BevelOuter = bvNone
     Color = 5177344
+    Ctl3D = False
     ParentBackground = False
+    ParentCtl3D = False
     TabOrder = 1
+    StyleElements = [seFont, seClient]
     object lblRegistros: TLabel
       Left = 0
       Top = 383
@@ -257,14 +260,17 @@ inherited frmGrid: TfrmGrid
           Align = alBottom
           BevelOuter = bvNone
           Color = 5177344
+          Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
           Font.Height = -12
           Font.Name = 'Segoe UI Light'
           Font.Style = []
           ParentBackground = False
+          ParentCtl3D = False
           ParentFont = False
           TabOrder = 1
+          StyleElements = [seFont, seClient]
           DesignSize = (
             836
             70)

@@ -302,7 +302,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="Frames\UnFrameCSTCSOSN.pas">
+        <DCCReference Include="Frames\unFrameCSTCSOSN.pas">
             <Form>FrameCSTCSOSN</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
@@ -460,6 +460,10 @@
         <DCCReference Include="..\Framework\unI2BBD.pas"/>
         <DCCReference Include="Forms\unCADProdutoGrade.pas">
             <Form>frmCADProdutoGrade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\unCADLogin.pas">
+            <Form>frmCADLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>

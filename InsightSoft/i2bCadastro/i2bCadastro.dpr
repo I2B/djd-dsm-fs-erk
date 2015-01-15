@@ -52,7 +52,7 @@ uses
   unFrameProdutoUnidade in 'Frames\unFrameProdutoUnidade.pas' {FrameProdutoUnidade: TFrame},
   unCADProdutoUnidade in 'Forms\unCADProdutoUnidade.pas' {frmCADProdutoUnidade},
   unFrameProdutoTabelaPreco in 'Frames\unFrameProdutoTabelaPreco.pas' {FrameProdutoabelaPreco: TFrame},
-  UnFrameCSTCSOSN in 'Frames\UnFrameCSTCSOSN.pas' {FrameCSTCSOSN: TFrame},
+  unFrameCSTCSOSN in 'Frames\unFrameCSTCSOSN.pas' {FrameCSTCSOSN: TFrame},
   UnCADCSTCSOSN in 'Forms\UnCADCSTCSOSN.pas' {frmCADCSTCSOSN},
   unFrameCSTICMS in 'Frames\unFrameCSTICMS.pas' {FrameCSTICMS: TFrame},
   unCADCSTICMS in 'Forms\unCADCSTICMS.pas' {frmCADCSTICMS},
@@ -89,7 +89,8 @@ uses
   unF2Cadastro in '..\Framework\unF2Cadastro.pas' {frmF2Cadastro},
   unFrameProdutoGrade in 'Frames\unFrameProdutoGrade.pas' {FrameProdutoGrade: TFrame},
   unI2BBD in '..\Framework\unI2BBD.pas',
-  unCADProdutoGrade in 'Forms\unCADProdutoGrade.pas' {frmCADProdutoGrade};
+  unCADProdutoGrade in 'Forms\unCADProdutoGrade.pas' {frmCADProdutoGrade},
+  unCADLogin in 'Forms\unCADLogin.pas' {frmCADLogin};
 
 {$R *.res}
 
