@@ -16,13 +16,11 @@ object DM: TDM
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/'
       'Filters={}')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24

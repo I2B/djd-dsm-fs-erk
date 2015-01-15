@@ -1117,6 +1117,7 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
     inherited cxPageControl: TcxPageControl
       Width = 907
       Height = 438
+      Properties.ActivePage = cxTabCadastro
       ExplicitWidth = 907
       ExplicitHeight = 438
       ClientRectBottom = 436
@@ -1129,6 +1130,32 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
           Height = 336
           ExplicitWidth = 903
           ExplicitHeight = 336
+          inherited cxGridDB: TcxGridDBTableView
+            object cxGridDBidprodutograde: TcxGridDBColumn
+              DataBinding.FieldName = 'idprodutograde'
+            end
+            object cxGridDBidproduto: TcxGridDBColumn
+              DataBinding.FieldName = 'idproduto'
+            end
+            object cxGridDBidprodutocor: TcxGridDBColumn
+              DataBinding.FieldName = 'idprodutocor'
+            end
+            object cxGridDBidprodutotamanho: TcxGridDBColumn
+              DataBinding.FieldName = 'idprodutotamanho'
+            end
+            object cxGridDBcodigo: TcxGridDBColumn
+              DataBinding.FieldName = 'codigo'
+            end
+            object cxGridDBprodutonome: TcxGridDBColumn
+              DataBinding.FieldName = 'produtonome'
+            end
+            object cxGridDBcornome: TcxGridDBColumn
+              DataBinding.FieldName = 'cornome'
+            end
+            object cxGridDBtamanhonome: TcxGridDBColumn
+              DataBinding.FieldName = 'tamanhonome'
+            end
+          end
         end
         inherited pnlBottom: TPanel
           Top = 336
@@ -1160,6 +1187,10 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         inherited pnlCadastro: TPanel
           Height = 406
           ExplicitHeight = 406
+          inherited cxImage3: TcxImage
+            ExplicitLeft = 2
+            ExplicitTop = 3
+          end
         end
         inline FrameProdutoGrade: TFrameProdutoGrade
           Left = 60
