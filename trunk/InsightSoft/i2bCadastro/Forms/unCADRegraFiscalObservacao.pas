@@ -18,7 +18,7 @@ uses
   Data.FMTBcd, Data.SqlExpr, dxBar, dxRibbonRadialMenu, System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxMemo,
   cxGroupBox, cxRadioGroup, cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, cxPC,
-  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameRegraFiscalObservacao;
+  dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai, unFrameRegraFiscalObservacao, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADRegraFiscalObservacao = class(TfrmCadastro)

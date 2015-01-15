@@ -11,7 +11,7 @@ uses
   System.Actions, Vcl.ActnList, dxCustomHint, cxHint, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.ExtCtrls, cxCheckBox,
   Vcl.Menus, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLabel, Vcl.ComCtrls, dxCore, cxDateUtils, Data.FMTBcd,
-  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar;
+  Data.SqlExpr, cxMemo, cxGroupBox, cxRadioGroup, cxCalendar, cxButtonEdit, Datasnap.DBClient;
 
 type
   TfrmCADIndicadorEconomico = class(TfrmCadastro)
