@@ -415,6 +415,10 @@ inherited frmGrid: TfrmGrid
       object cxTabCadastro: TcxTabSheet
         Caption = 'cxTabCadastro'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
       end
       object cxTabFiltro: TcxTabSheet
         Caption = 'cxTabFiltro'

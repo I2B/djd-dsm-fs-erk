@@ -855,7 +855,7 @@ type
     cdsProdutoFornecedorprecoultimacompra: TFloatField;
     cdsProdutoGrupoidgrupoprodutos: TIntegerField;
     cdsProdutoGruponome: TWideStringField;
-    cdsProdutoGrupodescricao: TWideMemoField;
+    cdsProdutoGrupodescricao: TMemoField;
     cdsSetoridsetor: TIntegerField;
     cdsSetornome: TWideStringField;
     cdsSetordescricao: TWideStringField;

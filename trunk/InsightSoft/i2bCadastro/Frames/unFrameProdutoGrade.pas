@@ -23,7 +23,7 @@ type
     edtProdutoNome: TcxTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
     dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
-    edtProduto: TcxTextEdit;
+    edtIDProduto: TcxTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
     LevelGrade: TcxGridLevel;
     grdGrade: TcxGrid;
@@ -63,7 +63,7 @@ var
 begin
   inherited;
   limpaGrade;
-  cadastrado := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtProduto.Text,dm.dspConnection);
+  cadastrado := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text,dm.dspConnection);
   if cadastrado.RecordCount = 0 then
   begin
     cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
@@ -121,19 +121,21 @@ begin
       SetLength(idCor, length(idCor)+1);
       idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
       tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
-      for I := 2 to tvGrade.ColumnCount - 1 do
+      cdsProdutoTamanho.First;
+      while not cdsProdutoTamanho.Eof do
       begin
-        carregaGrade := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtProduto.Text
+        carregaGrade := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text
         +' and idprodutocor = '+cdsProdutoCor.FieldByName('idProdutoCor').AsString+' and idprodutotamanho = '
         +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString,dm.dspConnection);
         if carregaGrade.RecordCount = 0 then
         begin
-          tvGrade.Columns[I].EditValue := False;
+          tvGrade.Columns[cdsProdutoTamanho.RecNo + 1].EditValue := False;
         end
         else
         begin
-          tvGrade.Columns[I].EditValue := true;
+          tvGrade.Columns[cdsProdutoTamanho.RecNo + 1].EditValue := true;
         end;
+        cdsProdutoTamanho.Next;
       end;
       cdsProdutoCor.Next;
     end;

@@ -5234,7 +5234,6 @@ object ServerMethods: TServerMethods
       Size = 100
     end
     object qryProdutoGrupodescricao: TWideMemoField
-      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
       Origin = 'descricao'
       BlobType = ftWideMemo
