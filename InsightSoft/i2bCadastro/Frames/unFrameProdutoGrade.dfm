@@ -17,7 +17,7 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       TabOrder = 1
       Width = 445
     end
-    object edtProduto: TcxTextEdit [1]
+    object edtIDProduto: TcxTextEdit [1]
       Left = 12
       Top = 33
       Properties.OnChange = cxDBTextEdit1PropertiesChange
@@ -25,7 +25,6 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
-      Text = 'edtProduto'
       Width = 121
     end
     object grdGrade: TcxGrid [2]
@@ -94,7 +93,7 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       AlignVert = avBottom
       CaptionOptions.Text = 'Produto'
       CaptionOptions.Layout = clTop
-      Control = edtProduto
+      Control = edtIDProduto
       ControlOptions.ShowBorder = False
       Index = 0
     end

@@ -63,10 +63,11 @@ begin
       begin
           colunaGrade := coluna;
           i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
-          +'values('+FrameProdutoGrade.edtProduto.Text+','+idCor[Linha]+','+idTamanho[ColunaGrade-2]
-          +','+FrameProdutoGrade.edtProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+')',dm.dspConnection);
+          +'values('+FrameProdutoGrade.edtIDProduto.Text+','+idCor[Linha]+','+idTamanho[ColunaGrade-2]
+          +','+FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+')',dm.dspConnection);
       end;
     end;
+    FrameProdutoGrade.tvGrade.DataController.GotoNext;
   end;
 end;
 

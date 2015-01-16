@@ -446,7 +446,6 @@
         <DCCReference Include="..\Framework\unI2BString.pas"/>
         <DCCReference Include="Forms\unCADProduto.pas">
             <Form>frmCADProduto</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Framework\unF2Cadastro.pas">
             <Form>frmF2Cadastro</Form>

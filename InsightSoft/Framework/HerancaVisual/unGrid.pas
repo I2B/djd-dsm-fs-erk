@@ -415,7 +415,7 @@ begin
     (dts.DataSet as TClientDataSet).Close;
     ServerMethod.Params[0].AsString := filtro;
     ServerMethod.ExecuteMethod;
-    (dts.DataSet as TClientDataSet).Open;
+    (dts.DataSet as TClientDataSet).Open
   except
     On E: Exception do
     begin
