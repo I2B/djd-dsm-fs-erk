@@ -47,10 +47,10 @@ type
     cxGridDBtiporegime: TcxGridDBColumn;
     cxGridDBcrt: TcxGridDBColumn;
     cxGridDBsuframa: TcxGridDBColumn;
-    FramePessoa: TFramePessoa;
     cxGridDBnome: TcxGridDBColumn;
     cxGridDBrepresentante: TcxGridDBColumn;
     cxGridDBdatacadastro: TcxGridDBColumn;
+    FramePessoa: TFramePessoa;
     procedure acNovoExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure acCancelarExecute(Sender: TObject);

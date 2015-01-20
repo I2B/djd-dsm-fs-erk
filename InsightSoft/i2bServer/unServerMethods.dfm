@@ -4463,22 +4463,23 @@ object ServerMethods: TServerMethods
     DetailFields = 'idpessoa'
     Connection = conexao
     SQL.Strings = (
-      
-        'select pessoaColaborador.*, setor.nome as setorNome, cargo.nome ' +
-        'as cargoNome '
+      'select pessoaColaborador.*, setor.nome as setorNome, '
+      'cargo.nome as cargoNome, banco.nome as bancoNome '
       'from pessoaColaborador '
       'inner join setor on pessoaColaborador.idSetor = setor.idSetor'
       'inner join cargo on pessoaColaborador.idCargo = cargo.idCargo'
+      'inner join banco on pessoaColaborador.idBanco = banco.idBanco'
       ''
       'where idpessoa = :idpessoa')
     Left = 680
     Top = 144
     ParamData = <
       item
-        Name = 'IDPESSOA'
+        Name = 'idpessoa'
         DataType = ftInteger
+        FDDataType = dtInt32
         ParamType = ptInput
-        Value = Null
+        Value = 0
       end>
     object qryPessoaColaboradoridbanco: TWideStringField
       FieldName = 'idbanco'
@@ -4567,13 +4568,22 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'setornome'
       Origin = 'setornome'
+      ProviderFlags = []
       Size = 50
     end
     object qryPessoaColaboradorcargonome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'cargonome'
       Origin = 'cargonome'
+      ProviderFlags = []
       Size = 30
+    end
+    object qryPessoaColaboradorbanconome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'banconome'
+      Origin = 'banconome'
+      ProviderFlags = []
+      Size = 60
     end
   end
   object qryPessoaContador: TFDQuery
@@ -5012,6 +5022,7 @@ object ServerMethods: TServerMethods
     end
   end
   object qryProduto: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       

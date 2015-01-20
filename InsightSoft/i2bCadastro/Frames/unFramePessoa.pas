@@ -173,7 +173,6 @@ type
     dxLayoutControlGroup11: TdxLayoutAutoCreatedGroup;
     dxLayoutControlGroup14: TdxLayoutAutoCreatedGroup;
     dxLayoutControlGroup15: TdxLayoutAutoCreatedGroup;
-    dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup;
     edtDesde: TcxDBDateEdit;
     dxLayoutControlItem61: TdxLayoutItem;
     dsFornecedor: TDataSource;
@@ -202,6 +201,14 @@ type
     edtCNHVencimento: TcxDBDateEdit;
     dxLayoutControlItem48: TdxLayoutItem;
     dxLayoutControlGroup9: TdxLayoutAutoCreatedGroup;
+    edtIDBanco: TcxDBCurrencyEdit;
+    dxLayoutControlItem10: TdxLayoutItem;
+    dxLayoutControlGroup29: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup;
+    edtIDCargo: TcxDBCurrencyEdit;
+    dxLayoutControlItem72: TdxLayoutItem;
+    edtIDSetor: TcxDBCurrencyEdit;
+    dxLayoutControlItem73: TdxLayoutItem;
     procedure grpTipoClick(Sender: TObject);
     procedure chkClienteClick(Sender: TObject);
     procedure chkFornecedorClick(Sender: TObject);
@@ -211,6 +218,12 @@ type
     procedure chkContadorClick(Sender: TObject);
     procedure chkRepresentanteClick(Sender: TObject);
     procedure imgFoto3x4Click(Sender: TObject);
+    procedure edtIDBancoExit(Sender: TObject);
+    procedure edtIDSetorExit(Sender: TObject);
+    procedure edtIDCargoExit(Sender: TObject);
+    procedure edtIDBancoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDSetorKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDCargoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -224,7 +237,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unI2BFuncoes;
+uses unDM, unI2BFuncoes, unI2BBD;
 
 procedure TFramePessoa.chkClienteClick(Sender: TObject);
 begin
@@ -314,6 +327,78 @@ begin
   else
   begin
     grpVendedor.Visible:= False;
+  end;
+end;
+
+procedure TFramePessoa.edtIDBancoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDBanco.EditValue>0 then
+  begin
+    DM.cdsPessoaColaboradorbanconome.AsString:= i2bGetValor('banco', 'idbanco', edtIDBanco.Text, 'nome', DM.dspConnection);
+	if DM.cdsPessoaColaboradorbanconome.AsString='' then
+    begin
+      MessageDlg('O banco não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDBanco.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFramePessoa.edtIDBancoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDBanco, edtBanco, 'Selecione o banco.', 'idbanco|nome', 'nome',
+      'idbanco|nome', 'ID|Nome', 'banco', '', DM.conServer, 'framePessoa', DM.cdsBanco);
+  end;
+end;
+
+procedure TFramePessoa.edtIDCargoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDCargo.EditValue>0 then
+  begin
+    DM.cdsPessoaColaboradorcargonome.AsString:= i2bGetValor('Cargo', 'idcargo', edtIDCargo.Text, 'nome', DM.dspConnection);
+	if DM.cdsPessoaColaboradorcargonome.AsString='' then
+    begin
+      MessageDlg('O cargo não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDCargo.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFramePessoa.edtIDCargoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDCargo, edtCargo, 'Selecione o cargo.', 'idcargo|nome', 'nome',
+      'idcargo|nome|descricao', 'ID|Nome|Descrição', 'cargo', '', DM.conServer, 'framePessoa', DM.cdsCargo);
+  end;
+end;
+
+procedure TFramePessoa.edtIDSetorExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDSetor.EditValue>0 then
+  begin
+    DM.cdsPessoaColaboradorsetornome.AsString:= i2bGetValor('setor', 'idsetor', edtIDSetor.Text, 'nome', DM.dspConnection);
+	if DM.cdsPessoaColaboradorsetornome.AsString='' then
+    begin
+      MessageDlg('O setor não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDSetor.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFramePessoa.edtIDSetorKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDSetor, edtSetor, 'Selecione o setor.', 'idsetor|nome', 'nome',
+      'idsetor|nome|descricao', 'ID|Nome|Descrição', 'setor', '', DM.conServer, 'framePessoa', DM.cdsSetor);
   end;
 end;
 
