@@ -2975,83 +2975,116 @@ object DM: TDM
     MasterFields = 'idpessoa'
     MasterSource = dsPessoa
     PacketRecords = 0
-    Params = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'idpessoa'
+        ParamType = ptUnknown
+      end>
     ProviderName = 'dspPessoaColaborador'
     RemoteServer = dspConnection
     Left = 392
     Top = 592
     object cdsPessoaColaboradoridbanco: TWideStringField
       FieldName = 'idbanco'
+      Origin = 'idbanco'
       FixedChar = True
       Size = 4
     end
     object cdsPessoaColaboradoridsetor: TIntegerField
       FieldName = 'idsetor'
+      Origin = 'idsetor'
     end
     object cdsPessoaColaboradoridcargo: TIntegerField
       FieldName = 'idcargo'
+      Origin = 'idcargo'
+    end
+    object cdsPessoaColaboradoridpessoa: TIntegerField
+      FieldName = 'idpessoa'
+      Origin = 'idpessoa'
+    end
+    object cdsPessoaColaboradormatricula: TWideStringField
+      FieldName = 'matricula'
+      Origin = 'matricula'
+      Size = 10
     end
     object cdsPessoaColaboradorfoto3x4: TWideMemoField
       FieldName = 'foto3x4'
+      Origin = 'foto3x4'
       BlobType = ftWideMemo
     end
     object cdsPessoaColaboradordataadmissao: TDateField
       FieldName = 'dataadmissao'
+      Origin = 'dataadmissao'
     end
     object cdsPessoaColaboradorfgtsconta: TSmallintField
       FieldName = 'fgtsconta'
+      Origin = 'fgtsconta'
     end
     object cdsPessoaColaboradorformapagamento: TWideStringField
       FieldName = 'formapagamento'
+      Origin = 'formapagamento'
       FixedChar = True
       Size = 1
     end
     object cdsPessoaColaboradorexamedata: TDateField
       FieldName = 'examedata'
+      Origin = 'examedata'
     end
     object cdsPessoaColaboradorexamedataultimo: TDateField
       FieldName = 'examedataultimo'
+      Origin = 'examedataultimo'
     end
     object cdsPessoaColaboradorctpsnumero: TWideStringField
       FieldName = 'ctpsnumero'
+      Origin = 'ctpsnumero'
       Size = 10
     end
     object cdsPessoaColaboradorctpsserie: TWideStringField
       FieldName = 'ctpsserie'
+      Origin = 'ctpsserie'
       Size = 10
     end
     object cdsPessoaColaboradorctpsdataexpedicao: TDateField
       FieldName = 'ctpsdataexpedicao'
+      Origin = 'ctpsdataexpedicao'
     end
     object cdsPessoaColaboradorctpsuf: TWideStringField
       FieldName = 'ctpsuf'
+      Origin = 'ctpsuf'
       FixedChar = True
       Size = 2
     end
     object cdsPessoaColaboradorobservacao: TWideMemoField
       FieldName = 'observacao'
+      Origin = 'observacao'
       BlobType = ftWideMemo
     end
     object cdsPessoaColaboradordatademissao: TDateField
       FieldName = 'datademissao'
+      Origin = 'datademissao'
     end
     object cdsPessoaColaboradoridunidadenegocio: TIntegerField
       FieldName = 'idunidadenegocio'
+      Origin = 'idunidadenegocio'
     end
     object cdsPessoaColaboradorsetornome: TWideStringField
       FieldName = 'setornome'
+      Origin = 'setornome'
+      ProviderFlags = []
       Size = 50
     end
     object cdsPessoaColaboradorcargonome: TWideStringField
       FieldName = 'cargonome'
+      Origin = 'cargonome'
+      ProviderFlags = []
       Size = 30
     end
-    object cdsPessoaColaboradoridpessoa: TIntegerField
-      FieldName = 'idpessoa'
-    end
-    object cdsPessoaColaboradormatricula: TWideStringField
-      FieldName = 'matricula'
-      Size = 10
+    object cdsPessoaColaboradorbanconome: TWideStringField
+      FieldName = 'banconome'
+      Origin = 'banconome'
+      ProviderFlags = []
+      Size = 60
     end
   end
   object cdsPessoaContador: TClientDataSet

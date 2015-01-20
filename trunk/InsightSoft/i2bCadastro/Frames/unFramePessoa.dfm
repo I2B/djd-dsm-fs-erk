@@ -10,7 +10,7 @@
     ExplicitHeight = 655
     object imgFoto3x4: TImage [0]
       Left = 40
-      Top = -465
+      Top = 69
       Width = 90
       Height = 120
       DragCursor = crHandPoint
@@ -601,12 +601,13 @@
         B6BE9BDB26A73898322323232BA911DFAA06FCA2B6A76A7B89B6B7AB51DD5593
         B3B57D0E1111B1D76A0E7A5A5BF7F5F56DDA5EACED299AA3F6D376BB7ABDBEA2
         4D6325E5BFFEEBFF038B38423A914B55FA0000000049454E44AE426082}
+      Proportional = True
       Stretch = True
       OnClick = imgFoto3x4Click
     end
     object grpTipo: TcxDBRadioGroup [1]
       Left = 26
-      Top = -1227
+      Top = -693
       Caption = 'Tipo'
       DataBinding.DataField = 'tipo'
       DataBinding.DataSource = DataSource
@@ -628,7 +629,7 @@
     end
     object chkCliente: TcxDBCheckBox [2]
       Left = 376
-      Top = -1206
+      Top = -672
       Caption = 'Cliente'
       DataBinding.DataField = 'cliente'
       DataBinding.DataSource = DataSource
@@ -642,7 +643,7 @@
     end
     object chkColaborador: TcxDBCheckBox [3]
       Left = 376
-      Top = -1176
+      Top = -642
       Caption = 'Colaborador'
       DataBinding.DataField = 'colaborador'
       DataBinding.DataSource = DataSource
@@ -656,7 +657,7 @@
     end
     object chkFornecedor: TcxDBCheckBox [4]
       Left = 484
-      Top = -1206
+      Top = -672
       Caption = 'Fornecedor'
       DataBinding.DataField = 'fornecedor'
       DataBinding.DataSource = DataSource
@@ -670,7 +671,7 @@
     end
     object chkVendedor: TcxDBCheckBox [5]
       Left = 484
-      Top = -1176
+      Top = -642
       Caption = 'Vendedor'
       DataBinding.DataField = 'vendedor'
       DataBinding.DataSource = DataSource
@@ -684,7 +685,7 @@
     end
     object chkTransportadora: TcxDBCheckBox [6]
       Left = 592
-      Top = -1206
+      Top = -672
       Caption = 'Transportadora'
       DataBinding.DataField = 'transportadora'
       DataBinding.DataSource = DataSource
@@ -698,7 +699,7 @@
     end
     object edtRazaoSocial: TcxDBTextEdit [7]
       Left = 40
-      Top = -851
+      Top = -317
       DataBinding.DataField = 'nome'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -709,7 +710,7 @@
     end
     object edtFantasia: TcxDBTextEdit [8]
       Left = 409
-      Top = -851
+      Top = -317
       DataBinding.DataField = 'nomefantasia'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -720,7 +721,7 @@
     end
     object edtCNPJ: TcxDBTextEdit [9]
       Left = 40
-      Top = -800
+      Top = -266
       DataBinding.DataField = 'cnpj'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -731,7 +732,7 @@
     end
     object edtInscricaoMunicipal: TcxDBTextEdit [10]
       Left = 40
-      Top = -749
+      Top = -215
       DataBinding.DataField = 'inscricaomunicipal'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -742,7 +743,7 @@
     end
     object edtInscricaoEstadual: TcxDBTextEdit [11]
       Left = 40
-      Top = -688
+      Top = -154
       DataBinding.DataField = 'inscricaoestadual'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -753,7 +754,7 @@
     end
     object grpCodigoRegimeTributario: TcxDBRadioGroup [12]
       Left = 409
-      Top = -821
+      Top = -287
       Caption = 'C'#243'digo de Regime Tribut'#225'rio'
       DataBinding.DataField = 'crt'
       DataBinding.DataSource = DataSource
@@ -778,7 +779,7 @@
     end
     object edtDataFundacao: TcxDBDateEdit [13]
       Left = 409
-      Top = -688
+      Top = -154
       DataBinding.DataField = 'datanascimento'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -791,7 +792,7 @@
     end
     object grpRegimeTributario: TcxDBRadioGroup [14]
       Left = 601
-      Top = -821
+      Top = -287
       Caption = 'Regime Tribut'#225'rio'
       DataBinding.DataField = 'tiporegime'
       DataBinding.DataSource = DataSource
@@ -816,7 +817,7 @@
     end
     object chkRepresentante: TcxDBCheckBox [15]
       Left = 592
-      Top = -1176
+      Top = -642
       Caption = 'Representante'
       DataBinding.DataField = 'representante'
       DataBinding.DataSource = DataSource
@@ -831,7 +832,7 @@
     end
     object chkContador: TcxDBCheckBox [16]
       Left = 721
-      Top = -1206
+      Top = -672
       Caption = 'Contador'
       DataBinding.DataField = 'contador'
       DataBinding.DataSource = DataSource
@@ -845,48 +846,10 @@
     end
     object edtRepresentanteComissao: TcxDBCurrencyEdit [17]
       Left = 414
-      Top = 74
+      Top = 659
       DataBinding.DataField = 'comissao'
       DataBinding.DataSource = dsRepresentante
       Properties.DisplayFormat = '0.00, %;-,0.00, %'
-      Properties.Nullable = False
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 53
-      Width = 180
-    end
-    object memTransportadoraObservacao: TcxDBMemo [18]
-      Left = 40
-      Top = 160
-      DataBinding.DataField = 'observacao'
-      DataBinding.DataSource = dsTransportadora
-      Properties.ScrollBars = ssVertical
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 54
-      Height = 89
-      Width = 771
-    end
-    object edtVendedorComissao: TcxDBCurrencyEdit [19]
-      Left = 414
-      Top = 312
-      DataBinding.DataField = 'comissao'
-      DataBinding.DataSource = dsVendedor
-      Properties.DisplayFormat = '0.00, %;-,0.00, %'
-      Properties.Nullable = False
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 57
-      Width = 180
-    end
-    object edtVendedorMeta: TcxDBCurrencyEdit [20]
-      Left = 227
-      Top = 312
-      DataBinding.DataField = 'metavendas'
-      DataBinding.DataSource = dsVendedor
       Properties.Nullable = False
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
@@ -894,43 +857,81 @@
       TabOrder = 56
       Width = 180
     end
+    object memTransportadoraObservacao: TcxDBMemo [18]
+      Left = 40
+      Top = 745
+      DataBinding.DataField = 'observacao'
+      DataBinding.DataSource = dsTransportadora
+      Properties.ScrollBars = ssVertical
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 57
+      Height = 89
+      Width = 771
+    end
+    object edtVendedorComissao: TcxDBCurrencyEdit [19]
+      Left = 414
+      Top = 897
+      DataBinding.DataField = 'comissao'
+      DataBinding.DataSource = dsVendedor
+      Properties.DisplayFormat = '0.00, %;-,0.00, %'
+      Properties.Nullable = False
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 60
+      Width = 180
+    end
+    object edtVendedorMeta: TcxDBCurrencyEdit [20]
+      Left = 227
+      Top = 897
+      DataBinding.DataField = 'metavendas'
+      DataBinding.DataSource = dsVendedor
+      Properties.Nullable = False
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 59
+      Width = 180
+    end
     object edtRepresentanteUnidadeNegocio: TcxDBTextEdit [21]
       Left = 40
-      Top = 74
+      Top = 659
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsRepresentante
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 51
+      TabOrder = 54
       Width = 180
     end
     object edtRepresentanteMeta: TcxDBCurrencyEdit [22]
       Left = 227
-      Top = 74
+      Top = 659
       DataBinding.DataField = 'metavendas'
       DataBinding.DataSource = dsRepresentante
       Properties.Nullable = False
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 52
+      TabOrder = 55
       Width = 180
     end
     object edtVendedorUnidadeNegocio: TcxDBTextEdit [23]
       Left = 40
-      Top = 312
+      Top = 897
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsVendedor
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 55
+      TabOrder = 58
       Width = 180
     end
     object chkClienteAtivo: TcxDBCheckBox [24]
       Left = 40
-      Top = -18
+      Top = 567
       Caption = 'Ativo'
       DataBinding.DataField = 'ativo'
       DataBinding.DataSource = dsCliente
@@ -938,25 +939,25 @@
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 49
+      TabOrder = 52
       Width = 180
     end
     object memClienteObservacao: TcxDBMemo [25]
       Left = 227
-      Top = -78
+      Top = 507
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsCliente
       Properties.ScrollBars = ssVertical
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 50
+      TabOrder = 53
       Height = 89
       Width = 577
     end
     object chkGeraFinanceiro: TcxDBCheckBox [26]
       Left = 40
-      Top = -48
+      Top = 537
       Caption = 'Gera Financeiro'
       DataBinding.DataField = 'gerafinanceiro'
       DataBinding.DataSource = dsCliente
@@ -964,23 +965,23 @@
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 48
+      TabOrder = 51
       Width = 180
     end
     object edtLimiteCredito: TcxDBCurrencyEdit [27]
       Left = 40
-      Top = -78
+      Top = 507
       DataBinding.DataField = 'limitecredito'
       DataBinding.DataSource = dsCliente
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 47
+      TabOrder = 50
       Width = 180
     end
     object edtNome: TcxDBTextEdit [28]
       Left = 40
-      Top = -1090
+      Top = -556
       DataBinding.DataField = 'nome'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -991,7 +992,7 @@
     end
     object edtCPF: TcxDBTextEdit [29]
       Left = 40
-      Top = -1039
+      Top = -505
       DataBinding.DataField = 'cpf'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1002,7 +1003,7 @@
     end
     object edtRG: TcxDBTextEdit [30]
       Left = 227
-      Top = -1039
+      Top = -505
       DataBinding.DataField = 'rg'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1013,7 +1014,7 @@
     end
     object edtNomeDoPai: TcxDBTextEdit [31]
       Left = 40
-      Top = -988
+      Top = -454
       DataBinding.DataField = 'nomepai'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1024,7 +1025,7 @@
     end
     object edtCnhNumero: TcxDBTextEdit [32]
       Left = 40
-      Top = -937
+      Top = -403
       DataBinding.DataField = 'cnhnumero'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1035,7 +1036,7 @@
     end
     object edtDataAniversário: TcxDBDateEdit [33]
       Left = 414
-      Top = -1090
+      Top = -556
       DataBinding.DataField = 'datanascimento'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1048,7 +1049,7 @@
     end
     object cmbEstadoCivil: TcxDBComboBox [34]
       Left = 601
-      Top = -1090
+      Top = -556
       DataBinding.DataField = 'estadocivil'
       DataBinding.DataSource = DataSource
       Properties.ItemHeight = 14
@@ -1067,7 +1068,7 @@
     end
     object grpSexo: TcxDBRadioGroup [35]
       Left = 414
-      Top = -1060
+      Top = -526
       Caption = 'Sexo'
       DataBinding.DataField = 'sexo'
       DataBinding.DataSource = DataSource
@@ -1089,7 +1090,7 @@
     end
     object edtNomeDaMae: TcxDBTextEdit [36]
       Left = 414
-      Top = -988
+      Top = -454
       DataBinding.DataField = 'nomemae'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1100,7 +1101,7 @@
     end
     object edtCnhCategoria: TcxDBTextEdit [37]
       Left = 414
-      Top = -937
+      Top = -403
       DataBinding.DataField = 'cnhcategoria'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1111,18 +1112,18 @@
     end
     object edtCTPSNumero: TcxDBTextEdit [38]
       Left = 40
-      Top = -164
+      Top = 421
       DataBinding.DataField = 'ctpsnumero'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 43
+      TabOrder = 46
       Width = 180
     end
     object memObservacao: TcxDBMemo [39]
       Left = 138
-      Top = -465
+      Top = 69
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsColaborador
       Properties.ScrollBars = ssVertical
@@ -1135,7 +1136,7 @@
     end
     object edtDataAdmissao: TcxDBDateEdit [40]
       Left = 40
-      Top = -317
+      Top = 217
       DataBinding.DataField = 'dataadmissao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1148,29 +1149,29 @@
     end
     object edtCRC: TcxDBTextEdit [41]
       Left = 40
-      Top = 398
+      Top = 983
       DataBinding.DataField = 'crc'
       DataBinding.DataSource = dsContador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 58
+      TabOrder = 61
       Width = 180
     end
     object edtContadorUnidadeNegocio: TcxDBTextEdit [42]
       Left = 227
-      Top = 398
+      Top = 983
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsContador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 59
+      TabOrder = 62
       Width = 180
     end
     object edtDataDemissão: TcxDBDateEdit [43]
       Left = 227
-      Top = -317
+      Top = 217
       DataBinding.DataField = 'datademissao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1181,20 +1182,9 @@
       TabOrder = 33
       Width = 180
     end
-    object edtBanco: TcxDBTextEdit [44]
+    object edtCTPSDataExpedicao: TcxDBDateEdit [44]
       Left = 227
-      Top = -266
-      DataBinding.DataField = 'idbanco'
-      DataBinding.DataSource = dsColaborador
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 37
-      Width = 180
-    end
-    object edtCTPSDataExpedicao: TcxDBDateEdit [45]
-      Left = 227
-      Top = -164
+      Top = 421
       DataBinding.DataField = 'ctpsdataexpedicao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1202,78 +1192,45 @@
       Style.HotTrack = False
       Style.ButtonStyle = bts3D
       Style.PopupBorderStyle = epbsFrame3D
-      TabOrder = 44
+      TabOrder = 47
       Width = 180
     end
-    object edtUnidadeNegocio: TcxDBTextEdit [46]
-      Left = 40
-      Top = -215
-      DataBinding.DataField = 'idunidadenegocio'
-      DataBinding.DataSource = dsColaborador
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 40
-      Width = 180
-    end
-    object edtCargo: TcxDBTextEdit [47]
-      Left = 227
-      Top = -215
-      DataBinding.DataField = 'idcargo'
-      DataBinding.DataSource = dsColaborador
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 41
-      Width = 180
-    end
-    object edtSetor: TcxDBTextEdit [48]
+    object edtCTPSSerie: TcxDBTextEdit [45]
       Left = 414
-      Top = -215
-      DataBinding.DataField = 'idsetor'
-      DataBinding.DataSource = dsColaborador
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 42
-      Width = 180
-    end
-    object edtCTPSSerie: TcxDBTextEdit [49]
-      Left = 414
-      Top = -164
+      Top = 421
       DataBinding.DataField = 'ctpsserie'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 45
+      TabOrder = 48
       Width = 180
     end
-    object edtCTPSUF: TcxDBTextEdit [50]
+    object edtCTPSUF: TcxDBTextEdit [46]
       Left = 601
-      Top = -164
+      Top = 421
       DataBinding.DataField = 'ctpsuf'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 46
+      TabOrder = 49
       Width = 180
     end
-    object edtFGTSConta: TcxDBTextEdit [51]
-      Left = 601
-      Top = -266
+    object edtFGTSConta: TcxDBTextEdit [47]
+      Left = 414
+      Top = 268
       DataBinding.DataField = 'fgtsconta'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 39
+      TabOrder = 38
       Width = 180
     end
-    object edtDesde: TcxDBDateEdit [52]
+    object edtDesde: TcxDBDateEdit [48]
       Left = 40
-      Top = 484
+      Top = 1069
       DataBinding.DataField = 'desde'
       DataBinding.DataSource = dsFornecedor
       Style.BorderColor = clWindowFrame
@@ -1281,72 +1238,72 @@
       Style.HotTrack = False
       Style.ButtonStyle = bts3D
       Style.PopupBorderStyle = epbsFrame3D
-      TabOrder = 60
+      TabOrder = 63
       Width = 180
     end
-    object memFornecedorObservacao: TcxDBMemo [53]
+    object memFornecedorObservacao: TcxDBMemo [49]
       Left = 40
-      Top = 616
+      Top = 1201
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsFornecedor
       Properties.ScrollBars = ssVertical
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 68
+      TabOrder = 71
       Height = 89
       Width = 771
     end
-    object edtPrazoMedioEntrega: TcxDBTextEdit [54]
+    object edtPrazoMedioEntrega: TcxDBTextEdit [50]
       Left = 227
-      Top = 484
+      Top = 1069
       DataBinding.DataField = 'prazomedioentrega'
       DataBinding.DataSource = dsFornecedor
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 61
-      Width = 180
-    end
-    object edtPrimeiroVencimento: TcxDBCurrencyEdit [55]
-      Left = 40
-      Top = 535
-      DataBinding.DataField = 'numerodiasprimeirovencimento'
-      DataBinding.DataSource = dsFornecedor
-      Properties.DisplayFormat = '0'
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 62
-      Width = 180
-    end
-    object edtParcelas: TcxDBCurrencyEdit [56]
-      Left = 227
-      Top = 535
-      DataBinding.DataField = 'quantidadeparcelas'
-      DataBinding.DataSource = dsFornecedor
-      Properties.DisplayFormat = '0'
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 63
-      Width = 180
-    end
-    object edtNumeroDiasIntervalo: TcxDBCurrencyEdit [57]
-      Left = 414
-      Top = 535
-      DataBinding.DataField = 'numerodiasintervalo'
-      DataBinding.DataSource = dsFornecedor
-      Properties.DisplayFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 64
       Width = 180
     end
-    object chkRetencao: TcxDBCheckBox [58]
+    object edtPrimeiroVencimento: TcxDBCurrencyEdit [51]
+      Left = 40
+      Top = 1120
+      DataBinding.DataField = 'numerodiasprimeirovencimento'
+      DataBinding.DataSource = dsFornecedor
+      Properties.DisplayFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 65
+      Width = 180
+    end
+    object edtParcelas: TcxDBCurrencyEdit [52]
       Left = 227
-      Top = 565
+      Top = 1120
+      DataBinding.DataField = 'quantidadeparcelas'
+      DataBinding.DataSource = dsFornecedor
+      Properties.DisplayFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 66
+      Width = 180
+    end
+    object edtNumeroDiasIntervalo: TcxDBCurrencyEdit [53]
+      Left = 414
+      Top = 1120
+      DataBinding.DataField = 'numerodiasintervalo'
+      DataBinding.DataSource = dsFornecedor
+      Properties.DisplayFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 67
+      Width = 180
+    end
+    object chkRetencao: TcxDBCheckBox [54]
+      Left = 227
+      Top = 1150
       Caption = 'Reten'#231#227'o '
       DataBinding.DataField = 'sofreretencao'
       DataBinding.DataSource = dsFornecedor
@@ -1354,12 +1311,12 @@
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 66
+      TabOrder = 69
       Width = 180
     end
-    object chkFornecedorGeraFaturamento: TcxDBCheckBox [59]
+    object chkFornecedorGeraFaturamento: TcxDBCheckBox [55]
       Left = 414
-      Top = 565
+      Top = 1150
       Caption = 'Gera Faturamento'
       DataBinding.DataField = 'gerafaturamento'
       DataBinding.DataSource = dsFornecedor
@@ -1367,12 +1324,12 @@
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 67
+      TabOrder = 70
       Width = 180
     end
-    object chkFornecedorLocalização: TcxDBCheckBox [60]
+    object chkFornecedorLocalização: TcxDBCheckBox [56]
       Left = 40
-      Top = 565
+      Top = 1150
       Caption = 'Importa'#231#227'o'
       DataBinding.DataField = 'localizacao'
       DataBinding.DataSource = dsFornecedor
@@ -1380,12 +1337,12 @@
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 65
+      TabOrder = 68
       Width = 180
     end
-    object edtDataCadastro: TcxDBDateEdit [61]
+    object edtDataCadastro: TcxDBDateEdit [57]
       Left = 40
-      Top = -602
+      Top = -68
       DataBinding.DataField = 'datacadastro'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1396,9 +1353,9 @@
       TabOrder = 27
       Width = 180
     end
-    object edtCodigoSuframa: TcxDBTextEdit [62]
+    object edtCodigoSuframa: TcxDBTextEdit [58]
       Left = 227
-      Top = -602
+      Top = -68
       DataBinding.DataField = 'suframa'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1407,9 +1364,9 @@
       TabOrder = 28
       Width = 180
     end
-    object edtEMail: TcxDBTextEdit [63]
+    object edtEMail: TcxDBTextEdit [59]
       Left = 40
-      Top = -551
+      Top = -17
       DataBinding.DataField = 'email'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1418,9 +1375,9 @@
       TabOrder = 29
       Width = 367
     end
-    object edtSite: TcxDBTextEdit [64]
+    object edtSite: TcxDBTextEdit [60]
       Left = 414
-      Top = -551
+      Top = -17
       DataBinding.DataField = 'site'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1429,20 +1386,20 @@
       TabOrder = 30
       Width = 379
     end
-    object edtMatricula: TcxDBTextEdit [65]
-      Left = 40
-      Top = -266
+    object edtMatricula: TcxDBTextEdit [61]
+      Left = 227
+      Top = 268
       DataBinding.DataField = 'matricula'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 36
+      TabOrder = 37
       Width = 180
     end
-    object edtExameData: TcxDBDateEdit [66]
+    object edtExameData: TcxDBDateEdit [62]
       Left = 414
-      Top = -317
+      Top = 217
       DataBinding.DataField = 'examedata'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1453,9 +1410,9 @@
       TabOrder = 34
       Width = 180
     end
-    object edtExameDataUltimo: TcxDBDateEdit [67]
+    object edtExameDataUltimo: TcxDBDateEdit [63]
       Left = 601
-      Top = -317
+      Top = 217
       DataBinding.DataField = 'examedataultimo'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1466,9 +1423,117 @@
       TabOrder = 35
       Width = 180
     end
-    object cmbFormaDePagamento: TcxDBComboBox [68]
+    object edtCNHVencimento: TcxDBDateEdit [64]
+      Left = 601
+      Top = -403
+      DataBinding.DataField = 'cnhvencimento'
+      DataBinding.DataSource = DataSource
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      Style.ButtonStyle = bts3D
+      Style.PopupBorderStyle = epbsFrame3D
+      TabOrder = 18
+      Width = 180
+    end
+    object edtBanco: TcxDBTextEdit [65]
+      Left = 227
+      Top = 319
+      DataBinding.DataField = 'banconome'
+      DataBinding.DataSource = dsColaborador
+      Properties.ReadOnly = True
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 40
+      Width = 180
+    end
+    object edtIDBanco: TcxDBCurrencyEdit [66]
+      Left = 40
+      Top = 319
+      DataBinding.DataField = 'idbanco'
+      DataBinding.DataSource = dsColaborador
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '000'
+      Properties.EditFormat = '000'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 39
+      OnExit = edtIDBancoExit
+      OnKeyDown = edtIDBancoKeyDown
+      Width = 180
+    end
+    object edtSetor: TcxDBTextEdit [67]
+      Left = 227
+      Top = 370
+      DataBinding.DataField = 'setornome'
+      DataBinding.DataSource = dsColaborador
+      Properties.ReadOnly = True
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 43
+      Width = 180
+    end
+    object edtCargo: TcxDBTextEdit [68]
+      Left = 601
+      Top = 370
+      DataBinding.DataField = 'cargonome'
+      DataBinding.DataSource = dsColaborador
+      Properties.ReadOnly = True
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 45
+      Width = 180
+    end
+    object edtUnidadeNegocio: TcxDBTextEdit [69]
+      Left = 40
+      Top = 268
+      DataBinding.DataField = 'idunidadenegocio'
+      DataBinding.DataSource = dsColaborador
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 36
+      Width = 180
+    end
+    object edtIDSetor: TcxDBCurrencyEdit [70]
+      Left = 40
+      Top = 370
+      DataBinding.DataField = 'idsetor'
+      DataBinding.DataSource = dsColaborador
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 42
+      OnExit = edtIDSetorExit
+      OnKeyDown = edtIDSetorKeyDown
+      Width = 180
+    end
+    object edtIDCargo: TcxDBCurrencyEdit [71]
       Left = 414
-      Top = -266
+      Top = 370
+      DataBinding.DataField = 'idcargo'
+      DataBinding.DataSource = dsColaborador
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 44
+      OnExit = edtIDCargoExit
+      OnKeyDown = edtIDCargoKeyDown
+      Width = 180
+    end
+    object cmbFormaDePagamento: TcxDBComboBox [72]
+      Left = 414
+      Top = 319
       DataBinding.DataField = 'formapagamento'
       DataBinding.DataSource = dsColaborador
       Properties.ItemHeight = 14
@@ -1481,20 +1546,7 @@
       Style.HotTrack = False
       Style.ButtonStyle = bts3D
       Style.PopupBorderStyle = epbsFrame3D
-      TabOrder = 38
-      Width = 180
-    end
-    object edtCNHVencimento: TcxDBDateEdit [69]
-      Left = 601
-      Top = -937
-      DataBinding.DataField = 'cnhvencimento'
-      DataBinding.DataSource = DataSource
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      Style.ButtonStyle = bts3D
-      Style.PopupBorderStyle = epbsFrame3D
-      TabOrder = 18
+      TabOrder = 41
       Width = 180
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
@@ -2076,14 +2128,6 @@
       ControlOptions.ShowBorder = False
       Index = 1
     end
-    object dxLayoutControlItem47: TdxLayoutItem
-      Parent = dxLayoutControlGroup14
-      CaptionOptions.Text = 'Banco'
-      CaptionOptions.Layout = clTop
-      Control = edtBanco
-      ControlOptions.ShowBorder = False
-      Index = 1
-    end
     object dxLayoutControlItem57: TdxLayoutItem
       Parent = dxLayoutControlGroup15
       CaptionOptions.Text = 'CTPS Data Expedi'#231#227'o'
@@ -2095,38 +2139,8 @@
     object dxLayoutControlGroup15: TdxLayoutAutoCreatedGroup
       Parent = grpColaborador
       LayoutDirection = ldHorizontal
-      Index = 4
+      Index = 5
       AutoCreated = True
-    end
-    object dxLayoutControlItem60: TdxLayoutItem
-      Parent = dxLayoutControlGroup17
-      CaptionOptions.Text = 'Unidade Neg'#243'cio'
-      CaptionOptions.Layout = clTop
-      Control = edtUnidadeNegocio
-      ControlOptions.ShowBorder = False
-      Index = 0
-    end
-    object dxLayoutControlItem43: TdxLayoutItem
-      Parent = dxLayoutControlGroup17
-      CaptionOptions.Text = 'Cargo'
-      CaptionOptions.Layout = clTop
-      Control = edtCargo
-      ControlOptions.ShowBorder = False
-      Index = 1
-    end
-    object dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup
-      Parent = grpColaborador
-      LayoutDirection = ldHorizontal
-      Index = 3
-      AutoCreated = True
-    end
-    object dxLayoutControlItem46: TdxLayoutItem
-      Parent = dxLayoutControlGroup17
-      CaptionOptions.Text = 'Setor'
-      CaptionOptions.Layout = clTop
-      Control = edtSetor
-      ControlOptions.ShowBorder = False
-      Index = 2
     end
     object dxLayoutControlItem54: TdxLayoutItem
       Parent = dxLayoutControlGroup15
@@ -2150,7 +2164,7 @@
       CaptionOptions.Layout = clTop
       Control = edtFGTSConta
       ControlOptions.ShowBorder = False
-      Index = 3
+      Index = 2
     end
     object dxLayoutControlItem61: TdxLayoutItem
       Parent = dxLayoutControlGroup28
@@ -2323,7 +2337,7 @@
       CaptionOptions.Layout = clTop
       Control = edtMatricula
       ControlOptions.ShowBorder = False
-      Index = 0
+      Index = 1
     end
     object dxLayoutControlItem52: TdxLayoutItem
       Parent = dxLayoutControlGroup25
@@ -2341,14 +2355,6 @@
       ControlOptions.ShowBorder = False
       Index = 3
     end
-    object dxLayoutControlItem56: TdxLayoutItem
-      Parent = dxLayoutControlGroup14
-      CaptionOptions.Text = 'Forma de Pagamento'
-      CaptionOptions.Layout = clTop
-      Control = cmbFormaDePagamento
-      ControlOptions.ShowBorder = False
-      Index = 2
-    end
     object dxLayoutControlItem48: TdxLayoutItem
       Parent = dxLayoutControlGroup9
       CaptionOptions.Text = 'CNH Vencimento'
@@ -2362,6 +2368,82 @@
       LayoutDirection = ldHorizontal
       Index = 3
       AutoCreated = True
+    end
+    object dxLayoutControlItem47: TdxLayoutItem
+      Parent = dxLayoutControlGroup29
+      CaptionOptions.Text = 'Banco'
+      CaptionOptions.Layout = clTop
+      Control = edtBanco
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutControlItem10: TdxLayoutItem
+      Parent = dxLayoutControlGroup29
+      CaptionOptions.Text = 'ID Banco [F2]'
+      CaptionOptions.Layout = clTop
+      Control = edtIDBanco
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutControlGroup29: TdxLayoutAutoCreatedGroup
+      Parent = grpColaborador
+      LayoutDirection = ldHorizontal
+      Index = 3
+      AutoCreated = True
+    end
+    object dxLayoutControlItem46: TdxLayoutItem
+      Parent = dxLayoutControlGroup17
+      CaptionOptions.Text = 'Setor'
+      CaptionOptions.Layout = clTop
+      Control = edtSetor
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutControlItem43: TdxLayoutItem
+      Parent = dxLayoutControlGroup17
+      CaptionOptions.Text = 'Cargo'
+      CaptionOptions.Layout = clTop
+      Control = edtCargo
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutControlGroup17: TdxLayoutAutoCreatedGroup
+      Parent = grpColaborador
+      LayoutDirection = ldHorizontal
+      Index = 4
+      AutoCreated = True
+    end
+    object dxLayoutControlItem60: TdxLayoutItem
+      Parent = dxLayoutControlGroup14
+      CaptionOptions.Text = 'Unidade Neg'#243'cio'
+      CaptionOptions.Layout = clTop
+      Control = edtUnidadeNegocio
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutControlItem73: TdxLayoutItem
+      Parent = dxLayoutControlGroup17
+      CaptionOptions.Text = 'ID Setor [F2]'
+      CaptionOptions.Layout = clTop
+      Control = edtIDSetor
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutControlItem72: TdxLayoutItem
+      Parent = dxLayoutControlGroup17
+      CaptionOptions.Text = 'ID Cargo [F2]'
+      CaptionOptions.Layout = clTop
+      Control = edtIDCargo
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutControlItem56: TdxLayoutItem
+      Parent = dxLayoutControlGroup29
+      CaptionOptions.Text = 'Forma de Pagamento'
+      CaptionOptions.Layout = clTop
+      Control = cmbFormaDePagamento
+      ControlOptions.ShowBorder = False
+      Index = 2
     end
   end
   inherited DataSource: TDataSource

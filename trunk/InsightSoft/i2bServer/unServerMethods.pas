@@ -1178,6 +1178,7 @@ type
     qryMunicipionome: TWideStringField;
     qryMunicipioidestado: TWideStringField;
     qryMunicipioestadonome: TWideStringField;
+    qryPessoaColaboradorbanconome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1325,8 +1326,9 @@ type
     const selectpessoa: array[1..5] of string = ('select *',' from pessoa',' ',' order by idpessoa',' limit 0 ');
     const selectpessoacliente: array[1..5] of string = ('select *',' from pessoacliente',' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoacolaborador: array[1..5] of string = ('select pessoacolaborador.*, setor.nome as setornome, '+
-      ' cargo.nome as cargonome',' from pessoacolaborador inner join setor on pessoacolaborador.idsetor = setor.idsetor'+
-      ' inner join cargo on pessoacolaborador.idcargo = cargo.idcargo',' where idpessoa = :idpessoa ',' ',' ');
+      ' cargo.nome as cargonome, banco.nome as banconome',' from pessoacolaborador inner join setor on pessoacolaborador.idsetor = setor.idsetor'+
+      ' inner join cargo on pessoacolaborador.idcargo = cargo.idcargo inner join banco on pessoaColaborador.idBanco = banco.idBanco',
+      ' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoacontador: array[1..5] of string = ('select pessoacontador.*, unidadenegocio.nomefantasia',
       ' from pessoacontador inner join unidadenegocio on pessoacontador.idunidadenegocio = unidadenegocio.idunidadenegocio',
       ' where idpessoa = :idpessoa ',' ',' ');
@@ -2683,6 +2685,7 @@ procedure TServerMethods.setSQLPessoaColaborador(filtro: String);
 begin
   alteraSQL(qryPessoaColaborador,filtro,selectPessoaColaborador[1],selectPessoaColaborador[2],selectPessoaColaborador[3],
     selectPessoaColaborador[4]);
+  //qryPessoaColaborador.Params.ParamByName('idpessoa').DataType:= ftInteger;
 end;
 
 procedure TServerMethods.setSQLPessoaContador(filtro: String);
