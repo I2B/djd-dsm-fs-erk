@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Insight To Business'
   ClientHeight = 740
   ClientWidth = 1024
-  Color = clWindow
+  Color = clAppWorkSpace
   Ctl3D = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,6 @@ object frmPrincipal: TfrmPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon: TdxRibbon

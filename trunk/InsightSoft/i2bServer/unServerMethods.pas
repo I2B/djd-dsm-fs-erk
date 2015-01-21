@@ -1186,6 +1186,7 @@ type
       UpdateKind: TUpdateKind; var Response: TResolverResponse);
     procedure dspPessoaAfterUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind);
+    procedure conexaoBeforeConnect(Sender: TObject);
   private
     { Private declarations }
     //Funções para gestão do Arquivo LOG - DJD
@@ -1413,6 +1414,12 @@ type
     function executaSQL(SQL: String): Boolean;
     function getErroExecutaSQL(): String;
 
+    procedure setUsuario(Usuario : String);
+    function getUsuario():String;
+
+    procedure setSenha(Senha : String);
+    function getSenha():String;
+
     procedure setSQLAuditoria(filtro: String);
     procedure setSQLBanco(filtro: String);
     procedure setSQLCargo(filtro: String);
@@ -1515,12 +1522,40 @@ type
     IDPessoaManipulada : Integer;
     bloqueiaPessoa : Boolean;
     erroExecutaSQL : String;
+    vgUsuario : String;
+    vgSenha : String;
 
 implementation
 
 {$R *.dfm}
 
 uses System.StrUtils;
+
+procedure TServerMethods.setUsuario(Usuario : String);
+begin
+  vgUsuario := Usuario;
+  LOGopen;
+  LOGadd('Usuário setado: ['+Usuario+']');
+  LOGclose;
+end;
+
+function TServerMethods.getUsuario():String;
+begin
+  Result := vgUsuario;
+end;
+
+procedure TServerMethods.setSenha(Senha : String);
+begin
+  vgSenha := Senha;
+  LOGopen;
+  LOGadd('Senha setada: ['+Senha+']');
+  LOGclose;
+end;
+
+function TServerMethods.getSenha():String;
+begin
+  Result := vgSenha;
+end;
 
 procedure TServerMethods.LOGopen;
 var
@@ -1691,6 +1726,18 @@ begin
     TextoDeUpdate := 'Removido registro de '+SourceDS.Name;
   end;
   LOGadd(TextoDeUpdate);
+  LOGclose;
+end;
+
+procedure TServerMethods.conexaoBeforeConnect(Sender: TObject);
+begin
+  With conexao do
+  begin
+    Params.UserName := vgUsuario;
+    Params.Password := vgSenha;
+  end;
+  LOGopen;
+  LOGadd('Conexão ao Banco de Dados. Usuário ['+vgUsuario+']'+' Senha ['+vgSenha+']');
   LOGclose;
 end;
 

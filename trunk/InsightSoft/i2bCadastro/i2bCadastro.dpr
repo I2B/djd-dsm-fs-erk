@@ -97,7 +97,12 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+
   Application.CreateForm(TDM, DM);
+
+  frmCADLogin := TfrmCADLogin.Create(Application);
+  frmCADLogin.ShowModal;
+
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.

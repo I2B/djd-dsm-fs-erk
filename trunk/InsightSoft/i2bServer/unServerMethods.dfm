@@ -13,8 +13,8 @@ object ServerMethods: TServerMethods
       'DriverID=PG')
     FetchOptions.AssignedValues = [evMode]
     ResourceOptions.AssignedValues = [rvAutoReconnect]
-    Connected = True
     LoginPrompt = False
+    BeforeConnect = conexaoBeforeConnect
     Left = 176
     Top = 8
   end
