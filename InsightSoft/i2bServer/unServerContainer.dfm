@@ -5,32 +5,33 @@ object ServerContainer: TServerContainer
   OnStop = ServiceStop
   Height = 271
   Width = 415
-  object DSServer1: TDSServer
+  object DSServer: TDSServer
+    OnConnect = DSServerConnect
     AutoStart = False
     Left = 96
     Top = 11
   end
-  object DSTCPServerTransport1: TDSTCPServerTransport
-    Server = DSServer1
+  object DSTCPServerTransport: TDSTCPServerTransport
+    Server = DSServer
     Filters = <>
-    AuthenticationManager = DSAuthenticationManager1
+    AuthenticationManager = DSAuthenticationManager
     Left = 96
     Top = 73
   end
-  object DSAuthenticationManager1: TDSAuthenticationManager
-    OnUserAuthenticate = DSAuthenticationManager1UserAuthenticate
-    OnUserAuthorize = DSAuthenticationManager1UserAuthorize
+  object DSAuthenticationManager: TDSAuthenticationManager
+    OnUserAuthenticate = DSAuthenticationManagerUserAuthenticate
+    OnUserAuthorize = DSAuthenticationManagerUserAuthorize
     Roles = <>
     Left = 96
     Top = 197
   end
-  object DSServerClass1: TDSServerClass
-    OnGetClass = DSServerClass1GetClass
-    Server = DSServer1
+  object DSServerClass: TDSServerClass
+    OnGetClass = DSServerClassGetClass
+    Server = DSServer
     Left = 200
     Top = 11
   end
-  object DSHTTPServiceProxyDispatcher1: TDSHTTPServiceProxyDispatcher
+  object DSHTTPServiceProxyDispatcher: TDSHTTPServiceProxyDispatcher
     WebFileExtensions = <
       item
         MimeType = 'application/x-zip-compressed'
@@ -45,18 +46,42 @@ object ServerContainer: TServerContainer
         DirectoryAction = dirExclude
         DirectoryMask = '\proxy\*\*'
       end>
-    DSProxyGenerator = DSProxyGenerator1
+    DSProxyGenerator = DSProxyGenerator
     Left = 312
     Top = 160
   end
-  object DSProxyGenerator1: TDSProxyGenerator
-    MetaDataProvider = DSServerMetaDataProvider1
+  object DSProxyGenerator: TDSProxyGenerator
+    MetaDataProvider = DSServerMetaDataProvider
     Left = 320
     Top = 96
   end
-  object DSServerMetaDataProvider1: TDSServerMetaDataProvider
-    Server = DSServer1
+  object DSServerMetaDataProvider: TDSServerMetaDataProvider
+    Server = DSServer
     Left = 320
     Top = 40
+  end
+  object qryLogin: TFDQuery
+    Connection = ServerMethods.conexao
+    SQL.Strings = (
+      'select idpessoa from pessoacolaborador'
+      'where loginusuario = :usuario'
+      'and loginsenha = :senha')
+    Left = 184
+    Top = 144
+    ParamData = <
+      item
+        Name = 'USUARIO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 50
+        Value = Null
+      end
+      item
+        Name = 'SENHA'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 100
+        Value = Null
+      end>
   end
 end

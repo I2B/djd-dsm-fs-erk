@@ -1381,23 +1381,38 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
+          inherited cbCampo: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 437
+            ExplicitHeight = 23
             Width = 437
           end
           inherited btnBuscar: TcxButton
             Left = 729
             ExplicitLeft = 729
           end
+          inherited cbSQL: TcxComboBox
+            ExplicitHeight = 23
+          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
+          end
+          inherited cbOperacao: TcxComboBox
+            ExplicitHeight = 23
+          end
+          inherited dateInformacao: TcxDateEdit
+            ExplicitHeight = 23
           end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 2
+        ExplicitTop = 30
         ExplicitWidth = 833
         ExplicitHeight = 353
         inherited pnlCadastro: TPanel
@@ -1426,8 +1441,8 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
           inherited dxLayoutControl: TdxLayoutControl
             Width = 773
             Height = 353
-            ExplicitWidth = 0
-            ExplicitHeight = 339
+            ExplicitWidth = 773
+            ExplicitHeight = 353
             inherited cxDBTextEdit1: TcxDBTextEdit
               ExplicitHeight = 23
             end
@@ -1535,6 +1550,16 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
     inherited pnlTop: TPanel
       Width = 837
       ExplicitWidth = 837
+      inherited lblPrimeiroEdit: TLabel
+        Width = 108
+        Caption = 'cxDBTextEdit1'
+        ExplicitWidth = 108
+      end
+      inherited lblFrame: TLabel
+        Width = 185
+        Caption = 'FrameUnidadeNegocio'
+        ExplicitWidth = 185
+      end
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -1543,6 +1568,9 @@ inherited frmCADUnidadeNegocio: TfrmCADUnidadeNegocio
       0
       0
       0)
+  end
+  inherited dts: TDataSource
+    DataSet = DM.cdsUnidadeNegocio
   end
   inherited ServerMethod: TSqlServerMethod
     Params = <

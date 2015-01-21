@@ -86,7 +86,6 @@ type
     dxBarLargeButton2: TdxBarLargeButton;
     dxBarLargeButton3: TdxBarLargeButton;
     procedure btnSerieClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure btnIndicadorEconomicoClick(Sender: TObject);
     procedure btnAuditoriaClick(Sender: TObject);
     procedure btnBancoClick(Sender: TObject);
@@ -676,11 +675,6 @@ begin
     frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
     frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
   end;
-end;
-
-procedure TfrmPrincipal.FormCreate(Sender: TObject);
-begin
-  DM.conServer.Open;
 end;
 
 end.
