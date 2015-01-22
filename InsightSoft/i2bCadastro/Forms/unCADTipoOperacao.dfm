@@ -63,32 +63,19 @@ inherited frmCADTipoOperacao: TfrmCADTipoOperacao
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
             ExplicitWidth = 343
-            ExplicitHeight = 23
             Width = 343
           end
           inherited btnBuscar: TcxButton
             Left = 635
             ExplicitLeft = 635
           end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end
@@ -161,9 +148,6 @@ inherited frmCADTipoOperacao: TfrmCADTipoOperacao
           ExplicitHeight = 331
           Height = 331
           Width = 745
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
           inherited gbFiltroDesenvolvido: TcxGroupBox
             ExplicitHeight = 122
             Height = 122
@@ -180,18 +164,6 @@ inherited frmCADTipoOperacao: TfrmCADTipoOperacao
               Height = 95
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -199,9 +171,9 @@ inherited frmCADTipoOperacao: TfrmCADTipoOperacao
       Width = 749
       ExplicitWidth = 749
       inherited lblPrimeiroEdit: TLabel
-        Width = 103
-        Caption = 'edtDescricao'
-        ExplicitWidth = 103
+        Width = 215
+        Caption = 'edtDescricao|TcxDBTextEdit'
+        ExplicitWidth = 215
       end
       inherited lblFrame: TLabel
         Width = 164

@@ -1297,6 +1297,7 @@ inherited frmCADEmpresa: TfrmCADEmpresa
     inherited cxPageControl: TcxPageControl
       Width = 684
       Height = 333
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 684
       ExplicitHeight = 333
       ClientRectBottom = 331
@@ -1394,6 +1395,10 @@ inherited frmCADEmpresa: TfrmCADEmpresa
             Height = 301
             ExplicitWidth = 620
             ExplicitHeight = 301
+            inherited edtLogomarca: TcxDBButtonEdit
+              ExplicitWidth = 121
+              Width = 121
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -1478,9 +1483,9 @@ inherited frmCADEmpresa: TfrmCADEmpresa
       Width = 684
       ExplicitWidth = 684
       inherited lblPrimeiroEdit: TLabel
-        Width = 121
-        Caption = 'edtRazaoSocial'
-        ExplicitWidth = 121
+        Width = 233
+        Caption = 'edtRazaoSocial|TcxDBTextEdit'
+        ExplicitWidth = 233
       end
       inherited lblFrame: TLabel
         Width = 119

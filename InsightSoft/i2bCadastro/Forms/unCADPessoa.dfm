@@ -1,4 +1,4 @@
-﻿inherited frmCADPessoa: TfrmCADPessoa
+inherited frmCADPessoa: TfrmCADPessoa
   Caption = 'Pessoa'
   ClientHeight = 634
   ClientWidth = 885
@@ -1556,18 +1556,19 @@
     inherited cxPageControl: TcxPageControl
       Width = 825
       Height = 606
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 825
       ExplicitHeight = 606
-      ClientRectBottom = 602
-      ClientRectRight = 821
+      ClientRectBottom = 604
+      ClientRectRight = 823
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 817
-        ExplicitHeight = 576
+        ExplicitWidth = 821
+        ExplicitHeight = 574
         inherited cxGrid: TcxGrid
-          Width = 817
-          Height = 506
-          ExplicitWidth = 817
-          ExplicitHeight = 506
+          Width = 821
+          Height = 504
+          ExplicitWidth = 821
+          ExplicitHeight = 504
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBidpessoa: TcxGridDBColumn
               Caption = 'ID'
@@ -1682,56 +1683,41 @@
           end
         end
         inherited pnlBottom: TPanel
-          Top = 506
-          Width = 817
-          ExplicitTop = 506
-          ExplicitWidth = 817
+          Top = 504
+          Width = 821
+          ExplicitTop = 504
+          ExplicitWidth = 821
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
-          end
-          inherited cbCampo: TcxComboBox
-            ExplicitHeight = 23
           end
           inherited lblInformacao: TcxLabel
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 721
-            ExplicitHeight = 23
-            Width = 721
+            ExplicitWidth = 723
+            Width = 723
           end
           inherited btnBuscar: TcxButton
-            Left = 715
-            ExplicitLeft = 715
-          end
-          inherited cbSQL: TcxComboBox
-            ExplicitHeight = 23
+            Left = 717
+            ExplicitLeft = 717
           end
           inherited lblOperacao: TcxLabel
             Style.IsFontAssigned = True
           end
-          inherited cbOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateInformacao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
-        ExplicitWidth = 817
-        ExplicitHeight = 576
+        ExplicitWidth = 821
+        ExplicitHeight = 574
         inherited pnlCadastro: TPanel
-          Height = 576
-          ExplicitHeight = 576
+          Height = 574
+          ExplicitHeight = 574
         end
         inline FramePessoa: TFramePessoa
           Left = 60
           Top = 0
-          Width = 757
-          Height = 576
+          Width = 761
+          Height = 574
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -1743,310 +1729,29 @@
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = -51
-          ExplicitTop = -79
+          ExplicitLeft = 60
+          ExplicitWidth = 761
+          ExplicitHeight = 574
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 757
-            Height = 576
+            Width = 761
+            Height = 574
+            ExplicitWidth = 761
+            ExplicitHeight = 574
             inherited imgFoto3x4: TImage
-              Top = 795
               Width = 90
-              ExplicitTop = 795
               ExplicitWidth = 90
             end
             inherited grpTipo: TcxDBRadioGroup
-              Top = 33
-              ExplicitTop = 33
               ExplicitWidth = 330
               Width = 330
             end
-            inherited chkCliente: TcxDBCheckBox
-              Top = 54
-              ExplicitTop = 54
-            end
-            inherited chkColaborador: TcxDBCheckBox
-              Top = 84
-              ExplicitTop = 84
-            end
-            inherited chkFornecedor: TcxDBCheckBox
-              Top = 54
-              ExplicitTop = 54
-            end
-            inherited chkVendedor: TcxDBCheckBox
-              Top = 84
-              ExplicitTop = 84
-            end
-            inherited chkTransportadora: TcxDBCheckBox
-              Top = 54
-              ExplicitTop = 54
-            end
-            inherited edtRazaoSocial: TcxDBTextEdit
-              Top = 409
-              ExplicitTop = 409
-            end
-            inherited edtFantasia: TcxDBTextEdit
-              Top = 409
-              ExplicitTop = 409
-            end
-            inherited edtCNPJ: TcxDBTextEdit
-              Top = 460
-              ExplicitTop = 460
-            end
-            inherited edtInscricaoMunicipal: TcxDBTextEdit
-              Top = 511
-              ExplicitTop = 511
-            end
-            inherited edtInscricaoEstadual: TcxDBTextEdit
-              Top = 572
-              ExplicitTop = 572
-            end
-            inherited grpCodigoRegimeTributario: TcxDBRadioGroup
-              Top = 439
-              ExplicitTop = 439
-            end
-            inherited edtDataFundacao: TcxDBDateEdit
-              Top = 572
-              ExplicitTop = 572
-            end
-            inherited grpRegimeTributario: TcxDBRadioGroup
-              Top = 439
-              ExplicitTop = 439
-            end
             inherited chkRepresentante: TcxDBCheckBox
-              Top = 84
-              ExplicitTop = 84
               ExplicitWidth = 121
               Width = 121
             end
-            inherited chkContador: TcxDBCheckBox
-              Top = 54
-              ExplicitTop = 54
-            end
-            inherited edtRepresentanteComissao: TcxDBCurrencyEdit
-              Top = 1385
-              ExplicitTop = 1385
-            end
-            inherited memTransportadoraObservacao: TcxDBMemo
-              Top = 1471
-              ExplicitTop = 1471
-            end
-            inherited edtVendedorComissao: TcxDBCurrencyEdit
-              Top = 1623
-              ExplicitTop = 1623
-            end
-            inherited edtVendedorMeta: TcxDBCurrencyEdit
-              Top = 1623
-              ExplicitTop = 1623
-            end
-            inherited edtRepresentanteUnidadeNegocio: TcxDBTextEdit
-              Top = 1385
-              ExplicitTop = 1385
-            end
-            inherited edtRepresentanteMeta: TcxDBCurrencyEdit
-              Top = 1385
-              ExplicitTop = 1385
-            end
-            inherited edtVendedorUnidadeNegocio: TcxDBTextEdit
-              Top = 1623
-              ExplicitTop = 1623
-            end
-            inherited chkClienteAtivo: TcxDBCheckBox
-              Top = 1293
-              ExplicitTop = 1293
-            end
-            inherited memClienteObservacao: TcxDBMemo
-              Top = 1233
-              ExplicitTop = 1233
-            end
-            inherited chkGeraFinanceiro: TcxDBCheckBox
-              Top = 1263
-              ExplicitTop = 1263
-            end
-            inherited edtLimiteCredito: TcxDBCurrencyEdit
-              Top = 1233
-              ExplicitTop = 1233
-            end
-            inherited edtNome: TcxDBTextEdit
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited edtCPF: TcxDBTextEdit
-              Top = 221
-              ExplicitTop = 221
-            end
-            inherited edtRG: TcxDBTextEdit
-              Top = 221
-              ExplicitTop = 221
-            end
-            inherited edtNomeDoPai: TcxDBTextEdit
-              Top = 272
-              ExplicitTop = 272
-            end
-            inherited edtCnhNumero: TcxDBTextEdit
-              Top = 323
-              ExplicitTop = 323
-            end
-            inherited edtDataAniversário: TcxDBDateEdit
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited cmbEstadoCivil: TcxDBComboBox
-              Top = 170
-              ExplicitTop = 170
-            end
-            inherited grpSexo: TcxDBRadioGroup
-              Top = 200
-              ExplicitTop = 200
-            end
-            inherited edtNomeDaMae: TcxDBTextEdit
-              Top = 272
-              ExplicitTop = 272
-            end
-            inherited edtCnhCategoria: TcxDBTextEdit
-              Top = 323
-              ExplicitTop = 323
-            end
-            inherited edtCTPSNumero: TcxDBTextEdit
-              Top = 1147
-              ExplicitTop = 1147
-            end
             inherited memObservacao: TcxDBMemo
-              Top = 795
-              ExplicitTop = 795
               ExplicitWidth = 668
               Width = 668
-            end
-            inherited edtDataAdmissao: TcxDBDateEdit
-              Top = 943
-              ExplicitTop = 943
-            end
-            inherited edtCRC: TcxDBTextEdit
-              Top = 1709
-              ExplicitTop = 1709
-            end
-            inherited edtContadorUnidadeNegocio: TcxDBTextEdit
-              Top = 1709
-              ExplicitTop = 1709
-            end
-            inherited edtDataDemissão: TcxDBDateEdit
-              Top = 943
-              ExplicitTop = 943
-            end
-            inherited edtCTPSDataExpedicao: TcxDBDateEdit
-              Top = 1147
-              ExplicitTop = 1147
-            end
-            inherited edtCTPSSerie: TcxDBTextEdit
-              Top = 1147
-              ExplicitTop = 1147
-            end
-            inherited edtCTPSUF: TcxDBTextEdit
-              Top = 1147
-              ExplicitTop = 1147
-            end
-            inherited edtFGTSConta: TcxDBTextEdit
-              Top = 994
-              ExplicitTop = 994
-            end
-            inherited edtDesde: TcxDBDateEdit
-              Top = 1795
-              ExplicitTop = 1795
-            end
-            inherited memFornecedorObservacao: TcxDBMemo
-              Top = 1927
-              ExplicitTop = 1927
-            end
-            inherited edtPrazoMedioEntrega: TcxDBTextEdit
-              Top = 1795
-              ExplicitTop = 1795
-            end
-            inherited edtPrimeiroVencimento: TcxDBCurrencyEdit
-              Top = 1846
-              ExplicitTop = 1846
-            end
-            inherited edtParcelas: TcxDBCurrencyEdit
-              Top = 1846
-              ExplicitTop = 1846
-            end
-            inherited edtNumeroDiasIntervalo: TcxDBCurrencyEdit
-              Top = 1846
-              ExplicitTop = 1846
-            end
-            inherited chkRetencao: TcxDBCheckBox
-              Top = 1876
-              ExplicitTop = 1876
-            end
-            inherited chkFornecedorGeraFaturamento: TcxDBCheckBox
-              Top = 1876
-              ExplicitTop = 1876
-            end
-            inherited chkFornecedorLocalização: TcxDBCheckBox
-              Top = 1876
-              ExplicitTop = 1876
-            end
-            inherited edtDataCadastro: TcxDBDateEdit
-              Top = 658
-              ExplicitTop = 658
-            end
-            inherited edtCodigoSuframa: TcxDBTextEdit
-              Top = 658
-              ExplicitTop = 658
-            end
-            inherited edtEMail: TcxDBTextEdit
-              Top = 709
-              ExplicitTop = 709
-            end
-            inherited edtSite: TcxDBTextEdit
-              Top = 709
-              ExplicitTop = 709
-            end
-            inherited edtMatricula: TcxDBTextEdit
-              Top = 994
-              ExplicitTop = 994
-            end
-            inherited edtExameData: TcxDBDateEdit
-              Top = 943
-              ExplicitTop = 943
-            end
-            inherited edtExameDataUltimo: TcxDBDateEdit
-              Top = 943
-              ExplicitTop = 943
-            end
-            inherited edtCNHVencimento: TcxDBDateEdit
-              Top = 323
-              ExplicitTop = 323
-            end
-            inherited edtBanco: TcxDBTextEdit
-              Top = 1045
-              ExplicitTop = 1045
-            end
-            inherited edtIDBanco: TcxDBCurrencyEdit
-              Top = 1045
-              ExplicitTop = 1045
-            end
-            inherited edtSetor: TcxDBTextEdit
-              Top = 1096
-              ExplicitTop = 1096
-            end
-            inherited edtCargo: TcxDBTextEdit
-              Top = 1096
-              ExplicitTop = 1096
-            end
-            inherited edtUnidadeNegocio: TcxDBTextEdit
-              Top = 994
-              ExplicitTop = 994
-            end
-            inherited edtIDSetor: TcxDBCurrencyEdit
-              Top = 1096
-              ExplicitTop = 1096
-            end
-            inherited edtIDCargo: TcxDBCurrencyEdit
-              Top = 1096
-              ExplicitTop = 1096
-            end
-            inherited cmbFormaDePagamento: TcxDBComboBox
-              Top = 1045
-              ExplicitTop = 1045
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -2430,41 +2135,40 @@
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 817
-        ExplicitHeight = 576
+        ExplicitWidth = 821
+        ExplicitHeight = 574
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 817
-          ExplicitHeight = 409
-          Height = 409
-          Width = 817
+          ExplicitWidth = 821
+          ExplicitHeight = 407
+          Height = 407
+          Width = 821
           inherited cxGridFiltro: TcxGrid
-            Height = 387
+            Height = 380
             ExplicitLeft = 2
             ExplicitTop = 20
             ExplicitHeight = 387
           end
           inherited cxMemoFiltroSalvo: TcxMemo
-            ExplicitWidth = 431
-            ExplicitHeight = 387
-            Height = 387
-            Width = 431
+            ExplicitWidth = 433
+            ExplicitHeight = 380
+            Height = 380
+            Width = 433
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 817
-          Width = 817
+          ExplicitWidth = 821
+          Width = 821
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 249
-            ExplicitHeight = 23
-            Width = 249
+            Width = 251
           end
           inherited rgFiltroAndOr: TcxRadioGroup
-            Left = 530
-            ExplicitLeft = 530
+            Left = 532
+            ExplicitLeft = 532
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 811
-            Width = 811
+            ExplicitWidth = 813
+            Width = 813
             inherited memoFiltroSQL: TcxMemo
               ExplicitWidth = 786
               Width = 786
@@ -2474,33 +2178,21 @@
               Width = 786
             end
             inherited imgFiltroSQL: TcxImage
-              Left = 788
-              ExplicitLeft = 788
+              Left = 789
+              ExplicitLeft = 789
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
-            Left = 625
+            Left = 627
             ExplicitLeft = 625
           end
           inherited btnFiltroCancelar: TcxButton
-            Left = 648
+            Left = 650
             ExplicitLeft = 648
           end
           inherited btnAplicarFiltro: TcxButton
-            Width = 283
+            Width = 285
             ExplicitWidth = 283
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end

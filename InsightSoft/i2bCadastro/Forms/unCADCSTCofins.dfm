@@ -1016,6 +1016,7 @@ inherited frmCADCSTCofins: TfrmCADCSTCofins
     inherited cxPageControl: TcxPageControl
       Width = 720
       Height = 364
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 720
       ExplicitHeight = 364
       ClientRectBottom = 362
@@ -1175,9 +1176,9 @@ inherited frmCADCSTCofins: TfrmCADCSTCofins
       Width = 720
       ExplicitWidth = 720
       inherited lblPrimeiroEdit: TLabel
-        Width = 103
-        Caption = 'edtDescricao'
-        ExplicitWidth = 103
+        Width = 214
+        Caption = 'edtDescricao|TcxdbTextEdit'
+        ExplicitWidth = 214
       end
       inherited lblFrame: TLabel
         Width = 128

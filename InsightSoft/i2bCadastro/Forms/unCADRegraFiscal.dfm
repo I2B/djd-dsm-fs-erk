@@ -1481,6 +1481,7 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
     inherited cxPageControl: TcxPageControl
       Width = 1216
       Height = 662
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 1216
       ExplicitHeight = 662
       ClientRectBottom = 660
@@ -1688,6 +1689,42 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                 ExplicitWidth = 1090
                 ExplicitHeight = 423
                 inherited dxLayoutControl2: TdxLayoutControl
+                  inherited edtIDPessoa: TcxDBTextEdit
+                    ExplicitWidth = 108
+                    Width = 108
+                  end
+                  inherited edtPessoaNome: TcxTextEdit
+                    ExplicitWidth = 854
+                    Width = 854
+                  end
+                  inherited edtRazaoSocial: TcxTextEdit
+                    ExplicitWidth = 801
+                    Width = 801
+                  end
+                  inherited edtIDUnidadeNegocio: TcxDBTextEdit
+                    ExplicitWidth = 91
+                    Width = 91
+                  end
+                  inherited edtPaisNome: TcxTextEdit
+                    ExplicitWidth = 897
+                    Width = 897
+                  end
+                  inherited edtIDTipoOperacao: TcxDBTextEdit
+                    ExplicitWidth = 93
+                    Width = 93
+                  end
+                  inherited edtTipoOperacaoDescricao: TcxTextEdit
+                    ExplicitWidth = 817
+                    Width = 817
+                  end
+                  inherited edtNCM: TcxDBTextEdit
+                    ExplicitWidth = 99
+                    Width = 99
+                  end
+                  inherited cxDBCheckBox1: TcxDBCheckBox
+                    ExplicitWidth = 632
+                    Width = 632
+                  end
                   inherited dxLayoutControl2Group_Root: TdxLayoutGroup
                     Index = -1
                   end
@@ -1956,8 +1993,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
                       ExplicitWidth = 1053
                       ExplicitHeight = 351
                       inherited dxLayoutControl3: TdxLayoutControl
-                        Width = 1058
-                        ExplicitWidth = 1058
                         inherited edtPJICMSCST: TcxDBTextEdit
                           ExplicitHeight = 23
                         end
@@ -2231,7 +2266,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
           Width = 1212
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 640
-            ExplicitHeight = 23
             Width = 640
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -2254,12 +2288,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
               ExplicitLeft = 1178
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 1016
             ExplicitLeft = 1016
@@ -2272,12 +2300,6 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
             Width = 204
             ExplicitWidth = 204
           end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -2285,9 +2307,9 @@ inherited frmCADRegraFiscal: TfrmCADRegraFiscal
       Width = 1216
       ExplicitWidth = 1216
       inherited lblPrimeiroEdit: TLabel
-        Width = 179
-        Caption = 'edtIDUnidadeNegocio'
-        ExplicitWidth = 179
+        Width = 291
+        Caption = 'edtIDUnidadeNegocio|TcxDBTextEdit'
+        ExplicitWidth = 291
       end
       inherited lblFrame: TLabel
         Width = 138

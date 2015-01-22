@@ -1,16 +1,16 @@
 ﻿inherited FramePessoa: TFramePessoa
   Width = 868
-  Height = 655
+  Height = 811
   ExplicitWidth = 868
-  ExplicitHeight = 655
+  ExplicitHeight = 811
   inherited dxLayoutControl: TdxLayoutControl
     Width = 868
-    Height = 655
+    Height = 811
     ExplicitWidth = 868
     ExplicitHeight = 655
     object imgFoto3x4: TImage [0]
       Left = 40
-      Top = 69
+      Top = 795
       Width = 90
       Height = 120
       DragCursor = crHandPoint
@@ -607,7 +607,7 @@
     end
     object grpTipo: TcxDBRadioGroup [1]
       Left = 26
-      Top = -693
+      Top = 33
       Caption = 'Tipo'
       DataBinding.DataField = 'tipo'
       DataBinding.DataSource = DataSource
@@ -629,7 +629,7 @@
     end
     object chkCliente: TcxDBCheckBox [2]
       Left = 376
-      Top = -672
+      Top = 54
       Caption = 'Cliente'
       DataBinding.DataField = 'cliente'
       DataBinding.DataSource = DataSource
@@ -643,7 +643,7 @@
     end
     object chkColaborador: TcxDBCheckBox [3]
       Left = 376
-      Top = -642
+      Top = 84
       Caption = 'Colaborador'
       DataBinding.DataField = 'colaborador'
       DataBinding.DataSource = DataSource
@@ -657,7 +657,7 @@
     end
     object chkFornecedor: TcxDBCheckBox [4]
       Left = 484
-      Top = -672
+      Top = 54
       Caption = 'Fornecedor'
       DataBinding.DataField = 'fornecedor'
       DataBinding.DataSource = DataSource
@@ -671,7 +671,7 @@
     end
     object chkVendedor: TcxDBCheckBox [5]
       Left = 484
-      Top = -642
+      Top = 84
       Caption = 'Vendedor'
       DataBinding.DataField = 'vendedor'
       DataBinding.DataSource = DataSource
@@ -685,7 +685,7 @@
     end
     object chkTransportadora: TcxDBCheckBox [6]
       Left = 592
-      Top = -672
+      Top = 54
       Caption = 'Transportadora'
       DataBinding.DataField = 'transportadora'
       DataBinding.DataSource = DataSource
@@ -699,7 +699,7 @@
     end
     object edtRazaoSocial: TcxDBTextEdit [7]
       Left = 40
-      Top = -317
+      Top = 409
       DataBinding.DataField = 'nome'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -710,7 +710,7 @@
     end
     object edtFantasia: TcxDBTextEdit [8]
       Left = 409
-      Top = -317
+      Top = 409
       DataBinding.DataField = 'nomefantasia'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -721,7 +721,7 @@
     end
     object edtCNPJ: TcxDBTextEdit [9]
       Left = 40
-      Top = -266
+      Top = 460
       DataBinding.DataField = 'cnpj'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -732,7 +732,7 @@
     end
     object edtInscricaoMunicipal: TcxDBTextEdit [10]
       Left = 40
-      Top = -215
+      Top = 511
       DataBinding.DataField = 'inscricaomunicipal'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -743,7 +743,7 @@
     end
     object edtInscricaoEstadual: TcxDBTextEdit [11]
       Left = 40
-      Top = -154
+      Top = 572
       DataBinding.DataField = 'inscricaoestadual'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -754,7 +754,7 @@
     end
     object grpCodigoRegimeTributario: TcxDBRadioGroup [12]
       Left = 409
-      Top = -287
+      Top = 439
       Caption = 'C'#243'digo de Regime Tribut'#225'rio'
       DataBinding.DataField = 'crt'
       DataBinding.DataSource = DataSource
@@ -779,7 +779,7 @@
     end
     object edtDataFundacao: TcxDBDateEdit [13]
       Left = 409
-      Top = -154
+      Top = 572
       DataBinding.DataField = 'datanascimento'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -792,7 +792,7 @@
     end
     object grpRegimeTributario: TcxDBRadioGroup [14]
       Left = 601
-      Top = -287
+      Top = 439
       Caption = 'Regime Tribut'#225'rio'
       DataBinding.DataField = 'tiporegime'
       DataBinding.DataSource = DataSource
@@ -817,7 +817,7 @@
     end
     object chkRepresentante: TcxDBCheckBox [15]
       Left = 592
-      Top = -642
+      Top = 84
       Caption = 'Representante'
       DataBinding.DataField = 'representante'
       DataBinding.DataSource = DataSource
@@ -832,7 +832,7 @@
     end
     object chkContador: TcxDBCheckBox [16]
       Left = 721
-      Top = -672
+      Top = 54
       Caption = 'Contador'
       DataBinding.DataField = 'contador'
       DataBinding.DataSource = DataSource
@@ -846,7 +846,7 @@
     end
     object edtRepresentanteComissao: TcxDBCurrencyEdit [17]
       Left = 414
-      Top = 659
+      Top = 1385
       DataBinding.DataField = 'comissao'
       DataBinding.DataSource = dsRepresentante
       Properties.DisplayFormat = '0.00, %;-,0.00, %'
@@ -859,7 +859,7 @@
     end
     object memTransportadoraObservacao: TcxDBMemo [18]
       Left = 40
-      Top = 745
+      Top = 1471
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsTransportadora
       Properties.ScrollBars = ssVertical
@@ -872,7 +872,7 @@
     end
     object edtVendedorComissao: TcxDBCurrencyEdit [19]
       Left = 414
-      Top = 897
+      Top = 1623
       DataBinding.DataField = 'comissao'
       DataBinding.DataSource = dsVendedor
       Properties.DisplayFormat = '0.00, %;-,0.00, %'
@@ -885,7 +885,7 @@
     end
     object edtVendedorMeta: TcxDBCurrencyEdit [20]
       Left = 227
-      Top = 897
+      Top = 1623
       DataBinding.DataField = 'metavendas'
       DataBinding.DataSource = dsVendedor
       Properties.Nullable = False
@@ -897,7 +897,7 @@
     end
     object edtRepresentanteUnidadeNegocio: TcxDBTextEdit [21]
       Left = 40
-      Top = 659
+      Top = 1385
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsRepresentante
       Style.BorderColor = clWindowFrame
@@ -908,7 +908,7 @@
     end
     object edtRepresentanteMeta: TcxDBCurrencyEdit [22]
       Left = 227
-      Top = 659
+      Top = 1385
       DataBinding.DataField = 'metavendas'
       DataBinding.DataSource = dsRepresentante
       Properties.Nullable = False
@@ -920,7 +920,7 @@
     end
     object edtVendedorUnidadeNegocio: TcxDBTextEdit [23]
       Left = 40
-      Top = 897
+      Top = 1623
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsVendedor
       Style.BorderColor = clWindowFrame
@@ -931,7 +931,7 @@
     end
     object chkClienteAtivo: TcxDBCheckBox [24]
       Left = 40
-      Top = 567
+      Top = 1293
       Caption = 'Ativo'
       DataBinding.DataField = 'ativo'
       DataBinding.DataSource = dsCliente
@@ -944,7 +944,7 @@
     end
     object memClienteObservacao: TcxDBMemo [25]
       Left = 227
-      Top = 507
+      Top = 1233
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsCliente
       Properties.ScrollBars = ssVertical
@@ -957,7 +957,7 @@
     end
     object chkGeraFinanceiro: TcxDBCheckBox [26]
       Left = 40
-      Top = 537
+      Top = 1263
       Caption = 'Gera Financeiro'
       DataBinding.DataField = 'gerafinanceiro'
       DataBinding.DataSource = dsCliente
@@ -970,7 +970,7 @@
     end
     object edtLimiteCredito: TcxDBCurrencyEdit [27]
       Left = 40
-      Top = 507
+      Top = 1233
       DataBinding.DataField = 'limitecredito'
       DataBinding.DataSource = dsCliente
       Style.BorderColor = clWindowFrame
@@ -981,7 +981,7 @@
     end
     object edtNome: TcxDBTextEdit [28]
       Left = 40
-      Top = -556
+      Top = 170
       DataBinding.DataField = 'nome'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -992,7 +992,7 @@
     end
     object edtCPF: TcxDBTextEdit [29]
       Left = 40
-      Top = -505
+      Top = 221
       DataBinding.DataField = 'cpf'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1003,7 +1003,7 @@
     end
     object edtRG: TcxDBTextEdit [30]
       Left = 227
-      Top = -505
+      Top = 221
       DataBinding.DataField = 'rg'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1014,7 +1014,7 @@
     end
     object edtNomeDoPai: TcxDBTextEdit [31]
       Left = 40
-      Top = -454
+      Top = 272
       DataBinding.DataField = 'nomepai'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1025,7 +1025,7 @@
     end
     object edtCnhNumero: TcxDBTextEdit [32]
       Left = 40
-      Top = -403
+      Top = 323
       DataBinding.DataField = 'cnhnumero'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1036,7 +1036,7 @@
     end
     object edtDataAniversário: TcxDBDateEdit [33]
       Left = 414
-      Top = -556
+      Top = 170
       DataBinding.DataField = 'datanascimento'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1049,7 +1049,7 @@
     end
     object cmbEstadoCivil: TcxDBComboBox [34]
       Left = 601
-      Top = -556
+      Top = 170
       DataBinding.DataField = 'estadocivil'
       DataBinding.DataSource = DataSource
       Properties.ItemHeight = 14
@@ -1068,7 +1068,7 @@
     end
     object grpSexo: TcxDBRadioGroup [35]
       Left = 414
-      Top = -526
+      Top = 200
       Caption = 'Sexo'
       DataBinding.DataField = 'sexo'
       DataBinding.DataSource = DataSource
@@ -1090,7 +1090,7 @@
     end
     object edtNomeDaMae: TcxDBTextEdit [36]
       Left = 414
-      Top = -454
+      Top = 272
       DataBinding.DataField = 'nomemae'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1101,7 +1101,7 @@
     end
     object edtCnhCategoria: TcxDBTextEdit [37]
       Left = 414
-      Top = -403
+      Top = 323
       DataBinding.DataField = 'cnhcategoria'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1112,7 +1112,7 @@
     end
     object edtCTPSNumero: TcxDBTextEdit [38]
       Left = 40
-      Top = 421
+      Top = 1147
       DataBinding.DataField = 'ctpsnumero'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1123,7 +1123,7 @@
     end
     object memObservacao: TcxDBMemo [39]
       Left = 138
-      Top = 69
+      Top = 795
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsColaborador
       Properties.ScrollBars = ssVertical
@@ -1136,7 +1136,7 @@
     end
     object edtDataAdmissao: TcxDBDateEdit [40]
       Left = 40
-      Top = 217
+      Top = 943
       DataBinding.DataField = 'dataadmissao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1149,7 +1149,7 @@
     end
     object edtCRC: TcxDBTextEdit [41]
       Left = 40
-      Top = 983
+      Top = 1709
       DataBinding.DataField = 'crc'
       DataBinding.DataSource = dsContador
       Style.BorderColor = clWindowFrame
@@ -1160,7 +1160,7 @@
     end
     object edtContadorUnidadeNegocio: TcxDBTextEdit [42]
       Left = 227
-      Top = 983
+      Top = 1709
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsContador
       Style.BorderColor = clWindowFrame
@@ -1171,7 +1171,7 @@
     end
     object edtDataDemissão: TcxDBDateEdit [43]
       Left = 227
-      Top = 217
+      Top = 943
       DataBinding.DataField = 'datademissao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1184,7 +1184,7 @@
     end
     object edtCTPSDataExpedicao: TcxDBDateEdit [44]
       Left = 227
-      Top = 421
+      Top = 1147
       DataBinding.DataField = 'ctpsdataexpedicao'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1197,7 +1197,7 @@
     end
     object edtCTPSSerie: TcxDBTextEdit [45]
       Left = 414
-      Top = 421
+      Top = 1147
       DataBinding.DataField = 'ctpsserie'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1208,7 +1208,7 @@
     end
     object edtCTPSUF: TcxDBTextEdit [46]
       Left = 601
-      Top = 421
+      Top = 1147
       DataBinding.DataField = 'ctpsuf'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1219,7 +1219,7 @@
     end
     object edtFGTSConta: TcxDBTextEdit [47]
       Left = 414
-      Top = 268
+      Top = 994
       DataBinding.DataField = 'fgtsconta'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1230,7 +1230,7 @@
     end
     object edtDesde: TcxDBDateEdit [48]
       Left = 40
-      Top = 1069
+      Top = 1795
       DataBinding.DataField = 'desde'
       DataBinding.DataSource = dsFornecedor
       Style.BorderColor = clWindowFrame
@@ -1243,7 +1243,7 @@
     end
     object memFornecedorObservacao: TcxDBMemo [49]
       Left = 40
-      Top = 1201
+      Top = 1927
       DataBinding.DataField = 'observacao'
       DataBinding.DataSource = dsFornecedor
       Properties.ScrollBars = ssVertical
@@ -1256,7 +1256,7 @@
     end
     object edtPrazoMedioEntrega: TcxDBTextEdit [50]
       Left = 227
-      Top = 1069
+      Top = 1795
       DataBinding.DataField = 'prazomedioentrega'
       DataBinding.DataSource = dsFornecedor
       Style.BorderColor = clWindowFrame
@@ -1267,7 +1267,7 @@
     end
     object edtPrimeiroVencimento: TcxDBCurrencyEdit [51]
       Left = 40
-      Top = 1120
+      Top = 1846
       DataBinding.DataField = 'numerodiasprimeirovencimento'
       DataBinding.DataSource = dsFornecedor
       Properties.DisplayFormat = '0'
@@ -1279,7 +1279,7 @@
     end
     object edtParcelas: TcxDBCurrencyEdit [52]
       Left = 227
-      Top = 1120
+      Top = 1846
       DataBinding.DataField = 'quantidadeparcelas'
       DataBinding.DataSource = dsFornecedor
       Properties.DisplayFormat = '0'
@@ -1291,7 +1291,7 @@
     end
     object edtNumeroDiasIntervalo: TcxDBCurrencyEdit [53]
       Left = 414
-      Top = 1120
+      Top = 1846
       DataBinding.DataField = 'numerodiasintervalo'
       DataBinding.DataSource = dsFornecedor
       Properties.DisplayFormat = '0'
@@ -1303,7 +1303,7 @@
     end
     object chkRetencao: TcxDBCheckBox [54]
       Left = 227
-      Top = 1150
+      Top = 1876
       Caption = 'Reten'#231#227'o '
       DataBinding.DataField = 'sofreretencao'
       DataBinding.DataSource = dsFornecedor
@@ -1316,7 +1316,7 @@
     end
     object chkFornecedorGeraFaturamento: TcxDBCheckBox [55]
       Left = 414
-      Top = 1150
+      Top = 1876
       Caption = 'Gera Faturamento'
       DataBinding.DataField = 'gerafaturamento'
       DataBinding.DataSource = dsFornecedor
@@ -1329,7 +1329,7 @@
     end
     object chkFornecedorLocalização: TcxDBCheckBox [56]
       Left = 40
-      Top = 1150
+      Top = 1876
       Caption = 'Importa'#231#227'o'
       DataBinding.DataField = 'localizacao'
       DataBinding.DataSource = dsFornecedor
@@ -1342,7 +1342,7 @@
     end
     object edtDataCadastro: TcxDBDateEdit [57]
       Left = 40
-      Top = -68
+      Top = 658
       DataBinding.DataField = 'datacadastro'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1355,7 +1355,7 @@
     end
     object edtCodigoSuframa: TcxDBTextEdit [58]
       Left = 227
-      Top = -68
+      Top = 658
       DataBinding.DataField = 'suframa'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1366,7 +1366,7 @@
     end
     object edtEMail: TcxDBTextEdit [59]
       Left = 40
-      Top = -17
+      Top = 709
       DataBinding.DataField = 'email'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1377,7 +1377,7 @@
     end
     object edtSite: TcxDBTextEdit [60]
       Left = 414
-      Top = -17
+      Top = 709
       DataBinding.DataField = 'site'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1388,7 +1388,7 @@
     end
     object edtMatricula: TcxDBTextEdit [61]
       Left = 227
-      Top = 268
+      Top = 994
       DataBinding.DataField = 'matricula'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1399,7 +1399,7 @@
     end
     object edtExameData: TcxDBDateEdit [62]
       Left = 414
-      Top = 217
+      Top = 943
       DataBinding.DataField = 'examedata'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1412,7 +1412,7 @@
     end
     object edtExameDataUltimo: TcxDBDateEdit [63]
       Left = 601
-      Top = 217
+      Top = 943
       DataBinding.DataField = 'examedataultimo'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1425,7 +1425,7 @@
     end
     object edtCNHVencimento: TcxDBDateEdit [64]
       Left = 601
-      Top = -403
+      Top = 323
       DataBinding.DataField = 'cnhvencimento'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
@@ -1438,7 +1438,7 @@
     end
     object edtBanco: TcxDBTextEdit [65]
       Left = 227
-      Top = 319
+      Top = 1045
       DataBinding.DataField = 'banconome'
       DataBinding.DataSource = dsColaborador
       Properties.ReadOnly = True
@@ -1450,7 +1450,7 @@
     end
     object edtIDBanco: TcxDBCurrencyEdit [66]
       Left = 40
-      Top = 319
+      Top = 1045
       DataBinding.DataField = 'idbanco'
       DataBinding.DataSource = dsColaborador
       Properties.DecimalPlaces = 0
@@ -1466,7 +1466,7 @@
     end
     object edtSetor: TcxDBTextEdit [67]
       Left = 227
-      Top = 370
+      Top = 1096
       DataBinding.DataField = 'setornome'
       DataBinding.DataSource = dsColaborador
       Properties.ReadOnly = True
@@ -1478,7 +1478,7 @@
     end
     object edtCargo: TcxDBTextEdit [68]
       Left = 601
-      Top = 370
+      Top = 1096
       DataBinding.DataField = 'cargonome'
       DataBinding.DataSource = dsColaborador
       Properties.ReadOnly = True
@@ -1490,7 +1490,7 @@
     end
     object edtUnidadeNegocio: TcxDBTextEdit [69]
       Left = 40
-      Top = 268
+      Top = 994
       DataBinding.DataField = 'idunidadenegocio'
       DataBinding.DataSource = dsColaborador
       Style.BorderColor = clWindowFrame
@@ -1501,7 +1501,7 @@
     end
     object edtIDSetor: TcxDBCurrencyEdit [70]
       Left = 40
-      Top = 370
+      Top = 1096
       DataBinding.DataField = 'idsetor'
       DataBinding.DataSource = dsColaborador
       Properties.DecimalPlaces = 0
@@ -1517,7 +1517,7 @@
     end
     object edtIDCargo: TcxDBCurrencyEdit [71]
       Left = 414
-      Top = 370
+      Top = 1096
       DataBinding.DataField = 'idcargo'
       DataBinding.DataSource = dsColaborador
       Properties.DecimalPlaces = 0
@@ -1533,7 +1533,7 @@
     end
     object cmbFormaDePagamento: TcxDBComboBox [72]
       Left = 414
-      Top = 319
+      Top = 1045
       DataBinding.DataField = 'formapagamento'
       DataBinding.DataSource = dsColaborador
       Properties.ItemHeight = 14

@@ -18,6 +18,7 @@ type
     cxGridDBidcstpis: TcxGridDBColumn;
     cxGridDBdescricao: TcxGridDBColumn;
     FrameCSTPIS: TFrameCSTPIS;
+    FrameCSTPIS1: TFrameCSTPIS;
   private
     { Private declarations }
   public

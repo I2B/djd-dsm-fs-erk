@@ -1795,6 +1795,7 @@ inherited frmCADIndice: TfrmCADIndice
     inherited cxPageControl: TcxPageControl
       Width = 897
       Height = 418
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 897
       ExplicitHeight = 418
       ClientRectBottom = 416
@@ -1889,6 +1890,18 @@ inherited frmCADIndice: TfrmCADIndice
             Height = 386
             ExplicitWidth = 833
             ExplicitHeight = 386
+            inherited edtIndicadorEconomico: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtData: TcxDBDateEdit
+              ExplicitHeight = 23
+            end
+            inherited edtValor: TcxDBCurrencyEdit
+              ExplicitHeight = 23
+            end
+            inherited edtIDIndicadorEconomico: TcxDBCurrencyEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -1939,7 +1952,6 @@ inherited frmCADIndice: TfrmCADIndice
           Width = 893
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 323
-            ExplicitHeight = 23
             Width = 323
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -1962,12 +1974,6 @@ inherited frmCADIndice: TfrmCADIndice
               ExplicitLeft = 861
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 699
             ExplicitLeft = 699
@@ -1980,12 +1986,6 @@ inherited frmCADIndice: TfrmCADIndice
             Width = 357
             ExplicitWidth = 357
           end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -1995,11 +1995,11 @@ inherited frmCADIndice: TfrmCADIndice
       inherited lblPrimeiroEdit: TLabel
         Left = 0
         Top = -3
-        Width = 190
-        Caption = 'edtIndicadorEconomico'
+        Width = 302
+        Caption = 'edtIndicadorEconomico|TcxDBTextEdit'
         ExplicitLeft = 0
         ExplicitTop = -3
-        ExplicitWidth = 190
+        ExplicitWidth = 302
       end
       inherited lblFrame: TLabel
         Width = 97
