@@ -1509,6 +1509,7 @@ inherited frmCADBanco: TfrmCADBanco
     inherited cxPageControl: TcxPageControl
       Width = 729
       Height = 376
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 729
       ExplicitHeight = 376
       ClientRectBottom = 374
@@ -1617,6 +1618,7 @@ inherited frmCADBanco: TfrmCADBanco
           Width = 725
           inherited cxGridFiltro: TcxGrid
             Height = 150
+            ExplicitHeight = 150
           end
           inherited cxMemoFiltroSalvo: TcxMemo
             ExplicitWidth = 337
@@ -1628,18 +1630,6 @@ inherited frmCADBanco: TfrmCADBanco
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 725
           Width = 725
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -1647,9 +1637,9 @@ inherited frmCADBanco: TfrmCADBanco
       Width = 729
       ExplicitWidth = 729
       inherited lblPrimeiroEdit: TLabel
-        Width = 44
-        Caption = 'edtID'
-        ExplicitWidth = 44
+        Width = 155
+        Caption = 'edtID|TcxdbTextEdit'
+        ExplicitWidth = 155
       end
       inherited lblFrame: TLabel
         Width = 98

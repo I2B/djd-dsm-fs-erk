@@ -1475,6 +1475,7 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
     inherited cxPageControl: TcxPageControl
       Width = 673
       Height = 381
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 673
       ExplicitHeight = 381
       ClientRectBottom = 379
@@ -1602,7 +1603,6 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
           Width = 669
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 99
-            ExplicitHeight = 23
             Width = 99
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -1625,12 +1625,6 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
               ExplicitLeft = 637
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 475
             ExplicitLeft = 475
@@ -1643,12 +1637,6 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
             Width = 133
             ExplicitWidth = 133
           end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -1656,9 +1644,9 @@ inherited frmCADProdutoCor: TfrmCADProdutoCor
       Width = 673
       ExplicitWidth = 673
       inherited lblPrimeiroEdit: TLabel
-        Width = 87
-        Caption = 'edtCodigo'
-        ExplicitWidth = 87
+        Width = 199
+        Caption = 'edtCodigo|TcxDBTextEdit'
+        ExplicitWidth = 199
       end
       inherited lblFrame: TLabel
         Width = 144

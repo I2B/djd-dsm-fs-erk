@@ -263,12 +263,12 @@ inherited frmCadastro: TfrmCadastro
       ClientRectBottom = 369
       ClientRectRight = 840
       inherited cxTabGrid: TcxTabSheet
-        ExplicitHeight = 337
+        ExplicitHeight = 339
         inherited cxGrid: TcxGrid
           Width = 838
           Height = 269
-          ExplicitWidth = 834
-          ExplicitHeight = 271
+          ExplicitWidth = 838
+          ExplicitHeight = 269
           inherited cxGridDB: TcxGridDBTableView
             FilterRow.InfoText = 'Clique aqui para filtrar os dados da Grid'
           end
@@ -276,7 +276,7 @@ inherited frmCadastro: TfrmCadastro
         inherited pnlBottom: TPanel
           Top = 269
           Width = 838
-          ExplicitTop = 267
+          ExplicitTop = 269
           DesignSize = (
             838
             70)
@@ -773,7 +773,7 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitHeight = 337
+        ExplicitHeight = 339
         inherited gbFiltroSalvo: TcxGroupBox
           ExplicitWidth = 838
           ExplicitHeight = 172
@@ -781,7 +781,7 @@ inherited frmCadastro: TfrmCadastro
           Width = 838
           inherited cxGridFiltro: TcxGrid
             Height = 145
-            ExplicitHeight = 152
+            ExplicitHeight = 145
           end
           inherited cxMemoFiltroSalvo: TcxMemo
             ExplicitWidth = 450

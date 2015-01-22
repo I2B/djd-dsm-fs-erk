@@ -1864,6 +1864,7 @@ inherited frmCadPortador: TfrmCadPortador
     inherited cxPageControl: TcxPageControl
       Width = 763
       Height = 381
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 763
       ExplicitHeight = 381
       ClientRectBottom = 379
@@ -1955,14 +1956,24 @@ inherited frmCadPortador: TfrmCadPortador
             inherited edtDescricao: TcxDBTextEdit
               ExplicitHeight = 23
             end
+            inherited edtIDBanco: TcxDBCurrencyEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
-              Index = 0
+              Index = 1
             end
             inherited dxLayoutControlItem2: TdxLayoutItem
               Index = 1
+            end
+            inherited dxLayoutControlItem3: TdxLayoutItem
+              Index = 0
+            end
+            inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
             end
           end
         end
@@ -1991,7 +2002,6 @@ inherited frmCadPortador: TfrmCadPortador
           Width = 759
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 183
-            ExplicitHeight = 23
             Width = 183
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -2014,12 +2024,6 @@ inherited frmCadPortador: TfrmCadPortador
               ExplicitLeft = 721
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 559
             ExplicitLeft = 559
@@ -2028,12 +2032,6 @@ inherited frmCadPortador: TfrmCadPortador
             Left = 582
             ExplicitLeft = 582
           end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -2041,9 +2039,9 @@ inherited frmCadPortador: TfrmCadPortador
       Width = 763
       ExplicitWidth = 763
       inherited lblPrimeiroEdit: TLabel
-        Width = 75
-        Caption = 'edtBanco'
-        ExplicitWidth = 75
+        Width = 279
+        Caption = 'edtIDBanco|TCXDBCURRENCYEDIT'
+        ExplicitWidth = 279
       end
       inherited lblFrame: TLabel
         Width = 120

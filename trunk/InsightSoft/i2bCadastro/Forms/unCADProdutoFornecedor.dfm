@@ -1575,6 +1575,7 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
     inherited cxPageControl: TcxPageControl
       Width = 772
       Height = 392
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 772
       ExplicitHeight = 392
       ClientRectBottom = 390
@@ -1663,7 +1664,7 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
           inherited dxLayoutControl: TdxLayoutControl
             Width = 708
             Height = 360
-            ExplicitWidth = 581
+            ExplicitWidth = 708
             ExplicitHeight = 360
             inherited edtProdutoID: TcxDBTextEdit
               ExplicitHeight = 23
@@ -1749,7 +1750,6 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
           Width = 768
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 198
-            ExplicitHeight = 23
             Width = 198
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -1772,12 +1772,6 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
               ExplicitLeft = 736
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 574
             ExplicitLeft = 574
@@ -1790,12 +1784,6 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
             Width = 232
             ExplicitWidth = 232
           end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -1803,9 +1791,9 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
       Width = 772
       ExplicitWidth = 772
       inherited lblPrimeiroEdit: TLabel
-        Width = 109
-        Caption = 'edtProdutoID'
-        ExplicitWidth = 109
+        Width = 221
+        Caption = 'edtProdutoID|TcxDBTextEdit'
+        ExplicitWidth = 221
       end
       inherited lblFrame: TLabel
         Width = 207

@@ -4910,6 +4910,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'banconome'
       Origin = 'banconome'
+      ProviderFlags = []
       Size = 60
     end
   end

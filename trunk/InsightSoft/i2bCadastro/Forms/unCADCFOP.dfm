@@ -1461,6 +1461,7 @@ inherited frmCADCFOP: TfrmCADCFOP
     inherited cxPageControl: TcxPageControl
       Width = 770
       Height = 396
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 770
       ExplicitHeight = 396
       ClientRectBottom = 394
@@ -1628,21 +1629,6 @@ inherited frmCADCFOP: TfrmCADCFOP
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           ExplicitWidth = 766
           Width = 766
-          inherited edtFiltroCondicao: TcxTextEdit
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
-          end
         end
       end
     end
@@ -1650,9 +1636,9 @@ inherited frmCADCFOP: TfrmCADCFOP
       Width = 770
       ExplicitWidth = 770
       inherited lblPrimeiroEdit: TLabel
-        Width = 72
-        Caption = 'edtCFOP'
-        ExplicitWidth = 72
+        Width = 183
+        Caption = 'edtCFOP|TcxdbTextEdit'
+        ExplicitWidth = 183
       end
       inherited lblFrame: TLabel
         Width = 95

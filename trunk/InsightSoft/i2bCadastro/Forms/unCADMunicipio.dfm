@@ -1748,6 +1748,7 @@ inherited frmCADMunicipio: TfrmCADMunicipio
     inherited cxPageControl: TcxPageControl
       Width = 837
       Height = 400
+      Properties.ActivePage = cxTabGrid
       ExplicitWidth = 837
       ExplicitHeight = 400
       ClientRectBottom = 398
@@ -1837,6 +1838,18 @@ inherited frmCADMunicipio: TfrmCADMunicipio
             Height = 368
             ExplicitWidth = 773
             ExplicitHeight = 368
+            inherited edtMunicipio: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtUF: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtUFDescricao: TcxDBTextEdit
+              ExplicitHeight = 23
+            end
+            inherited edtIDMunicipio: TcxDBCurrencyEdit
+              ExplicitHeight = 23
+            end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
@@ -1887,7 +1900,6 @@ inherited frmCADMunicipio: TfrmCADMunicipio
           Width = 833
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 263
-            ExplicitHeight = 23
             Width = 263
           end
           inherited rgFiltroAndOr: TcxRadioGroup
@@ -1910,12 +1922,6 @@ inherited frmCADMunicipio: TfrmCADMunicipio
               ExplicitLeft = 801
             end
           end
-          inherited cbFiltroCampo: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited cbFiltroOperacao: TcxComboBox
-            ExplicitHeight = 23
-          end
           inherited btnAdicionarFiltro: TcxButton
             Left = 639
             ExplicitLeft = 639
@@ -1927,12 +1933,6 @@ inherited frmCADMunicipio: TfrmCADMunicipio
           inherited btnAplicarFiltro: TcxButton
             Width = 297
             ExplicitWidth = 297
-          end
-          inherited cbFiltroSQL: TcxComboBox
-            ExplicitHeight = 23
-          end
-          inherited dateFiltroCondicao: TcxDateEdit
-            ExplicitHeight = 23
           end
         end
       end

@@ -16,11 +16,13 @@ object DM: TDM
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/'
       'Filters={}')
+    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
+    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -3330,6 +3332,11 @@ object DM: TDM
     object cdsPortadordescricao: TWideStringField
       FieldName = 'descricao'
       Size = 50
+    end
+    object cdsPortadorbanconome: TWideStringField
+      FieldName = 'banconome'
+      ProviderFlags = []
+      Size = 60
     end
   end
   object cdsPortadorHistorico: TClientDataSet
