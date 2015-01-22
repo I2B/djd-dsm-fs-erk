@@ -82,7 +82,7 @@ begin
       cdsProdutoTamanho.Next;
     end;
 
-    cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor', DM.dspConnection);
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
@@ -114,7 +114,7 @@ begin
       cdsProdutoTamanho.Next;
     end;
 
-    cdsProdutoCor := i2bGetClient ('select * from produtoCor', DM.dspConnection);
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor', DM.dspConnection);
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
@@ -126,7 +126,7 @@ begin
       begin
         carregaGrade := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text
         +' and idprodutocor = '+cdsProdutoCor.FieldByName('idProdutoCor').AsString+' and idprodutotamanho = '
-        +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString,dm.dspConnection);
+        +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString+' order by idprodutograde',dm.dspConnection);
         if carregaGrade.RecordCount = 0 then
         begin
           tvGrade.Columns[cdsProdutoTamanho.RecNo + 1].EditValue := False;
@@ -159,7 +159,8 @@ begin
       tvGrade.Columns[2].Destroy;
     end;
   end;
-
+  idCor := 0;
+  idTamanho := 0;
 end;
 
 end.
