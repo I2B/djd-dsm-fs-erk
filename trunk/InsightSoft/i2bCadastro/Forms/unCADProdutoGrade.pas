@@ -24,14 +24,12 @@ uses
 type
   TfrmCADProdutoGrade = class(TfrmCadastro)
     FrameProdutoGrade: TFrameProdutoGrade;
-    cxGridDBidprodutograde: TcxGridDBColumn;
     cxGridDBidproduto: TcxGridDBColumn;
-    cxGridDBidprodutocor: TcxGridDBColumn;
-    cxGridDBidprodutotamanho: TcxGridDBColumn;
-    cxGridDBcodigo: TcxGridDBColumn;
     cxGridDBprodutonome: TcxGridDBColumn;
     cxGridDBcornome: TcxGridDBColumn;
     cxGridDBtamanhonome: TcxGridDBColumn;
+    cxGridDBativo: TcxGridDBColumn;
+    cxGridDBcodigo: TcxGridDBColumn;
     procedure acSalvarExecute(Sender: TObject);
   private
     { Private declarations }
@@ -53,18 +51,26 @@ var
   Linha: Integer;
   Coluna: Integer;
   colunaGrade: Integer;
+  cadastrado: TClientDataSet;
 begin
   FrameProdutoGrade.tvGrade.DataController.GotoFirst;
   for Linha := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
   begin
     for Coluna := 2 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
     begin
-      if FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True then
+      colunaGrade := coluna;
+      cadastrado := i2bGetClient('select codigo from produtograde where codigo = '+
+        FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2],DM.dspConnection);
+      if (cadastrado.RecordCount = 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True) then
       begin
-          colunaGrade := coluna;
-          i2bExecutaSQL('insert into produtograde (idProduto,idProdutoCor,idProdutoTamanho,codigo)'
+        i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo, ativo)'
           +'values('+FrameProdutoGrade.edtIDProduto.Text+','+idCor[Linha]+','+idTamanho[ColunaGrade-2]
-          +','+FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+')',dm.dspConnection);
+          +','+FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+',true)',dm.dspConnection);
+      end
+      else if (cadastrado.RecordCount <> 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = false) then
+      begin
+        i2bExecutaSQL('update produtograde set ativo = false where codigo ='+
+          FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2],DM.dspConnection);
       end;
     end;
     FrameProdutoGrade.tvGrade.DataController.GotoNext;
