@@ -37481,7 +37481,7 @@ object frmCADLogin: TfrmCADLogin
     Style.Font.Charset = DEFAULT_CHARSET
     Style.Font.Color = clWindowText
     Style.Font.Height = -19
-    Style.Font.Name = 'Tahoma'
+    Style.Font.Name = 'Segoe UI Light'
     Style.Font.Style = []
     Style.IsFontAssigned = True
     TabOrder = 3
@@ -37496,7 +37496,7 @@ object frmCADLogin: TfrmCADLogin
     Style.Font.Charset = DEFAULT_CHARSET
     Style.Font.Color = clWindowText
     Style.Font.Height = -19
-    Style.Font.Name = 'Tahoma'
+    Style.Font.Name = 'Segoe UI Light'
     Style.Font.Style = []
     Style.IsFontAssigned = True
     TabOrder = 4

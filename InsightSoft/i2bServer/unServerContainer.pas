@@ -97,7 +97,10 @@ begin
           valid := False;
         end;
       except
-        valid := False;
+        On E : Exception do
+        begin
+          valid := False;
+        end;
       end;
     finally
       qryLogin.Close;

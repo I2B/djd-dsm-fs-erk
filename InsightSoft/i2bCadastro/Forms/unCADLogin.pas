@@ -39,17 +39,64 @@ implementation
 uses unDM, unI2BString;
 
 procedure TfrmCADLogin.edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  falhaTratada: Boolean;
+  falha: String;
 begin
   if Key = VK_RETURN then
   begin
-    With DM.conServer do
+    if Trim(edtUsuario.Text) = '' then
     begin
-      Params.Values['HostName'] := IP;  // Endereço do DataSnap Server
-      Params.Values['Port'] := Porta; // Porta
-      Params.Values['DSAuthenticationUser'] := edtUsuario.Text; // Login do Usuário
-      Params.Values['DSAuthenticationPassword'] := edtSenha.Text; // Senha Usuário
-      Open;
-      self.Close;
+      Application.MessageBox('Usuário não informado. Por favor, informe!','Dados Incompletos',MB_OK + MB_ICONEXCLAMATION);
+      edtUsuario.SetFocus;
+    end
+    else
+    begin
+      if Trim(edtSenha.Text) = '' then
+      begin
+        Application.MessageBox('Senha não informada. Por favor, informe!','Dados Incompletos',MB_OK + MB_ICONEXCLAMATION);
+        edtSenha.SetFocus;
+      end
+      else
+      begin
+        try
+          With DM.conServer do
+          begin
+            Params.Values['HostName'] := IP;  // Endereço do DataSnap Server
+            Params.Values['Port'] := Porta; // Porta
+            Params.Values['DSAuthenticationUser'] := edtUsuario.Text; // Login do Usuário
+            Params.Values['DSAuthenticationPassword'] := edtSenha.Text; // Senha Usuário
+            Open;
+            self.Close;
+          end;
+        except
+          On E : Exception do
+          begin
+            falhaTratada := False;
+            falha := e.ToString;
+            //Falha de autenticação com o Servidor
+            if pos('Connection refused',falha) > 0 then
+            begin
+              Application.MessageBox(PWideChar('Falha de conexão com o Servidor. Verifique suas configurações de rede e '+
+                'tente novamente.'),'Falha de Conexão',MB_OK + MB_ICONINFORMATION);
+              falhaTratada := True;
+            end;
+            //Usuário ou Senha incorreto
+            if pos('Authentication manager rejected user credentials',falha) > 0 then
+            begin
+              Application.MessageBox(PWideChar('Usuário e Senha inválidos. Verifique os dados informados e tente '+
+                'novamente.'),'Login',MB_OK + MB_ICONINFORMATION);
+              falhaTratada := True;
+            end;
+            //Caso não tenha tratado o erro anteriormente
+            if not(falhaTratada) then
+            begin
+              Application.MessageBox(PWideChar('Falha de Autenticação. '+#13+#13+falha),'Login',MB_OK +
+                MB_ICONINFORMATION);
+            end;
+          end;
+        end;
+      end;
     end;
   end;
 end;

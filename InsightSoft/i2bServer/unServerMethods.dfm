@@ -5023,7 +5023,6 @@ object ServerMethods: TServerMethods
     end
   end
   object qryProduto: TFDQuery
-    Active = True
     Connection = conexao
     SQL.Strings = (
       
