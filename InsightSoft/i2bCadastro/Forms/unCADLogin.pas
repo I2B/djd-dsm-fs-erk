@@ -10,13 +10,12 @@ uses
 
 type
   TfrmCADLogin = class(TForm)
-    lblInsight: TcxLabel;
     lblUsuario: TcxLabel;
     lblSenha: TcxLabel;
     edtUsuario: TcxTextEdit;
     edtSenha: TcxTextEdit;
-    lblProgresso: TcxLabel;
     imgFundo: TImage;
+    Shape1: TShape;
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
