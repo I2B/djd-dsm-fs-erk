@@ -99,7 +99,6 @@ begin
   Application.MainFormOnTaskbar := True;
 
   Application.CreateForm(TDM, DM);
-
   frmCADLogin := TfrmCADLogin.Create(Application);
   frmCADLogin.ShowModal;
 
