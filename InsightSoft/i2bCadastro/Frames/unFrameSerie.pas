@@ -24,12 +24,6 @@ type
     dxLayoutControlItem2: TdxLayoutItem;
     cxDBTextEdit3: TcxDBTextEdit;
     dxLayoutControlItem3: TdxLayoutItem;
-    Label1: TLabel;
-    dxLayoutControlItem4: TdxLayoutItem;
-    Label2: TLabel;
-    dxLayoutControlItem5: TdxLayoutItem;
-    procedure FrameResize(Sender: TObject);
-    procedure cxDBTextEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -44,33 +38,5 @@ implementation
 {$R *.dfm}
 
 uses unDM, unI2BFuncoes;
-
-procedure TFrameSerie.cxDBTextEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-begin
-  inherited;
-  if Key = VK_F2 then
-  begin
-    i2bF2(
-      cxDBTextEdit1,
-      cxDBTextEdit2,
-      'Selecione a CBO desejada',
-      'idcbo|nome',
-      'nome',
-      'idcbo|codigo2002|nome',
-      'ID|CBO 2002|Nome',
-      'cbo',
-      '',
-      DM.conServer,
-      'FrameCBO',
-      DM.cdsCBO);
-  end;
-end;
-
-procedure TFrameSerie.FrameResize(Sender: TObject);
-begin
-  inherited;
-  Label1.Caption := 'Heigth: '+IntToStr(self.Height);
-  Label2.Caption := 'Width: '+IntToStr(self.Width);
-end;
 
 end.

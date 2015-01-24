@@ -26,6 +26,10 @@ type
     edtIDMoeda: TcxDBCurrencyEdit;
     dxLayoutControlItem3: TdxLayoutItem;
     dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    edtCodigoBACEN: TcxDBTextEdit;
+    dxLayoutControlItem4: TdxLayoutItem;
+    dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
     procedure edtIDMoedaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtIDMoedaExit(Sender: TObject);
   private

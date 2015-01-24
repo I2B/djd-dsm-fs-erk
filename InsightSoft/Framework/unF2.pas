@@ -107,6 +107,7 @@ begin
   begin
     Application.MessageBox('Cadastro não disponível, realize o mesmo pelo Módulo de Cadastro ou requisite o '+
       'desenvolvimento entrando em contato com a equipe I2B.','Cadastro indisponível',MB_ICONINFORMATION + MB_OK);
+    FreeAndNil(cadastro);
   end
   else
   begin
@@ -114,12 +115,26 @@ begin
     cadastro.campoDesc := fcampoRetorno2;
 
     cadastro.ShowModal;
-    FreeAndNil(cadastro);
 
-    edtInformacao.Clear;
-    if edtInformacao.CanFocus then
+    if cadastro.valorCadastrado <> '' then
     begin
-      edtInformacao.SetFocus;
+      valorSelecionado := cadastro.valorCadastrado;
+      if fcampoRetorno2 <> '' then
+      begin
+        valorSelecionado2 := cadastro.valorCadastrado2;
+      end;
+      FreeAndNil(cadastro);
+      close;
+    end
+    else
+    begin
+      FreeAndNil(cadastro);
+
+      edtInformacao.Clear;
+      if edtInformacao.CanFocus then
+      begin
+        edtInformacao.SetFocus;
+      end;
     end;
   end;
 end;
@@ -197,6 +212,12 @@ var
   I, IndicePadrao : integer;
   slNomeDosCampos:TStringList;
 begin
+  if FrameCadastro = '' then
+  begin
+    lblCadastro.Visible := False;
+    acCadastrar.ShortCut := 0;
+  end;
+
   IndicePadrao := 0;
   fTabela := Tabela;
   fWhereAdicional := WhereAdicional;

@@ -30,8 +30,8 @@ type
     cxGridDBidpais: TcxGridDBColumn;
     cxGridDBidindicadoreconomico: TcxGridDBColumn;
     cxGridDBnome: TcxGridDBColumn;
-    FramePais: TFramePais;
     cxGridDBindicadordescricao: TcxGridDBColumn;
+    FramePais: TFramePais;
   private
     { Private declarations }
   public

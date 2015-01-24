@@ -126,6 +126,7 @@ type
     { Private declarations }
     function abaExiste(Formulario : TForm):boolean;
   public
+    var VGUSUARIO : String;
     { Public declarations }
   end;
 
@@ -153,6 +154,7 @@ begin
   begin
     DM.cdsSerie.Open;
     frmCADSerie := TfrmCADSerie.Create(Application);
+    frmCADSerie.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADSerie.pnlTop.Caption := frmCADSerie.Caption+'  ';
   end;
 end;
@@ -167,6 +169,7 @@ begin
   begin
     DM.cdsProdutoSubGrupo.Open;
     frmCADProdutoSubGrupo := TfrmCADProdutoSubGrupo.Create(Application);
+    frmCADProdutoSubGrupo.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoSubGrupo.pnlTop.Caption := frmCADProdutoSubGrupo.Caption+'  ';
   end;
 end;
@@ -181,6 +184,7 @@ begin
   begin
     DM.cdsProdutoTamanho.Open;
     frmCADProdutoTamanho := TfrmCADProdutoTamanho.Create(Application);
+    frmCADProdutoTamanho.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoTamanho.pnlTop.Caption := frmCADProdutoTamanho.Caption+'  ';
   end;
 end;
@@ -195,6 +199,7 @@ begin
   begin
     DM.cdsCBO.Open;
     frmCADCBO := TfrmCADCBO.Create(Application);
+    frmCADCBO.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCBO.pnlTop.Caption := frmCADCBO.Caption+'  ';
   end;
 end;
@@ -209,6 +214,7 @@ begin
   begin
     DM.cdsCEP.Open;
     frmCADCEP := TfrmCADCEP.Create(Application);
+    frmCADCEP.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCEP.pnlTop.Caption := frmCADCEP.Caption+'  ';
   end;
 end;
@@ -223,6 +229,7 @@ begin
   begin
     DM.cdsCFOP.Open;
     frmCADCFOP := TfrmCADCFOP.Create(Application);
+    frmCADCFOP.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCFOP.pnlTop.Caption := frmCADCFOP.Caption+'  ';
   end;
 end;
@@ -237,6 +244,7 @@ begin
   begin
     DM.cdsProdutoUnidadeConversao.Open;
     frmCADProdutoUnidadeConversao := TfrmCADProdutoUnidadeConversao.Create(Application);
+    frmCADProdutoUnidadeConversao.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoUnidadeConversao.pnlTop.Caption := frmCADProdutoUnidadeConversao.Caption+'  ';
   end;
 end;
@@ -251,6 +259,7 @@ begin
   begin
     DM.cdsUnidadeNegocio.Open;
     frmCADUnidadeNegocio := TfrmCADUnidadeNegocio.Create(Application);
+    frmCADUnidadeNegocio.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADUnidadeNegocio.pnlTop.Caption := frmCADUnidadeNegocio.Caption+'  ';
   end;
 end;
@@ -265,6 +274,7 @@ begin
   begin
     DM.cdsProdutoFornecedor.Open;
     frmCADProdutoFornecedor := TfrmCADProdutoFornecedor.Create(Application);
+    frmCADProdutoFornecedor.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoFornecedor.pnlTop.Caption := frmCADProdutoFornecedor.Caption+'  ';
   end;
 end;
@@ -279,6 +289,7 @@ begin
   begin
     DM.cdsProduto.Open;
     frmCADProduto := TfrmCADProduto.Create(Application);
+    frmCADProduto.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProduto.pnlTop.Caption := frmCADProduto.Caption+'  ';
   end;
 end;
@@ -293,6 +304,7 @@ begin
   begin
     DM.cdsProdutoGrade.Open;
     frmCADProdutoGrade := TfrmCADProdutoGrade.Create(Application);
+    frmCADProdutoGrade.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoGrade.pnlTop.Caption := frmCADProdutoGrade.Caption+'  ';
   end;
 
@@ -308,6 +320,7 @@ begin
   begin
     DM.cdsCSTICMS.Open;
     frmCADCSTICMS := TfrmCADCSTICMS.Create(Application);
+    frmCADCSTICMS.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTICMS.pnlTop.Caption := frmCADCSTICMS.Caption+'  ';
   end;
 end;
@@ -322,6 +335,7 @@ begin
   begin
     DM.cdsCNAE.Open;
     frmCADCNAE := TfrmCADCNAE.Create(Application);
+    frmCADCNAE.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCNAE.pnlTop.Caption := frmCADCNAE.Caption+'  ';
   end;
 end;
@@ -336,6 +350,7 @@ begin
   begin
     DM.cdsCSTCSOSN.Open;
     frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
+    frmCADCSTCSOSN.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
   end;
 end;
@@ -350,6 +365,7 @@ begin
   begin
     DM.cdsEmpresa.Open;
     frmCADEmpresa := TfrmCADEmpresa.Create(Application);
+    frmCADEmpresa.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADEmpresa.pnlTop.Caption := frmCADEmpresa.Caption+'  ';
   end;
 end;
@@ -364,6 +380,7 @@ begin
   begin
     DM.cdsEstado.Open;
     frmCADEstado := TfrmCADEstado.Create(Application);
+    frmCADEstado.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADEstado.pnlTop.Caption := frmCADEstado.Caption+'  ';
   end;
 end;
@@ -378,6 +395,7 @@ begin
   begin
     DM.cdsProdutoGrupo.Open;
     frmCADProdutoGrupo := TfrmCADProdutoGrupo.Create(Application);
+    frmCADProdutoGrupo.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoGrupo.pnlTop.Caption := frmCADProdutoGrupo.Caption+'  ';
   end;
 end;
@@ -407,6 +425,7 @@ begin
   begin
     DM.cdsProdutoUnidade.Open;
     frmCADProdutoUnidade := TfrmCADProdutoUnidade.Create(Application);
+    frmCADProdutoUnidade.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoUnidade.pnlTop.Caption := frmCADProdutoUnidade.Caption+'  ';
   end;
 end;
@@ -421,6 +440,7 @@ begin
   begin
     DM.cdsSetor.Open;
     frmCADSetor := TfrmCADSetor.Create(Application);
+    frmCADSetor.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADSetor.pnlTop.Caption := frmCADSetor.Caption+'  ';
   end;
 end;
@@ -435,6 +455,7 @@ begin
   begin
     DM.cdsTelefone.Open;
     frmCADTelefone := TfrmCADTelefone.Create(Application);
+    frmCADTelefone.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADTelefone.pnlTop.Caption := frmCADTelefone.Caption+'  ';
   end;
 end;
@@ -449,6 +470,7 @@ begin
   begin
     DM.cdsAuditoria.Open;
     frmCADAuditoria := TfrmCADAuditoria.Create(Application);
+    frmCADAuditoria.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADAuditoria.pnlTop.Caption := frmCADAuditoria.Caption+'  ';
   end;
 end;
@@ -463,6 +485,7 @@ begin
   begin
     DM.cdsBanco.Open;
     frmCADBanco := TfrmCADBanco.Create(Application);
+    frmCADBanco.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADBanco.pnlTop.Caption := frmCADBanco.Caption+'  ';
   end;
 end;
@@ -477,6 +500,7 @@ begin
   begin
     DM.cdsCSTCSOSN.Open;
     frmCADCSTCSOSN := TfrmCADCSTCSOSN.Create(Application);
+    frmCADCSTCSOSN.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTCSOSN.pnlTop.Caption := frmCADCSTCSOSN.Caption+'  ';
   end;
 end;
@@ -491,6 +515,7 @@ begin
   begin
     DM.cdsCSTCofins.Open;
     frmCADCSTCofins := TfrmCADCSTCofins.Create(Application);
+    frmCADCSTCofins.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTCofins.pnlTop.Caption := frmCADCSTCofins.Caption+'  ';
   end;
 end;
@@ -505,6 +530,7 @@ begin
   begin
     DM.cdsProdutoCor.Open;
     frmCADProdutoCor := TfrmCADProdutoCor.Create(Application);
+    frmCADProdutoCor.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADProdutoCor.pnlTop.Caption := frmCADProdutoCor.Caption+'  ';
   end;
 end;
@@ -519,6 +545,7 @@ begin
   begin
     DM.cdsIndicadorEconomico.Open;
     frmCADIndicadorEconomico := TfrmCADIndicadorEconomico.Create(Application);
+    frmCADIndicadorEconomico.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADIndicadorEconomico.pnlTop.Caption := frmCADIndicadorEconomico.Caption+'  ';
   end;
 end;
@@ -533,6 +560,7 @@ begin
   begin
     DM.cdsIndice.Open;
     frmCADIndice := TfrmCADIndice.Create(Application);
+    frmCADIndice.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADIndice.pnlTop.Caption := frmCADIndice.Caption+'  ';
   end;
 end;
@@ -547,6 +575,7 @@ begin
   begin
     DM.cdsCSTIPI.Open;
     frmCADCSTIPI := TfrmCADCSTIPI.Create(Application);
+    frmCADCSTIPI.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTIPI.pnlTop.Caption := frmCADCSTIPI.Caption+'  ';
   end;
 end;
@@ -561,6 +590,7 @@ begin
   begin
     DM.cdsModelo.Open;
     frmCADModelo := TfrmCADModelo.Create(Application);
+    frmCADModelo.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADModelo.pnlTop.Caption := frmCADModelo.Caption+'  ';
   end;
 end;
@@ -575,6 +605,7 @@ begin
   begin
     DM.cdsMunicipio.Open;
     frmCADMunicipio := TfrmCADMunicipio.Create(Application);
+    frmCADMunicipio.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADMunicipio.pnlTop.Caption := frmCADMunicipio.Caption+'  ';
   end;
 end;
@@ -589,6 +620,7 @@ begin
   begin
     DM.cdsNCM.Open;
     frmCADNCM := TfrmCADNCM.Create(Application);
+    frmCADNCM.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADNCM.pnlTop.Caption := frmCADNCM.Caption+'  ';
   end;
 end;
@@ -603,6 +635,7 @@ begin
   begin
     DM.cdsRegraFiscalObservacao.Open;
     frmCADRegraFiscalObservacao := TfrmCADRegraFiscalObservacao.Create(Application);
+    frmCADRegraFiscalObservacao.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADRegraFiscalObservacao.pnlTop.Caption := frmCADRegraFiscalObservacao.Caption+'  ';
   end;
 end;
@@ -617,6 +650,7 @@ begin
   begin
     DM.cdsPais.Open;
     frmCADPAIS := TfrmCADPAIS.Create(Application);
+    frmCADPAIS.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADPAIS.pnlTop.Caption := frmCADPAIS.Caption+'  ';
   end;
 end;
@@ -627,6 +661,7 @@ begin
   if frmCADPessoa = nil then
   begin
     frmCADPessoa := TfrmCADPessoa.Create(Application);
+    frmCADPessoa.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADPessoa.pnlTop.Caption := frmCADPessoa.Caption+'  ';
   end
   else
@@ -645,6 +680,7 @@ begin
   begin
     DM.cdsCSTPIS.Open;
     frmCADCSTPIS := TfrmCADCSTPIS.Create(Application);
+    frmCADCSTPIS.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADCSTPIS.pnlTop.Caption := frmCADCSTPIS.Caption+'  ';
   end;
 end;
@@ -659,6 +695,7 @@ begin
   begin
     DM.cdsPortador.Open;
     frmCadPortador := TfrmCadPortador.Create(Application);
+    frmCadPortador.VGUSUARIOLOGADO := VGUSUARIO;
     frmCadPortador.pnlTop.Caption := frmCadPortador.Caption+'  ';
   end;
 end;
@@ -673,6 +710,7 @@ begin
   begin
     DM.cdsRegraFiscal.Open;
     frmCADRegraFiscal := TfrmCADRegraFiscal.Create(Application);
+    frmCADRegraFiscal.VGUSUARIOLOGADO := VGUSUARIO;
     frmCADRegraFiscal.pnlTop.Caption := frmCADRegraFiscal.Caption+'  ';
   end;
 end;
