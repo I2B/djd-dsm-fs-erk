@@ -103,5 +103,6 @@ begin
   frmCADLogin.ShowModal;
 
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  frmPrincipal.VGUSUARIO := frmCADLogin.VGUSUARIOLOGADO;
   Application.Run;
 end.

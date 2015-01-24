@@ -292,6 +292,7 @@ object frmF2Cadastro: TfrmF2Cadastro
       StyleHot.BorderStyle = ebsNone
       StyleHot.Color = 28906
       TabOrder = 0
+      OnClick = acSalvarExecute
       Height = 57
       Width = 60
     end
@@ -479,6 +480,7 @@ object frmF2Cadastro: TfrmF2Cadastro
       StyleHot.BorderStyle = ebsNone
       StyleHot.Color = 28906
       TabOrder = 1
+      OnClick = acCancelarExecute
       Height = 57
       Width = 60
     end

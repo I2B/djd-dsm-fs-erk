@@ -25,11 +25,12 @@ type
     procedure Image1Click(Sender: TObject);
   private
     { Private declarations }
-    IpPorta : TStringList;
-    IP : String;
-    Porta : String;
+    vpIpPorta : TStringList;
+    vpIP : String;
+    vpPorta : String;
   public
     { Public declarations }
+    var VGUSUARIOLOGADO : String;
   end;
 
 var
@@ -43,8 +44,8 @@ uses unDM, unI2BString;
 
 procedure TfrmCADLogin.btnLoginClick(Sender: TObject);
 var
-  falhaTratada: Boolean;
-  falha: String;
+  vlfalhaTratada: Boolean;
+  vlfalha: String;
 begin
   if Trim(edtUsuario.Text) = '' then
   begin
@@ -63,36 +64,37 @@ begin
       try
         With DM.conServer do
         begin
-          Params.Values['HostName'] := IP;  // Endereço do DataSnap Server
-          Params.Values['Port'] := Porta; // Porta
+          Params.Values['HostName'] := vpIP;  // Endereço do DataSnap Server
+          Params.Values['Port'] := vpPorta; // Porta
           Params.Values['DSAuthenticationUser'] := edtUsuario.Text; // Login do Usuário
           Params.Values['DSAuthenticationPassword'] := edtSenha.Text; // Senha Usuário
           Open;
+          VGUSUARIOLOGADO := edtUsuario.Text;
           self.Close;
         end;
       except
         On E : Exception do
         begin
-          falhaTratada := False;
-          falha := e.ToString;
+          vlfalhaTratada := False;
+          vlfalha := e.ToString;
           //Falha de autenticação com o Servidor
-          if pos('Connection refused',falha) > 0 then
+          if pos('Connection refused',vlfalha) > 0 then
           begin
             Application.MessageBox(PWideChar('Falha de conexão com o Servidor. Verifique suas configurações de rede e '+
               'tente novamente.'),'Falha de Conexão',MB_OK + MB_ICONINFORMATION);
-            falhaTratada := True;
+            vlfalhaTratada := True;
           end;
           //Usuário ou Senha incorreto
-          if pos('Authentication manager rejected user credentials',falha) > 0 then
+          if pos('Authentication manager rejected user credentials',vlfalha) > 0 then
           begin
             Application.MessageBox(PWideChar('Usuário e Senha inválidos. Verifique os dados informados e tente '+
               'novamente.'),'Login',MB_OK + MB_ICONINFORMATION);
-            falhaTratada := True;
+            vlfalhaTratada := True;
           end;
           //Caso não tenha tratado o erro anteriormente
-          if not(falhaTratada) then
+          if not(vlfalhaTratada) then
           begin
-            Application.MessageBox(PWideChar('Falha de Autenticação. '+#13+#13+falha),'Login',MB_OK +
+            Application.MessageBox(PWideChar('Falha de Autenticação. '+#13+#13+vlFalha),'Login',MB_OK +
               MB_ICONINFORMATION);
           end;
         end;
@@ -120,19 +122,19 @@ end;
 
 procedure TfrmCADLogin.FormCreate(Sender: TObject);
 var
-  conServer : TextFile;
-  linha: String;
-  arquivo : String;
+  vlConServer : TextFile;
+  vlLinha: String;
+  vlArquivo : String;
 begin
   //Caso o conServer.i2b não exista, então cria o arquivo junto ao executável - DJD
   if not(FileExists(ExtractFilePath(Application.ExeName)+'conServer.i2b')) then
   begin
     try
-      arquivo := ExtractFilePath((Application.ExeName)+'conServer.i2b');
-      AssignFile(conServer,arquivo);
-      Rewrite(conServer);
-      Writeln(conServer,'127.0.0.1:211');
-      CloseFile(conServer);
+      vlArquivo := ExtractFilePath((Application.ExeName)+'conServer.i2b');
+      AssignFile(vlConServer,vlArquivo);
+      Rewrite(vlConServer);
+      Writeln(vlConServer,'127.0.0.1:211');
+      CloseFile(vlConServer);
     except
       On E : Exception do
       begin
@@ -146,18 +148,18 @@ begin
   if FileExists(ExtractFilePath(Application.ExeName)+'conServer.i2b') then
   begin
     try
-      arquivo := ExtractFilePath(Application.ExeName)+'conServer.i2b';
-      AssignFile(conServer,arquivo);
-      Reset(conServer);
-      Readln(conServer,linha);
-      CloseFile(conServer);
+      vlArquivo := ExtractFilePath(Application.ExeName)+'conServer.i2b';
+      AssignFile(vlConServer,vlArquivo);
+      Reset(vlConServer);
+      Readln(vlConServer,vlLinha);
+      CloseFile(vlConServer);
 
-      if linha <> '' then
+      if vlLinha <> '' then
       begin
-        IpPorta := i2bSplit(linha,':');
-        IP := IpPorta[0];
-        Porta := IpPorta[1];
-        FreeAndNil(IpPorta);
+        vpIpPorta := i2bSplit(vlLinha,':');
+        vpIP := vpIpPorta[0];
+        vpPorta := vpIpPorta[1];
+        FreeAndNil(vpIpPorta);
       end
       else
       begin

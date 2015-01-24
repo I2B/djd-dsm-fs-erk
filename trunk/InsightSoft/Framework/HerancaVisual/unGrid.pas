@@ -594,7 +594,7 @@ begin
   nome := InputBox('Nome do Filtro','Defina o nome do Filtro:','');
   if nome <> '' then
   begin
-    salvaFiltroCriado(nome,self.Name,usuario,memoFiltroDesenvolvido.Text,memoFiltroSQL.Text);
+    salvaFiltroCriado(nome,self.Name,VGUSUARIOLOGADO,memoFiltroDesenvolvido.Text,memoFiltroSQL.Text);
   end
   else
   begin
@@ -610,7 +610,7 @@ begin
   SMFiltro.SQLConnection := Provider.SQLConnection;
   SMFiltro.ServerMethodName := 'TServerMethods.getFiltosSalvos';
   SMFiltro.Params[0].AsString := Name;
-  SMFiltro.Params[1].AsString := Usuario;
+  SMFiltro.Params[1].AsString := VGUSUARIOLOGADO;
   SMFiltro.ExecuteMethod;
 
   cdsFiltroSalvo.Close;

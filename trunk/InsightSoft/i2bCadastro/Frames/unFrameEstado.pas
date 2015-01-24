@@ -61,7 +61,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDPais, edtPais, 'Selecione o País.', 'idPais|nome', 'nome',
-      'idPais|Nome', 'ID|País', 'Pais', '', DM.conServer, 'FrameEstado', DM.cdsPais);
+      'idPais|Nome', 'ID|País', 'Pais', '', DM.conServer, 'FramePais', DM.cdsPais);
   end;
 end;
 

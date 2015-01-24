@@ -112,8 +112,7 @@ begin
 {$ENDIF}
 end;
 
-procedure TServerContainer.DSAuthenticationManagerUserAuthorize(
-  Sender: TObject; EventObject: TDSAuthorizeEventObject;
+procedure TServerContainer.DSAuthenticationManagerUserAuthorize(Sender: TObject; EventObject: TDSAuthorizeEventObject;
   var valid: Boolean);
 begin
   { TODO : Authorize a user to execute a method.

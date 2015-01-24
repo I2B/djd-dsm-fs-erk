@@ -2,6 +2,7 @@ inherited frmCadastro: TfrmCadastro
   Caption = 'frmCadastro'
   ClientHeight = 399
   ClientWidth = 902
+  OnCreate = FormCreate
   ExplicitWidth = 918
   ExplicitHeight = 438
   PixelsPerInch = 96
@@ -260,13 +261,15 @@ inherited frmCadastro: TfrmCadastro
       Height = 371
       ExplicitWidth = 842
       ExplicitHeight = 371
-      ClientRectBottom = 369
-      ClientRectRight = 840
+      ClientRectBottom = 367
+      ClientRectRight = 838
       inherited cxTabGrid: TcxTabSheet
-        ExplicitHeight = 339
+        ExplicitLeft = 4
+        ExplicitTop = 26
+        ExplicitHeight = 343
         inherited cxGrid: TcxGrid
-          Width = 838
-          Height = 269
+          Width = 834
+          Height = 271
           ExplicitWidth = 838
           ExplicitHeight = 269
           inherited cxGridDB: TcxGridDBTableView
@@ -274,11 +277,11 @@ inherited frmCadastro: TfrmCadastro
           end
         end
         inherited pnlBottom: TPanel
-          Top = 269
-          Width = 838
-          ExplicitTop = 269
+          Top = 271
+          Width = 834
+          ExplicitTop = 273
           DesignSize = (
-            838
+            834
             70)
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
@@ -287,10 +290,11 @@ inherited frmCadastro: TfrmCadastro
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            Width = 442
+            ExplicitWidth = 442
+            Width = 440
           end
           inherited btnBuscar: TcxButton
-            Left = 734
+            Left = 732
             ExplicitLeft = 734
           end
           inherited lblOperacao: TcxLabel
@@ -299,13 +303,13 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitWidth = 838
-        ExplicitHeight = 339
+        ExplicitWidth = 834
+        ExplicitHeight = 341
         object pnlCadastro: TPanel
           Left = 0
           Top = 0
           Width = 60
-          Height = 339
+          Height = 341
           Margins.Left = 2
           Margins.Top = 2
           Margins.Right = 2
@@ -773,38 +777,41 @@ inherited frmCadastro: TfrmCadastro
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitHeight = 339
+        ExplicitLeft = 4
+        ExplicitTop = 26
+        ExplicitHeight = 343
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 838
-          ExplicitHeight = 172
-          Height = 172
-          Width = 838
+          ExplicitWidth = 834
+          ExplicitHeight = 174
+          Height = 174
+          Width = 834
           inherited cxGridFiltro: TcxGrid
-            Height = 145
+            Height = 152
             ExplicitHeight = 145
           end
           inherited cxMemoFiltroSalvo: TcxMemo
-            ExplicitWidth = 450
-            ExplicitHeight = 145
-            Height = 145
-            Width = 450
+            ExplicitWidth = 448
+            ExplicitHeight = 152
+            Height = 152
+            Width = 448
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
           DesignSize = (
-            838
-            160)
-          Width = 838
+            834
+            167)
+          Width = 834
           inherited edtFiltroCondicao: TcxTextEdit
-            Width = 268
+            ExplicitWidth = 268
+            Width = 266
           end
           inherited rgFiltroAndOr: TcxRadioGroup
-            Left = 549
-            ExplicitLeft = 549
+            Left = 547
+            ExplicitLeft = 547
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 830
-            Width = 830
+            ExplicitWidth = 828
+            Width = 828
             inherited memoFiltroSQL: TcxMemo
               ExplicitWidth = 803
               Width = 803
@@ -814,20 +821,20 @@ inherited frmCadastro: TfrmCadastro
               Width = 803
             end
             inherited imgFiltroSQL: TcxImage
-              Left = 806
-              ExplicitLeft = 806
+              Left = 805
+              ExplicitLeft = 805
             end
           end
           inherited btnAdicionarFiltro: TcxButton
-            Left = 644
+            Left = 642
             ExplicitLeft = 644
           end
           inherited btnFiltroCancelar: TcxButton
-            Left = 667
+            Left = 665
             ExplicitLeft = 667
           end
           inherited btnAplicarFiltro: TcxButton
-            Width = 302
+            Width = 300
             ExplicitWidth = 302
           end
         end
