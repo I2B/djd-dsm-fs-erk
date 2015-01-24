@@ -15,7 +15,9 @@ object DM: TDM
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/'
-      'Filters={}')
+      'Filters={}'
+      'DSAuthenticationUser=i2badm'
+      'DSAuthenticationPassword=backdoor')
     Left = 408
     Top = 24
   end
