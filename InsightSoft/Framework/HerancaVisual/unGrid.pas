@@ -415,7 +415,11 @@ begin
     (dts.DataSet as TClientDataSet).Close;
     ServerMethod.Params[0].AsString := filtro;
     ServerMethod.ExecuteMethod;
-    (dts.DataSet as TClientDataSet).Open
+    (dts.DataSet as TClientDataSet).Open;
+    if (dts.DataSet as TClientDataSet).RecordCount > 0 then
+    begin
+      cxGridDB.ApplyBestFit();
+    end;
   except
     On E: Exception do
     begin

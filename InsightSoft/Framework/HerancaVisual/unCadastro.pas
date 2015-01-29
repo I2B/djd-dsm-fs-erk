@@ -70,6 +70,8 @@ end;
 procedure TfrmCadastro.acEditarExecute(Sender: TObject);
 var
   Frame : TFrame;
+  Tipo: string;
+  PrimeiroEdit: string;
 begin
   inherited;
   if (dts.DataSet as TClientDataSet).RecordCount > 0 then
@@ -80,12 +82,24 @@ begin
     begin
       try
         Frame := TFrame(FindComponent(lblFrame.Caption));
-        (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SetFocus;
-        (Frame.FindComponent(lblPrimeiroEdit.Caption) as TcxDBTextEdit).SelectAll;
+        PrimeiroEdit:= copy(lblPrimeiroEdit.Caption, 1, pos('|', lblPrimeiroEdit.Caption)-1);
+        Tipo:= copy(lblPrimeiroEdit.Caption, pos('|', lblPrimeiroEdit.Caption)+1, length(lblPrimeiroEdit.Caption));
+        case AnsiIndexStr(UpperCase(tipo), ['TCXDBTEXTEDIT', 'TCXDBCURRENCYEDIT']) of
+          0:
+          begin
+            (Frame.FindComponent(PrimeiroEdit) as TcxDBTextEdit).SetFocus;
+            (Frame.FindComponent(PrimeiroEdit) as TcxDBTextEdit).SelectAll;
+          end;
+          1:
+          begin
+            (Frame.FindComponent(PrimeiroEdit) as TcxDBCurrencyEdit).SetFocus;
+            (Frame.FindComponent(PrimeiroEdit) as TcxDBCurrencyEdit).SelectAll;
+          end;
+        end;
       except
         MessageDlg('PROGRAMADOR!! Não foi possível encontrar o frame "'+lblFrame.Caption+'" ou o campo "'+
-        lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
-        'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
+          lblPrimeiroEdit.Caption+'" para aplicar a função de setFocus'+#10#13+
+          'Altere o caption do lblPrimeiroEdit.',mtError, [mbOk],0);
       end;
     end;
     (dts.DataSet as TClientDataSet).Edit;

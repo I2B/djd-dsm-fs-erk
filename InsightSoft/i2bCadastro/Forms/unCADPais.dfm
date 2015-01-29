@@ -2316,7 +2316,6 @@ inherited frmCADPais: TfrmCADPais
     612F2F2F1B00000002000000003A3A3A0D3131314D3333339580800000000000
     0000000000203000002100000000000000000000002000000000000000000000
     00000000000000000000000000000000000000000008080000}
-  ExplicitTop = -25
   ExplicitWidth = 913
   ExplicitHeight = 507
   PixelsPerInch = 96
@@ -2414,8 +2413,6 @@ inherited frmCADPais: TfrmCADPais
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 829
         ExplicitHeight = 410
         inherited pnlCadastro: TPanel
@@ -2438,12 +2435,16 @@ inherited frmCADPais: TfrmCADPais
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 249
-          ExplicitTop = 102
+          ExplicitLeft = 60
+          ExplicitWidth = 769
+          ExplicitHeight = 410
           inherited dxLayoutControl: TdxLayoutControl
             Width = 769
             Height = 410
-            ExplicitTop = 0
+            ExplicitLeft = 3
+            ExplicitTop = 3
+            ExplicitWidth = 769
+            ExplicitHeight = 410
             inherited edtMoeda: TcxDBTextEdit
               ExplicitWidth = 121
               Width = 121
@@ -2558,13 +2559,15 @@ inherited frmCADPais: TfrmCADPais
       Width = 837
       ExplicitWidth = 837
       inherited lblPrimeiroEdit: TLabel
-        Width = 168
-        Caption = 'edtPais|TcxDBTextEdit'
-        ExplicitWidth = 168
+        Width = 256
+        Caption = 'edtCodigoBACEN|TcxDBTextEdit'
+        ExplicitWidth = 256
       end
       inherited lblFrame: TLabel
+        Left = 226
         Width = 79
         Caption = 'FramePais'
+        ExplicitLeft = 226
         ExplicitWidth = 79
       end
     end
