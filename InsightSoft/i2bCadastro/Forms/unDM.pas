@@ -1042,6 +1042,7 @@ type
     cdsPessoaColaboradorcargonome: TWideStringField;
     cdsPessoaColaboradorbanconome: TWideStringField;
     cdsPortadorbanconome: TWideStringField;
+    cdsProdutoncmnome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

@@ -5027,7 +5027,8 @@ object ServerMethods: TServerMethods
     SQL.Strings = (
       
         'select produto.*, produtoGrupo.nome as grupoNome, produtoSubGrup' +
-        'o.nome as subGrupoNome '
+        'o.nome as subGrupoNome,'
+      'ncm.descricao as ncmnome '
       'from produto '
       
         'inner join produtoGrupo on produto.idGrupoProdutos = produtoGrup' +
@@ -5035,6 +5036,7 @@ object ServerMethods: TServerMethods
       
         'inner join produtoSubGrupo on produto.idSubGrupoProdutos = produ' +
         'toSubGrupo.idSubGrupoProdutos'
+      'inner join ncm on produto.idncm=ncm.idncm'
       'order by idProduto limit 0')
     Left = 784
     Top = 144
@@ -5186,13 +5188,21 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'gruponome'
       Origin = 'gruponome'
+      ProviderFlags = []
       Size = 100
     end
     object qryProdutosubgruponome: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'subgruponome'
       Origin = 'subgruponome'
+      ProviderFlags = []
       Size = 100
+    end
+    object qryProdutoncmnome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'ncmnome'
+      Origin = 'ncmnome'
+      Size = 50
     end
   end
   object qryProdutoFornecedor: TFDQuery

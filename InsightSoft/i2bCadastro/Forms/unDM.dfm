@@ -17,7 +17,8 @@ object DM: TDM
       'DatasnapContext=datasnap/'
       'Filters={}'
       'DSAuthenticationUser=i2badm'
-      'DSAuthenticationPassword=backdoor')
+      'DSAuthenticationPassword=backdoor'
+      '=')
     Left = 408
     Top = 24
   end
@@ -3485,6 +3486,20 @@ object DM: TDM
       FieldName = 'inativo'
       FixedChar = True
       Size = 1
+    end
+    object cdsProdutogruponome2: TWideStringField
+      FieldName = 'gruponome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object cdsProdutosubgruponome2: TWideStringField
+      FieldName = 'subgruponome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object cdsProdutoncmnome: TWideStringField
+      FieldName = 'ncmnome'
+      Size = 50
     end
   end
   object cdsProdutoFornecedor: TClientDataSet

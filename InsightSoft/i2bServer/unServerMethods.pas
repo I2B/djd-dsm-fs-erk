@@ -1179,6 +1179,7 @@ type
     qryMunicipioidestado: TWideStringField;
     qryMunicipioestadonome: TWideStringField;
     qryPessoaColaboradorbanconome: TWideStringField;
+    qryProdutoncmnome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1350,11 +1351,11 @@ type
       ' inner join banco on portador.idbanco = banco.idbanco',' ',' order by idportador',' limit 0 ');
     const selectportadorhistorico: array[1..5] of string = ('select *',' from portadorhistorico',' ',
       ' order by idportadorhistorico',' limit 0 ');
-    const selectproduto: array[1..5] of string = ('select produto.*, produtogrupo.nome as gruponome, '+
-      ' produtosubgrupo.nome as subgruponome',' from produto'+
-      ' inner join produtogrupo on produto.idgrupoprodutos = produtogrupo.idgrupoprodutos'+
-      ' inner join produtosubgrupo on produto.idsubgrupoprodutos = produtosubgrupo.idsubgrupoprodutos',' ',
-      ' order by idproduto',' limit 0 ');
+    const selectproduto: array[1..5] of string = ('select produto.*, produtoGrupo.nome as grupoNome,' +
+      ' produtoSubGrupo.nome as subGrupoNome, ncm.descricao as ncmnome','from produto' +
+      ' inner join produtoGrupo on produto.idGrupoProdutos = produtoGrupo.idGrupoProdutos' +
+      ' inner join produtoSubGrupo on produto.idSubGrupoProdutos = produtoSubGrupo.idSubGrupoProdutos' +
+      ' inner join ncm on produto.idncm=ncm.idncm', ' ', ' order by idProduto', ' limit 0 ');
     const selectprodutofornecedor: array[1..5] of string = ('select *',' from produtofornecedor',' ',
       ' order by idprodutofornecedor',' limit 0 ');
     const selectprodutogrupo: array[1..5] of string = ('select *',' from produtogrupo',' ',' order by idgrupoprodutos',' limit 0 ');

@@ -13,19 +13,23 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp,
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
-  Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit;
+  Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit,
+  cxCurrencyEdit;
 
 type
   TFrameProdutoabelaPreco = class(TFramePai)
-    edtIDProduto: TcxDBTextEdit;
+    edtProduto: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
     edtTabelaNome: TcxDBTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
-    edtPreco: TcxDBTextEdit;
-    dxLayoutControlItem3: TdxLayoutItem;
-    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
-    edtProdutoNome: TcxTextEdit;
+    edtIDTabela: TcxDBCurrencyEdit;
     dxLayoutControlItem4: TdxLayoutItem;
+    edtIDProduto: TcxDBCurrencyEdit;
+    dxLayoutControlItem5: TdxLayoutItem;
+    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
+    edtPreco: TcxDBCurrencyEdit;
+    dxLayoutControlItem3: TdxLayoutItem;
   private
     { Private declarations }
   public
