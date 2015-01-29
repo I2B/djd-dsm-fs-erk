@@ -80,7 +80,7 @@ begin
     if (Length(edtCFOP.Text)=3) and (key<>#8) then
     begin
       edtCFOP.Text:=edtCFOP.Text + key;
-      Perform(Wm_NextDlgCtl,0,0);
+      framecfop.Perform(Wm_NextDlgCtl,0,0);
     end;
   end;
 end;

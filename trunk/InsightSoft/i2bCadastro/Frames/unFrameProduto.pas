@@ -15,7 +15,7 @@ uses
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit, cxMemo,
   cxCurrencyEdit, cxMaskEdit, cxDropDownEdit, cxCalendar, cxGroupBox, cxRadioGroup, cxCheckBox, cxImage,
-  cxButtonEdit;
+  cxButtonEdit, dxGDIPlusClasses;
 
 type
   TFrameProduto = class(TFramePai)
@@ -69,21 +69,27 @@ type
     edtImagem: TcxImage;
     dxLayoutControlItem22: TdxLayoutItem;
     dxLayoutControlGroup5: TdxLayoutAutoCreatedGroup;
-    edtCodigoGrupo: TcxDBTextEdit;
-    dxLayoutControlItem23: TdxLayoutItem;
-    edtNomeGrupo: TcxTextEdit;
-    dxLayoutControlItem24: TdxLayoutItem;
-    edtCodigoSubGrupo: TcxDBTextEdit;
-    dxLayoutControlItem25: TdxLayoutItem;
-    edtNomeSubGrupo: TcxTextEdit;
-    dxLayoutControlItem26: TdxLayoutItem;
     edtNCM: TcxDBTextEdit;
     dxLayoutControlItem27: TdxLayoutItem;
     edtUNMedida: TcxDBTextEdit;
     dxLayoutControlItem29: TdxLayoutItem;
-    edtCaminhoImagem: TcxDBButtonEdit;
-    dxLayoutControlItem28: TdxLayoutItem;
-    dxLayoutControlGroup7: TdxLayoutAutoCreatedGroup;
+    edtCodigoGrupo: TcxDBCurrencyEdit;
+    dxLayoutControlItem30: TdxLayoutItem;
+    edtGrupo: TcxDBTextEdit;
+    dxLayoutControlItem23: TdxLayoutItem;
+    edtIDSubGrupo: TcxDBCurrencyEdit;
+    dxLayoutControlItem24: TdxLayoutItem;
+    edtSubGrupo: TcxDBTextEdit;
+    dxLayoutControlItem25: TdxLayoutItem;
+    edtIDNCM: TcxDBCurrencyEdit;
+    dxLayoutControlItem26: TdxLayoutItem;
+    procedure edtCodigoGrupoExit(Sender: TObject);
+    procedure edtCodigoGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDSubGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDSubGrupoExit(Sender: TObject);
+    procedure edtImagemClick(Sender: TObject);
+    procedure edtIDNCMExit(Sender: TObject);
+    procedure edtIDNCMKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -97,6 +103,96 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD, unF2, unI2BFuncoes;
+
+procedure TFrameProduto.edtCodigoGrupoExit(Sender: TObject);
+begin
+  inherited;
+  if edtCodigoGrupo.EditValue>0 then
+  begin
+    DM.cdsProdutoGruponome.AsString:= i2bGetValor('produtogrupo', 'idgrupo', edtCodigoGrupo.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoGruponome.AsString='' then
+    begin
+      MessageDlg('O grupo não pode ser encontrado.', mtError, [mbOK], 0);
+      edtCodigoGrupo.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProduto.edtCodigoGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtCodigoGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupo|nome', 'nome',
+      'idGrupo|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoGrupo);
+  end;
+end;
+
+procedure TFrameProduto.edtIDNCMExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDNCM.EditValue>0 then
+  begin
+    DM.cdsProdutoncmnome.AsString:= i2bGetValor('ncm', 'idncm', edtIDNCM.Text, 'descricao', DM.dspConnection);
+	if DM.cdsProdutoncmnome.AsString='' then
+    begin
+      MessageDlg('A NCM não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDNCM.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProduto.edtIDNCMKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDNCM, edtNCM, 'Selecione a NCM.', 'idncm|descricao', 'idncm',
+      'idncm|Descricao', 'NCM|Descrição', 'NCM', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
+  end;
+end;
+
+procedure TFrameProduto.edtIDSubGrupoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDSubGrupo.EditValue>0 then
+  begin
+    DM.cdsProdutosubgruponome.AsString:= i2bGetValor('ProdutosSubGrupo', 'idsubgrupoprodutos', edtIDSubGrupo.Text,
+      'nome', DM.dspConnection);
+	if DM.cdsProdutosubgruponome.AsString='' then
+    begin
+      MessageDlg('O sub-grupo não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDSubGrupo.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProduto.edtIDSubGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDSubGrupo, edtSubGrupo, 'Selecione o sub-grupo.', 'idsubgrupoprodutos|nome', 'nome',
+      'idsubgrupoprodutos|nome', 'ID|Sub-Grupo', 'ProdutosSubGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoSubGrupo);
+  end;
+end;
+
+procedure TFrameProduto.edtImagemClick(Sender: TObject);
+begin
+  inherited;
+  if DataSource.State in [dsInsert, dsEdit] then
+  begin
+    DM.cdsProdutofotoproduto.AsString:= i2bGetArquivo('JPG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|Bitmaps');
+    if DM.cdsProdutofotoproduto.AsString= '' then
+    begin
+      edtImagem.Picture.LoadFromFile('C:\djd-dsm-fs-erk\Desenvolvimento\Imagens\AvatarDefault.png');
+    end
+    else
+    begin
+      edtImagem.Picture.LoadFromFile(DM.cdsProdutofotoproduto.AsString);
+    end;
+  end;
+end;
 
 end.
