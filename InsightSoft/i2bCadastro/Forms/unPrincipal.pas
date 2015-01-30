@@ -122,6 +122,7 @@ type
     procedure btnPessoaClick(Sender: TObject);
     procedure dxBarLargeButton2Click(Sender: TObject);
     procedure dxBarLargeButton3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     function abaExiste(Formulario : TForm):boolean;
@@ -308,6 +309,45 @@ begin
     frmCADProdutoGrade.pnlTop.Caption := frmCADProdutoGrade.Caption+'  ';
   end;
 
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+var
+  cdsComposicaoPessoas : TClientDataSet;
+  vlClientes, vlColaborador, vlContador, vlFornecedor, vlRepresentante, vlTransportadora, vlVendedor : Integer;
+begin
+  if DM.conServer.Connected then
+  begin
+    //Clientes
+    {cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoacliente where ativo = true',
+      DM.dspConnection);
+    vlClientes := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Colaboradores
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoacolaborador where ativo = true',
+      DM.dspConnection);
+    vlColaborador := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Contador
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoacontador where ativo = true',
+      DM.dspConnection);
+    vlContador := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Fornecedor
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoafornecedor where ativo = true',
+      DM.dspConnection);
+    vlFornecedor := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Representante
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoarepresentante where ativo = true',
+      DM.dspConnection);
+    vlRepresentante := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Transportadora
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoatransportadora where ativo = true',
+      DM.dspConnection);
+    vlTransportadora := cdsComposicaoPessoas.FieldByName('contador').AsInteger;
+    //Vendedores
+    cdsComposicaoPessoas := i2bGetClient('select count(idpessoa) as contador from pessoavendedor where ativo = true',
+      DM.dspConnection);
+    vlVendedor := cdsComposicaoPessoas.FieldByName('contador').AsInteger;}
+
+  end;
 end;
 
 procedure TfrmPrincipal.btnICMSClick(Sender: TObject);
