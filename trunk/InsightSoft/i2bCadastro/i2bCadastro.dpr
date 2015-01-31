@@ -90,7 +90,8 @@ uses
   unFrameProdutoGrade in 'Frames\unFrameProdutoGrade.pas' {FrameProdutoGrade: TFrame},
   unI2BBD in '..\Framework\unI2BBD.pas',
   unCADProdutoGrade in 'Forms\unCADProdutoGrade.pas' {frmCADProdutoGrade},
-  unCADLogin in 'Forms\unCADLogin.pas' {frmCADLogin};
+  unCADLogin in 'Forms\unCADLogin.pas' {frmCADLogin},
+  unCADInfo in 'Forms\unCADInfo.pas' {frmCADInfo};
 
 {$R *.res}
 

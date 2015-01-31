@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Insight To Business'
   ClientHeight = 740
   ClientWidth = 1024
-  Color = clAppWorkSpace
+  Color = clWhite
   Ctl3D = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object frmPrincipal: TfrmPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
-  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon: TdxRibbon
@@ -6418,5 +6418,20 @@ object frmPrincipal: TfrmPrincipal
     TabProperties.CustomButtons.Buttons = <>
     Left = 360
     Top = 408
+  end
+  object cxStyleRepository: TcxStyleRepository
+    Left = 360
+    Top = 456
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svColor, svFont, svTextColor]
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI Light'
+      Font.Style = []
+      TextColor = clWindowText
+    end
   end
 end
