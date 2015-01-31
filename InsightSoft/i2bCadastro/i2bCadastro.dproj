@@ -465,6 +465,10 @@
             <Form>frmCADLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\unCADInfo.pas">
+            <Form>frmCADInfo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
