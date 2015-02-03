@@ -7,17 +7,19 @@ inherited FrameProdutoabelaPreco: TFrameProdutoabelaPreco
     object edtProduto: TcxDBTextEdit [0]
       Left = 109
       Top = 84
+      DataBinding.DataField = 'produtonome'
       DataBinding.DataSource = DataSource
       Properties.ReadOnly = True
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 3
-      Width = 85
+      Width = 188
     end
     object edtTabelaNome: TcxDBTextEdit [1]
       Left = 109
       Top = 33
+      DataBinding.DataField = 'tabelapreconome'
       DataBinding.DataSource = DataSource
       Properties.ReadOnly = True
       Style.BorderColor = clWindowFrame
@@ -29,32 +31,45 @@ inherited FrameProdutoabelaPreco: TFrameProdutoabelaPreco
     object edtIDTabela: TcxDBCurrencyEdit [2]
       Left = 12
       Top = 33
+      DataBinding.DataField = 'idtabelapreco'
       DataBinding.DataSource = DataSource
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
+      OnExit = edtIDTabelaExit
+      OnKeyDown = edtIDTabelaKeyDown
       Width = 90
     end
     object edtIDProduto: TcxDBCurrencyEdit [3]
       Left = 12
       Top = 84
+      DataBinding.DataField = 'idproduto'
       DataBinding.DataSource = DataSource
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
+      OnExit = edtIDProdutoExit
+      OnKeyDown = edtIDProdutoKeyDown
       Width = 90
     end
     object edtPreco: TcxDBCurrencyEdit [4]
-      Left = 12
-      Top = 135
+      Left = 304
+      Top = 84
+      DataBinding.DataField = 'preco'
       DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 4
-      Width = 121
+      Width = 105
     end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       Index = -1
@@ -106,7 +121,8 @@ inherited FrameProdutoabelaPreco: TFrameProdutoabelaPreco
       AutoCreated = True
     end
     object dxLayoutControlItem3: TdxLayoutItem
-      Parent = dxLayoutControlGroup_Root
+      Parent = dxLayoutControlGroup2
+      AlignHorz = ahClient
       CaptionOptions.Text = 'Pre'#231'o'
       CaptionOptions.Layout = clTop
       Control = edtPreco

@@ -180,6 +180,7 @@ inherited FrameProduto: TFrameProduto
       Top = 420
       DataBinding.DataField = 'markup'
       DataBinding.DataSource = DataSource
+      Properties.DisplayFormat = '0.00, %;-0.00 %'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -189,6 +190,7 @@ inherited FrameProduto: TFrameProduto
     object edtImagem: TcxImage [16]
       Left = 883
       Top = 140
+      Cursor = crHandPoint
       Picture.Data = {
         0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
         0200000002000806000000F478D4FA0000000467414D410000B18F0BFC610500
@@ -789,6 +791,7 @@ inherited FrameProduto: TFrameProduto
       Top = 369
       DataBinding.DataField = 'estoqueminimo'
       DataBinding.DataSource = DataSource
+      Properties.DisplayFormat = '0.00;-0.00'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -800,6 +803,7 @@ inherited FrameProduto: TFrameProduto
       Top = 369
       DataBinding.DataField = 'estoquemaximo'
       DataBinding.DataSource = DataSource
+      Properties.DisplayFormat = '0.00;-0.00'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -812,7 +816,7 @@ inherited FrameProduto: TFrameProduto
       DataBinding.DataField = 'estoqueideal'
       DataBinding.DataSource = DataSource
       Properties.DecimalPlaces = 0
-      Properties.DisplayFormat = '0'
+      Properties.DisplayFormat = '0.00;-0.00'
       Properties.EditFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
@@ -836,7 +840,7 @@ inherited FrameProduto: TFrameProduto
     object edtNCM: TcxDBTextEdit [21]
       Left = 844
       Top = 369
-      DataBinding.DataField = 'idncm'
+      DataBinding.DataField = 'ncmnome'
       DataBinding.DataSource = DataSource
       Properties.ReadOnly = True
       Style.BorderColor = clWindowFrame

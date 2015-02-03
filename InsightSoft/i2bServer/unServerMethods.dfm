@@ -13,6 +13,7 @@ object ServerMethods: TServerMethods
       'DriverID=PG')
     FetchOptions.AssignedValues = [evMode]
     ResourceOptions.AssignedValues = [rvAutoReconnect]
+    Connected = True
     LoginPrompt = False
     BeforeConnect = conexaoBeforeConnect
     Left = 176
@@ -5202,6 +5203,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'ncmnome'
       Origin = 'ncmnome'
+      ProviderFlags = []
       Size = 50
     end
   end
@@ -5209,8 +5211,18 @@ object ServerMethods: TServerMethods
     Connection = conexao
     SQL.Strings = (
       
-        'select * from produtoFornecedor order by idProdutoFornecedor lim' +
-        'it 0')
+        'select produtoFornecedor.*, produto.nome as produtonome, pessoa.' +
+        'nome as fornecedornome'
+      ''
+      'from produtoFornecedor '
+      
+        'inner join produto on produtoFornecedor.idProduto=produto.idProd' +
+        'uto'
+      
+        'inner join pessoa on produtoFornecedor.idprodutoFornecedor=pesso' +
+        'a.idPessoa'
+      ''
+      'order by idProdutoFornecedor limit 0')
     Left = 784
     Top = 200
     object qryProdutoFornecedoridprodutofornecedor: TIntegerField
@@ -5234,6 +5246,20 @@ object ServerMethods: TServerMethods
     object qryProdutoFornecedorprecoultimacompra: TFloatField
       FieldName = 'precoultimacompra'
       Origin = 'precoultimacompra'
+    end
+    object qryProdutoFornecedorprodutonome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'produtonome'
+      Origin = 'produtonome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object qryProdutoFornecedorfornecedornome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'fornecedornome'
+      Origin = 'fornecedornome'
+      ProviderFlags = []
+      Size = 250
     end
   end
   object qryProdutoGrupo: TFDQuery
@@ -5355,12 +5381,15 @@ object ServerMethods: TServerMethods
   object qryProdutoTabelaPreco: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      
-        'select produtoTabelaPreco.*, produto.nome as produtoNome from pr' +
-        'odutoTabelaPreco '
+      'select produtoTabelaPreco.*, produto.nome as produtoNome,'
+      'TabelaPreco.nome as TabelaPrecoNome '
+      'from produtoTabelaPreco '
       
         'inner join produto on produtoTabelaPreco.idProduto = produto.idP' +
         'roduto'
+      
+        'inner join TabelaPreco on TabelaPreco.idtabelapreco = ProdutoTab' +
+        'elaPreco.idprodutotabelapreco'
       'order by idProdutoTabelaPreco limit 0')
     Left = 784
     Top = 424
@@ -5373,11 +5402,6 @@ object ServerMethods: TServerMethods
       FieldName = 'idproduto'
       Origin = 'idproduto'
     end
-    object qryProdutoTabelaPreconome: TWideStringField
-      FieldName = 'nome'
-      Origin = 'nome'
-      Size = 100
-    end
     object qryProdutoTabelaPrecopreco: TFloatField
       FieldName = 'preco'
       Origin = 'preco'
@@ -5386,7 +5410,19 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'produtonome'
       Origin = 'produtonome'
+      ProviderFlags = []
       Size = 100
+    end
+    object qryProdutoTabelaPrecoidtabelapreco: TIntegerField
+      FieldName = 'idtabelapreco'
+      Origin = 'idtabelapreco'
+    end
+    object qryProdutoTabelaPrecotabelapreconome: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'tabelapreconome'
+      Origin = 'tabelapreconome'
+      ProviderFlags = []
+      Size = 255
     end
   end
   object qryProdutoUnidade: TFDQuery

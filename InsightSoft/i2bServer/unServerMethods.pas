@@ -934,11 +934,6 @@ type
     qryProdutoinativo: TWideStringField;
     qryProdutogruponome: TWideStringField;
     qryProdutosubgruponome: TWideStringField;
-    qryProdutoFornecedoridprodutofornecedor: TIntegerField;
-    qryProdutoFornecedorcodigoprodutofornecedor: TWideStringField;
-    qryProdutoFornecedoridproduto: TIntegerField;
-    qryProdutoFornecedordataultimacompra: TDateField;
-    qryProdutoFornecedorprecoultimacompra: TFloatField;
     qryProdutoGrupoidgrupoprodutos: TIntegerField;
     qryProdutoGruponome2: TWideStringField;
     qryProdutoGrupodescricao: TWideMemoField;
@@ -957,7 +952,6 @@ type
     qryProdutoSubGrupogruponome: TWideStringField;
     qryProdutoTabelaPrecoidprodutotabelapreco: TIntegerField;
     qryProdutoTabelaPrecoidproduto: TIntegerField;
-    qryProdutoTabelaPreconome: TWideStringField;
     qryProdutoTabelaPrecopreco: TFloatField;
     qryProdutoTabelaPrecoprodutonome: TWideStringField;
     qryProdutoUnidadeidprodutounidade: TIntegerField;
@@ -1180,6 +1174,15 @@ type
     qryMunicipioestadonome: TWideStringField;
     qryPessoaColaboradorbanconome: TWideStringField;
     qryProdutoncmnome: TWideStringField;
+    qryProdutoTabelaPrecoidtabelapreco: TIntegerField;
+    qryProdutoTabelaPrecotabelapreconome: TWideStringField;
+    qryProdutoFornecedoridprodutofornecedor: TIntegerField;
+    qryProdutoFornecedorcodigoprodutofornecedor: TWideStringField;
+    qryProdutoFornecedoridproduto: TIntegerField;
+    qryProdutoFornecedordataultimacompra: TDateField;
+    qryProdutoFornecedorprecoultimacompra: TFloatField;
+    qryProdutoFornecedorprodutonome: TWideStringField;
+    qryProdutoFornecedorfornecedornome: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1356,8 +1359,9 @@ type
       ' inner join produtoGrupo on produto.idGrupoProdutos = produtoGrupo.idGrupoProdutos' +
       ' inner join produtoSubGrupo on produto.idSubGrupoProdutos = produtoSubGrupo.idSubGrupoProdutos' +
       ' inner join ncm on produto.idncm=ncm.idncm', ' ', ' order by idProduto', ' limit 0 ');
-    const selectprodutofornecedor: array[1..5] of string = ('select *',' from produtofornecedor',' ',
-      ' order by idprodutofornecedor',' limit 0 ');
+    const selectprodutofornecedor: array[1..5] of string = ('select *, produto.nome as produtonome, pessoa.nome as fornecedornome',
+      ' from produtofornecedor','inner join produto on produtoFornecedor.idProduto=produto.idProduto' +
+      ' inner join pessoa on produtoFornecedor.idprodutoFornecedor=pessoa.idPessoa', ' order by idprodutofornecedor',' limit 0 ');
     const selectprodutogrupo: array[1..5] of string = ('select *',' from produtogrupo',' ',' order by idgrupoprodutos',' limit 0 ');
     const selectprodutopromocao: array[1..5] of string = ('select produtopromocao.*, produto.nome as produtonome',
       ' from produtopromocao inner join produto on produtopromocao.idproduto = produto.idproduto',
@@ -1365,8 +1369,10 @@ type
     const selectprodutosubgrupo: array[1..5] of string = ('select produtosubgrupo.*, produtogrupo.nome as gruponome',
       ' from produtosubgrupo inner join produtogrupo on produtosubgrupo.idgrupoprodutos = produtogrupo.idgrupoprodutos',
       ' ',' order by idsubgrupoprodutos',' limit 0 ');
-    const selectprodutotabelapreco: array[1..5] of string = ('select produtotabelapreco.*, produto.nome as produtonome',
-      ' from produtotabelapreco inner join produto on produtotabelapreco.idproduto = produto.idproduto',' ',
+    const selectprodutotabelapreco: array[1..5] of string = ('select produtoTabelaPreco.*, produto.nome as produtoNome,' +
+      ' TabelaPreco.nome as TabelaPrecoNome',
+      ' from produtotabelapreco inner join produto on produtotabelapreco.idproduto = produto.idproduto' +
+      ' inner join TabelaPreco on TabelaPreco.idtabelapreco = ProdutoTabelaPreco.idprodutotabelapreco',' ',
       ' order by idprodutotabelapreco',' limit 0 ');
     const selectprodutounidade: array[1..5] of string = ('select *',' from produtounidade',' ',' order by idprodutounidade',' limit 0 ');
     const selectprodutounidadeconversao: array[1..5] of string = ('select produtounidadeconversao.*, '+
@@ -2733,7 +2739,6 @@ procedure TServerMethods.setSQLPessoaColaborador(filtro: String);
 begin
   alteraSQL(qryPessoaColaborador,filtro,selectPessoaColaborador[1],selectPessoaColaborador[2],selectPessoaColaborador[3],
     selectPessoaColaborador[4]);
-  //qryPessoaColaborador.Params.ParamByName('idpessoa').DataType:= ftInteger;
 end;
 
 procedure TServerMethods.setSQLPessoaContador(filtro: String);

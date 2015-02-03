@@ -40850,6 +40850,7 @@ object frmCADLogin: TfrmCADLogin
     Style.Font.Style = []
     Style.IsFontAssigned = True
     TabOrder = 2
+    Text = 'i2badm'
     OnKeyDown = edtUsuarioKeyDown
     Width = 161
   end
@@ -40866,6 +40867,7 @@ object frmCADLogin: TfrmCADLogin
     Style.Font.Style = []
     Style.IsFontAssigned = True
     TabOrder = 3
+    Text = 'backdoor'
     OnKeyDown = edtSenhaKeyDown
     Width = 161
   end

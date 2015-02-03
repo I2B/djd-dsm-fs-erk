@@ -30,7 +30,6 @@ uses
 
 type
   TfrmCADProduto = class(TfrmCadastro)
-    FrameProduto: TFrameProduto;
     cxGridDBidproduto: TcxGridDBColumn;
     cxGridDBidgrupoprodutos: TcxGridDBColumn;
     cxGridDBidsubgrupoprodutos: TcxGridDBColumn;
@@ -63,6 +62,7 @@ type
     cxGridDBpeso: TcxGridDBColumn;
     cxGridDBpercentualcomissao: TcxGridDBColumn;
     cxGridDBinativo: TcxGridDBColumn;
+    FrameProduto: TFrameProduto;
   private
     { Private declarations }
   public
