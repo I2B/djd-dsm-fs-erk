@@ -110,8 +110,8 @@ begin
   inherited;
   if edtCodigoGrupo.EditValue>0 then
   begin
-    DM.cdsProdutoGruponome.AsString:= i2bGetValor('produtogrupo', 'idgrupo', edtCodigoGrupo.Text, 'nome', DM.dspConnection);
-	if DM.cdsProdutoGruponome.AsString='' then
+    DM.cdsProduto.FieldByName('GrupoNome').AsString:= i2bGetValor('produtogrupo', 'idgrupoprodutos', edtCodigoGrupo.Text, 'nome', DM.dspConnection);
+	if DM.cdsProduto.FieldByName('GrupoNome').AsString='' then
     begin
       MessageDlg('O grupo não pode ser encontrado.', mtError, [mbOK], 0);
       edtCodigoGrupo.SetFocus;
@@ -124,8 +124,8 @@ begin
   inherited;
   if Key = VK_F2 then
   begin
-    i2bF2(edtCodigoGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupo|nome', 'nome',
-      'idGrupo|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoGrupo);
+    i2bF2(edtCodigoGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupoProdutos|nome', 'nome',
+      'idGrupoProdutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoGrupo);
   end;
 end;
 
@@ -158,9 +158,9 @@ begin
   inherited;
   if edtIDSubGrupo.EditValue>0 then
   begin
-    DM.cdsProdutosubgruponome.AsString:= i2bGetValor('ProdutosSubGrupo', 'idsubgrupoprodutos', edtIDSubGrupo.Text,
+    DM.cdsProduto.FieldByName('subgruponome').AsString:= i2bGetValor('ProdutoSubGrupo', 'idsubgrupoprodutos', edtIDSubGrupo.Text,
       'nome', DM.dspConnection);
-	if DM.cdsProdutosubgruponome.AsString='' then
+	if DM.cdsProduto.FieldByName('subgruponome').AsString='' then
     begin
       MessageDlg('O sub-grupo não pode ser encontrado.', mtError, [mbOK], 0);
       edtIDSubGrupo.SetFocus;
@@ -174,7 +174,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDSubGrupo, edtSubGrupo, 'Selecione o sub-grupo.', 'idsubgrupoprodutos|nome', 'nome',
-      'idsubgrupoprodutos|nome', 'ID|Sub-Grupo', 'ProdutosSubGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoSubGrupo);
+      'idsubgrupoprodutos|nome', 'ID|Sub-Grupo', 'ProdutoSubGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoSubGrupo);
   end;
 end;
 

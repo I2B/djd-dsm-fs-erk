@@ -14,27 +14,29 @@ uses
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxCalendar, cxDBEdit;
+  cxDropDownEdit, cxCalendar, cxDBEdit, cxCurrencyEdit;
 
 type
   TFrameProdutoFornecedor = class(TFramePai)
-    edtProdutoID: TcxDBTextEdit;
-    dxLayoutControlItem1: TdxLayoutItem;
-    edtFornecedorID: TcxDBTextEdit;
-    dxLayoutControlItem2: TdxLayoutItem;
     edtProdutoFornecedorID: TcxDBTextEdit;
     dxLayoutControlItem3: TdxLayoutItem;
     edtPrecoUltimaCompra: TcxDBTextEdit;
     dxLayoutControlItem4: TdxLayoutItem;
     edtDataUltimaCompra: TcxDBDateEdit;
     dxLayoutControlItem5: TdxLayoutItem;
-    cxTextEdit1: TcxTextEdit;
-    dxLayoutControlItem6: TdxLayoutItem;
-    cxTextEdit2: TcxTextEdit;
-    dxLayoutControlItem7: TdxLayoutItem;
+    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    edtIDProduto: TcxDBCurrencyEdit;
+    dxLayoutControlItem8: TdxLayoutItem;
+    edtIDFornecedor: TcxDBCurrencyEdit;
+    dxLayoutControlItem9: TdxLayoutItem;
+    edtProduto: TcxDBTextEdit;
+    dxLayoutControlItem10: TdxLayoutItem;
+    edtFornecedor: TcxDBTextEdit;
+    dxLayoutControlItem11: TdxLayoutItem;
     dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
     dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
-    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    procedure edtIDProdutoExit(Sender: TObject);
+    procedure edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -48,6 +50,30 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD, unI2BFuncoes;
+
+procedure TFrameProdutoFornecedor.edtIDProdutoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDProduto.EditValue>0 then
+  begin
+    DM.cdsProdutoFornecedorprodutonome.AsString:= i2bGetValor('produto', 'idproduto', edtIDProduto.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoFornecedorprodutonome.AsString='' then
+    begin
+      MessageDlg('O produto não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDProduto.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoFornecedor.edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDFornecedor, edtFornecedor, 'Selecione o fornecedor.', 'idPessoa|nome', 'nome',
+      'idPessoa|nome', 'ID|Fornecedor', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsProdutoFornecedor);
+  end;
+end;
 
 end.

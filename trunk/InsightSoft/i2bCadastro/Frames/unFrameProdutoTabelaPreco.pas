@@ -30,6 +30,10 @@ type
     dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
     edtPreco: TcxDBCurrencyEdit;
     dxLayoutControlItem3: TdxLayoutItem;
+    procedure edtIDTabelaExit(Sender: TObject);
+    procedure edtIDTabelaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDProdutoExit(Sender: TObject);
+    procedure edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -43,6 +47,54 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD, unI2BFuncoes;
+
+procedure TFrameProdutoabelaPreco.edtIDProdutoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDProduto.EditValue>0 then
+  begin
+    DM.cdsProdutoTabelaPrecoprodutonome.AsString:= i2bGetValor('produto', 'idproduto', edtIDProduto.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoTabelaPrecoprodutonome.AsString='' then
+    begin
+      MessageDlg('O produto não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDProduto.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoabelaPreco.edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDProduto, edtProduto, 'Selecione o produto.', 'idProduto|nome', 'nome',
+      'idProduto|nome', 'ID|Produto', 'Produto', '', DM.conServer, 'FrameProduto', DM.cdsProdutoTabelaPreco);
+  end;
+end;
+
+procedure TFrameProdutoabelaPreco.edtIDTabelaExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDTabela.EditValue>0 then
+  begin
+    DM.cdsProdutoTabelaPrecotabelapreconome.AsString:= i2bGetValor('tabelapreco', 'idtabelapreco', edtIDTabela.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoTabelaPrecotabelapreconome.AsString='' then
+    begin
+      MessageDlg('A tabela de preço não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDTabela.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoabelaPreco.edtIDTabelaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDTabela, edtTabelaNome, 'Selecione a tabela de preço.', 'idtabelapreco|nome', 'nome',
+      'idtabelapreco|nome', 'ID|Tabela de Preço', 'tabelapreco', '', DM.conServer, 'frameTabelaPreco', DM.cdsProdutoTabelaPreco);
+  end;
+end;
 
 end.

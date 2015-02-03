@@ -19,11 +19,13 @@ object DM: TDM
       'DSAuthenticationUser=i2badm'
       'DSAuthenticationPassword=backdoor'
       '=')
+    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
+    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -3499,6 +3501,7 @@ object DM: TDM
     end
     object cdsProdutoncmnome: TWideStringField
       FieldName = 'ncmnome'
+      ProviderFlags = []
       Size = 50
     end
   end
@@ -3528,6 +3531,16 @@ object DM: TDM
     object cdsProdutoFornecedorprecoultimacompra: TFloatField
       DisplayLabel = 'Pre'#231'o da '#218'ltima Compra'
       FieldName = 'precoultimacompra'
+    end
+    object cdsProdutoFornecedorprodutonome: TWideStringField
+      FieldName = 'produtonome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object cdsProdutoFornecedorfornecedornome: TWideStringField
+      FieldName = 'fornecedornome'
+      ProviderFlags = []
+      Size = 250
     end
   end
   object cdsProdutoGrupo: TClientDataSet
@@ -3633,14 +3646,22 @@ object DM: TDM
       FieldName = 'idproduto'
       Origin = 'idproduto'
     end
-    object cdsProdutoTabelaPreconome: TWideStringField
-      FieldName = 'nome'
-      Origin = 'nome'
-      Size = 100
-    end
     object cdsProdutoTabelaPrecopreco: TFloatField
       FieldName = 'preco'
       Origin = 'preco'
+    end
+    object cdsProdutoTabelaPrecoprodutonome: TWideStringField
+      FieldName = 'produtonome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object cdsProdutoTabelaPrecoidtabelapreco: TIntegerField
+      FieldName = 'idtabelapreco'
+    end
+    object cdsProdutoTabelaPrecotabelapreconome: TWideStringField
+      FieldName = 'tabelapreconome'
+      ProviderFlags = []
+      Size = 255
     end
   end
   object cdsProdutoUnidade: TClientDataSet

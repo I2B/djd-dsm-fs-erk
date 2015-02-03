@@ -829,7 +829,6 @@ type
     dspProdutoPromocaovalor: TFMTBCDField;
     cdsProdutoTabelaPrecoidprodutotabelapreco: TIntegerField;
     cdsProdutoTabelaPrecoidproduto: TIntegerField;
-    cdsProdutoTabelaPreconome: TWideStringField;
     cdsProdutoTabelaPrecopreco: TFloatField;
     cdsRegraFiscalObservacaoidregrafiscalobservacao: TIntegerField;
     cdsRegraFiscalObservacaoobservacao: TWideMemoField;
@@ -1043,6 +1042,11 @@ type
     cdsPessoaColaboradorbanconome: TWideStringField;
     cdsPortadorbanconome: TWideStringField;
     cdsProdutoncmnome: TWideStringField;
+    cdsProdutoTabelaPrecoprodutonome: TWideStringField;
+    cdsProdutoTabelaPrecoidtabelapreco: TIntegerField;
+    cdsProdutoTabelaPrecotabelapreconome: TWideStringField;
+    cdsProdutoFornecedorprodutonome: TWideStringField;
+    cdsProdutoFornecedorfornecedornome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
