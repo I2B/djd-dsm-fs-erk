@@ -1117,19 +1117,18 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
     inherited cxPageControl: TcxPageControl
       Width = 907
       Height = 438
-      Properties.ActivePage = cxTabCadastro
       ExplicitWidth = 907
       ExplicitHeight = 438
-      ClientRectBottom = 436
-      ClientRectRight = 905
+      ClientRectBottom = 434
+      ClientRectRight = 903
       inherited cxTabGrid: TcxTabSheet
-        ExplicitWidth = 901
-        ExplicitHeight = 410
+        ExplicitWidth = 899
+        ExplicitHeight = 408
         inherited cxGrid: TcxGrid
           Width = 899
           Height = 338
-          ExplicitWidth = 903
-          ExplicitHeight = 336
+          ExplicitWidth = 899
+          ExplicitHeight = 338
           inherited cxGridDB: TcxGridDBTableView
             object cxGridDBcodigo: TcxGridDBColumn
               DataBinding.FieldName = 'codigo'
@@ -1158,8 +1157,8 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         inherited pnlBottom: TPanel
           Top = 338
           Width = 899
-          ExplicitTop = 340
-          ExplicitWidth = 901
+          ExplicitTop = 338
+          ExplicitWidth = 899
           inherited lblCampo: TcxLabel
             Style.IsFontAssigned = True
           end
@@ -1170,13 +1169,13 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             Style.IsFontAssigned = True
           end
           inherited edtInformacao: TcxTextEdit
-            ExplicitWidth = 507
+            ExplicitWidth = 503
             ExplicitHeight = 23
-            Width = 505
+            Width = 503
           end
           inherited btnBuscar: TcxButton
-            Left = 797
-            ExplicitLeft = 799
+            Left = 795
+            ExplicitLeft = 795
           end
           inherited cbSQL: TcxComboBox
             ExplicitHeight = 23
@@ -1193,19 +1192,17 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 899
         ExplicitHeight = 408
         inherited pnlCadastro: TPanel
-          Height = 406
+          Height = 408
           ExplicitHeight = 408
         end
         inline FrameProdutoGrade: TFrameProdutoGrade
           Left = 60
           Top = 0
-          Width = 843
-          Height = 406
+          Width = 839
+          Height = 408
           Align = alClient
           Color = clWindow
           Font.Charset = DEFAULT_CHARSET
@@ -1221,13 +1218,15 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
           ExplicitWidth = 839
           ExplicitHeight = 408
           inherited dxLayoutControl: TdxLayoutControl
-            Width = 843
-            Height = 406
+            Width = 839
+            Height = 408
             ExplicitWidth = 839
             ExplicitHeight = 408
-            inherited grdGrade: TcxGrid
-              Width = 250
-              ExplicitWidth = 250
+            inherited edtProdutoNome: TcxTextEdit
+              ExplicitHeight = 21
+            end
+            inherited edtIDProduto: TcxTextEdit
+              ExplicitHeight = 21
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -1252,39 +1251,41 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         end
       end
       inherited cxTabFiltro: TcxTabSheet
-        ExplicitWidth = 903
-        ExplicitHeight = 406
+        ExplicitWidth = 899
+        ExplicitHeight = 408
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 903
-          ExplicitHeight = 239
-          Height = 239
-          Width = 903
+          ExplicitWidth = 899
+          ExplicitHeight = 241
+          Height = 241
+          Width = 899
           inherited cxGridFiltro: TcxGrid
-            Height = 212
-            ExplicitHeight = 212
+            Height = 219
+            ExplicitLeft = 2
+            ExplicitTop = 20
+            ExplicitHeight = 219
           end
           inherited cxMemoFiltroSalvo: TcxMemo
-            ExplicitWidth = 515
-            ExplicitHeight = 212
-            Height = 212
-            Width = 515
+            ExplicitWidth = 513
+            ExplicitHeight = 219
+            Height = 219
+            Width = 513
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 903
-          Width = 903
+          ExplicitWidth = 899
+          Width = 899
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 333
             ExplicitHeight = 23
-            Width = 335
+            Width = 333
           end
           inherited rgFiltroAndOr: TcxRadioGroup
-            Left = 616
-            ExplicitLeft = 616
+            Left = 614
+            ExplicitLeft = 614
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 897
-            Width = 897
+            ExplicitWidth = 895
+            Width = 895
             inherited memoFiltroSQL: TcxMemo
               ExplicitWidth = 870
               Width = 870
@@ -1294,8 +1295,8 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
               Width = 870
             end
             inherited imgFiltroSQL: TcxImage
-              Left = 873
-              ExplicitLeft = 873
+              Left = 872
+              ExplicitLeft = 872
             end
           end
           inherited cbFiltroCampo: TcxComboBox
@@ -1305,15 +1306,15 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             ExplicitHeight = 23
           end
           inherited btnAdicionarFiltro: TcxButton
-            Left = 711
+            Left = 709
             ExplicitLeft = 709
           end
           inherited btnFiltroCancelar: TcxButton
-            Left = 734
+            Left = 732
             ExplicitLeft = 732
           end
           inherited btnAplicarFiltro: TcxButton
-            Width = 369
+            Width = 367
             ExplicitWidth = 367
           end
           inherited cbFiltroSQL: TcxComboBox

@@ -56,21 +56,21 @@ begin
   FrameProdutoGrade.tvGrade.DataController.GotoFirst;
   for Linha := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
   begin
-    for Coluna := 2 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
+    for Coluna := 3 to FrameProdutoGrade.tvGrade.ColumnCount -1 do
     begin
       colunaGrade := coluna;
       cadastrado := i2bGetClient('select codigo from produtograde where codigo = '+
-        FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2],DM.dspConnection);
+        FrameProdutoGrade.edtIDProduto.Text,DM.dspConnection);
       if (cadastrado.RecordCount = 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True) then
       begin
         i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo, ativo)'
-          +'values('+FrameProdutoGrade.edtIDProduto.Text+','+idCor[Linha]+','+idTamanho[ColunaGrade-2]
-          +','+FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2]+',true)',dm.dspConnection);
+          +'values('+FrameProdutoGrade.edtIDProduto.Text+','+FrameProdutoGrade.tvGradeCodCor.EditValue+','+
+          FrameProdutoGrade.tvGradeTamanhos.Tag+','+FrameProdutoGrade.edtIDProduto.Text+',true)',dm.dspConnection);
       end
       else if (cadastrado.RecordCount <> 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = false) then
       begin
         i2bExecutaSQL('update produtograde set ativo = false where codigo ='+
-          FrameProdutoGrade.edtIDProduto.Text+idCor[Linha]+idTamanho[ColunaGrade-2],DM.dspConnection);
+          FrameProdutoGrade.edtIDProduto.Text,DM.dspConnection);
       end;
     end;
     FrameProdutoGrade.tvGrade.DataController.GotoNext;

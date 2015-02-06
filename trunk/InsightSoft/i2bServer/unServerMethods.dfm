@@ -1909,6 +1909,7 @@ object ServerMethods: TServerMethods
       
         'inner join produtoTamanho on produtoGrade.idProdutoTamanho = pro' +
         'dutoTamanho.idprodutoTamanho'
+      'where ativo = true'
       'order by idProdutoGrade limit 0')
     Left = 264
     Top = 480
@@ -1929,10 +1930,13 @@ object ServerMethods: TServerMethods
       FieldName = 'idprodutotamanho'
       Origin = 'idprodutotamanho'
     end
-    object qryProdutoGradecodigo: TWideStringField
+    object qryProdutoGradecodigo: TIntegerField
       FieldName = 'codigo'
       Origin = 'codigo'
-      Size = 50
+    end
+    object qryProdutoGradeativo: TBooleanField
+      FieldName = 'ativo'
+      Origin = 'ativo'
     end
     object qryProdutoGradeprodutonome: TWideStringField
       AutoGenerateValue = arDefault

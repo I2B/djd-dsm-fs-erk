@@ -71,8 +71,6 @@ begin
 
     while not(cdsProdutoTamanho.Eof) do
     begin
-//      coluna := tvGrade.CreateColumn;
-//      coluna.Caption := cdsProdutoTamanho.FieldByName('idprodutotamanho').AsInteger;
       coluna := tvGrade.CreateColumn;
       coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
       coluna.Tag := cdsProdutoTamanho.FieldByName('idprodutotamanho').AsInteger;
@@ -84,7 +82,7 @@ begin
       cdsProdutoTamanho.Next;
     end;
 
-    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor', DM.dspConnection);
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor desc', DM.dspConnection);
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
@@ -114,7 +112,7 @@ begin
       cdsProdutoTamanho.Next;
     end;
 
-    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor', DM.dspConnection);
+    cdsProdutoCor := i2bGetClient ('select * from produtoCor order by idprodutocor desc', DM.dspConnection);
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
