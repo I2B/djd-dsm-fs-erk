@@ -3627,6 +3627,7 @@ object DM: TDM
     end
     object cdsProdutoSubGrupogruponome: TWideStringField
       FieldName = 'gruponome'
+      ProviderFlags = []
       Size = 100
     end
   end

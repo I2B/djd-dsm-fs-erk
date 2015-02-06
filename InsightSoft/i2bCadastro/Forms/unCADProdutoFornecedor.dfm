@@ -1648,8 +1648,6 @@ inherited frmCADProdutoFornecedor: TfrmCADProdutoFornecedor
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 764
         ExplicitHeight = 362
         inherited pnlCadastro: TPanel
