@@ -9,7 +9,8 @@ uses
   cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinscxPCPainter, cxCustomData, Data.DB,
   cxDBData, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridLevel, cxGridChartView,
-  cxGridDBChartView, cxGridCustomView, cxGrid, Datasnap.DBClient, Vcl.StdCtrls, dxCustomTileControl, dxTileControl;
+  cxGridDBChartView, cxGridCustomView, cxGrid, Datasnap.DBClient, Vcl.StdCtrls, dxCustomTileControl, dxTileControl,
+  Vcl.ExtCtrls;
 
 type
   TfrmCADInfo = class(TfrmBase)
@@ -29,8 +30,10 @@ type
     tileInfoBemVindoB: TdxTileControlItemFrame;
     tileInfoBemVindoC: TdxTileControlItemFrame;
     tileInfoBemVindoD: TdxTileControlItemFrame;
+    TimerHora: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TimerHoraTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -141,6 +144,12 @@ begin
   finally
     FreeAndNil(cdsBuscaDados);
   end;
+end;
+
+procedure TfrmCADInfo.TimerHoraTimer(Sender: TObject);
+begin
+  inherited;
+  tileInfoBemVindoB.Text4.Value := TimeToStr(now);
 end;
 
 end.
