@@ -49,6 +49,10 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
         OptionsData.Inserting = False
         OptionsView.ColumnAutoWidth = True
         OptionsView.GroupByBox = False
+        object tvGradeCodCor: TcxGridColumn
+          DataBinding.ValueType = 'Integer'
+          Visible = False
+        end
         object tvGradeTamanhos: TcxGridColumn
           Caption = 'Tamanhos'
           FooterAlignmentHorz = taCenter

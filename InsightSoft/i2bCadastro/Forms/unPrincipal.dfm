@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Insight To Business'
   ClientHeight = 740
   ClientWidth = 1024
-  Color = clWhite
+  Color = clAppWorkSpace
   Ctl3D = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

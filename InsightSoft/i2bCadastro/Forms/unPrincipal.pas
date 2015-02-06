@@ -318,7 +318,6 @@ end;
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
   frmCADInfo := TfrmCADInfo.Create(Application);
-  frmCADInfo.VGUSUARIOLOGADO := VGUSUARIO;
 end;
 
 procedure TfrmPrincipal.btnICMSClick(Sender: TObject);

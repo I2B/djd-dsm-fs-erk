@@ -1073,6 +1073,143 @@ inherited frmCADInfo: TfrmCADInfo
       GridView = chartComposicao
     end
   end
+  object tileInfo: TdxTileControl [1]
+    Left = 760
+    Top = 0
+    Width = 264
+    Height = 565
+    Align = alRight
+    OptionsView.IndentHorz = 5
+    OptionsView.IndentVert = 5
+    TabOrder = 5
+    object tileInfoGroup1: TdxTileControlGroup
+      Index = 0
+    end
+    object tileInfoBemVindo: TdxTileControlItem
+      AnimationInterval = 6000
+      AnimationMode = amFade
+      GroupIndex = 0
+      IndexInGroup = 0
+      Size = tcisLarge
+      Style.BorderColor = 28906
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clDefault
+      Style.Font.Height = -11
+      Style.Font.Name = 'Segoe UI Light'
+      Style.Font.Style = []
+      Style.GradientBeginColor = 28906
+      Style.GradientEndColor = 28906
+      Text1.AssignedValues = []
+      Text2.AssignedValues = []
+      Text3.AssignedValues = []
+      Text4.AssignedValues = []
+      object tileInfoBemVindoA: TdxTileControlItemFrame
+        Text1.AssignedValues = [avFont]
+        Text1.Font.Charset = DEFAULT_CHARSET
+        Text1.Font.Color = clDefault
+        Text1.Font.Height = -21
+        Text1.Font.Name = 'Segoe UI Light'
+        Text1.Font.Style = []
+        Text1.Value = 'Algo'
+        Text2.AssignedValues = [avFont]
+        Text2.Font.Charset = DEFAULT_CHARSET
+        Text2.Font.Color = clDefault
+        Text2.Font.Height = -21
+        Text2.Font.Name = 'Segoe UI Light'
+        Text2.Font.Style = []
+        Text3.AssignedValues = [avFont]
+        Text3.Font.Charset = DEFAULT_CHARSET
+        Text3.Font.Color = clDefault
+        Text3.Font.Height = -21
+        Text3.Font.Name = 'Segoe UI Light'
+        Text3.Font.Style = []
+        Text4.AssignedValues = [avFont]
+        Text4.Font.Charset = DEFAULT_CHARSET
+        Text4.Font.Color = clDefault
+        Text4.Font.Height = -21
+        Text4.Font.Name = 'Segoe UI Light'
+        Text4.Font.Style = []
+      end
+      object tileInfoBemVindoB: TdxTileControlItemFrame
+        Text1.AssignedValues = [avFont]
+        Text1.Font.Charset = DEFAULT_CHARSET
+        Text1.Font.Color = clDefault
+        Text1.Font.Height = -21
+        Text1.Font.Name = 'Segoe UI Light'
+        Text1.Font.Style = []
+        Text2.AssignedValues = [avFont]
+        Text2.Font.Charset = DEFAULT_CHARSET
+        Text2.Font.Color = clDefault
+        Text2.Font.Height = -21
+        Text2.Font.Name = 'Segoe UI Light'
+        Text2.Font.Style = []
+        Text3.AssignedValues = [avFont]
+        Text3.Font.Charset = DEFAULT_CHARSET
+        Text3.Font.Color = clDefault
+        Text3.Font.Height = -21
+        Text3.Font.Name = 'Segoe UI Light'
+        Text3.Font.Style = []
+        Text4.AssignedValues = [avFont]
+        Text4.Font.Charset = DEFAULT_CHARSET
+        Text4.Font.Color = clDefault
+        Text4.Font.Height = -21
+        Text4.Font.Name = 'Segoe UI Light'
+        Text4.Font.Style = []
+      end
+      object tileInfoBemVindoC: TdxTileControlItemFrame
+        Text1.AssignedValues = [avFont]
+        Text1.Font.Charset = DEFAULT_CHARSET
+        Text1.Font.Color = clDefault
+        Text1.Font.Height = -13
+        Text1.Font.Name = 'Segoe UI Light'
+        Text1.Font.Style = []
+        Text2.AssignedValues = [avFont]
+        Text2.Font.Charset = DEFAULT_CHARSET
+        Text2.Font.Color = clDefault
+        Text2.Font.Height = -13
+        Text2.Font.Name = 'Segoe UI Light'
+        Text2.Font.Style = []
+        Text3.AssignedValues = [avFont]
+        Text3.Font.Charset = DEFAULT_CHARSET
+        Text3.Font.Color = clDefault
+        Text3.Font.Height = -13
+        Text3.Font.Name = 'Segoe UI Light'
+        Text3.Font.Style = []
+        Text4.AssignedValues = [avFont]
+        Text4.Font.Charset = DEFAULT_CHARSET
+        Text4.Font.Color = clDefault
+        Text4.Font.Height = -13
+        Text4.Font.Name = 'Segoe UI Light'
+        Text4.Font.Style = []
+      end
+      object tileInfoBemVindoD: TdxTileControlItemFrame
+        Text1.AssignedValues = [avFont]
+        Text1.Font.Charset = DEFAULT_CHARSET
+        Text1.Font.Color = clDefault
+        Text1.Font.Height = -21
+        Text1.Font.Name = 'Segoe UI Light'
+        Text1.Font.Style = []
+        Text2.AssignedValues = [avFont]
+        Text2.Font.Charset = DEFAULT_CHARSET
+        Text2.Font.Color = clDefault
+        Text2.Font.Height = -21
+        Text2.Font.Name = 'Segoe UI Light'
+        Text2.Font.Style = []
+        Text3.AssignedValues = [avFont]
+        Text3.Font.Charset = DEFAULT_CHARSET
+        Text3.Font.Color = clDefault
+        Text3.Font.Height = -21
+        Text3.Font.Name = 'Segoe UI Light'
+        Text3.Font.Style = []
+        Text4.AssignedValues = [avFont]
+        Text4.Font.Charset = DEFAULT_CHARSET
+        Text4.Font.Color = clDefault
+        Text4.Font.Height = -29
+        Text4.Font.Name = 'Segoe UI Light'
+        Text4.Font.Style = []
+      end
+    end
+  end
   inherited cxHintStyleController: TcxHintStyleController
     Left = 326
     Top = 166

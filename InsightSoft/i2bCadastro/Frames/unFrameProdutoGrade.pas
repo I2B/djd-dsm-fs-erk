@@ -33,6 +33,7 @@ type
     cxStyleRepository: TcxStyleRepository;
     cxStyle1: TcxStyle;
     tvGradeColumn1: TcxGridColumn;
+    tvGradeCodCor: TcxGridColumn;
     procedure cxDBTextEdit1PropertiesChange(Sender: TObject);
   private
     { Private declarations }
@@ -70,10 +71,11 @@ begin
 
     while not(cdsProdutoTamanho.Eof) do
     begin
-      SetLength(idTamanho, length(idTamanho)+1);
-      idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
+//      coluna := tvGrade.CreateColumn;
+//      coluna.Caption := cdsProdutoTamanho.FieldByName('idprodutotamanho').AsInteger;
       coluna := tvGrade.CreateColumn;
       coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+      coluna.Tag := cdsProdutoTamanho.FieldByName('idprodutotamanho').AsInteger;
       coluna.PropertiesClassName := 'TcxCheckBoxProperties';
       coluna.Properties := tvGradeColumn1.Properties;
       coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
@@ -86,10 +88,9 @@ begin
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
-      SetLength(idCor, length(idCor)+1);
-      idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
+      tvGradeCodCor.EditValue := cdsProdutoCor.FieldByName('idprodutocor').AsInteger;
       tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
-      for I := 2 to tvGrade.ColumnCount - 1 do
+      for I := 3 to tvGrade.ColumnCount - 1 do
       begin
         tvGrade.Columns[I].EditValue := False;
       end;
@@ -102,10 +103,9 @@ begin
 
     while not(cdsProdutoTamanho.Eof) do
     begin
-      SetLength(idTamanho, length(idTamanho)+1);
-      idTamanho[length(idTamanho)-1] := cdsProdutoTamanho.FieldByName('idProdutoTamanho').AsString;
       coluna := tvGrade.CreateColumn;
       coluna.Caption := cdsProdutoTamanho.FieldByName('codigo').AsString;
+      coluna.Tag := cdsProdutoTamanho.FieldByName('idprodutotamanho').AsInteger;
       coluna.PropertiesClassName := 'TcxCheckBoxProperties';
       coluna.Properties := tvGradeColumn1.Properties;
       coluna.DataBinding.ValueType := tvGradeColumn1.DataBinding.ValueType;
@@ -118,8 +118,7 @@ begin
     while not(cdsProdutoCor.Eof) do
     begin
       tvGrade.DataController.Insert;
-      SetLength(idCor, length(idCor)+1);
-      idCor[length(idCor)-1] := cdsProdutoCor.FieldByName('idProdutoCor').AsString;
+      tvGradeCodCor.EditValue := cdsProdutoCor.FieldByName('idprodutocor').AsInteger;
       tvGradeTamanhos.EditValue := cdsProdutoCor.FieldByName('nome').AsString;
       cdsProdutoTamanho.First;
       while not cdsProdutoTamanho.Eof do
@@ -152,11 +151,11 @@ begin
     tvGrade.DataController.MultiSelect := False;
   end;
 
-  if tvGrade.ColumnCount > 2 then
+  if tvGrade.ColumnCount > 3 then
   begin
-    while tvGrade.ColumnCount > 2 do
+    while tvGrade.ColumnCount > 3 do
     begin
-      tvGrade.Columns[2].Destroy;
+      tvGrade.Columns[3].Destroy;
     end;
   end;
   idCor := 0;
