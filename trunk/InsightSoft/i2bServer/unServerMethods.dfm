@@ -5343,9 +5343,10 @@ object ServerMethods: TServerMethods
   object qryProdutoSubGrupo: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      
-        'select produtoSubGrupo.*, produtoGrupo.nome as grupoNome from pr' +
-        'odutoSubGrupo '
+      'select produtoSubGrupo.*, '
+      'produtoGrupo.nome as grupoNome '
+      ''
+      'from produtoSubGrupo '
       
         'inner join produtoGrupo on produtoSubGrupo.idGrupoProdutos = pro' +
         'dutoGrupo.idGrupoProdutos'
@@ -5375,6 +5376,7 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'gruponome'
       Origin = 'gruponome'
+      ProviderFlags = []
       Size = 100
     end
   end

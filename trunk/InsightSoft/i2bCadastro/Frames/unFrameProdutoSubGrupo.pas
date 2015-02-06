@@ -13,19 +13,22 @@ uses
   dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp,
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
-  Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxMemo, cxDBEdit;
+  Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxMemo, cxDBEdit,
+  cxCurrencyEdit;
 
 type
   TFrameProdutoSubGrupo = class(TFramePai)
-    edtProdutoGrupo: TcxDBTextEdit;
-    dxLayoutControlItem1: TdxLayoutItem;
     edtProdutoSubGrupoNome: TcxDBTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
     edtProdutoSubGrupoDescricao: TcxDBMemo;
     dxLayoutControlItem3: TdxLayoutItem;
-    cxTextEdit1: TcxTextEdit;
+    edtGrupo: TcxDBTextEdit;
     dxLayoutControlItem4: TdxLayoutItem;
     dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    edtIDGrupo: TcxDBCurrencyEdit;
+    dxLayoutControlItem5: TdxLayoutItem;
+    procedure edtIDGrupoExit(Sender: TObject);
+    procedure edtIDGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -39,6 +42,30 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD, unI2BFuncoes;
+
+procedure TFrameProdutoSubGrupo.edtIDGrupoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDGrupo.EditValue>0 then
+  begin
+    DM.cdsProdutoSubGruponome.AsString:= i2bGetValor('grupo', 'idgrupo', edtIDGrupo.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoSubGruponome.AsString='' then
+    begin
+      MessageDlg('O grupo não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDGrupo.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoSubGrupo.edtIDGrupoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupo|nome', 'nome',
+      'idGrupo|nome', 'ID|Grupo', 'Grupo', '', DM.conServer, 'FrameGrupo', DM.cdsProdutoSubGrupo);
+  end;
+end;
 
 end.

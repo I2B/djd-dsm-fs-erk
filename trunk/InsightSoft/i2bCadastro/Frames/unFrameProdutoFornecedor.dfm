@@ -48,6 +48,9 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
       Top = 33
       DataBinding.DataField = 'idproduto'
       DataBinding.DataSource = DataSource
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -61,10 +64,15 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
       Top = 84
       DataBinding.DataField = 'idprodutofornecedor'
       DataBinding.DataSource = DataSource
+      Properties.DecimalPlaces = 0
+      Properties.DisplayFormat = '0'
+      Properties.EditFormat = '0'
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
+      OnExit = edtIDFornecedorExit
+      OnKeyDown = edtIDFornecedorKeyDown
       Width = 121
     end
     object edtProduto: TcxDBTextEdit [5]
@@ -129,7 +137,7 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
     end
     object dxLayoutControlItem8: TdxLayoutItem
       Parent = dxLayoutControlGroup2
-      CaptionOptions.Text = 'ID Produto'
+      CaptionOptions.Text = 'ID Produto [F4]'
       CaptionOptions.Layout = clTop
       Control = edtIDProduto
       ControlOptions.ShowBorder = False
@@ -143,7 +151,7 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
     end
     object dxLayoutControlItem9: TdxLayoutItem
       Parent = dxLayoutControlGroup3
-      CaptionOptions.Text = 'ID Fornecedor'
+      CaptionOptions.Text = 'ID Fornecedor [F4]'
       CaptionOptions.Layout = clTop
       Control = edtIDFornecedor
       ControlOptions.ShowBorder = False

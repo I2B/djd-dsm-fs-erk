@@ -36,6 +36,8 @@ type
     dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
     dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
     procedure edtIDProdutoExit(Sender: TObject);
+    procedure edtIDFornecedorExit(Sender: TObject);
+    procedure edtIDFornecedorKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
@@ -51,6 +53,30 @@ implementation
 {$R *.dfm}
 
 uses unDM, unI2BBD, unI2BFuncoes;
+
+procedure TFrameProdutoFornecedor.edtIDFornecedorExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDFornecedor.EditValue>0 then
+  begin
+    DM.cdsProdutoFornecedorfornecedornome.AsString:= i2bGetValor('pessoa', 'idproduto', edtIDProduto.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoFornecedorprodutonome.AsString='' then
+    begin
+      MessageDlg('O produto não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDProduto.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoFornecedor.edtIDFornecedorKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDFornecedor, edtFornecedor, 'Selecione o fornecedor.', 'idPessoa|nome', 'nome',
+      'idPessoa|nome', 'ID|Fornecedor', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsProdutoFornecedor);
+  end;
+end;
 
 procedure TFrameProdutoFornecedor.edtIDProdutoExit(Sender: TObject);
 begin
@@ -71,8 +97,8 @@ begin
   inherited;
   if Key = VK_F2 then
   begin
-    i2bF2(edtIDFornecedor, edtFornecedor, 'Selecione o fornecedor.', 'idPessoa|nome', 'nome',
-      'idPessoa|nome', 'ID|Fornecedor', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsProdutoFornecedor);
+    i2bF2(edtIDProduto, edtProduto, 'Selecione o produto.', 'idProduto|nome', 'nome',
+      'idProduto|nome', 'ID|Produto', 'produto', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
   end;
 end;
 
