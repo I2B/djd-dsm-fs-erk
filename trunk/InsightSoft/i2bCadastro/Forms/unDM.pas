@@ -1047,6 +1047,7 @@ type
     cdsProdutoTabelaPrecotabelapreconome: TWideStringField;
     cdsProdutoFornecedorprodutonome: TWideStringField;
     cdsProdutoFornecedorfornecedornome: TWideStringField;
+    cdsPessoaativo: TBooleanField;
   private
     FInstanceOwner: Boolean;
   public

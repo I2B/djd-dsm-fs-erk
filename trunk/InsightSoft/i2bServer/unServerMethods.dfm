@@ -4350,6 +4350,10 @@ object ServerMethods: TServerMethods
       FieldName = 'datacadastro'
       Origin = 'datacadastro'
     end
+    object qryPessoaativo: TBooleanField
+      FieldName = 'ativo'
+      Origin = 'ativo'
+    end
   end
   object dspNFeProdutorRuralReferenciada: TDataSetProvider
     DataSet = qryNFeProdutorRuralReferenciada
