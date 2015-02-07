@@ -63,9 +63,10 @@ begin
         FrameProdutoGrade.edtIDProduto.Text,DM.dspConnection);
       if (cadastrado.RecordCount = 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True) then
       begin
-        i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo, ativo)'
-          +'values('+FrameProdutoGrade.edtIDProduto.Text+','+FrameProdutoGrade.tvGradeCodCor.EditValue+','+
-          FrameProdutoGrade.tvGradeTamanhos.Tag+','+FrameProdutoGrade.edtIDProduto.Text+',true)',dm.dspConnection);
+        i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo)'
+          +'values('+FrameProdutoGrade.edtIDProduto.Text+','+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+','+
+           VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+','+FrameProdutoGrade.edtIDProduto.Text+
+           IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+')',dm.dspConnection);
       end
       else if (cadastrado.RecordCount <> 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = false) then
       begin

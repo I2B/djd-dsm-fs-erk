@@ -16,7 +16,7 @@ uses
   Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer, cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit,
   Datasnap.DBClient, cxCheckListBox, cxDBCheckListBox, cxListBox, cxStyles, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxNavigator, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxClasses, cxGridLevel, cxGrid,
-  cxCheckBox;
+  cxCheckBox, cxCurrencyEdit;
 
 type
   TFrameProdutoGrade = class(TFramePai)
@@ -126,11 +126,11 @@ begin
         +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString+' order by idprodutograde',dm.dspConnection);
         if carregaGrade.RecordCount = 0 then
         begin
-          tvGrade.Columns[cdsProdutoTamanho.RecNo + 1].EditValue := False;
+          tvGrade.Columns[cdsProdutoTamanho.RecNo + 2].EditValue := False;
         end
         else
         begin
-          tvGrade.Columns[cdsProdutoTamanho.RecNo + 1].EditValue := true;
+          tvGrade.Columns[cdsProdutoTamanho.RecNo + 2].EditValue := true;
         end;
         cdsProdutoTamanho.Next;
       end;
