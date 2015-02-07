@@ -5460,16 +5460,19 @@ object ServerMethods: TServerMethods
   object qryProdutoUnidadeConversao: TFDQuery
     Connection = conexao
     SQL.Strings = (
-      'select produtoUnidadeConversao.*, produto.nome as produtoNome, '
-      
-        'produtoUnidade.sigla as unidadeSigla from produtoUnidadeConversa' +
-        'o '
+      'select produtoUnidadeConversao.*, '
+      'produto.nome as produtoNome, '
+      'produtoUnidade.sigla as unidadeSigla '
+      ''
+      'from produtoUnidadeConversao '
+      ''
       
         'inner join produto on produtoUnidadeConversao.idProduto = produt' +
         'o.idProduto'
       
         'inner join produtoUnidade on produtoUnidadeConversao.idProdutoUn' +
         'idade = produtoUnidade.idProdutoUnidade'
+      ''
       'order by idProdutoUnidadeConversao limit 0')
     Left = 784
     Top = 536
@@ -5504,12 +5507,14 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'produtonome'
       Origin = 'produtonome'
+      ProviderFlags = []
       Size = 100
     end
     object qryProdutoUnidadeConversaounidadesigla: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'unidadesigla'
       Origin = 'unidadesigla'
+      ProviderFlags = []
       Size = 10
     end
   end

@@ -1004,7 +1004,7 @@ type
     qryProdutoGradeidproduto: TIntegerField;
     qryProdutoGradeidprodutocor: TIntegerField;
     qryProdutoGradeidprodutotamanho: TIntegerField;
-    qryProdutoGradecodigo: TWideStringField;
+    qryProdutoGradecodigo: TIntegerField;
     qryProdutoGradeprodutonome: TWideStringField;
     qryProdutoGradecornome: TWideStringField;
     qryProdutoGradetamanhonome: TWideStringField;

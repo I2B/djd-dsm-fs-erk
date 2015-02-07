@@ -19,13 +19,11 @@ object DM: TDM
       'DSAuthenticationUser=i2badm'
       'DSAuthenticationPassword=backdoor'
       '=')
-    Connected = True
     Left = 408
     Top = 24
   end
   object dspConnection: TDSProviderConnection
     ServerClassName = 'TServerMethods'
-    Connected = True
     SQLConnection = conServer
     Left = 496
     Top = 24
@@ -3719,10 +3717,12 @@ object DM: TDM
     end
     object cdsProdutoUnidadeConversaoprodutonome: TWideStringField
       FieldName = 'produtonome'
+      ProviderFlags = []
       Size = 100
     end
     object cdsProdutoUnidadeConversaounidadesigla: TWideStringField
       FieldName = 'unidadesigla'
+      ProviderFlags = []
       Size = 10
     end
   end
