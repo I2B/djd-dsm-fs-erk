@@ -13,7 +13,7 @@ inherited FrameProdutoSubGrupo: TFrameProdutoSubGrupo
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 2
-      Width = 121
+      Width = 357
     end
     object edtProdutoSubGrupoDescricao: TcxDBMemo [1]
       Left = 12
@@ -25,7 +25,7 @@ inherited FrameProdutoSubGrupo: TFrameProdutoSubGrupo
       Style.HotTrack = False
       TabOrder = 3
       Height = 89
-      Width = 185
+      Width = 357
     end
     object edtGrupo: TcxDBTextEdit [2]
       Left = 112
@@ -90,7 +90,7 @@ inherited FrameProdutoSubGrupo: TFrameProdutoSubGrupo
     end
     object dxLayoutControlItem5: TdxLayoutItem
       Parent = dxLayoutControlGroup1
-      CaptionOptions.Text = 'ID [F4]'
+      CaptionOptions.Text = 'ID [F2]'
       CaptionOptions.Layout = clTop
       Control = edtIDGrupo
       ControlOptions.ShowBorder = False

@@ -1089,8 +1089,6 @@ inherited frmCADProdutoSubGrupo: TfrmCADProdutoSubGrupo
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 808
         ExplicitHeight = 373
         inherited pnlCadastro: TPanel
@@ -1231,9 +1229,9 @@ inherited frmCADProdutoSubGrupo: TfrmCADProdutoSubGrupo
       Width = 816
       ExplicitWidth = 816
       inherited lblPrimeiroEdit: TLabel
-        Width = 207
-        Caption = 'edtIDGrupo|TcxDBTextEdit'
-        ExplicitWidth = 207
+        Width = 247
+        Caption = 'edtIDGrupo|TcxDBCurrencyEdit'
+        ExplicitWidth = 247
       end
       inherited lblFrame: TLabel
         Width = 196

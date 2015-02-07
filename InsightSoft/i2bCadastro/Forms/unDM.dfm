@@ -2922,6 +2922,9 @@ object DM: TDM
       FieldName = 'datacadastro'
       Origin = 'datacadastro'
     end
+    object cdsPessoaativo: TBooleanField
+      FieldName = 'ativo'
+    end
   end
   object cdsPessoaCliente: TClientDataSet
     Aggregates = <>

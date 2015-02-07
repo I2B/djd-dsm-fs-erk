@@ -1183,6 +1183,7 @@ type
     qryProdutoFornecedorprecoultimacompra: TFloatField;
     qryProdutoFornecedorprodutonome: TWideStringField;
     qryProdutoFornecedorfornecedornome: TWideStringField;
+    qryPessoaativo: TBooleanField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1328,7 +1329,7 @@ type
       ' inner join pessoa on pedidocabecalho.idpessoa = pessoa.idpessoa',' ',' order by idpedidocabecalho',' limit 0 ');
     const selectpedidoitem: array[1..5] of string = ('select pedidoitem.*, produto.nome as produtonome',
       ' from pedidoitem inner join produto on pedidoitem.idproduto = produto.idproduto',' ',' order by idpedidoitem',' limit 0 ');
-    const selectpessoa: array[1..5] of string = ('select *',' from pessoa',' ',' order by idpessoa',' limit 0 ');
+    const selectpessoa: array[1..5] of string = ('select pessoa.*',' from pessoa',' ',' order by idpessoa',' limit 0 ');
     const selectpessoacliente: array[1..5] of string = ('select *',' from pessoacliente',' where idpessoa = :idpessoa ',' ',' ');
     const selectpessoacolaborador: array[1..5] of string = ('select pessoacolaborador.*, setor.nome as setornome, '+
       ' cargo.nome as cargonome, banco.nome as banconome',' from pessoacolaborador inner join setor on pessoacolaborador.idsetor = setor.idsetor'+

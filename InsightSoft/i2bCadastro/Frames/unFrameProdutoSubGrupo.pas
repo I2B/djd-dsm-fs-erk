@@ -49,8 +49,8 @@ begin
   inherited;
   if edtIDGrupo.EditValue>0 then
   begin
-    DM.cdsProdutoSubGruponome.AsString:= i2bGetValor('grupo', 'idgrupo', edtIDGrupo.Text, 'nome', DM.dspConnection);
-	if DM.cdsProdutoSubGruponome.AsString='' then
+    DM.cdsProdutoSubGrupoGruponome.AsString:= i2bGetValor('ProdutoGrupo', 'idgrupoprodutos', edtIDGrupo.Text, 'nome', DM.dspConnection);
+	if DM.cdsProdutoSubGrupoGruponome.AsString='' then
     begin
       MessageDlg('O grupo não pode ser encontrado.', mtError, [mbOK], 0);
       edtIDGrupo.SetFocus;
@@ -63,8 +63,8 @@ begin
   inherited;
   if Key = VK_F2 then
   begin
-    i2bF2(edtIDGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupo|nome', 'nome',
-      'idGrupo|nome', 'ID|Grupo', 'Grupo', '', DM.conServer, 'FrameGrupo', DM.cdsProdutoSubGrupo);
+    i2bF2(edtIDGrupo, edtGrupo, 'Selecione o grupo.', 'idgrupoprodutos|nome', 'nome',
+      'idgrupoprodutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProdutoGrupo', DM.cdsProdutoSubGrupo);
   end;
 end;
 
