@@ -10,15 +10,11 @@ uses
   cxDBData, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridLevel, cxGridChartView,
   cxGridDBChartView, cxGridCustomView, cxGrid, Datasnap.DBClient, Vcl.StdCtrls, dxCustomTileControl, dxTileControl,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxContainer, cxLabel, cxImageComboBox, Vcl.ImgList;
 
 type
   TfrmCADInfo = class(TfrmBase)
-    grdComposicao: TcxGrid;
-    chartComposicao: TcxGridDBChartView;
-    chartComposicaoDataGroup1: TcxGridDBChartDataGroup;
-    chartComposicaoSeries1: TcxGridDBChartSeries;
-    lvlComposicao: TcxGridLevel;
     memComposicao: TFDMemTable;
     memComposicaoPessoa: TStringField;
     memComposicaoQuantidade: TIntegerField;
@@ -31,9 +27,30 @@ type
     tileInfoBemVindoC: TdxTileControlItemFrame;
     tileInfoBemVindoD: TdxTileControlItemFrame;
     TimerHora: TTimer;
+    pnlLeft: TPanel;
+    grdComposicao: TcxGrid;
+    chartComposicao: TcxGridDBChartView;
+    chartComposicaoDataGroup1: TcxGridDBChartDataGroup;
+    chartComposicaoSeries1: TcxGridDBChartSeries;
+    lvlComposicao: TcxGridLevel;
+    pnlCenter: TPanel;
+    tvPessoasRecentes: TcxGridDBTableView;
+    lvlPessoasRecentes: TcxGridLevel;
+    grdPessoasRecentes: TcxGrid;
+    cdsPessoasRecentes: TClientDataSet;
+    dtsPessoasRecentes: TDataSource;
+    cdsPessoasRecentesidpessoa: TIntegerField;
+    cdsPessoasRecentesnome: TStringField;
+    cdsPessoasRecentestipo: TIntegerField;
+    tvPessoasRecentesidpessoa: TcxGridDBColumn;
+    tvPessoasRecentesnome: TcxGridDBColumn;
+    tvPessoasRecentestipo: TcxGridDBColumn;
+    cxLabel1: TcxLabel;
+    imlTipo: TcxImageList;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure TimerHoraTimer(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -133,6 +150,50 @@ begin
         end;
         tileInfoBemVindoB.Text2.Value := DateToStr(Date);
         tileInfoBemVindoD.Text4.Value := 'Insight Soft';
+
+        //Busca últimas pessoas cadastradas e seu tipo
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 1;
+        cdsPessoasRecentesnome.AsString := '  Douglas Joel Dapper';
+        cdsPessoasRecentestipo.AsInteger := 1; //Cliente
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 2;
+        cdsPessoasRecentesnome.AsString := '  Elisandro Rodrigo Knebelkamp';
+        cdsPessoasRecentestipo.AsInteger := 2; //Fornecedor
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 3;
+        cdsPessoasRecentesnome.AsString := '  Fabio Schafer';
+        cdsPessoasRecentestipo.AsInteger := 3; //Colaborador
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 4;
+        cdsPessoasRecentesnome.AsString := '  Dinarte Schmitt Moscon';
+        cdsPessoasRecentestipo.AsInteger := 4; //Contador
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 5;
+        cdsPessoasRecentesnome.AsString := '  Sedelmo Chuck Norris';
+        cdsPessoasRecentestipo.AsInteger := 5; //Transportadora
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 6;
+        cdsPessoasRecentesnome.AsString := '  Sheldon Lee Cooper';
+        cdsPessoasRecentestipo.AsInteger := 6; //Vendedor
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 7;
+        cdsPessoasRecentesnome.AsString := '  Bob Esponja Calça Quadrada';
+        cdsPessoasRecentestipo.AsInteger := 1; //Cliente
+        cdsPessoasRecentes.Post;
+        cdsPessoasRecentes.Insert;
+        cdsPessoasRecentesidpessoa.AsInteger := 8;
+        cdsPessoasRecentesnome.AsString := '  Bruce Wayne';
+        cdsPessoasRecentestipo.AsInteger := 2; //Fornecedor
+        cdsPessoasRecentes.Post;
+
+
       end;
     except
       On E : Exception do
@@ -144,6 +205,15 @@ begin
   finally
     FreeAndNil(cdsBuscaDados);
   end;
+end;
+
+procedure TfrmCADInfo.FormResize(Sender: TObject);
+var
+  Tamanho : Integer;
+begin
+  inherited;
+  Tamanho := trunc((pnlLeft.Width + pnlCenter.Width) / 2);
+  pnlLeft.Width := Tamanho;
 end;
 
 procedure TfrmCADInfo.TimerHoraTimer(Sender: TObject);
