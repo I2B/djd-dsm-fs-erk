@@ -23,13 +23,13 @@ uses
 
 type
   TfrmCADProdutoGrade = class(TfrmCadastro)
-    FrameProdutoGrade: TFrameProdutoGrade;
     cxGridDBidproduto: TcxGridDBColumn;
     cxGridDBprodutonome: TcxGridDBColumn;
     cxGridDBcornome: TcxGridDBColumn;
     cxGridDBtamanhonome: TcxGridDBColumn;
     cxGridDBativo: TcxGridDBColumn;
     cxGridDBcodigo: TcxGridDBColumn;
+    FrameProdutoGrade: TFrameProdutoGrade;
     procedure acSalvarExecute(Sender: TObject);
   private
     { Private declarations }

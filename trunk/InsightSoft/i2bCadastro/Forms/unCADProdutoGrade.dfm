@@ -1192,6 +1192,8 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         end
       end
       inherited cxTabCadastro: TcxTabSheet
+        ExplicitLeft = 4
+        ExplicitTop = 26
         ExplicitWidth = 899
         ExplicitHeight = 408
         inherited pnlCadastro: TPanel
@@ -1214,39 +1216,31 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 60
-          ExplicitWidth = 839
-          ExplicitHeight = 408
+          ExplicitLeft = 376
+          ExplicitTop = -86
+          ExplicitWidth = 9
           inherited dxLayoutControl: TdxLayoutControl
             Width = 839
             Height = 408
-            ExplicitWidth = 839
-            ExplicitHeight = 408
-            inherited edtProdutoNome: TcxTextEdit
-              ExplicitHeight = 21
-            end
-            inherited edtIDProduto: TcxTextEdit
-              ExplicitHeight = 21
-            end
-            inherited grdGrade: TcxGrid
-              Width = 250
-              ExplicitWidth = 250
+            inherited edtIDProduto: TcxDBTextEdit
+              ExplicitWidth = 69
+              Width = 69
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
-            inherited dxLayoutControlItem2: TdxLayoutItem
+            inherited dxLayoutControlItem5: TdxLayoutItem
               Index = 1
-            end
-            inherited dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup
-              Index = 0
-              AutoCreated = True
             end
             inherited dxLayoutControlItem1: TdxLayoutItem
               Index = 0
             end
-            inherited dxLayoutControlItem5: TdxLayoutItem
+            inherited dxLayoutControlItem2: TdxLayoutItem
               Index = 1
+            end
+            inherited dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+              Index = 0
+              AutoCreated = True
             end
           end
           inherited cxStyleRepository: TcxStyleRepository
