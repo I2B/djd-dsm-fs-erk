@@ -8,29 +8,10 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
     Height = 494
     ExplicitWidth = 975
     ExplicitHeight = 494
-    object edtProdutoNome: TcxTextEdit [0]
-      Left = 140
-      Top = 33
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 1
-      Width = 445
-    end
-    object edtIDProduto: TcxTextEdit [1]
-      Left = 12
-      Top = 33
-      Properties.OnChange = cxDBTextEdit1PropertiesChange
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
-      Style.HotTrack = False
-      TabOrder = 0
-      Width = 121
-    end
-    object grdGrade: TcxGrid [2]
+    object grdGrade: TcxGrid [0]
       Left = 12
       Top = 63
-      Width = 250
+      Width = 597
       Height = 200
       TabOrder = 2
       object tvGrade: TcxGridTableView
@@ -74,32 +55,28 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
         GridView = tvGrade
       end
     end
+    object edtIDProduto: TcxDBTextEdit [1]
+      Left = 12
+      Top = 33
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 0
+      OnKeyDown = edtIDProdutoKeyDown
+      Width = 69
+    end
+    object edtProdutoNome: TcxDBTextEdit [2]
+      Left = 120
+      Top = 33
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 1
+      Width = 489
+    end
     inherited dxLayoutControlGroup_Root: TdxLayoutGroup
       CaptionOptions.Visible = False
       Index = -1
-    end
-    object dxLayoutControlItem2: TdxLayoutItem
-      Parent = dxLayoutControlGroup3
-      AlignVert = avBottom
-      CaptionOptions.Layout = clTop
-      Control = edtProdutoNome
-      ControlOptions.ShowBorder = False
-      Index = 1
-    end
-    object dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup
-      Parent = dxLayoutControlGroup_Root
-      LayoutDirection = ldHorizontal
-      Index = 0
-      AutoCreated = True
-    end
-    object dxLayoutControlItem1: TdxLayoutItem
-      Parent = dxLayoutControlGroup3
-      AlignVert = avBottom
-      CaptionOptions.Text = 'Produto'
-      CaptionOptions.Layout = clTop
-      Control = edtIDProduto
-      ControlOptions.ShowBorder = False
-      Index = 0
     end
     object dxLayoutControlItem5: TdxLayoutItem
       Parent = dxLayoutControlGroup_Root
@@ -108,6 +85,30 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       Control = grdGrade
       ControlOptions.ShowBorder = False
       Index = 1
+    end
+    object dxLayoutControlItem1: TdxLayoutItem
+      Parent = dxLayoutControlGroup1
+      AlignHorz = ahClient
+      CaptionOptions.Text = 'Produto [F2]'
+      CaptionOptions.Layout = clTop
+      Control = edtIDProduto
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutControlItem2: TdxLayoutItem
+      Parent = dxLayoutControlGroup1
+      AlignVert = avBottom
+      CaptionOptions.Text = 'cxDBTextEdit2'
+      CaptionOptions.Visible = False
+      Control = edtProdutoNome
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup
+      Parent = dxLayoutControlGroup_Root
+      LayoutDirection = ldHorizontal
+      Index = 0
+      AutoCreated = True
     end
   end
   inherited DataSource: TDataSource

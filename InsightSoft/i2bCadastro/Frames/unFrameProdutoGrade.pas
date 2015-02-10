@@ -20,11 +20,6 @@ uses
 
 type
   TFrameProdutoGrade = class(TFramePai)
-    edtProdutoNome: TcxTextEdit;
-    dxLayoutControlItem2: TdxLayoutItem;
-    dxLayoutControlGroup3: TdxLayoutAutoCreatedGroup;
-    edtIDProduto: TcxTextEdit;
-    dxLayoutControlItem1: TdxLayoutItem;
     LevelGrade: TcxGridLevel;
     grdGrade: TcxGrid;
     dxLayoutControlItem5: TdxLayoutItem;
@@ -34,7 +29,13 @@ type
     cxStyle1: TcxStyle;
     tvGradeColumn1: TcxGridColumn;
     tvGradeCodCor: TcxGridColumn;
+    edtIDProduto: TcxDBTextEdit;
+    dxLayoutControlItem1: TdxLayoutItem;
+    edtProdutoNome: TcxDBTextEdit;
+    dxLayoutControlItem2: TdxLayoutItem;
+    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
     procedure cxDBTextEdit1PropertiesChange(Sender: TObject);
+    procedure edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -52,7 +53,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unI2BBD;
+uses unDM, unI2BBD, unI2BFuncoes;
 
 procedure TFrameProdutoGrade.cxDBTextEdit1PropertiesChange(Sender: TObject);
 var
@@ -136,6 +137,16 @@ begin
       end;
       cdsProdutoCor.Next;
     end;
+  end;
+end;
+
+procedure TFrameProdutoGrade.edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDProduto, edtProdutoNome, 'Selecione o produto.', 'idProduto|nome', 'nome',
+      'idProduto|nome', 'Produto|Nome', 'produto', '', DM.conServer, 'FrameProdutoGrade', DM.cdsProduto);
   end;
 end;
 
