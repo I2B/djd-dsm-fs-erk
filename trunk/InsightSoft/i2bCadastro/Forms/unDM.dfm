@@ -4076,11 +4076,12 @@ object DM: TDM
     object cdsUnidadeNegociocnaedenominacao: TWideMemoField
       FieldName = 'cnaedenominacao'
       Origin = 'cnaedenominacao'
+      ProviderFlags = []
       BlobType = ftWideMemo
     end
-    object cdsUnidadeNegociorazaosocial: TWideStringField
-      FieldName = 'razaosocial'
-      Origin = 'razaosocial'
+    object cdsUnidadeNegocioempresarazaosocial: TWideStringField
+      FieldName = 'empresarazaosocial'
+      ProviderFlags = []
       Size = 60
     end
   end

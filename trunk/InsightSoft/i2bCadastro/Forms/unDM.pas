@@ -875,7 +875,6 @@ type
     cdsUnidadeNegociocnpj: TWideStringField;
     cdsUnidadeNegocionomefantasia: TWideStringField;
     cdsUnidadeNegociocnaedenominacao: TWideMemoField;
-    cdsUnidadeNegociorazaosocial: TWideStringField;
     cdsAuditoriaidauditoria: TIntegerField;
     cdsAuditoriadataregistro: TDateField;
     cdsAuditoriahoraregistro: TTimeField;
@@ -1048,6 +1047,7 @@ type
     cdsProdutoFornecedorprodutonome: TWideStringField;
     cdsProdutoFornecedorfornecedornome: TWideStringField;
     cdsPessoaativo: TBooleanField;
+    cdsUnidadeNegocioempresarazaosocial: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public

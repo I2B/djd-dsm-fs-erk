@@ -983,7 +983,6 @@ type
     qryUnidadeNegociocnpj: TWideStringField;
     qryUnidadeNegocionomefantasia: TWideStringField;
     qryUnidadeNegociocnaedenominacao: TWideMemoField;
-    qryUnidadeNegociorazaosocial: TWideStringField;
     qryCSTICMS: TFDQuery;
     qryCSTCSOSN: TFDQuery;
     dspCSTICMS: TDataSetProvider;
@@ -1184,6 +1183,7 @@ type
     qryProdutoFornecedorprodutonome: TWideStringField;
     qryProdutoFornecedorfornecedornome: TWideStringField;
     qryPessoaativo: TBooleanField;
+    qryUnidadeNegocioempresarazaosocial: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1399,7 +1399,7 @@ type
     const selecttipooperacao: array[1..5] of string = ('select *',' from tipooperacao',' ',' order by tipooperacao',' limit 0 ');
     const selecttipotelefone: array[1..5] of string = ('select *',' from tipotelefone',' ',' order by idtipotelefone',' limit 0 ');
     const selectunidadenegocio: array[1..5] of string = ('select unidadenegocio.*, cnae.denominacao as cnaedenominacao, '+
-      ' empresa.razaosocial',' from unidadenegocio inner join cnae on unidadenegocio.idcnae = cnae.idcnae '+
+      ' empresa.razaosocial as empresarazaosocial',' from unidadenegocio inner join cnae on unidadenegocio.idcnae = cnae.idcnae '+
       ' inner join empresa on unidadenegocio.idempresa = empresa.idempresa',' ',' order by idunidadenegocio',' limit 0 ');
     const selectcsticms: array[1..5] of string = ('select *','from csticms','','order by idcsticms',' limit 0 ');
     const selectcstcsosn: array[1..5] of string = ('select *','from cstcsosn','','order by idcstcsosn',' limit 0 ');

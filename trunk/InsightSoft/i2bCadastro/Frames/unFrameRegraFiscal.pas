@@ -14,7 +14,7 @@ uses
   dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter,
   Data.DB, dxLayoutContainer, dxLayoutControl, dxBarBuiltInMenu, cxPC, dxLayoutcxEditAdapters, cxContainer, cxEdit,
-  cxMemo, cxDBEdit, cxTextEdit, cxCheckBox;
+  cxMemo, cxDBEdit, cxTextEdit, cxCheckBox, cxCurrencyEdit;
 
 type
   TFrameRegraFiscal = class(TFramePai)
@@ -26,31 +26,9 @@ type
     dxLayoutControl1: TdxLayoutControl;
     dxLayoutControl2Group_Root: TdxLayoutGroup;
     dxLayoutControl2: TdxLayoutControl;
-    edtRazaoSocial: TcxTextEdit;
-    dxLayoutControl2Item2: TdxLayoutItem;
-    edtPaisNome: TcxTextEdit;
-    dxLayoutControl2Item3: TdxLayoutItem;
-    edtMunicipioNome: TcxTextEdit;
-    dxLayoutControl2Item4: TdxLayoutItem;
-    edtPessoaNome: TcxTextEdit;
-    dxLayoutControl2Item5: TdxLayoutItem;
-    edtTipoOperacaoDescricao: TcxTextEdit;
-    dxLayoutControl2Item6: TdxLayoutItem;
-    edtIDUnidadeNegocio: TcxDBTextEdit;
-    edtIDPais: TcxDBTextEdit;
     edtEstadp: TcxDBTextEdit;
     dxLayoutControl2Item11: TdxLayoutItem;
-    edtIDMunicipio: TcxDBTextEdit;
-    edtIDPessoa: TcxDBTextEdit;
     edtNCM: TcxDBTextEdit;
-    edtIDTipoOperacao: TcxDBTextEdit;
-    dxLayoutControl2Item10: TdxLayoutItem;
-    edtIDObservacao: TcxDBTextEdit;
-    dxLayoutControl2Item18: TdxLayoutItem;
-    dxLayoutControl2Item12: TdxLayoutItem;
-    dxLayoutControl2Item13: TdxLayoutItem;
-    dxLayoutControl2Item14: TdxLayoutItem;
-    dxLayoutControl2Item15: TdxLayoutItem;
     dxLayoutControl2Item16: TdxLayoutItem;
     edtPFICMSCST: TcxDBTextEdit;
     dxLayoutControl1Item1: TdxLayoutItem;
@@ -81,7 +59,7 @@ type
     dxLayoutControl1Item9: TdxLayoutItem;
     edtPFCOFINSAliquota: TcxDBTextEdit;
     dxLayoutControl1Item10: TdxLayoutItem;
-    cxDBCheckBox1: TcxDBCheckBox;
+    chkInativo: TcxDBCheckBox;
     dxLayoutControl2Item1: TdxLayoutItem;
     dxLayoutControl2Group1: TdxLayoutGroup;
     edtPFICMSSTPercentualReducao: TcxDBTextEdit;
@@ -201,6 +179,29 @@ type
     dxLayoutControl4Item6: TdxLayoutItem;
     dxLayoutControl3Group11: TdxLayoutGroup;
     dxLayoutControl3Group12: TdxLayoutAutoCreatedGroup;
+    edtIDUnidadeNegocio: TcxDBCurrencyEdit;
+    dxLayoutControl2Item8: TdxLayoutItem;
+    edtIDObbservacao: TcxDBCurrencyEdit;
+    dxLayoutControl2Item9: TdxLayoutItem;
+    edtIDPessoa: TcxDBCurrencyEdit;
+    dxLayoutControl2Item17: TdxLayoutItem;
+    edtIDMunicipio: TcxDBCurrencyEdit;
+    dxLayoutControl2Item19: TdxLayoutItem;
+    edtIDPais: TcxDBCurrencyEdit;
+    dxLayoutControl2Item20: TdxLayoutItem;
+    edtIDTipoOperacao: TcxDBCurrencyEdit;
+    dxLayoutControl2Item21: TdxLayoutItem;
+    dxLayoutControl2Group4: TdxLayoutAutoCreatedGroup;
+    edtPessoa: TcxDBTextEdit;
+    dxLayoutControl2Item10: TdxLayoutItem;
+    edtMunicipio: TcxDBTextEdit;
+    dxLayoutControl2Item12: TdxLayoutItem;
+    edtPais: TcxDBTextEdit;
+    dxLayoutControl2Item13: TdxLayoutItem;
+    edtTipoOperacao: TcxDBTextEdit;
+    dxLayoutControl2Item14: TdxLayoutItem;
+    edtUnidadeNegócio: TcxDBTextEdit;
+    dxLayoutControl2Item15: TdxLayoutItem;
   private
     { Private declarations }
   public
