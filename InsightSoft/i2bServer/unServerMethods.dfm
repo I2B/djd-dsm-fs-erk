@@ -6019,7 +6019,7 @@ object ServerMethods: TServerMethods
     SQL.Strings = (
       
         'select unidadeNegocio.*, cnae.denominacao as cnaeDenominacao, em' +
-        'presa.razaoSocial '
+        'presa.razaoSocial as empresarazaosocial'
       'from unidadeNegocio '
       'inner join cnae on unidadeNegocio.idCNAE = cnae.idCNAE '
       
@@ -6055,12 +6055,14 @@ object ServerMethods: TServerMethods
       AutoGenerateValue = arDefault
       FieldName = 'cnaedenominacao'
       Origin = 'cnaedenominacao'
+      ProviderFlags = []
       BlobType = ftWideMemo
     end
-    object qryUnidadeNegociorazaosocial: TWideStringField
+    object qryUnidadeNegocioempresarazaosocial: TWideStringField
       AutoGenerateValue = arDefault
-      FieldName = 'razaosocial'
-      Origin = 'razaosocial'
+      FieldName = 'empresarazaosocial'
+      Origin = 'empresarazaosocial'
+      ProviderFlags = []
       Size = 60
     end
   end

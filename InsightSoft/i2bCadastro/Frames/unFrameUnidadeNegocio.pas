@@ -19,18 +19,28 @@ uses
   dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
   dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
   dxSkinscxPCPainter, Data.DB, dxLayoutContainer, dxLayoutControl, cxContainer,
-  cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit;
+  cxEdit, dxLayoutcxEditAdapters, cxTextEdit, cxDBEdit, cxCurrencyEdit;
 
 type
   TFrameUnidadeNegocio = class(TFramePai)
-    cxDBTextEdit1: TcxDBTextEdit;
+    edtEmpresa: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
-    cxDBTextEdit2: TcxDBTextEdit;
+    edtCNAE: TcxDBTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
-    cxDBTextEdit3: TcxDBTextEdit;
-    dxLayoutControlItem3: TdxLayoutItem;
-    cxDBTextEdit4: TcxDBTextEdit;
+    edtFantasia: TcxDBTextEdit;
     dxLayoutControlItem4: TdxLayoutItem;
+    edtIDEmpresa: TcxDBCurrencyEdit;
+    dxLayoutControlItem5: TdxLayoutItem;
+    dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
+    edtIDCNAE: TcxDBCurrencyEdit;
+    dxLayoutControlItem6: TdxLayoutItem;
+    dxLayoutControlGroup2: TdxLayoutAutoCreatedGroup;
+    edtCNPJ: TcxDBCurrencyEdit;
+    dxLayoutControlItem7: TdxLayoutItem;
+    procedure edtIDCNAEExit(Sender: TObject);
+    procedure edtIDCNAEKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDEmpresaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDEmpresaExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +54,54 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unF2, unI2BFuncoes, unI2BBD;
+
+procedure TFrameUnidadeNegocio.edtIDCNAEExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDCNAE.EditValue>0 then
+  begin
+    DM.cdsUnidadeNegociocnaedenominacao.AsString:= i2bGetValor('cnae', 'idcnae', edtIDCNAE.Text, 'denominacao', DM.dspConnection);
+	if DM.cdsUnidadeNegociocnaedenominacao.AsString='' then
+    begin
+      MessageDlg('O CNAE não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDCNAE.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameUnidadeNegocio.edtIDCNAEKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDCNAE, edtCNAE, 'Selecione o CNAE.', 'idCnae', 'idCnae',
+      'idCnae|Codigo|Denominacao', 'ID|Código CNAE|Denominação', 'CNAE', '', DM.conServer, 'FrameCNAE', DM.cdsUnidadeNegocio);
+  end;
+end;
+
+procedure TFrameUnidadeNegocio.edtIDEmpresaExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDEmpresa.EditValue>0 then
+  begin
+    DM.cdsUnidadeNegocioempresarazaosocial.AsString:= i2bGetValor('empresa', 'idempresa', edtIDEmpresa.Text, 'razaosocial', DM.dspConnection);
+	if DM.cdsUnidadeNegocioempresarazaosocial.AsString='' then
+    begin
+      MessageDlg('A empresa não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDEmpresa.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameUnidadeNegocio.edtIDEmpresaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDEmpresa, edtEmpresa, 'Selecione a empresa.', 'idEmpresa', 'idEmpresa',
+      'idEmpresa|RazaoSocial|NomeFantasia', 'ID|Razão Social|Fantasia', 'Empresa', '', DM.conServer, 'FrameEmpresa', DM.cdsUnidadeNegocio);
+  end;
+end;
 
 end.

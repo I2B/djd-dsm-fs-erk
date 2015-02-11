@@ -1,4 +1,4 @@
-inherited FrameRegraFiscal: TFrameRegraFiscal
+﻿inherited FrameRegraFiscal: TFrameRegraFiscal
   Width = 1123
   Height = 521
   ExplicitWidth = 1123
@@ -12,7 +12,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       Left = 12
       Top = 12
       Width = 1098
-      Height = 453
+      Height = 437
       BiDiMode = bdRightToLeft
       Color = clBtnFace
       ParentBiDiMode = False
@@ -20,7 +20,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
       TabOrder = 0
       Properties.ActivePage = cxTabSheet1
       Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 449
+      ClientRectBottom = 433
       ClientRectLeft = 4
       ClientRectRight = 1094
       ClientRectTop = 26
@@ -31,71 +31,39 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           Left = 0
           Top = 0
           Width = 1090
-          Height = 423
+          Height = 407
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          object edtIDMunicipio: TcxDBTextEdit
-            Left = 12
-            Top = 186
-            DataBinding.DataField = 'idmunicipio'
-            DataBinding.DataSource = DataSource
+          object edtEstadp: TcxDBTextEdit
+            Left = 983
+            Top = 135
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 7
-            Width = 108
+            TabOrder = 6
+            Width = 95
           end
-          object edtIDPessoa: TcxDBTextEdit
-            Left = 12
+          object edtNCM: TcxDBTextEdit
+            Left = 979
             Top = 237
-            DataBinding.DataField = 'idpessoa'
-            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 9
-            Width = 108
+            TabOrder = 11
+            Width = 99
           end
-          object edtIDObservacao: TcxDBTextEdit
-            Left = 12
+          object cxDBMemo1: TcxDBMemo
+            Left = 159
             Top = 288
-            DataBinding.DataField = 'idregrafiscalobservacao'
-            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 12
-            Width = 108
+            TabOrder = 14
+            Height = 81
+            Width = 866
           end
-          object edtMunicipioNome: TcxTextEdit
-            Left = 127
-            Top = 186
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 8
-            Width = 951
-          end
-          object edtPessoaNome: TcxTextEdit
-            Left = 126
-            Top = 237
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 10
-            Width = 854
-          end
-          object edtRazaoSocial: TcxTextEdit
-            Left = 127
-            Top = 33
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 1
-            Width = 801
-          end
-          object edtIDUnidadeNegocio: TcxDBTextEdit
+          object edtIDUnidadeNegocio: TcxDBCurrencyEdit
             Left = 12
             Top = 33
             DataBinding.DataField = 'idunidadenegocio'
@@ -104,38 +72,9 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 0
-            Width = 91
+            Width = 140
           end
-          object edtIDPais: TcxDBTextEdit
-            Left = 12
-            Top = 135
-            DataBinding.DataField = 'idpais'
-            DataBinding.DataSource = DataSource
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 4
-            Width = 108
-          end
-          object edtPaisNome: TcxTextEdit
-            Left = 127
-            Top = 135
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 5
-            Width = 897
-          end
-          object edtEstadp: TcxDBTextEdit
-            Left = 1029
-            Top = 135
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 6
-            Width = 49
-          end
-          object edtIDTipoOperacao: TcxDBTextEdit
+          object edtIDTipoOperacao: TcxDBCurrencyEdit
             Left = 12
             Top = 84
             DataBinding.DataField = 'idtipooperacao'
@@ -144,29 +83,55 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 2
-            Width = 93
+            Width = 140
           end
-          object edtTipoOperacaoDescricao: TcxTextEdit
-            Left = 127
-            Top = 84
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 3
-            Width = 817
-          end
-          object edtNCM: TcxDBTextEdit
-            Left = 980
-            Top = 237
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 11
-            Width = 99
-          end
-          object cxDBCheckBox1: TcxDBCheckBox
+          object edtIDPais: TcxDBCurrencyEdit
             Left = 12
-            Top = 363
+            Top = 135
+            DataBinding.DataField = 'idpais'
+            DataBinding.DataSource = DataSource
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 4
+            Width = 140
+          end
+          object edtIDMunicipio: TcxDBCurrencyEdit
+            Left = 12
+            Top = 186
+            DataBinding.DataField = 'idmunicipio'
+            DataBinding.DataSource = DataSource
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 7
+            Width = 140
+          end
+          object edtIDPessoa: TcxDBCurrencyEdit
+            Left = 12
+            Top = 237
+            DataBinding.DataField = 'idpessoa'
+            DataBinding.DataSource = DataSource
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 9
+            Width = 140
+          end
+          object edtIDObbservacao: TcxDBCurrencyEdit
+            Left = 12
+            Top = 288
+            DataBinding.DataField = 'idregrafiscalobservacao'
+            DataBinding.DataSource = DataSource
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 12
+            Width = 140
+          end
+          object chkInativo: TcxDBCheckBox
+            Left = 12
+            Top = 346
             Caption = 'Inativo'
             DataBinding.DataField = 'inativo'
             DataBinding.DataSource = DataSource
@@ -174,18 +139,53 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 14
-            Width = 632
+            TabOrder = 13
+            Width = 140
           end
-          object cxDBMemo1: TcxDBMemo
-            Left = 127
-            Top = 267
+          object edtUnidadeNegócio: TcxDBTextEdit
+            Left = 159
+            Top = 33
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 13
-            Height = 89
-            Width = 951
+            TabOrder = 1
+            Width = 121
+          end
+          object edtTipoOperacao: TcxDBTextEdit
+            Left = 159
+            Top = 84
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 3
+            Width = 121
+          end
+          object edtPais: TcxDBTextEdit
+            Left = 159
+            Top = 135
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 5
+            Width = 121
+          end
+          object edtMunicipio: TcxDBTextEdit
+            Left = 159
+            Top = 186
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 8
+            Width = 121
+          end
+          object edtPessoa: TcxDBTextEdit
+            Left = 159
+            Top = 237
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 10
+            Width = 121
           end
           object dxLayoutControl2Group_Root: TdxLayoutGroup
             AlignHorz = ahClient
@@ -196,60 +196,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             ShowBorder = False
             Index = -1
           end
-          object dxLayoutControl2Item14: TdxLayoutItem
-            Parent = dxLayoutControl2Group3
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Munic'#237'pio'
-            CaptionOptions.Layout = clTop
-            Control = edtIDMunicipio
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item15: TdxLayoutItem
-            Parent = dxLayoutControl2Group6
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Pessoa'
-            CaptionOptions.Layout = clTop
-            Control = edtIDPessoa
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item18: TdxLayoutItem
-            Parent = dxLayoutControl2Group2
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Observa'#231#227'o'
-            CaptionOptions.Layout = clTop
-            Control = edtIDObservacao
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item4: TdxLayoutItem
-            Parent = dxLayoutControl2Group3
-            AlignHorz = ahClient
-            AlignVert = avBottom
-            CaptionOptions.Layout = clTop
-            Control = edtMunicipioNome
-            ControlOptions.ShowBorder = False
-            Index = 1
-          end
-          object dxLayoutControl2Item5: TdxLayoutItem
-            Parent = dxLayoutControl2Group6
-            AlignHorz = ahClient
-            AlignVert = avBottom
-            CaptionOptions.Layout = clTop
-            Control = edtPessoaNome
-            ControlOptions.ShowBorder = False
-            Index = 1
-          end
-          object dxLayoutControl2Item2: TdxLayoutItem
-            Parent = dxLayoutControl2Group8
-            AlignHorz = ahClient
-            AlignVert = avBottom
-            CaptionOptions.Layout = clTop
-            Control = edtRazaoSocial
-            ControlOptions.ShowBorder = False
-            Index = 1
-          end
           object dxLayoutControl2Group8: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
             AlignHorz = ahClient
@@ -257,18 +203,6 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             ButtonOptions.Buttons = <>
             LayoutDirection = ldHorizontal
             ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item12: TdxLayoutItem
-            Parent = dxLayoutControl2Group8
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Unidade Negocio'
-            CaptionOptions.Layout = clTop
-            SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-            SizeOptions.SizableHorz = True
-            SizeOptions.SizableVert = True
-            Control = edtIDUnidadeNegocio
-            ControlOptions.ShowBorder = False
             Index = 0
           end
           object dxLayoutControl2Group5: TdxLayoutGroup
@@ -280,30 +214,9 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             ShowBorder = False
             Index = 2
           end
-          object dxLayoutControl2Item13: TdxLayoutItem
-            Parent = dxLayoutControl2Group5
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Pa'#237's'
-            CaptionOptions.Layout = clTop
-            SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-            SizeOptions.SizableHorz = True
-            SizeOptions.SizableVert = True
-            Control = edtIDPais
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item3: TdxLayoutItem
-            Parent = dxLayoutControl2Group5
-            AlignHorz = ahClient
-            AlignVert = avBottom
-            CaptionOptions.Layout = clTop
-            Control = edtPaisNome
-            ControlOptions.ShowBorder = False
-            Index = 1
-          end
           object dxLayoutControl2Item11: TdxLayoutItem
             Parent = dxLayoutControl2Group5
-            AlignHorz = ahClient
+            AlignHorz = ahRight
             CaptionOptions.Text = 'Estado'
             CaptionOptions.Layout = clTop
             Control = edtEstadp
@@ -313,6 +226,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object dxLayoutControl2Group3: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
             AlignHorz = ahClient
+            CaptionOptions.Visible = False
             ButtonOptions.Buttons = <>
             LayoutDirection = ldHorizontal
             ShowBorder = False
@@ -321,6 +235,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object dxLayoutControl2Group6: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
             AlignHorz = ahClient
+            CaptionOptions.Visible = False
             ButtonOptions.Buttons = <>
             LayoutDirection = ldHorizontal
             ShowBorder = False
@@ -329,6 +244,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object dxLayoutControl2Group2: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
             AlignHorz = ahClient
+            CaptionOptions.Visible = False
             ButtonOptions.Buttons = <>
             LayoutDirection = ldHorizontal
             ShowBorder = False
@@ -337,35 +253,15 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           object dxLayoutControl2Group7: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
             AlignHorz = ahClient
+            CaptionOptions.Visible = False
             ButtonOptions.Buttons = <>
             LayoutDirection = ldHorizontal
             ShowBorder = False
             Index = 1
           end
-          object dxLayoutControl2Item10: TdxLayoutItem
-            Parent = dxLayoutControl2Group7
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'Tipo Opera'#231#227'o'
-            CaptionOptions.Layout = clTop
-            SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-            SizeOptions.SizableHorz = True
-            SizeOptions.SizableVert = True
-            Control = edtIDTipoOperacao
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
-          object dxLayoutControl2Item6: TdxLayoutItem
-            Parent = dxLayoutControl2Group7
-            AlignHorz = ahClient
-            AlignVert = avBottom
-            CaptionOptions.Layout = clTop
-            Control = edtTipoOperacaoDescricao
-            ControlOptions.ShowBorder = False
-            Index = 1
-          end
           object dxLayoutControl2Item16: TdxLayoutItem
             Parent = dxLayoutControl2Group6
-            AlignHorz = ahClient
+            AlignHorz = ahRight
             AlignVert = avBottom
             CaptionOptions.Text = 'NCM'
             CaptionOptions.Layout = clTop
@@ -373,17 +269,9 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             ControlOptions.ShowBorder = False
             Index = 2
           end
-          object dxLayoutControl2Item1: TdxLayoutItem
-            Parent = dxLayoutControl2Group1
-            AlignHorz = ahClient
-            CaptionOptions.Text = 'cxDBCheckBox1'
-            CaptionOptions.Visible = False
-            Control = cxDBCheckBox1
-            ControlOptions.ShowBorder = False
-            Index = 0
-          end
           object dxLayoutControl2Group1: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
+            CaptionOptions.Visible = False
             ButtonOptions.Buttons = <>
             ShowBorder = False
             Index = 6
@@ -392,8 +280,126 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
             Parent = dxLayoutControl2Group2
             AlignHorz = ahClient
             AlignVert = avBottom
+            CaptionOptions.Text = 'Observa'#231#227'o'
             CaptionOptions.Layout = clTop
             Control = cxDBMemo1
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Item8: TdxLayoutItem
+            Parent = dxLayoutControl2Group8
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDUnidadeNegocio
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item21: TdxLayoutItem
+            Parent = dxLayoutControl2Group7
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDTipoOperacao
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item20: TdxLayoutItem
+            Parent = dxLayoutControl2Group5
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDPais
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item19: TdxLayoutItem
+            Parent = dxLayoutControl2Group3
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDMunicipio
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item17: TdxLayoutItem
+            Parent = dxLayoutControl2Group6
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDPessoa
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item9: TdxLayoutItem
+            Parent = dxLayoutControl2Group4
+            AlignVert = avTop
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDObbservacao
+            ControlOptions.ShowBorder = False
+            Index = 0
+          end
+          object dxLayoutControl2Item1: TdxLayoutItem
+            Parent = dxLayoutControl2Group4
+            AlignVert = avBottom
+            CaptionOptions.Text = 'cxDBCheckBox1'
+            CaptionOptions.Visible = False
+            Control = chkInativo
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Group4: TdxLayoutAutoCreatedGroup
+            Parent = dxLayoutControl2Group2
+            Index = 0
+            AutoCreated = True
+          end
+          object dxLayoutControl2Item15: TdxLayoutItem
+            Parent = dxLayoutControl2Group8
+            AlignHorz = ahClient
+            AlignVert = avBottom
+            CaptionOptions.Text = 'Unidade Neg'#243'cio'
+            CaptionOptions.Layout = clTop
+            Control = edtUnidadeNegócio
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Item14: TdxLayoutItem
+            Parent = dxLayoutControl2Group7
+            AlignHorz = ahClient
+            AlignVert = avBottom
+            CaptionOptions.Text = 'Tipo Opera'#231#227'o'
+            CaptionOptions.Layout = clTop
+            Control = edtTipoOperacao
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Item13: TdxLayoutItem
+            Parent = dxLayoutControl2Group5
+            AlignHorz = ahClient
+            CaptionOptions.Text = 'Pa'#237's'
+            CaptionOptions.Layout = clTop
+            Control = edtPais
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Item12: TdxLayoutItem
+            Parent = dxLayoutControl2Group3
+            AlignHorz = ahClient
+            AlignVert = avBottom
+            CaptionOptions.Text = 'Munic'#237'pio'
+            CaptionOptions.Layout = clTop
+            Control = edtMunicipio
+            ControlOptions.ShowBorder = False
+            Index = 1
+          end
+          object dxLayoutControl2Item10: TdxLayoutItem
+            Parent = dxLayoutControl2Group6
+            AlignHorz = ahClient
+            AlignVert = avBottom
+            CaptionOptions.Text = 'Pessoa'
+            CaptionOptions.Layout = clTop
+            Control = edtPessoa
             ControlOptions.ShowBorder = False
             Index = 1
           end
@@ -406,7 +412,7 @@ inherited FrameRegraFiscal: TFrameRegraFiscal
           Left = 0
           Top = 0
           Width = 1090
-          Height = 423
+          Height = 407
           Align = alClient
           ParentBackground = True
           TabOrder = 0
