@@ -202,6 +202,12 @@ type
     dxLayoutControl2Item14: TdxLayoutItem;
     edtUnidadeNegócio: TcxDBTextEdit;
     dxLayoutControl2Item15: TdxLayoutItem;
+    procedure edtIDUnidadeNegocioExit(Sender: TObject);
+    procedure edtIDTipoOperacaoExit(Sender: TObject);
+    procedure edtIDPaisExit(Sender: TObject);
+    procedure edtIDMunicipioExit(Sender: TObject);
+    procedure edtIDPessoaExit(Sender: TObject);
+    procedure edtIDObbservacaoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -215,6 +221,90 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, unI2BBD;
+
+procedure TFrameRegraFiscal.edtIDMunicipioExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDMunicipio.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalmunicipionome.AsString:= i2bGetValor('municipio', 'idmunicipio', edtIDMunicipio.Text, 'nome', DM.dspConnection);
+	if DM.cdsRegraFiscalmunicipionome.AsString='' then
+    begin
+      MessageDlg('O município não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDMunicipio.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDObbservacaoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDObbservacao.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalobservacao2.AsString:= i2bGetValor('regrafiscalobservacao', 'idregrafiscalobservacao', edtIDObbservacao.Text, 'observacao', DM.dspConnection);
+	if DM.cdsRegraFiscalobservacao2.AsString='' then
+    begin
+      MessageDlg('O campo não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDObbservacao.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDPaisExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDPais.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpaisnome.AsString:= i2bGetValor('pais', 'idpais', edtIDPais.Text, 'nome', DM.dspConnection);
+	if DM.cdsRegraFiscalpaisnome.AsString='' then
+    begin
+      MessageDlg('O país não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDPais.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDPessoaExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDPessoa.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpessoanome.AsString:= i2bGetValor('pessoa', 'idpessoa', edtIDPessoa.Text, 'nome', DM.dspConnection);
+	if DM.cdsRegraFiscalpessoanome.AsString='' then
+    begin
+      MessageDlg('A pessoa não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDPessoa.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDTipoOperacaoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDTipoOperacao.EditValue>0 then
+  begin
+    DM.cdsRegraFiscaltipooperacaodescricao.AsString:= i2bGetValor('tipooperacao', 'idtipoperacao', edtIDTipoOperacao.Text, 'descricao', DM.dspConnection);
+	if DM.cdsRegraFiscaltipooperacaodescricao.AsString='' then
+    begin
+      MessageDlg('O tipo de operação não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDTipoOperacao.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDUnidadeNegocioExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDUnidadeNegocio.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalnomefantasia.AsString:= i2bGetValor('unidadenegocio', 'idunidadenegocio', edtIDUnidadeNegocio.Text, 'nomefantasia', DM.dspConnection);
+	if DM.cdsRegraFiscalnomefantasia.AsString='' then
+    begin
+      MessageDlg('A unidade de negócio não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDUnidadeNegocio.SetFocus;
+    end;
+  end;
+end;
 
 end.
