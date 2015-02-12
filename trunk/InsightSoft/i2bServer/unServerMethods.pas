@@ -1011,73 +1011,6 @@ type
     qryProdutoTamanhocodigo: TWideStringField;
     qryProdutoTamanhonome: TWideStringField;
     qrySQL: TFDQuery;
-    qryRegraFiscalidregrafiscal: TIntegerField;
-    qryRegraFiscalidpessoa: TIntegerField;
-    qryRegraFiscalidregrafiscalobservacao: TIntegerField;
-    qryRegraFiscalidtipooperacao: TIntegerField;
-    qryRegraFiscalidpais: TIntegerField;
-    qryRegraFiscalidmunicipio: TIntegerField;
-    qryRegraFiscalidestado: TWideStringField;
-    qryRegraFiscalidunidadenegocio: TIntegerField;
-    qryRegraFiscalidcfop: TIntegerField;
-    qryRegraFiscalidncm: TIntegerField;
-    qryRegraFiscalpficmscst: TIntegerField;
-    qryRegraFiscalpficmsaliquota: TFloatField;
-    qryRegraFiscalpficmspercentualreducao: TFloatField;
-    qryRegraFiscalpfcsosn: TIntegerField;
-    qryRegraFiscalpfipicst: TIntegerField;
-    qryRegraFiscalpfipiclasseenquadramento: TIntegerField;
-    qryRegraFiscalpfipicodigoenquadramento: TIntegerField;
-    qryRegraFiscalpfipialiquota: TFloatField;
-    qryRegraFiscalpfpiscst: TIntegerField;
-    qryRegraFiscalpfpisaliquota: TFloatField;
-    qryRegraFiscalpfcofinscst: TIntegerField;
-    qryRegraFiscalpfcofinsaliquota: TFloatField;
-    qryRegraFiscalpfissaliquota: TIntegerField;
-    qryRegraFiscalpfisspercentualreducao: TFloatField;
-    qryRegraFiscalpfmovimentaestoque: TBooleanField;
-    qryRegraFiscalpfcontrolaparcelas: TBooleanField;
-    qryRegraFiscalpfadicionaipibcicms: TBooleanField;
-    qryRegraFiscalpfadicionafretebcicms: TBooleanField;
-    qryRegraFiscalpfadicionasegurobcicms: TBooleanField;
-    qryRegraFiscalpfadicionaoutrasdespesasbcicms: TBooleanField;
-    qryRegraFiscalpjicmsaliquota: TFloatField;
-    qryRegraFiscalpjicmspercentualreducao: TFloatField;
-    qryRegraFiscalpjicmsstaliquota: TFloatField;
-    qryRegraFiscalpjicmsstmva: TFloatField;
-    qryRegraFiscalpjicmsstpercentualreducao: TFloatField;
-    qryRegraFiscalpjcsosn: TIntegerField;
-    qryRegraFiscalpjipicst: TIntegerField;
-    qryRegraFiscalpjipiclasseenquadramento: TIntegerField;
-    qryRegraFiscalpjipicodigoenquadramento: TIntegerField;
-    qryRegraFiscalpjipialiquota: TFloatField;
-    qryRegraFiscalpjpiscst: TIntegerField;
-    qryRegraFiscalpjpisaliquota: TFloatField;
-    qryRegraFiscalpjpisaliquotast: TFloatField;
-    qryRegraFiscalpjcofinscst: TIntegerField;
-    qryRegraFiscalpjcofinsaliquota: TFloatField;
-    qryRegraFiscalpjcofinsaliquotast: TFloatField;
-    qryRegraFiscalpjissaliquota: TFloatField;
-    qryRegraFiscalpjissreducaobc: TFloatField;
-    qryRegraFiscalpjissretencao: TFloatField;
-    qryRegraFiscalpjirretencao: TFloatField;
-    qryRegraFiscalpjpisretencao: TFloatField;
-    qryRegraFiscalpjcofinsretencao: TFloatField;
-    qryRegraFiscalpjcsllretencao: TFloatField;
-    qryRegraFiscalpjinssretencao: TFloatField;
-    qryRegraFiscalpjmovimentaestoque: TBooleanField;
-    qryRegraFiscalpjcontrolaparcelas: TBooleanField;
-    qryRegraFiscalpjadicionaipibcicms: TBooleanField;
-    qryRegraFiscalpjadicionafretebcicms: TBooleanField;
-    qryRegraFiscalpjadicionasegurobcicms: TBooleanField;
-    qryRegraFiscalpjadicionaoutrasdespesasbcicms: TBooleanField;
-    qryRegraFiscalinativo: TBooleanField;
-    qryRegraFiscalpessoanome: TWideStringField;
-    qryRegraFiscaltipooperacaodescricao: TWideStringField;
-    qryRegraFiscalpaisnome: TWideStringField;
-    qryRegraFiscalmunicipionome: TWideStringField;
-    qryRegraFiscalnomefantasia: TWideStringField;
-    qryRegraFiscalcfopdescricao: TWideStringField;
     qryTabelaPreco: TFDQuery;
     dspTabelaPreco: TDataSetProvider;
     qryTabelaPrecoidtabelapreco: TIntegerField;
@@ -1184,6 +1117,48 @@ type
     qryProdutoFornecedorfornecedornome: TWideStringField;
     qryPessoaativo: TBooleanField;
     qryUnidadeNegocioempresarazaosocial: TWideStringField;
+    qryRegraFiscalidregrafiscal: TIntegerField;
+    qryRegraFiscalidpessoa: TIntegerField;
+    qryRegraFiscalidregrafiscalobservacao: TIntegerField;
+    qryRegraFiscalidcstpis: TIntegerField;
+    qryRegraFiscalidcstipi: TIntegerField;
+    qryRegraFiscalidtipooperacao: TIntegerField;
+    qryRegraFiscalidpais: TIntegerField;
+    qryRegraFiscalidmunicipio: TIntegerField;
+    qryRegraFiscalidestado: TWideStringField;
+    qryRegraFiscalidunidadenegocio: TIntegerField;
+    qryRegraFiscalidcfop: TIntegerField;
+    qryRegraFiscalidncm: TIntegerField;
+    qryRegraFiscalidcstcofins: TIntegerField;
+    qryRegraFiscalreducaoipi: TFloatField;
+    qryRegraFiscalipi: TSmallintField;
+    qryRegraFiscalreducaoicms: TFloatField;
+    qryRegraFiscalicms: TSmallintField;
+    qryRegraFiscalpis: TFloatField;
+    qryRegraFiscalretencaopis: TFloatField;
+    qryRegraFiscalcofins: TFloatField;
+    qryRegraFiscalretencaocofins: TIntegerField;
+    qryRegraFiscalativo: TBooleanField;
+    qryRegraFiscalmva: TFloatField;
+    qryRegraFiscalst: TFloatField;
+    qryRegraFiscalreducaost: TFloatField;
+    qryRegraFiscaliss: TFloatField;
+    qryRegraFiscalreducaoiss: TFloatField;
+    qryRegraFiscalcsosn: TSmallintField;
+    qryRegraFiscalcssl: TFloatField;
+    qryRegraFiscalinss: TFloatField;
+    qryRegraFiscalir: TSmallintField;
+    qryRegraFiscalfunrural: TFloatField;
+    qryRegraFiscalie: TFloatField;
+    qryRegraFiscalii: TFloatField;
+    qryRegraFiscalcfopdevolucao: TSmallintField;
+    qryRegraFiscalpessoanome: TWideStringField;
+    qryRegraFiscaltipooperacaodescricao: TWideStringField;
+    qryRegraFiscalpaisnome: TWideStringField;
+    qryRegraFiscalmunicipionome: TWideStringField;
+    qryRegraFiscalnomefantasia: TWideStringField;
+    qryRegraFiscalcfopdescricao: TWideStringField;
+    qryRegraFiscalobservacao2: TWideMemoField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1383,13 +1358,15 @@ type
       ' order by idprodutounidadeconversao',' limit 0 ');
     const selectregrafiscal: array[1..5] of string = ('select regrafiscal.*, pessoa.nome as pessoanome, '+
       ' tipooperacao.descricao as tipooperacaodescricao, pais.nome as paisnome, municipio.nome as municipionome, '+
-      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao ',
+      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao, regrafiscalobservacao.observacao as observacao',
       ' from regrafiscal inner join pessoa on regrafiscal.idpessoa = pessoa.idpessoa '+
       ' inner join tipooperacao on regrafiscal.idtipooperacao = tipooperacao.idtipooperacao '+
       ' inner join pais on regrafiscal.idpais = pais.idpais '+
       ' inner join municipio on regrafiscal.idmunicipio = municipio.idmunicipio '+
       ' inner join unidadenegocio on regrafiscal.idunidadenegocio = unidadenegocio.idunidadenegocio '+
-      ' inner join cfop on regrafiscal.idcfop = cfop.idcfop ',' ',' order by idregrafiscal',' limit 0 ');
+      ' inner join cfop on regrafiscal.idcfop = cfop.idcfop '+
+      ' inner join regrafiscalobservacao on regrafiscal.idregrafiscalobservacao = regrafiscalobservacao.idregrafiscalobservacao',
+      ' ',' order by idregrafiscal',' limit 0 ');
     const selectregrafiscalobservacao: array[1..5] of string = ('select *',' from regrafiscalobservacao',' ',
       ' order by idregrafiscalobservacao',' limit 0 ');
     const selectserie: array[1..5] of string = ('select * ',' from serie ',' ',' order by idserie ',' limit 0 ');
@@ -1399,7 +1376,8 @@ type
     const selecttipooperacao: array[1..5] of string = ('select *',' from tipooperacao',' ',' order by tipooperacao',' limit 0 ');
     const selecttipotelefone: array[1..5] of string = ('select *',' from tipotelefone',' ',' order by idtipotelefone',' limit 0 ');
     const selectunidadenegocio: array[1..5] of string = ('select unidadenegocio.*, cnae.denominacao as cnaedenominacao, '+
-      ' empresa.razaosocial as empresarazaosocial',' from unidadenegocio inner join cnae on unidadenegocio.idcnae = cnae.idcnae '+
+      ' empresa.razaosocial as empresarazaosocial',
+      ' from unidadenegocio inner join cnae on unidadenegocio.idcnae = cnae.idcnae '+
       ' inner join empresa on unidadenegocio.idempresa = empresa.idempresa',' ',' order by idunidadenegocio',' limit 0 ');
     const selectcsticms: array[1..5] of string = ('select *','from csticms','','order by idcsticms',' limit 0 ');
     const selectcstcsosn: array[1..5] of string = ('select *','from cstcsosn','','order by idcstcsosn',' limit 0 ');

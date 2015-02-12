@@ -56,6 +56,8 @@
           object cxDBMemo1: TcxDBMemo
             Left = 159
             Top = 288
+            DataBinding.DataField = 'observacao'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -72,6 +74,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 0
+            OnExit = edtIDUnidadeNegocioExit
             Width = 140
           end
           object edtIDTipoOperacao: TcxDBCurrencyEdit
@@ -83,6 +86,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 2
+            OnExit = edtIDTipoOperacaoExit
             Width = 140
           end
           object edtIDPais: TcxDBCurrencyEdit
@@ -94,6 +98,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 4
+            OnExit = edtIDPaisExit
             Width = 140
           end
           object edtIDMunicipio: TcxDBCurrencyEdit
@@ -105,6 +110,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 7
+            OnExit = edtIDMunicipioExit
             Width = 140
           end
           object edtIDPessoa: TcxDBCurrencyEdit
@@ -116,6 +122,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 9
+            OnExit = edtIDPessoaExit
             Width = 140
           end
           object edtIDObbservacao: TcxDBCurrencyEdit
@@ -127,6 +134,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 12
+            OnExit = edtIDObbservacaoExit
             Width = 140
           end
           object chkInativo: TcxDBCheckBox
@@ -145,6 +153,8 @@
           object edtUnidadeNegócio: TcxDBTextEdit
             Left = 159
             Top = 33
+            DataBinding.DataField = 'nomefantasia'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -154,6 +164,8 @@
           object edtTipoOperacao: TcxDBTextEdit
             Left = 159
             Top = 84
+            DataBinding.DataField = 'tipooperacaodescricao'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -163,6 +175,8 @@
           object edtPais: TcxDBTextEdit
             Left = 159
             Top = 135
+            DataBinding.DataField = 'paisnome'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -172,6 +186,8 @@
           object edtMunicipio: TcxDBTextEdit
             Left = 159
             Top = 186
+            DataBinding.DataField = 'municipionome'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -181,6 +197,8 @@
           object edtPessoa: TcxDBTextEdit
             Left = 159
             Top = 237
+            DataBinding.DataField = 'pessoanome'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
