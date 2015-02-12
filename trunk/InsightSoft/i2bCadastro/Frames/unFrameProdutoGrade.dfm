@@ -58,6 +58,8 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
     object edtIDProduto: TcxDBTextEdit [1]
       Left = 12
       Top = 33
+      DataBinding.DataField = 'idproduto'
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -68,6 +70,8 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
     object edtProdutoNome: TcxDBTextEdit [2]
       Left = 120
       Top = 33
+      DataBinding.DataField = 'produtonome'
+      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False

@@ -1108,6 +1108,10 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
       Top = 392
       ExplicitTop = 392
     end
+    inherited imgNovo: TcxImage
+      ExplicitLeft = -1
+      ExplicitTop = -4
+    end
   end
   inherited pnlClient: TPanel
     Width = 907
@@ -1192,8 +1196,6 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 899
         ExplicitHeight = 408
         inherited pnlCadastro: TPanel
@@ -1216,16 +1218,14 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitLeft = 376
-          ExplicitTop = -86
-          ExplicitWidth = 9
+          ExplicitLeft = 60
+          ExplicitWidth = 839
+          ExplicitHeight = 408
           inherited dxLayoutControl: TdxLayoutControl
             Width = 839
             Height = 408
-            inherited edtIDProduto: TcxDBTextEdit
-              ExplicitWidth = 69
-              Width = 69
-            end
+            ExplicitWidth = 839
+            ExplicitHeight = 408
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
             end
