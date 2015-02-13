@@ -1358,14 +1358,16 @@ type
       ' order by idprodutounidadeconversao',' limit 0 ');
     const selectregrafiscal: array[1..5] of string = ('select regrafiscal.*, pessoa.nome as pessoanome, '+
       ' tipooperacao.descricao as tipooperacaodescricao, pais.nome as paisnome, municipio.nome as municipionome, '+
-      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao, regrafiscalobservacao.observacao as observacao',
+      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao, regrafiscalobservacao.observacao as observacao'+
+      ' estado.nome as estadonome' ,
       ' from regrafiscal inner join pessoa on regrafiscal.idpessoa = pessoa.idpessoa '+
       ' inner join tipooperacao on regrafiscal.idtipooperacao = tipooperacao.idtipooperacao '+
       ' inner join pais on regrafiscal.idpais = pais.idpais '+
       ' inner join municipio on regrafiscal.idmunicipio = municipio.idmunicipio '+
       ' inner join unidadenegocio on regrafiscal.idunidadenegocio = unidadenegocio.idunidadenegocio '+
       ' inner join cfop on regrafiscal.idcfop = cfop.idcfop '+
-      ' inner join regrafiscalobservacao on regrafiscal.idregrafiscalobservacao = regrafiscalobservacao.idregrafiscalobservacao',
+      ' inner join regrafiscalobservacao on regrafiscal.idregrafiscalobservacao = regrafiscalobservacao.idregrafiscalobservacao'+
+      ' inner join estado on regrafiscal.idestado = estado.idestado',
       ' ',' order by idregrafiscal',' limit 0 ');
     const selectregrafiscalobservacao: array[1..5] of string = ('select *',' from regrafiscalobservacao',' ',
       ' order by idregrafiscalobservacao',' limit 0 ');

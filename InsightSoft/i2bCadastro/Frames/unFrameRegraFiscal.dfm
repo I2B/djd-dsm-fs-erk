@@ -36,8 +36,9 @@
           ParentBackground = True
           TabOrder = 0
           object edtEstadp: TcxDBTextEdit
-            Left = 983
+            Left = 855
             Top = 135
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -50,18 +51,19 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 11
+            TabOrder = 12
             Width = 99
           end
-          object cxDBMemo1: TcxDBMemo
+          object memObservacao: TcxDBMemo
             Left = 159
             Top = 288
             DataBinding.DataField = 'observacao'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 14
+            TabOrder = 15
             Height = 81
             Width = 866
           end
@@ -75,6 +77,7 @@
             Style.HotTrack = False
             TabOrder = 0
             OnExit = edtIDUnidadeNegocioExit
+            OnKeyDown = edtIDUnidadeNegocioKeyDown
             Width = 140
           end
           object edtIDTipoOperacao: TcxDBCurrencyEdit
@@ -87,6 +90,7 @@
             Style.HotTrack = False
             TabOrder = 2
             OnExit = edtIDTipoOperacaoExit
+            OnKeyDown = edtIDTipoOperacaoKeyDown
             Width = 140
           end
           object edtIDPais: TcxDBCurrencyEdit
@@ -99,6 +103,7 @@
             Style.HotTrack = False
             TabOrder = 4
             OnExit = edtIDPaisExit
+            OnKeyDown = edtIDPaisKeyDown
             Width = 140
           end
           object edtIDMunicipio: TcxDBCurrencyEdit
@@ -109,8 +114,9 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 7
+            TabOrder = 8
             OnExit = edtIDMunicipioExit
+            OnKeyDown = edtIDMunicipioKeyDown
             Width = 140
           end
           object edtIDPessoa: TcxDBCurrencyEdit
@@ -121,11 +127,12 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 9
+            TabOrder = 10
             OnExit = edtIDPessoaExit
+            OnKeyDown = edtIDPessoaKeyDown
             Width = 140
           end
-          object edtIDObbservacao: TcxDBCurrencyEdit
+          object edtIDObservacao: TcxDBCurrencyEdit
             Left = 12
             Top = 288
             DataBinding.DataField = 'idregrafiscalobservacao'
@@ -133,8 +140,9 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 12
-            OnExit = edtIDObbservacaoExit
+            TabOrder = 13
+            OnExit = edtIDObservacaoExit
+            OnKeyDown = edtIDObservacaoKeyDown
             Width = 140
           end
           object chkInativo: TcxDBCheckBox
@@ -147,7 +155,7 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 13
+            TabOrder = 14
             Width = 140
           end
           object edtUnidadeNegócio: TcxDBTextEdit
@@ -155,6 +163,7 @@
             Top = 33
             DataBinding.DataField = 'nomefantasia'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -166,6 +175,7 @@
             Top = 84
             DataBinding.DataField = 'tipooperacaodescricao'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -177,6 +187,7 @@
             Top = 135
             DataBinding.DataField = 'paisnome'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -188,10 +199,11 @@
             Top = 186
             DataBinding.DataField = 'municipionome'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 8
+            TabOrder = 9
             Width = 121
           end
           object edtPessoa: TcxDBTextEdit
@@ -199,10 +211,20 @@
             Top = 237
             DataBinding.DataField = 'pessoanome'
             DataBinding.DataSource = DataSource
+            Properties.ReadOnly = True
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 10
+            TabOrder = 11
+            Width = 121
+          end
+          object cxDBTextEdit1: TcxDBTextEdit
+            Left = 957
+            Top = 135
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 7
             Width = 121
           end
           object dxLayoutControl2Group_Root: TdxLayoutGroup
@@ -300,7 +322,7 @@
             AlignVert = avBottom
             CaptionOptions.Text = 'Observa'#231#227'o'
             CaptionOptions.Layout = clTop
-            Control = cxDBMemo1
+            Control = memObservacao
             ControlOptions.ShowBorder = False
             Index = 1
           end
@@ -354,7 +376,7 @@
             AlignVert = avTop
             CaptionOptions.Text = 'ID [F2]'
             CaptionOptions.Layout = clTop
-            Control = edtIDObbservacao
+            Control = edtIDObservacao
             ControlOptions.ShowBorder = False
             Index = 0
           end
@@ -420,6 +442,15 @@
             Control = edtPessoa
             ControlOptions.ShowBorder = False
             Index = 1
+          end
+          object dxLayoutControl2Item2: TdxLayoutItem
+            Parent = dxLayoutControl2Group5
+            AlignHorz = ahRight
+            CaptionOptions.Text = 'cxDBTextEdit1'
+            CaptionOptions.Layout = clTop
+            Control = cxDBTextEdit1
+            ControlOptions.ShowBorder = False
+            Index = 3
           end
         end
       end

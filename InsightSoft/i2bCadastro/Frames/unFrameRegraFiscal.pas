@@ -171,7 +171,7 @@ type
     dxLayoutControl3Item29: TdxLayoutItem;
     edtPJISSRetencao: TcxDBTextEdit;
     dxLayoutControl3Item30: TdxLayoutItem;
-    cxDBMemo1: TcxDBMemo;
+    memObservacao: TcxDBMemo;
     dxLayoutControl2Item7: TdxLayoutItem;
     cxDBCheckBox12: TcxDBCheckBox;
     dxLayoutControl3Item31: TdxLayoutItem;
@@ -181,7 +181,7 @@ type
     dxLayoutControl3Group12: TdxLayoutAutoCreatedGroup;
     edtIDUnidadeNegocio: TcxDBCurrencyEdit;
     dxLayoutControl2Item8: TdxLayoutItem;
-    edtIDObbservacao: TcxDBCurrencyEdit;
+    edtIDObservacao: TcxDBCurrencyEdit;
     dxLayoutControl2Item9: TdxLayoutItem;
     edtIDPessoa: TcxDBCurrencyEdit;
     dxLayoutControl2Item17: TdxLayoutItem;
@@ -202,12 +202,20 @@ type
     dxLayoutControl2Item14: TdxLayoutItem;
     edtUnidadeNegócio: TcxDBTextEdit;
     dxLayoutControl2Item15: TdxLayoutItem;
+    cxDBTextEdit1: TcxDBTextEdit;
+    dxLayoutControl2Item2: TdxLayoutItem;
     procedure edtIDUnidadeNegocioExit(Sender: TObject);
     procedure edtIDTipoOperacaoExit(Sender: TObject);
     procedure edtIDPaisExit(Sender: TObject);
     procedure edtIDMunicipioExit(Sender: TObject);
     procedure edtIDPessoaExit(Sender: TObject);
-    procedure edtIDObbservacaoExit(Sender: TObject);
+    procedure edtIDObservacaoExit(Sender: TObject);
+    procedure edtIDUnidadeNegocioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDTipoOperacaoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDPaisKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDMunicipioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDPessoaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDObservacaoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -221,7 +229,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unI2BBD;
+uses unDM, unI2BBD, unI2BFuncoes;
 
 procedure TFrameRegraFiscal.edtIDMunicipioExit(Sender: TObject);
 begin
@@ -237,17 +245,37 @@ begin
   end;
 end;
 
-procedure TFrameRegraFiscal.edtIDObbservacaoExit(Sender: TObject);
+procedure TFrameRegraFiscal.edtIDMunicipioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   inherited;
-  if edtIDObbservacao.EditValue>0 then
+  if Key = VK_F2 then
   begin
-    DM.cdsRegraFiscalobservacao2.AsString:= i2bGetValor('regrafiscalobservacao', 'idregrafiscalobservacao', edtIDObbservacao.Text, 'observacao', DM.dspConnection);
+    i2bF2(edtIDMunicipio, edtMunicipio, 'Selecione o município.', 'idmunicipio|nome', 'nome',
+      'idmunicipio|nome', 'ID|Município', 'Tabela', '', DM.conServer, 'NomeDoFrame', DM.cdsRegraFiscal);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDObservacaoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDObservacao.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalobservacao2.AsString:= i2bGetValor('regrafiscalobservacao', 'idregrafiscalobservacao', edtIDObservacao.Text, 'observacao', DM.dspConnection);
 	if DM.cdsRegraFiscalobservacao2.AsString='' then
     begin
       MessageDlg('O campo não pode ser encontrado.', mtError, [mbOK], 0);
-      edtIDObbservacao.SetFocus;
+      edtIDObservacao.SetFocus;
     end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDObservacaoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDObservacao, nil, 'Selecione a observacao.', 'idobservacao', 'idobservacao',
+      'idobservacao|observacao', 'ID|Observação', 'regrafiscalobservacao', '', DM.conServer, 'FrameRegraFiscalObservacao', DM.cdsRegraFiscal);
   end;
 end;
 
@@ -265,6 +293,16 @@ begin
   end;
 end;
 
+procedure TFrameRegraFiscal.edtIDPaisKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDPais, edtPais, 'Selecione o país.', 'idpais|nome', 'idpais',
+      'idpais|nome', 'ID|País', 'pais', '', DM.conServer, 'FramePais', DM.cdsRegraFiscal);
+  end;
+end;
+
 procedure TFrameRegraFiscal.edtIDPessoaExit(Sender: TObject);
 begin
   inherited;
@@ -276,6 +314,16 @@ begin
       MessageDlg('A pessoa não pode ser encontrada.', mtError, [mbOK], 0);
       edtIDPessoa.SetFocus;
     end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDPessoaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDPessoa, edtPessoa, 'Selecione a pessoa.', 'idpessoa|nome', 'nome',
+      'idpessoa|nome', 'ID|Nome', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsRegraFiscal);
   end;
 end;
 
@@ -293,6 +341,16 @@ begin
   end;
 end;
 
+procedure TFrameRegraFiscal.edtIDTipoOperacaoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDTipoOperacao, edtTipoOperacao, 'Selecione o tipo de operação.', 'idtipooperacao|descricao', 'descricao',
+      'idtipooperacao|descricao', 'ID|Descrição', 'tipooperacao', '', DM.conServer, 'FrameTipoOperacao', DM.cdsRegraFiscal);
+  end;
+end;
+
 procedure TFrameRegraFiscal.edtIDUnidadeNegocioExit(Sender: TObject);
 begin
   inherited;
@@ -304,6 +362,17 @@ begin
       MessageDlg('A unidade de negócio não pode ser encontrada.', mtError, [mbOK], 0);
       edtIDUnidadeNegocio.SetFocus;
     end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDUnidadeNegocioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDUnidadeNegocio, edtUnidadeNegócio, 'Selecione a unidade de negócio.', 'idunidadenegocio', 'nomefantasia',
+      'idunidaddenegocio|nomefantasia', 'ID|Nome Fantasia', 'unidadenegocio', '', DM.conServer, 'FrameUnidadeNegocio', DM.cdsRegraFiscal);
   end;
 end;
 

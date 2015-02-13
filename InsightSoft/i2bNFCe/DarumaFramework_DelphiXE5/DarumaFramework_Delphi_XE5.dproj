@@ -1,0 +1,439 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CB461BFC-557F-4F33-872D-E75D96D7BA1F}</ProjectGuid>
+        <MainSource>DarumaFramework_Delphi_XE5.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+        <ProjectVersion>15.1</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <VerInfo_MajorVer>2</VerInfo_MajorVer>
+        <VerInfo_Keys>CompanyName=Dauma Automacao;FileDescription=Exemplo de Comunicacao com Equipamentos Daruma em Delphi 7;FileVersion=2.0.0.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=Daruma Framework Delphi 7;ProductVersion=2.0.0.2;Comments=</VerInfo_Keys>
+        <VerInfo_Build>2</VerInfo_Build>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_UsePackage>vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_E>false</DCC_E>
+        <DCC_N>true</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <Icon_MainIcon>DarumaFramework_Delphi_Icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Icon_MainIcon>DarumaFramework_Delphi_Icon.ico</Icon_MainIcon>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <VerInfo_MajorVer>1</VerInfo_MajorVer>
+        <VerInfo_Build>0</VerInfo_Build>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Daruma_Framework_Principal.pas">
+            <Form>FR_DarumaFramework_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_TA2000_Principal.pas">
+            <Form>FR_MenuTA2000_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_Principal.pas">
+            <Form>FR_MenuImpressoraDual_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_metodo_iImprimirTexto_DUAL_DarumaFramework.pas">
+            <Form>FR_DUAL_iImprimirTexto_DUAL_DarumaFramework</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_metodo_iAutenticarDocumento_DUAL_DarumaFramework.pas">
+            <Form>FR_DUAL_iAutenticarDocumento_DUAL_DarumaFramework</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_verificacaoLoopingStatus.pas">
+            <Form>FR_DUAL_menuTestes_LoopingStatus</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_verificacaoLoopingStatusDocumento.pas">
+            <Form>FR_DUAL_menuTestes_LoopingStatusDocumento</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DUAL_menuExemplo4Formulario.pas">
+            <Form>FR_DUAL_menuExemplo4_comForumulario</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_Principal.pas">
+            <Form>FR_MenuMODEM_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_eApagarSms_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_eApagarSMS</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_rListarSms_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_rListarSms</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_rNivelSinalRecebido_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_rNivelSinalRecebido</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_rReceberSms_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_rReceberSms</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_rRetornarImei_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_rRetornarImei</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_rRetornarOperadora_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_rRetornarOperadora</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_tEnviarSms_MODEM_DarumaFramework.pas">
+            <Form>FR_MODEM_tEnviarSMS</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_MODEM_ServicoCSD.pas">
+            <Form>FR_MODEM_ServicoCSD</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_Principal.pas">
+            <Form>FR_MenuImpressoraFiscal_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFVender_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFVender_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFVenderResumido_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFVenderResumido_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFVenderSemDesc_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFVenderSemDesc_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFAbrir_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFAbrir_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rStatusImpressora_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rStatusImpressora_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rRetornarInformacao_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rRetornarInformacao_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rGerarRelatorio_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rGerarRelatorio</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rGerarRelatorioOffline_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rGerarRelatorioOffline</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFEfetuarPagamento_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFEfetuarPagamento_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFEfetuarPagamentoFormatado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFEfetuarPagamentoFormatado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFEncerrar_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFEncerrar_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCCDAbrir_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCCDAbrir_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCCDAbrirSimplificado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCCDAbrirSimplificado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCCDEstornar_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCCDEstornar_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCCDImprimirTexto_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCCDImprimirTexto_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confCadastrarPadrao_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confCadastrarPadrao_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_eAcionarGuilhotina_ECF_Daruma.pas">
+            <Form>FR_FISCAL_eAcionarGuilhotina_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iMFLer_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iMFLer_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confProgramarAvancoPapel_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confProgramarAvancoPapel_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confCadastrar_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confCadastrar_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confCFBPProgramarUF_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confCFBPProgramarUF_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confProgramarIDLoja_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confProgramarIDLoja_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_confProgramarOperador_ECF_Daruma.pas">
+            <Form>FR_FISCAL_confProgramarOperador_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFBPAbrir_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFBPAbrir_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFBPVender_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFBPVender_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFCancelarItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFCancelarItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFCancelarItemParcial_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFCancelarItemParcial_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFCancelarUltimoItemParcial_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFCancelarUltimoItemParcial_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFEfetuarPagamentoFormatado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFEfetuarPagamentoFormatado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFEncerrarConfigMsg_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFEncerrarConfigMsg_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFIdentificarConsumidor_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFIdentificarConsumidor_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFLancarAcrescimoItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFLancarAcrescimoItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFLancarAcrescimoUltimoItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFLancarAcrescimoUltimoItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFLancarDescontoItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFLancarDescontoItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFLancarDescontoUltimoItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFLancarDescontoUltimoItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFAbrir_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFAbrir_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFCancelarAcrescimoItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFCancelarAcrescimoItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFCancelarDescontoItem_ECF_Daruma.pas"/>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFCancelarItem_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFCancelarItem_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFEfetuarPagamento_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFEfetuarPagamento_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFEncerrar_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFEncerrar_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFReceberSemDesc_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFReceberSemDesc_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFTotalizarComprovante_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFTotalizarComprovante_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iMFLerSerial_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iMFLerSerial_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iRGAbrir_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iRGAbrir_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iRGAbrirIndice_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iRGAbrirIndice_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iRGImprimirTexto_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iRGImprimirTexto_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iSangria_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iSangria_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iSuprimento_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iSuprimento_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_ParametrizacaoSintegra.pas">
+            <Form>FR_FISCAL_ParametrizacaoSintegra</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_RetornoECF.pas">
+            <Form>FR_FISCAL_RetornoECF</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rGerarEspelhoMFD_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rGerarEspelhoMFD_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rLeituraXCustomizada_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rLeituraXCustomizada_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iImprimirCodigoBarras_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iImprimirCodigoBarras_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rAssinarRSA_ECF_Daruma.pas">
+            <Form>FR_FISCAL_AssinarRSA_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rCalcularMD5_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rCalcularMD5_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rRetornarGTCodificado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rRetornarGTCodificado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rVerificarGTCodificado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rVerificarGTCodificado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rRetornarNumeroSerieCodificado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rRetornarNumeroSerieCodificado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rVerificarNumeroSerieCodificado_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rVerificarNumeroSerieCodificado_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_eDefinirProduto_Daruma.pas">
+            <Form>FR_FISCAL_eDefinirProduto_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_eDefinirModoRegistro_Daruma.pas">
+            <Form>FR_FISCAL_eDefinirModoRegistro_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_TestedeVendadeItensSemPararBuferizando.pas">
+            <Form>FR_FISCAL_TestedeVendadeItensSemPararBuferizan</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_TesteConsumoMFD.pas">
+            <Form>FR_FISCAL_Teste_Consumo_MFD</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_MENUFISCAL_LMFC.pas">
+            <Form>FR_FISCAL_MENUFISCAL_LMFC</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_MENUFISCAL_LMFS.pas">
+            <Form>FR_FISCAL_MENUFISCAL_LMFS</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_MENUFISCAL_ArqMFD.pas">
+            <Form>FR_FISCAL_MENUFISCAL_ArqMFD</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_MENUFISCAL_Info.pas">
+            <Form>FR_FISCAL_MENU_FISCAL_Info</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iEstornarPagamento_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCEstornarPagamento_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_eTEF_EsperarArquivo_ECF_Daruma.pas">
+            <Form>FR_FISCAL_eTEF_EsperarArquivo_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iTEF_ImprimirResposta_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iTEF_ImprimirResposta_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFTotalizar.pas">
+            <Form>Form1</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_eRSAAssinarArquivo_ECF_Daruma.pas">
+            <Form>FR_FISCAL_eRSAAssinarArquivo</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCFTotalizarCupom_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCFTotalizarCupom_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_iCNFReceber_ECF_Daruma.pas">
+            <Form>FR_FISCAL_iCNFReceber_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rRetornarInformacaoSeparador_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rRetornarInformacaoSeparador_ECF_Daruma</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_DSP_Principal.pas">
+            <Form>FR_MenuDisplay_Principal</Form>
+        </DCCReference>
+        <DCCReference Include="Daruma_Framework_FISCAL_rGerarMFD_ECF_Daruma.pas">
+            <Form>FR_FISCAL_rGerarMFD_ECF_Daruma</Form>
+        </DCCReference>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">DarumaFramework_Delphi_XE5.dpr</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">2</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">2</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1046</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName">Dauma Automacao</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileDescription">Exemplo de Comunicacao com Equipamentos Daruma em Delphi 7</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileVersion">2.0.0.2</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName">Daruma Framework Delphi 7</VersionInfoKeys>
+                    <VersionInfoKeys Name="ProductVersion">2.0.0.2</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k190.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp190.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>
