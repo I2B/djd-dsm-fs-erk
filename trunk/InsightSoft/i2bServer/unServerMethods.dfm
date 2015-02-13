@@ -5528,7 +5528,8 @@ object ServerMethods: TServerMethods
       'municipio.nome as municipioNome, '
       'unidadeNegocio.nomeFantasia, '
       'cfop.descricao as cfopDescricao,'
-      'regrafiscalobservacao.observacao as observacao'
+      'regrafiscalobservacao.observacao as observacao, '
+      'estado.nome as estadonome'
       ''
       'from regraFiscal '
       ''
@@ -5547,8 +5548,9 @@ object ServerMethods: TServerMethods
       
         'inner join regrafiscalobservacao on regrafiscal.idregrafiscalobs' +
         'ervacao = regrafiscalobservacao.idregrafiscalobservacao'
+      'inner join estado on regrafiscal.idestado = estado.idestado'
       ''
-      'order by idRegraFiscal limit 0 ')
+      'order by idRegraFiscal limit 0')
     Left = 1032
     Top = 600
     object qryRegraFiscalidregrafiscal: TIntegerField
