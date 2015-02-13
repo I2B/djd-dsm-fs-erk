@@ -45,8 +45,29 @@ type
     tvPessoasRecentesidpessoa: TcxGridDBColumn;
     tvPessoasRecentesnome: TcxGridDBColumn;
     tvPessoasRecentestipo: TcxGridDBColumn;
-    cxLabel1: TcxLabel;
+    lblPessoasRecentes: TcxLabel;
     imlTipo: TcxImageList;
+    cxLabel1: TcxLabel;
+    grdProdutosRecentes: TcxGrid;
+    tvProdutosRecentes: TcxGridDBTableView;
+    lvlProdutosRecentes: TcxGridLevel;
+    cdsProdutosRecentes: TClientDataSet;
+    dtsProdutosRecentes: TDataSource;
+    cdsProdutosRecentescodigointerno: TStringField;
+    cdsProdutosRecentesnome: TStringField;
+    tvProdutosRecentescodigointerno: TcxGridDBColumn;
+    tvProdutosRecentesnome: TcxGridDBColumn;
+    grdProdutos: TcxGrid;
+    chartProdutos: TcxGridDBChartView;
+    lvlProdutos: TcxGridLevel;
+    cdsProdutos: TClientDataSet;
+    dtsProdutos: TDataSource;
+    cdsProdutosgrupo: TStringField;
+    cdsProdutossubgrupo: TStringField;
+    cdsProdutosquantidade: TIntegerField;
+    chartProdutosSeries1: TcxGridDBChartSeries;
+    chartProdutosDataGroup1: TcxGridDBChartDataGroup;
+    chartProdutosDataGroup2: TcxGridDBChartDataGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure TimerHoraTimer(Sender: TObject);
@@ -152,6 +173,60 @@ begin
         tileInfoBemVindoD.Text4.Value := 'Insight Soft';
 
         //Busca últimas pessoas cadastradas e seu tipo
+        {cdsBuscaDados := i2bGetClient('select idpessoa, cliente, fornecedor, colaborador, contador, transportadora, '+
+          'vendedor, nomefantasia from pessoa order by idpessoa desc limit 8',DM.dspConnection);
+
+        cdsBuscaDados.First;
+        while not(cdsBuscaDados.Eof) do
+        begin
+          cdsPessoasRecentes.Insert;
+          cdsPessoasRecentesidpessoa.AsInteger := cdsBuscaDados.FieldByName('idpessoa').AsInteger;
+          cdsPessoasRecentesnome.AsString := '  '+cdsBuscaDados.FieldByName('nomefantasia').AsString;
+          if cdsBuscaDados.FieldByName('cliente').AsBoolean then
+          begin
+            cdsPessoasRecentestipo.AsInteger := 1; //Cliente
+          end
+          else
+          begin
+            if cdsBuscaDados.FieldByName('fornecedor').AsBoolean then
+            begin
+              cdsPessoasRecentestipo.AsInteger := 2; //Fornecedor
+            end
+            else
+            begin
+              if cdsBuscaDados.FieldByName('colaborador').AsBoolean then
+              begin
+                cdsPessoasRecentestipo.AsInteger := 3; //Colaborador
+              end
+              else
+              begin
+                if cdsBuscaDados.FieldByName('contador').AsBoolean then
+                begin
+                  cdsPessoasRecentestipo.AsInteger := 4; //Contador
+                end
+                else
+                begin
+                  if cdsBuscaDados.FieldByName('transportadora').AsBoolean then
+                  begin
+                    cdsPessoasRecentestipo.AsInteger := 5; //Transportadora
+                  end
+                  else
+                  begin
+                    if cdsBuscaDados.FieldByName('vendedor').AsBoolean then
+                    begin
+                      cdsPessoasRecentestipo.AsInteger := 6; //Vendedor
+                    end;
+                  end;
+                end;
+              end;
+            end;
+          end;
+          cdsPessoasRecentes.Post;
+
+          cdsBuscaDados.Next;
+        end;}
+
+        //Código Provisório
         cdsPessoasRecentes.Insert;
         cdsPessoasRecentesidpessoa.AsInteger := 1;
         cdsPessoasRecentesnome.AsString := '  Douglas Joel Dapper';
@@ -192,6 +267,123 @@ begin
         cdsPessoasRecentesnome.AsString := '  Bruce Wayne';
         cdsPessoasRecentestipo.AsInteger := 2; //Fornecedor
         cdsPessoasRecentes.Post;
+
+        //Busca os últimos 10 produtos ativos cadastrados
+        {cdsBuscaDados := i2bGetClient('select codigointerno, nome from produto where ativo = true order by idproduto '+
+          'desc limit 10',DM.dspConnection);
+        cdsBuscaDados.First;
+        while not(cdsBuscaDados.Eof) do
+        begin
+          cdsProdutosRecentes.Insert;
+          cdsProdutosRecentescodigointerno.AsString := cdsBuscaDados.FieldByName('codigointerno').AsString;
+          cdsProdutosRecentesnome.AsString := cdsBuscaDados.FieldByName('nome').AsString;
+          cdsProdutosRecentes.Post;
+
+          cdsBuscaDados.Next;
+        end;}
+
+        //Código Provisório
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'Calc-HP-12CGold';
+        cdsProdutosRecentesnome.AsString := 'Calculadora HP 12C Gold';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := '55LN549E';
+        cdsProdutosRecentesnome.AsString := 'Televisao LG LED 55 Polegadas Full HD(1920 x 1080)';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'Office365-PM';
+        cdsProdutosRecentesnome.AsString := 'Office 365 Personal Microsoft';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'CBV09DB';
+        cdsProdutosRecentesnome.AsString := 'Ar Condicionado Split Bem Estar Frio 9.000 BTUs - Consul';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'CAMCAR';
+        cdsProdutosRecentesnome.AsString := 'Camera HD Portatil para Carro DVR';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'G506';
+        cdsProdutosRecentesnome.AsString := 'Smartphone Huawei G506 Dual-Chip Tela 4.5 Polegadas Touch Processador Dual Core 1.0GHz';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'GAME-SlDogs-XBoxOne';
+        cdsProdutosRecentesnome.AsString := 'Sleeping Dogs: Definitive Edition - Xbox One';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'AD770KXBJABOX';
+        cdsProdutosRecentesnome.AsString := 'Processador AMD A10-7700K Quad-Core Cache 4MB Velocidade 3.4GHz';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := 'AM1M-A';
+        cdsProdutosRecentesnome.AsString := 'Placa Mae Asus AMD Socket AM1 Memoria DDR3 1866(O.C.)/1600/1333';
+        cdsProdutosRecentes.Post;
+        cdsProdutosRecentes.Insert;
+        cdsProdutosRecentescodigointerno.AsString := '02G-P4-2774-KR';
+        cdsProdutosRecentesnome.AsString := 'Placa de Vídeo EVGA EVGA GeForce GTX 770 2GB GDDR5 256 bit';
+        cdsProdutosRecentes.Post;
+
+        {cdsProdutos := i2bGetClient('select produtogrupo.nome as grupo, produtosubgrupo.nome as subgrupo, '+
+          'count(produto.idproduto) as quantidade from produto '+
+          'inner join produtosubgrupo on (produto.idsubgrupoprodutos = produtosubgrupo.idsubgrupoprodutos) '+
+          'inner join produtogrupo on (produto.idgrupoprodutos = produtogrupo.idgrupoprodutos) '+
+          'where produto.ativo = true group by 1, 2 order by quantidade desc limit 200',DM.dspConnection);}
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Calculadoras';
+        cdsProdutossubgrupo.AsString := 'HP';
+        cdsProdutosquantidade.AsInteger := 5;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Calculadoras';
+        cdsProdutossubgrupo.AsString := 'Comuns';
+        cdsProdutosquantidade.AsInteger := 14;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Televisão';
+        cdsProdutossubgrupo.AsString := 'Full HD';
+        cdsProdutosquantidade.AsInteger := 2;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Televisão';
+        cdsProdutossubgrupo.AsString := 'HD';
+        cdsProdutosquantidade.AsInteger := 10;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Televisão';
+        cdsProdutossubgrupo.AsString := 'Plasma';
+        cdsProdutosquantidade.AsInteger := 23;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Televisão';
+        cdsProdutossubgrupo.AsString := 'Flat';
+        cdsProdutosquantidade.AsInteger := 39;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Softwares';
+        cdsProdutossubgrupo.AsString := 'Microsoft';
+        cdsProdutosquantidade.AsInteger := 12;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Softwares';
+        cdsProdutossubgrupo.AsString := 'Adobe';
+        cdsProdutosquantidade.AsInteger := 3;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Periféricos';
+        cdsProdutossubgrupo.AsString := 'Placa de Vídeo';
+        cdsProdutosquantidade.AsInteger := 15;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Periféricos';
+        cdsProdutossubgrupo.AsString := 'Teclado';
+        cdsProdutosquantidade.AsInteger := 32;
+        cdsProdutos.Post;
+        cdsProdutos.Insert;
+        cdsProdutosgrupo.AsString := 'Periféricos';
+        cdsProdutossubgrupo.AsString := 'Mouse';
+        cdsProdutosquantidade.AsInteger := 18;
+        cdsProdutos.Post;
 
 
       end;

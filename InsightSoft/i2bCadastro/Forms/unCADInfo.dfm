@@ -1037,6 +1037,7 @@ inherited frmCADInfo: TfrmCADInfo
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
+  ExplicitTop = -18
   ExplicitWidth = 1040
   ExplicitHeight = 604
   PixelsPerInch = 96
@@ -1050,7 +1051,6 @@ inherited frmCADInfo: TfrmCADInfo
     OptionsView.IndentHorz = 5
     OptionsView.IndentVert = 5
     TabOrder = 4
-    ExplicitLeft = 764
     object tileInfoGroup1: TdxTileControlGroup
       Index = 0
     end
@@ -1346,14 +1346,11 @@ inherited frmCADInfo: TfrmCADInfo
     ParentBackground = False
     ParentFont = False
     TabOrder = 5
-    ExplicitLeft = 480
-    ExplicitTop = 56
-    ExplicitHeight = 365
     object grdComposicao: TcxGrid
       Left = 0
       Top = 0
       Width = 450
-      Height = 336
+      Height = 356
       Align = alClient
       BorderStyle = cxcbsNone
       Font.Charset = DEFAULT_CHARSET
@@ -1363,7 +1360,6 @@ inherited frmCADInfo: TfrmCADInfo
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 365
       object chartComposicao: TcxGridDBChartView
         DataController.DataSource = dtsComposicao
         DiagramPie.Active = True
@@ -1392,9 +1388,9 @@ inherited frmCADInfo: TfrmCADInfo
     end
     object grdPessoasRecentes: TcxGrid
       Left = 0
-      Top = 365
+      Top = 385
       Width = 450
-      Height = 200
+      Height = 180
       Align = alBottom
       BorderStyle = cxcbsNone
       Font.Charset = DEFAULT_CHARSET
@@ -1404,9 +1400,6 @@ inherited frmCADInfo: TfrmCADInfo
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 56
-      ExplicitTop = 416
-      ExplicitWidth = 250
       object tvPessoasRecentes: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dtsPessoasRecentes
@@ -1488,9 +1481,9 @@ inherited frmCADInfo: TfrmCADInfo
         GridView = tvPessoasRecentes
       end
     end
-    object cxLabel1: TcxLabel
+    object lblPessoasRecentes: TcxLabel
       Left = 0
-      Top = 336
+      Top = 356
       Align = alBottom
       Caption = '   Recentes'
       ParentFont = False
@@ -1500,7 +1493,6 @@ inherited frmCADInfo: TfrmCADInfo
       Style.Font.Name = 'Segoe UI Light'
       Style.Font.Style = []
       Style.IsFontAssigned = True
-      ExplicitTop = 340
     end
   end
   object pnlCenter: TPanel [2]
@@ -1510,11 +1502,118 @@ inherited frmCADInfo: TfrmCADInfo
     Height = 565
     Align = alClient
     BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
     TabOrder = 6
-    ExplicitLeft = 528
-    ExplicitTop = 240
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    object cxLabel1: TcxLabel
+      Left = 0
+      Top = 0
+      Align = alTop
+      Caption = '   Produtos Recentes'
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -19
+      Style.Font.Name = 'Segoe UI Light'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+    end
+    object grdProdutosRecentes: TcxGrid
+      Left = 0
+      Top = 29
+      Width = 313
+      Height = 220
+      Align = alTop
+      BorderStyle = cxcbsNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Light'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      object tvProdutosRecentes: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.DataSource = dtsProdutosRecentes
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsCustomize.ColumnFiltering = False
+        OptionsCustomize.ColumnGrouping = False
+        OptionsCustomize.ColumnHidingOnGrouping = False
+        OptionsCustomize.ColumnHorzSizing = False
+        OptionsCustomize.ColumnMoving = False
+        OptionsCustomize.ColumnSorting = False
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsSelection.HideFocusRectOnExit = False
+        OptionsSelection.InvertSelect = False
+        OptionsSelection.UnselectFocusedRecordOnExit = False
+        OptionsView.NoDataToDisplayInfoText = 'Sem Registros Recentes'
+        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GridLines = glNone
+        OptionsView.GroupByBox = False
+        OptionsView.Header = False
+        object tvProdutosRecentescodigointerno: TcxGridDBColumn
+          Caption = 'ci'
+          DataBinding.FieldName = 'codigointerno'
+        end
+        object tvProdutosRecentesnome: TcxGridDBColumn
+          DataBinding.FieldName = 'nome'
+        end
+      end
+      object lvlProdutosRecentes: TcxGridLevel
+        GridView = tvProdutosRecentes
+      end
+    end
+    object grdProdutos: TcxGrid
+      Left = 0
+      Top = 249
+      Width = 313
+      Height = 316
+      Align = alClient
+      BorderStyle = cxcbsNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI Light'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      ExplicitTop = 0
+      ExplicitWidth = 450
+      ExplicitHeight = 356
+      object chartProdutos: TcxGridDBChartView
+        DataController.DataSource = dtsProdutos
+        DiagramBar.Active = True
+        DiagramPie.SeriesCaptions = False
+        DiagramPie.Styles.ValueCaptions = frmPrincipal.cxStyle1
+        DiagramPie.Values.AngleOfFirstSlice = 10
+        DiagramPie.Values.CaptionPosition = pdvcpOutsideEnd
+        DiagramPie.Values.CaptionItems = [pdvciPercentage]
+        Legend.Position = cppNone
+        Title.Text = 'Categoriza'#231#227'o de Produtos'
+        ToolBox.Border = tbNone
+        ToolBox.Visible = tvNever
+        object chartProdutosDataGroup1: TcxGridDBChartDataGroup
+          DataBinding.FieldName = 'grupo'
+        end
+        object chartProdutosDataGroup2: TcxGridDBChartDataGroup
+          DataBinding.FieldName = 'subgrupo'
+        end
+        object chartProdutosSeries1: TcxGridDBChartSeries
+          DataBinding.FieldName = 'quantidade'
+        end
+      end
+      object lvlProdutos: TcxGridLevel
+        GridView = chartProdutos
+      end
+    end
   end
   inherited cxHintStyleController: TcxHintStyleController
     Left = 326
@@ -1557,7 +1656,7 @@ inherited frmCADInfo: TfrmCADInfo
   end
   object TimerHora: TTimer
     OnTimer = TimerHoraTimer
-    Left = 608
+    Left = 344
     Top = 72
   end
   object cdsPessoasRecentes: TClientDataSet
@@ -1815,5 +1914,59 @@ inherited frmCADInfo: TfrmCADInfo
           0000000000000000000000000000000000010000000100000001000000010000
           0001000000010000000000000000000000000000000000000000}
       end>
+  end
+  object cdsProdutosRecentes: TClientDataSet
+    PersistDataPacket.Data = {
+      550000009619E0BD01000000180000000200000000000300000055000D636F64
+      69676F696E7465726E6F0100490000000100055749445448020002003C00046E
+      6F6D6501004900000001000557494454480200020064000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 530
+    Top = 72
+    object cdsProdutosRecentescodigointerno: TStringField
+      FieldName = 'codigointerno'
+      Size = 60
+    end
+    object cdsProdutosRecentesnome: TStringField
+      FieldName = 'nome'
+      Size = 100
+    end
+  end
+  object dtsProdutosRecentes: TDataSource
+    AutoEdit = False
+    DataSet = cdsProdutosRecentes
+    Left = 562
+    Top = 72
+  end
+  object cdsProdutos: TClientDataSet
+    PersistDataPacket.Data = {
+      640000009619E0BD010000001800000003000000000003000000640005677275
+      706F010049000000010005574944544802000200640008737562677275706F01
+      004900000001000557494454480200020064000A7175616E7469646164650400
+      0100000000000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 586
+    Top = 368
+    object cdsProdutosgrupo: TStringField
+      FieldName = 'grupo'
+      Size = 100
+    end
+    object cdsProdutossubgrupo: TStringField
+      FieldName = 'subgrupo'
+      Size = 100
+    end
+    object cdsProdutosquantidade: TIntegerField
+      FieldName = 'quantidade'
+    end
+  end
+  object dtsProdutos: TDataSource
+    AutoEdit = False
+    DataSet = cdsProdutos
+    Left = 666
+    Top = 368
   end
 end
