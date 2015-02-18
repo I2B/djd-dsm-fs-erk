@@ -60,18 +60,18 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
       Top = 33
       DataBinding.DataField = 'idproduto'
       DataBinding.DataSource = DataSource
+      Properties.OnEditValueChanged = edtIDProdutoPropertiesEditValueChanged
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
+      OnExit = edtIDProdutoExit
       OnKeyDown = edtIDProdutoKeyDown
-      Width = 69
+      Width = 61
     end
-    object edtProdutoNome: TcxDBTextEdit [2]
+    object edtProdutoNome: TcxTextEdit [2]
       Left = 120
       Top = 33
-      DataBinding.DataField = 'produtonome'
-      DataBinding.DataSource = DataSource
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
@@ -102,7 +102,7 @@ inherited FrameProdutoGrade: TFrameProdutoGrade
     object dxLayoutControlItem2: TdxLayoutItem
       Parent = dxLayoutControlGroup1
       AlignVert = avBottom
-      CaptionOptions.Text = 'cxDBTextEdit2'
+      CaptionOptions.Text = 'cxTextEdit1'
       CaptionOptions.Visible = False
       Control = edtProdutoNome
       ControlOptions.ShowBorder = False
