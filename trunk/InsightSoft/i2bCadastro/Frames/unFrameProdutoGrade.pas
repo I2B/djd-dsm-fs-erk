@@ -31,11 +31,12 @@ type
     tvGradeCodCor: TcxGridColumn;
     edtIDProduto: TcxDBTextEdit;
     dxLayoutControlItem1: TdxLayoutItem;
-    edtProdutoNome: TcxDBTextEdit;
+    edtProdutoNome: TcxTextEdit;
     dxLayoutControlItem2: TdxLayoutItem;
     dxLayoutControlGroup1: TdxLayoutAutoCreatedGroup;
-    procedure cxDBTextEdit1PropertiesChange(Sender: TObject);
     procedure edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDProdutoExit(Sender: TObject);
+    procedure edtIDProdutoPropertiesEditValueChanged(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +56,32 @@ implementation
 
 uses unDM, unI2BBD, unI2BFuncoes;
 
-procedure TFrameProdutoGrade.cxDBTextEdit1PropertiesChange(Sender: TObject);
+procedure TFrameProdutoGrade.edtIDProdutoExit(Sender: TObject);
+begin
+  inherited;
+  if edtIDProduto.EditValue > 0 then
+  begin
+    edtProdutoNome.Text := i2bGetValor('produto', 'idProduto', edtIDProduto.Text, 'nome', DM.dspConnection);
+	if edtProdutoNome.Text = '' then
+    begin
+      MessageDlg('O produto não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDProduto.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameProdutoGrade.edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtIDProduto, nil, 'Selecione o produto.', 'idProduto|nome', 'nome',
+      'idProduto|nome', 'Produto|Nome', 'produto', '', DM.conServer, 'FrameProdutoGrade', DM.cdsProduto);
+    edtProdutoNome.Text := i2bGetValor('produto', 'idProduto', edtIDProduto.Text, 'nome', DM.dspConnection);
+  end;
+end;
+
+procedure TFrameProdutoGrade.edtIDProdutoPropertiesEditValueChanged(Sender: TObject);
 var
   cdsProdutoTamanho: TClientDataSet;
   I: Integer;
@@ -65,7 +91,7 @@ var
 begin
   inherited;
   limpaGrade;
-  cadastrado := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text,dm.dspConnection);
+  cadastrado := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text+' and ativo = true',dm.dspConnection);
   if cadastrado.RecordCount = 0 then
   begin
     cdsProdutoTamanho := i2bGetClient('select * from produtoTamanho order by idProdutoTamanho', DM.dspConnection);
@@ -124,7 +150,7 @@ begin
       begin
         carregaGrade := i2bGetClient('select idprodutograde from produtograde where idproduto = '+edtIDProduto.Text
         +' and idprodutocor = '+cdsProdutoCor.FieldByName('idProdutoCor').AsString+' and idprodutotamanho = '
-        +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString+' order by idprodutograde',dm.dspConnection);
+        +cdsProdutoTamanho.FieldByName('idprodutotamanho').AsString+' and ativo = true order by idprodutograde',dm.dspConnection);
         if carregaGrade.RecordCount = 0 then
         begin
           tvGrade.Columns[cdsProdutoTamanho.RecNo + 2].EditValue := False;
@@ -137,16 +163,6 @@ begin
       end;
       cdsProdutoCor.Next;
     end;
-  end;
-end;
-
-procedure TFrameProdutoGrade.edtIDProdutoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-begin
-  inherited;
-  if Key = VK_F2 then
-  begin
-    i2bF2(edtIDProduto, edtProdutoNome, 'Selecione o produto.', 'idProduto|nome', 'nome',
-      'idProduto|nome', 'Produto|Nome', 'produto', '', DM.conServer, 'FrameProdutoGrade', DM.cdsProduto);
   end;
 end;
 
