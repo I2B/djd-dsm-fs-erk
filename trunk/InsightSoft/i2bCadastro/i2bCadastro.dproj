@@ -469,6 +469,7 @@
             <Form>frmCADInfo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\unThreadFTP.pas"/>
         <None Include="ModelSupport_i2bCadastro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

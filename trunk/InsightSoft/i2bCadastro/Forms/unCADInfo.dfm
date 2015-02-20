@@ -1037,7 +1037,6 @@ inherited frmCADInfo: TfrmCADInfo
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
-  ExplicitTop = -18
   ExplicitWidth = 1040
   ExplicitHeight = 604
   PixelsPerInch = 96
@@ -1051,6 +1050,7 @@ inherited frmCADInfo: TfrmCADInfo
     OptionsView.IndentHorz = 5
     OptionsView.IndentVert = 5
     TabOrder = 4
+    ExplicitLeft = 769
     object tileInfoGroup1: TdxTileControlGroup
       Index = 0
     end
@@ -1329,6 +1329,40 @@ inherited frmCADInfo: TfrmCADInfo
         Text4.Font.Style = []
       end
     end
+    object tileInfoItem1: TdxTileControlItem
+      GroupIndex = 0
+      IndexInGroup = 1
+      Size = tcisLarge
+      Text1.AssignedValues = []
+      Text2.AssignedValues = []
+      Text3.AssignedValues = []
+      Text4.AssignedValues = []
+    end
+    object tileInfoItem2: TdxTileControlItem
+      GroupIndex = 0
+      IndexInGroup = 2
+      Size = tcisLarge
+      Style.BorderColor = 16744448
+      Style.GradientBeginColor = 16744448
+      Style.GradientEndColor = 16744448
+      Text1.AssignedValues = []
+      Text2.AssignedValues = []
+      Text3.AssignedValues = []
+      Text4.AssignedValues = []
+    end
+    object tileInfoWEB: TdxTileControlItem
+      GroupIndex = 0
+      IndexInGroup = 3
+      Size = tcisLarge
+      Style.BorderColor = 5177344
+      Style.GradientBeginColor = 5177344
+      Style.GradientEndColor = 5177344
+      Text1.AssignedValues = []
+      Text2.AssignedValues = []
+      Text3.AssignedValues = []
+      Text4.AssignedValues = []
+      OnClick = tileInfoWEBClick
+    end
   end
   object pnlLeft: TPanel [1]
     Left = 0
@@ -1585,9 +1619,6 @@ inherited frmCADInfo: TfrmCADInfo
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitTop = 0
-      ExplicitWidth = 450
-      ExplicitHeight = 356
       object chartProdutos: TcxGridDBChartView
         DataController.DataSource = dtsProdutos
         DiagramBar.Active = True
@@ -1967,6 +1998,16 @@ inherited frmCADInfo: TfrmCADInfo
     AutoEdit = False
     DataSet = cdsProdutos
     Left = 666
+    Top = 368
+  end
+  object XML: TXMLDocument
+    Left = 440
+    Top = 368
+  end
+  object TimerFTP: TTimer
+    Interval = 300000
+    OnTimer = TimerFTPTimer
+    Left = 392
     Top = 368
   end
 end

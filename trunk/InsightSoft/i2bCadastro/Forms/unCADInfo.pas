@@ -11,7 +11,8 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridLevel, cxGridChartView,
   cxGridDBChartView, cxGridCustomView, cxGrid, Datasnap.DBClient, Vcl.StdCtrls, dxCustomTileControl, dxTileControl,
   Vcl.ExtCtrls, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxContainer, cxLabel, cxImageComboBox, Vcl.ImgList;
+  cxGridDBTableView, cxContainer, cxLabel, cxImageComboBox, Vcl.ImgList, Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, ShellAPI;
 
 type
   TfrmCADInfo = class(TfrmBase)
@@ -68,10 +69,17 @@ type
     chartProdutosSeries1: TcxGridDBChartSeries;
     chartProdutosDataGroup1: TcxGridDBChartDataGroup;
     chartProdutosDataGroup2: TcxGridDBChartDataGroup;
+    tileInfoItem1: TdxTileControlItem;
+    tileInfoItem2: TdxTileControlItem;
+    tileInfoWEB: TdxTileControlItem;
+    XML: TXMLDocument;
+    TimerFTP: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure TimerHoraTimer(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure tileInfoWEBClick(Sender: TdxTileControlItem);
+    procedure TimerFTPTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -85,7 +93,7 @@ implementation
 
 {$R *.dfm}
 
-uses unPrincipal, unDM, unI2BBD;
+uses unPrincipal, unDM, unI2BBD, unThreadFTP;
 
 procedure TfrmCADInfo.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -385,7 +393,7 @@ begin
         cdsProdutosquantidade.AsInteger := 18;
         cdsProdutos.Post;
 
-
+        TimerFTPTimer(Sender);
       end;
     except
       On E : Exception do
@@ -406,6 +414,32 @@ begin
   inherited;
   Tamanho := trunc((pnlLeft.Width + pnlCenter.Width) / 2);
   pnlLeft.Width := Tamanho;
+end;
+
+procedure TfrmCADInfo.tileInfoWEBClick(Sender: TdxTileControlItem);
+var
+  I : Integer;
+begin
+  for I := 0 to frmCADInfo.XML.DocumentElement.ChildNodes.Count - 1 do
+  begin
+    With frmCADInfo.XML.DocumentElement.ChildNodes[I] do
+    begin
+      if ChildNodes['info'].Text = tileInfoWEB.ActiveFrame.Text1.Value then
+      begin
+        ShellExecute(Handle,'open',PWideChar(ChildNodes['link'].Text),nil,nil,SW_SHOWNORMAL);
+        break;
+      end;
+    end;
+  end;
+
+end;
+
+procedure TfrmCADInfo.TimerFTPTimer(Sender: TObject);
+var
+  FTP : ThreadFTP;
+begin
+  FTP := ThreadFTP.Create(false);
+  FTP.Resume;
 end;
 
 procedure TfrmCADInfo.TimerHoraTimer(Sender: TObject);
