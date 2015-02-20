@@ -1373,9 +1373,11 @@ object DM: TDM
     object cdsProdutoGradeidprodutotamanho: TIntegerField
       FieldName = 'idprodutotamanho'
     end
-    object cdsProdutoGradecodigo: TWideStringField
+    object cdsProdutoGradecodigo: TIntegerField
       FieldName = 'codigo'
-      Size = 50
+    end
+    object cdsProdutoGradeativo: TBooleanField
+      FieldName = 'ativo'
     end
     object cdsProdutoGradeprodutonome: TWideStringField
       FieldName = 'produtonome'
@@ -3733,8 +3735,8 @@ object DM: TDM
     Params = <>
     ProviderName = 'dspRegraFiscal'
     RemoteServer = dspConnection
-    Left = 784
-    Top = 416
+    Left = 536
+    Top = 480
     object cdsRegraFiscalidregrafiscal: TIntegerField
       FieldName = 'idregrafiscal'
     end

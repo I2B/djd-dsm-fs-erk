@@ -905,14 +905,6 @@ type
     cdsProdutoTamanhoidprodutotamanho: TIntegerField;
     cdsProdutoTamanhocodigo: TWideStringField;
     cdsProdutoTamanhonome: TWideStringField;
-    cdsProdutoGradeidprodutograde: TIntegerField;
-    cdsProdutoGradeidproduto: TIntegerField;
-    cdsProdutoGradeidprodutocor: TIntegerField;
-    cdsProdutoGradeidprodutotamanho: TIntegerField;
-    cdsProdutoGradecodigo: TWideStringField;
-    cdsProdutoGradeprodutonome: TWideStringField;
-    cdsProdutoGradecornome: TWideStringField;
-    cdsProdutoGradetamanhonome: TWideStringField;
     cdsProdutoCorcodigo: TWideStringField;
     cdsProdutoCornome: TWideStringField;
     cdsProdutoCoridprodutocor: TIntegerField;
@@ -1023,6 +1015,15 @@ type
     cdsRegraFiscalnomefantasia: TWideStringField;
     cdsRegraFiscalcfopdescricao: TWideStringField;
     cdsRegraFiscalobservacao2: TWideMemoField;
+    cdsProdutoGradeidprodutograde: TIntegerField;
+    cdsProdutoGradeidproduto: TIntegerField;
+    cdsProdutoGradeidprodutocor: TIntegerField;
+    cdsProdutoGradeidprodutotamanho: TIntegerField;
+    cdsProdutoGradecodigo: TIntegerField;
+    cdsProdutoGradeativo: TBooleanField;
+    cdsProdutoGradeprodutonome: TWideStringField;
+    cdsProdutoGradecornome: TWideStringField;
+    cdsProdutoGradetamanhonome: TWideStringField;
   private
     FInstanceOwner: Boolean;
   public
