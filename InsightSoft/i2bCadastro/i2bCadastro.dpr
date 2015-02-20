@@ -91,7 +91,8 @@ uses
   unI2BBD in '..\Framework\unI2BBD.pas',
   unCADProdutoGrade in 'Forms\unCADProdutoGrade.pas' {frmCADProdutoGrade},
   unCADLogin in 'Forms\unCADLogin.pas' {frmCADLogin},
-  unCADInfo in 'Forms\unCADInfo.pas' {frmCADInfo};
+  unCADInfo in 'Forms\unCADInfo.pas' {frmCADInfo},
+  unThreadFTP in 'Forms\unThreadFTP.pas';
 
 {$R *.res}
 
