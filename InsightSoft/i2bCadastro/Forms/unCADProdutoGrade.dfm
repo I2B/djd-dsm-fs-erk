@@ -1192,16 +1192,11 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         end
       end
       inherited cxTabCadastro: TcxTabSheet
-        ExplicitLeft = 4
-        ExplicitTop = 26
         ExplicitWidth = 899
         ExplicitHeight = 408
         inherited pnlCadastro: TPanel
           Height = 408
           ExplicitHeight = 408
-          inherited cxImage3: TcxImage
-            ExplicitTop = -1
-          end
         end
         inline FrameProdutoGrade: TFrameProdutoGrade
           Left = 60
@@ -1228,8 +1223,10 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             ExplicitWidth = 839
             ExplicitHeight = 408
             inherited edtIDProduto: TcxDBTextEdit
-              ExplicitWidth = 61
-              Width = 61
+              ExplicitHeight = 23
+            end
+            inherited edtProdutoNome: TcxTextEdit
+              ExplicitHeight = 23
             end
             inherited dxLayoutControlGroup_Root: TdxLayoutGroup
               Index = -1
@@ -1257,8 +1254,8 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
         ExplicitWidth = 899
         ExplicitHeight = 408
         inherited gbFiltroSalvo: TcxGroupBox
-          ExplicitWidth = 903
-          ExplicitHeight = 239
+          ExplicitWidth = 899
+          ExplicitHeight = 241
           Height = 241
           Width = 899
           inherited cxGridFiltro: TcxGrid
@@ -1275,7 +1272,7 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
           end
         end
         inherited gbDesenvolvimentoFiltro: TcxGroupBox
-          ExplicitWidth = 903
+          ExplicitWidth = 899
           Width = 899
           inherited edtFiltroCondicao: TcxTextEdit
             ExplicitWidth = 333
@@ -1287,7 +1284,7 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
             ExplicitLeft = 614
           end
           inherited gbFiltroDesenvolvido: TcxGroupBox
-            ExplicitWidth = 899
+            ExplicitWidth = 895
             Width = 895
             inherited memoFiltroSQL: TcxMemo
               ExplicitWidth = 870
@@ -1366,5 +1363,35 @@ inherited frmCADProdutoGrade: TfrmCADProdutoGrade
       end>
     SQLConnection = DM.conServer
     ServerMethodName = 'TServerMethods.setSQLProdutoGrade'
+  end
+  object dxAlertWindowManager1: TdxAlertWindowManager
+    OptionsButtons.Buttons = <>
+    OptionsCaptionButtons.PopupMenu = PopupMenu1
+    OptionsMessage.Caption.Font.Charset = DEFAULT_CHARSET
+    OptionsMessage.Caption.Font.Color = clWindowText
+    OptionsMessage.Caption.Font.Height = -13
+    OptionsMessage.Caption.Font.Name = 'Tahoma'
+    OptionsMessage.Caption.Font.Style = [fsBold]
+    OptionsMessage.Text.Font.Charset = DEFAULT_CHARSET
+    OptionsMessage.Text.Font.Color = clWindowText
+    OptionsMessage.Text.Font.Height = -11
+    OptionsMessage.Text.Font.Name = 'Tahoma'
+    OptionsMessage.Text.Font.Style = []
+    OptionsNavigationPanel.Font.Charset = DEFAULT_CHARSET
+    OptionsNavigationPanel.Font.Color = clWindowText
+    OptionsNavigationPanel.Font.Height = -11
+    OptionsNavigationPanel.Font.Name = 'Tahoma'
+    OptionsNavigationPanel.Font.Style = []
+    OptionsSize.AutoHeight = True
+    Left = 776
+    Top = 352
+    PixelsPerInch = 96
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 776
+    Top = 294
+    object Alerta1: TMenuItem
+      Caption = 'Alerta'
+    end
   end
 end

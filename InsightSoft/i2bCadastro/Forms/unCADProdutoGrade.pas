@@ -19,7 +19,7 @@ uses
   Vcl.ActnList, dxCustomHint, cxHint, cxGroupBox, cxRadioGroup, cxMemo, cxGridCustomTableView, cxGridTableView,
   cxDropDownEdit, cxCalendar, Vcl.StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxLabel, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridDBTableView, cxGrid, cxPC, dxGDIPlusClasses, cxImage, Vcl.ExtCtrls, unFramePai,
-  unFrameProdutoGrade;
+  unFrameProdutoGrade, dxAlertWindow;
 
 type
   TfrmCADProdutoGrade = class(TfrmCadastro)
@@ -30,6 +30,9 @@ type
     cxGridDBativo: TcxGridDBColumn;
     cxGridDBcodigo: TcxGridDBColumn;
     FrameProdutoGrade: TFrameProdutoGrade;
+    dxAlertWindowManager1: TdxAlertWindowManager;
+    PopupMenu1: TPopupMenu;
+    Alerta1: TMenuItem;
     procedure acSalvarExecute(Sender: TObject);
   private
     { Private declarations }
@@ -52,6 +55,7 @@ var
   Coluna: Integer;
   colunaGrade: Integer;
   cadastrado: TClientDataSet;
+  menssagem: string;
 begin
   FrameProdutoGrade.tvGrade.DataController.GotoFirst;
   for Linha := 0 to FrameProdutoGrade.tvGrade.DataController.RecordCount -1 do
@@ -63,24 +67,52 @@ begin
         IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag),DM.dspConnection);
       if (cadastrado.RecordCount = 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = True) then
       begin
-        i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo)'
+        if not  i2bExecutaSQL('insert into produtograde (idProduto, idProdutoCor, idProdutoTamanho, codigo)'
           +'values('+FrameProdutoGrade.edtIDProduto.Text+','+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+','+
-           VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+','+FrameProdutoGrade.edtIDProduto.Text+
-           IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+')',dm.dspConnection);
+          VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+','+FrameProdutoGrade.edtIDProduto.Text+
+          IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+')',dm.dspConnection) then
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' não gravado!';
+        end
+        else
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' gravado com sucesso!';
+        end;
       end
       else if (cadastrado.RecordCount <> 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = false) then
       begin
-        i2bExecutaSQL('update produtograde set ativo = false where codigo ='+FrameProdutoGrade.edtIDProduto.Text+
-          IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag),DM.dspConnection);
+        if not i2bExecutaSQL('update produtograde set ativo = false where codigo ='+FrameProdutoGrade.edtIDProduto.Text+
+          IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag),DM.dspConnection) then
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' não gravado!';
+        end
+        else
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' gravado com sucesso!';
+        end;
       end
       else if (cadastrado.RecordCount <> 0) and (FrameProdutoGrade.tvGrade.Columns[Coluna].EditValue = true) then
       begin
-        i2bExecutaSQL('update produtograde set ativo = true where codigo ='+FrameProdutoGrade.edtIDProduto.Text+
-          IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag),DM.dspConnection);
+        if not i2bExecutaSQL('update produtograde set ativo = true where codigo ='+FrameProdutoGrade.edtIDProduto.Text+
+          IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag),DM.dspConnection) then
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' não gravado!';
+        end
+        else
+        begin
+          menssagem := menssagem + 'Produto'+FrameProdutoGrade.edtIDProduto.Text+IntToStr(FrameProdutoGrade.tvGradeCodCor.EditValue)+
+            VarToStr(FrameProdutoGrade.tvGrade.Columns[Coluna].Tag)+' gravado com sucesso!';
+        end;
       end;
     end;
     FrameProdutoGrade.tvGrade.DataController.GotoNext;
   end;
+  dxAlertWindowManager1.Show('Alerta!',menssagem,0)
 end;
 
 end.
