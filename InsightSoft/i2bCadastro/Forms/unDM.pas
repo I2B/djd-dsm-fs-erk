@@ -943,6 +943,8 @@ type
     cdsMunicipioidestado: TWideStringField;
     cdsMunicipioestadonome: TWideStringField;
     cdsPaisindicadordescricao: TWideStringField;
+    cdsPortadorbanconome: TWideStringField;
+    cdsProdutoncmnome: TWideStringField;
     cdsPessoaColaboradoridbanco: TWideStringField;
     cdsPessoaColaboradoridsetor: TIntegerField;
     cdsPessoaColaboradoridcargo: TIntegerField;
@@ -964,8 +966,6 @@ type
     cdsPessoaColaboradorsetornome: TWideStringField;
     cdsPessoaColaboradorcargonome: TWideStringField;
     cdsPessoaColaboradorbanconome: TWideStringField;
-    cdsPortadorbanconome: TWideStringField;
-    cdsProdutoncmnome: TWideStringField;
     cdsProdutoTabelaPrecoprodutonome: TWideStringField;
     cdsProdutoTabelaPrecoidtabelapreco: TIntegerField;
     cdsProdutoTabelaPrecotabelapreconome: TWideStringField;
