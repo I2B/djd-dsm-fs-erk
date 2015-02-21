@@ -420,18 +420,23 @@ procedure TfrmCADInfo.tileInfoWEBClick(Sender: TdxTileControlItem);
 var
   I : Integer;
 begin
-  for I := 0 to frmCADInfo.XML.DocumentElement.ChildNodes.Count - 1 do
+  if tileInfoWEB.Frames.Count > 0 then
   begin
-    With frmCADInfo.XML.DocumentElement.ChildNodes[I] do
+    if tileInfoWEB.ActiveFrame.Text1.Value <> '' then
     begin
-      if ChildNodes['info'].Text = tileInfoWEB.ActiveFrame.Text1.Value then
+      for I := 0 to frmCADInfo.XML.DocumentElement.ChildNodes.Count - 1 do
       begin
-        ShellExecute(Handle,'open',PWideChar(ChildNodes['link'].Text),nil,nil,SW_SHOWNORMAL);
-        break;
+        With frmCADInfo.XML.DocumentElement.ChildNodes[I] do
+        begin
+          if ChildNodes['info'].Text = tileInfoWEB.ActiveFrame.Text1.Value then
+          begin
+            ShellExecute(Handle,'open',PWideChar(ChildNodes['link'].Text),nil,nil,SW_SHOWNORMAL);
+            break;
+          end;
+        end;
       end;
     end;
   end;
-
 end;
 
 procedure TfrmCADInfo.TimerFTPTimer(Sender: TObject);

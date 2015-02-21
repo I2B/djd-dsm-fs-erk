@@ -32,7 +32,7 @@ begin
     IdFTP.Port := 21;
     IdFTP.Username := 'u370909348';
     IdFTP.Password := 'Insight';
-    IdFTP.Passive := False;
+    IdFTP.Passive := True;
     IdFTP.Connect();
     IdFTP.Get('/public_html/XML/infoI2B.xml','C:\InsightSoft\infoI2B.xml',true,false);
     Synchronize(self.setInfo);

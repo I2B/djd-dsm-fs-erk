@@ -1037,6 +1037,7 @@ inherited frmCADInfo: TfrmCADInfo
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
+  ExplicitTop = -18
   ExplicitWidth = 1040
   ExplicitHeight = 604
   PixelsPerInch = 96
@@ -1047,10 +1048,11 @@ inherited frmCADInfo: TfrmCADInfo
     Width = 261
     Height = 565
     Align = alRight
+    OptionsView.CenterContentHorz = True
+    OptionsView.CenterContentVert = True
     OptionsView.IndentHorz = 5
     OptionsView.IndentVert = 5
     TabOrder = 4
-    ExplicitLeft = 769
     object tileInfoGroup1: TdxTileControlGroup
       Index = 0
     end
@@ -1351,6 +1353,7 @@ inherited frmCADInfo: TfrmCADInfo
       Text4.AssignedValues = []
     end
     object tileInfoWEB: TdxTileControlItem
+      AnimationMode = amSegmentedFade
       GroupIndex = 0
       IndexInGroup = 3
       Size = tcisLarge
@@ -1622,6 +1625,7 @@ inherited frmCADInfo: TfrmCADInfo
       object chartProdutos: TcxGridDBChartView
         DataController.DataSource = dtsProdutos
         DiagramBar.Active = True
+        DiagramBar.Values.VaryColorsByCategory = True
         DiagramPie.SeriesCaptions = False
         DiagramPie.Styles.ValueCaptions = frmPrincipal.cxStyle1
         DiagramPie.Values.AngleOfFirstSlice = 10
@@ -1647,12 +1651,12 @@ inherited frmCADInfo: TfrmCADInfo
     end
   end
   inherited cxHintStyleController: TcxHintStyleController
-    Left = 326
-    Top = 166
+    Left = 280
+    Top = 128
   end
   inherited dxBarManager: TdxBarManager
-    Left = 232
-    Top = 168
+    Left = 248
+    Top = 128
     DockControlHeights = (
       0
       0
@@ -1682,13 +1686,13 @@ inherited frmCADInfo: TfrmCADInfo
   object dtsComposicao: TDataSource
     AutoEdit = False
     DataSet = memComposicao
-    Left = 144
+    Left = 96
     Top = 168
   end
   object TimerHora: TTimer
     OnTimer = TimerHoraTimer
-    Left = 344
-    Top = 72
+    Left = 312
+    Top = 128
   end
   object cdsPessoasRecentes: TClientDataSet
     PersistDataPacket.Data = {
@@ -1980,7 +1984,7 @@ inherited frmCADInfo: TfrmCADInfo
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 586
+    Left = 634
     Top = 368
     object cdsProdutosgrupo: TStringField
       FieldName = 'grupo'
@@ -2001,13 +2005,13 @@ inherited frmCADInfo: TfrmCADInfo
     Top = 368
   end
   object XML: TXMLDocument
-    Left = 440
-    Top = 368
+    Left = 824
+    Top = 464
   end
   object TimerFTP: TTimer
     Interval = 300000
     OnTimer = TimerFTPTimer
-    Left = 392
-    Top = 368
+    Left = 856
+    Top = 464
   end
 end
