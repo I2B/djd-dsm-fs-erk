@@ -1335,6 +1335,11 @@ inherited frmCADInfo: TfrmCADInfo
       GroupIndex = 0
       IndexInGroup = 1
       Size = tcisLarge
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clDefault
+      Style.Font.Height = -11
+      Style.Font.Name = 'Segoe UI Light'
+      Style.Font.Style = []
       Text1.AssignedValues = []
       Text2.AssignedValues = []
       Text3.AssignedValues = []
@@ -1345,6 +1350,11 @@ inherited frmCADInfo: TfrmCADInfo
       IndexInGroup = 2
       Size = tcisLarge
       Style.BorderColor = 16744448
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clDefault
+      Style.Font.Height = -11
+      Style.Font.Name = 'Segoe UI Light'
+      Style.Font.Style = []
       Style.GradientBeginColor = 16744448
       Style.GradientEndColor = 16744448
       Text1.AssignedValues = []
@@ -1358,6 +1368,11 @@ inherited frmCADInfo: TfrmCADInfo
       IndexInGroup = 3
       Size = tcisLarge
       Style.BorderColor = 5177344
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clDefault
+      Style.Font.Height = -13
+      Style.Font.Name = 'Segoe UI Light'
+      Style.Font.Style = []
       Style.GradientBeginColor = 5177344
       Style.GradientEndColor = 5177344
       Text1.AssignedValues = []

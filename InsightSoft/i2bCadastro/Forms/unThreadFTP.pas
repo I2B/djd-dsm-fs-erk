@@ -69,7 +69,7 @@ begin
           IdHTTP.Get(img,MS);
           MS.Seek(0,soFromBeginning);
           Frame.Glyph.Image.LoadFromStream(MS);
-          Frame.Glyph.Align := oaBottomRight;
+          Frame.Glyph.Align := oaMiddleRight;
         except
         end;
       end;
