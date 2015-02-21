@@ -3,6 +3,7 @@ inherited FrameProdutoUnidadeConversao: TFrameProdutoUnidadeConversao
   ExplicitWidth = 538
   inherited dxLayoutControl: TdxLayoutControl
     Width = 538
+    ExplicitWidth = 538
     object edtSigla: TcxDBTextEdit [0]
       Left = 12
       Top = 252

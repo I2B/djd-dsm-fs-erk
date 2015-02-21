@@ -56,7 +56,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDBanco, edtBanco, 'Selecione o banco.', 'idbanco|nome', 'nome',
-      'idbanco|nome', 'ID|Banco', 'banco', '', DM.conServer, 'FramePortador', DM.cdsBanco);
+      'idbanco|nome', 'ID|Banco', 'banco', '', DM.conServer, 'FrameBanco', DM.cdsBanco);
   end;
 end;
 

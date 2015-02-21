@@ -64,7 +64,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDGrupo, edtGrupo, 'Selecione o grupo.', 'idgrupoprodutos|nome', 'nome',
-      'idgrupoprodutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProdutoGrupo', DM.cdsProdutoSubGrupo);
+      'idgrupoprodutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProdutoGrupo', DM.cdsProdutoGrupo);
   end;
 end;
 

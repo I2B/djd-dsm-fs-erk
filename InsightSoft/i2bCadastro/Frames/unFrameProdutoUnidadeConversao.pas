@@ -74,7 +74,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDProduto, edtProduto, 'Selecione o produto.', 'idProduto|nome', 'nome',
-      'idproduto|nome', 'ID|Produto', 'Produto', '', DM.conServer, 'FrameProduto', DM.cdsProdutoUnidadeConversao);
+      'idproduto|nome', 'ID|Produto', 'Produto', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
   end;
 end;
 
@@ -99,7 +99,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDUnidadeConversao, edtUnidadeConversao, 'Selecione a unidade de medida para conversão.', 'idProdutoUnidade|sigla', 'sigla',
-      'idProdutoUnidade|Sigla|Descricao', 'ID|Sigla|Descrição', 'ProdutoUnidade', '', DM.conServer, 'FrameUnidadeConversao', DM.cdsProdutoUnidadeConversao);
+      'idProdutoUnidade|Sigla|Descricao', 'ID|Sigla|Descrição', 'ProdutoUnidade', '', DM.conServer, 'FrameProdutoUnidade', DM.cdsProdutoUnidade);
   end;
 end;
 

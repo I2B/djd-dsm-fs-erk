@@ -1120,38 +1120,65 @@ type
     qryRegraFiscalidregrafiscal: TIntegerField;
     qryRegraFiscalidpessoa: TIntegerField;
     qryRegraFiscalidregrafiscalobservacao: TIntegerField;
-    qryRegraFiscalidcstpis: TIntegerField;
-    qryRegraFiscalidcstipi: TIntegerField;
     qryRegraFiscalidtipooperacao: TIntegerField;
     qryRegraFiscalidpais: TIntegerField;
     qryRegraFiscalidmunicipio: TIntegerField;
     qryRegraFiscalidestado: TWideStringField;
     qryRegraFiscalidunidadenegocio: TIntegerField;
-    qryRegraFiscalidcfop: TIntegerField;
     qryRegraFiscalidncm: TIntegerField;
-    qryRegraFiscalidcstcofins: TIntegerField;
-    qryRegraFiscalreducaoipi: TFloatField;
-    qryRegraFiscalipi: TSmallintField;
-    qryRegraFiscalreducaoicms: TFloatField;
-    qryRegraFiscalicms: TSmallintField;
-    qryRegraFiscalpis: TFloatField;
-    qryRegraFiscalretencaopis: TFloatField;
-    qryRegraFiscalcofins: TFloatField;
-    qryRegraFiscalretencaocofins: TIntegerField;
-    qryRegraFiscalativo: TBooleanField;
-    qryRegraFiscalmva: TFloatField;
-    qryRegraFiscalst: TFloatField;
-    qryRegraFiscalreducaost: TFloatField;
-    qryRegraFiscaliss: TFloatField;
-    qryRegraFiscalreducaoiss: TFloatField;
-    qryRegraFiscalcsosn: TSmallintField;
-    qryRegraFiscalcssl: TFloatField;
-    qryRegraFiscalinss: TFloatField;
-    qryRegraFiscalir: TSmallintField;
-    qryRegraFiscalfunrural: TFloatField;
-    qryRegraFiscalie: TFloatField;
-    qryRegraFiscalii: TFloatField;
-    qryRegraFiscalcfopdevolucao: TSmallintField;
+    qryRegraFiscalpficmscst: TIntegerField;
+    qryRegraFiscalpficmsaliquota: TFloatField;
+    qryRegraFiscalpficmspercentualreducao: TFloatField;
+    qryRegraFiscalpfcsosn: TIntegerField;
+    qryRegraFiscalpfipicst: TIntegerField;
+    qryRegraFiscalpfipiclasseenquadramento: TIntegerField;
+    qryRegraFiscalpfipicodigoenquadramento: TIntegerField;
+    qryRegraFiscalpfipialiquota: TFloatField;
+    qryRegraFiscalpfpiscst: TIntegerField;
+    qryRegraFiscalpfpisaliquota: TFloatField;
+    qryRegraFiscalpfcofinscst: TIntegerField;
+    qryRegraFiscalpfcofinsaliquota: TFloatField;
+    qryRegraFiscalpfissaliquota: TIntegerField;
+    qryRegraFiscalpfisspercentualreducao: TFloatField;
+    qryRegraFiscalpfmovimentaestoque: TBooleanField;
+    qryRegraFiscalpfcontrolaparcelas: TBooleanField;
+    qryRegraFiscalpfadicionaipibcicms: TBooleanField;
+    qryRegraFiscalpfadicionafretebcicms: TBooleanField;
+    qryRegraFiscalpfadicionasegurobcicms: TBooleanField;
+    qryRegraFiscalpfadicionaoutrasdespesasbcicms: TBooleanField;
+    qryRegraFiscalpjicmscst: TIntegerField;
+    qryRegraFiscalpjicmsaliquota: TFloatField;
+    qryRegraFiscalpjicmspercentualreducao: TFloatField;
+    qryRegraFiscalpjicmsstaliquota: TFloatField;
+    qryRegraFiscalpjicmsstmva: TFloatField;
+    qryRegraFiscalpjicmsstpercentualreducao: TFloatField;
+    qryRegraFiscalpjcsosn: TIntegerField;
+    qryRegraFiscalpjipicst: TIntegerField;
+    qryRegraFiscalpjipiclasseenquadramento: TIntegerField;
+    qryRegraFiscalpjipicodigoenquadramento: TIntegerField;
+    qryRegraFiscalpjipialiquota: TFloatField;
+    qryRegraFiscalpjpiscst: TIntegerField;
+    qryRegraFiscalpjpisaliquota: TFloatField;
+    qryRegraFiscalpjpisaliquotast: TFloatField;
+    qryRegraFiscalpjcofinscst: TIntegerField;
+    qryRegraFiscalpjcofinsaliquota: TFloatField;
+    qryRegraFiscalpjcofinsaliquotast: TFloatField;
+    qryRegraFiscalpjissaliquota: TFloatField;
+    qryRegraFiscalpjissreducaobc: TFloatField;
+    qryRegraFiscalpjissretencao: TFloatField;
+    qryRegraFiscalpjirretencao: TFloatField;
+    qryRegraFiscalpjpisretencao: TFloatField;
+    qryRegraFiscalpjcofinsretencao: TFloatField;
+    qryRegraFiscalpjcsllretencao: TFloatField;
+    qryRegraFiscalpjinssretencao: TFloatField;
+    qryRegraFiscalpjmovimentaestoque: TBooleanField;
+    qryRegraFiscalpjcontrolaparcelas: TBooleanField;
+    qryRegraFiscalpjadicionaipibcicms: TBooleanField;
+    qryRegraFiscalpjadicionafretebcicms: TBooleanField;
+    qryRegraFiscalpjadicionasegurobcicms: TBooleanField;
+    qryRegraFiscalpjadicionaoutrasdespesasbcicms: TBooleanField;
+    qryRegraFiscalinativo: TBooleanField;
+    qryRegraFiscalidcfop: TIntegerField;
     qryRegraFiscalpessoanome: TWideStringField;
     qryRegraFiscaltipooperacaodescricao: TWideStringField;
     qryRegraFiscalpaisnome: TWideStringField;
@@ -1159,6 +1186,8 @@ type
     qryRegraFiscalnomefantasia: TWideStringField;
     qryRegraFiscalcfopdescricao: TWideStringField;
     qryRegraFiscalobservacao2: TWideMemoField;
+    qryRegraFiscalestadonome: TWideStringField;
+    qryRegraFiscalncmdescricao: TWideStringField;
     procedure DSServerModuleCreate(Sender: TObject);
     procedure BeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
       UpdateKind: TUpdateKind; var Applied: Boolean);
@@ -1358,8 +1387,8 @@ type
       ' order by idprodutounidadeconversao',' limit 0 ');
     const selectregrafiscal: array[1..5] of string = ('select regrafiscal.*, pessoa.nome as pessoanome, '+
       ' tipooperacao.descricao as tipooperacaodescricao, pais.nome as paisnome, municipio.nome as municipionome, '+
-      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao, regrafiscalobservacao.observacao as observacao'+
-      ' estado.nome as estadonome' ,
+      ' unidadenegocio.nomefantasia, cfop.descricao as cfopdescricao, regrafiscalobservacao.observacao as observacao, '+
+      ' estado.nome as estadonome, ncm.descricao as ncmdescricao ',
       ' from regrafiscal inner join pessoa on regrafiscal.idpessoa = pessoa.idpessoa '+
       ' inner join tipooperacao on regrafiscal.idtipooperacao = tipooperacao.idtipooperacao '+
       ' inner join pais on regrafiscal.idpais = pais.idpais '+
@@ -1367,7 +1396,8 @@ type
       ' inner join unidadenegocio on regrafiscal.idunidadenegocio = unidadenegocio.idunidadenegocio '+
       ' inner join cfop on regrafiscal.idcfop = cfop.idcfop '+
       ' inner join regrafiscalobservacao on regrafiscal.idregrafiscalobservacao = regrafiscalobservacao.idregrafiscalobservacao'+
-      ' inner join estado on regrafiscal.idestado = estado.idestado',
+      ' inner join estado on regrafiscal.idestado = estado.idestado '+
+      ' inner join ncm on regrafiscal.idncm = ncm.idncm ',
       ' ',' order by idregrafiscal',' limit 0 ');
     const selectregrafiscalobservacao: array[1..5] of string = ('select *',' from regrafiscalobservacao',' ',
       ' order by idregrafiscalobservacao',' limit 0 ');

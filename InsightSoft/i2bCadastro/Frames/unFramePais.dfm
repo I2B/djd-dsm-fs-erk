@@ -1,6 +1,5 @@
 inherited FramePais: TFramePais
   inherited dxLayoutControl: TdxLayoutControl
-    ExplicitTop = 16
     object edtMoeda: TcxDBTextEdit [0]
       Left = 104
       Top = 84

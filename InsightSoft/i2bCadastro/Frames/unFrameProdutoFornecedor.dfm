@@ -137,7 +137,7 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
     end
     object dxLayoutControlItem8: TdxLayoutItem
       Parent = dxLayoutControlGroup2
-      CaptionOptions.Text = 'ID Produto [F4]'
+      CaptionOptions.Text = 'ID Produto [F2]'
       CaptionOptions.Layout = clTop
       Control = edtIDProduto
       ControlOptions.ShowBorder = False
@@ -151,7 +151,7 @@ inherited FrameProdutoFornecedor: TFrameProdutoFornecedor
     end
     object dxLayoutControlItem9: TdxLayoutItem
       Parent = dxLayoutControlGroup3
-      CaptionOptions.Text = 'ID Fornecedor [F4]'
+      CaptionOptions.Text = 'ID Fornecedor [F2]'
       CaptionOptions.Layout = clTop
       Control = edtIDFornecedor
       ControlOptions.ShowBorder = False

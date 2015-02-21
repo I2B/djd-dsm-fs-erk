@@ -76,7 +76,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDCNAE, edtCNAE, 'Selecione o CNAE.', 'idCnae', 'idCnae',
-      'idCnae|Codigo|Denominacao', 'ID|Código CNAE|Denominação', 'CNAE', '', DM.conServer, 'FrameCNAE', DM.cdsUnidadeNegocio);
+      'idCnae|Codigo|Denominacao', 'ID|Código CNAE|Denominação', 'CNAE', '', DM.conServer, 'FrameCNAE', DM.cdsCNAE);
   end;
 end;
 
@@ -100,7 +100,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDEmpresa, edtEmpresa, 'Selecione a empresa.', 'idEmpresa', 'idEmpresa',
-      'idEmpresa|RazaoSocial|NomeFantasia', 'ID|Razão Social|Fantasia', 'Empresa', '', DM.conServer, 'FrameEmpresa', DM.cdsUnidadeNegocio);
+      'idEmpresa|RazaoSocial|NomeFantasia', 'ID|Razão Social|Fantasia', 'Empresa', '', DM.conServer, 'FrameEmpresa', DM.cdsEmpresa);
   end;
 end;
 

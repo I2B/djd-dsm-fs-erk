@@ -350,7 +350,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDBanco, edtBanco, 'Selecione o banco.', 'idbanco|nome', 'nome',
-      'idbanco|nome', 'ID|Nome', 'banco', '', DM.conServer, 'framePessoa', DM.cdsBanco);
+      'idbanco|nome', 'ID|Nome', 'banco', '', DM.conServer, 'frameBanco', DM.cdsBanco);
   end;
 end;
 
@@ -374,7 +374,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDCargo, edtCargo, 'Selecione o cargo.', 'idcargo|nome', 'nome',
-      'idcargo|nome|descricao', 'ID|Nome|Descrição', 'cargo', '', DM.conServer, 'framePessoa', DM.cdsCargo);
+      'idcargo|nome|descricao', 'ID|Nome|Descrição', 'cargo', '', DM.conServer, 'frameCargo', DM.cdsCargo);
   end;
 end;
 
@@ -398,7 +398,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDSetor, edtSetor, 'Selecione o setor.', 'idsetor|nome', 'nome',
-      'idsetor|nome|descricao', 'ID|Nome|Descrição', 'setor', '', DM.conServer, 'framePessoa', DM.cdsSetor);
+      'idsetor|nome|descricao', 'ID|Nome|Descrição', 'setor', '', DM.conServer, 'frameSetor', DM.cdsSetor);
   end;
 end;
 
