@@ -61,7 +61,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtMunicipioID, edtMunicipioNome, 'Selecione o Município', 'idMunicipio|nome', 'nome',
-      'idMunicipio|Nome|idEstado', 'ID|Municipio|Estado', 'Municipio', '', DM.conServer, 'FrameCEP', DM.cdsMunicipio);
+      'idMunicipio|Nome|idEstado', 'ID|Municipio|Estado', 'Municipio', '', DM.conServer, 'FrameMunicipio', DM.cdsMunicipio);
   end;
 end;
 

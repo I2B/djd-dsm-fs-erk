@@ -125,7 +125,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtCodigoGrupo, edtGrupo, 'Selecione o grupo.', 'idGrupoProdutos|nome', 'nome',
-      'idGrupoProdutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoGrupo);
+      'idGrupoProdutos|nome', 'ID|Grupo', 'ProdutoGrupo', '', DM.conServer, 'FrameProdutoGrupo', DM.cdsProdutoGrupo);
   end;
 end;
 
@@ -149,7 +149,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDNCM, edtNCM, 'Selecione a NCM.', 'idncm|descricao', 'idncm',
-      'idncm|Descricao', 'NCM|Descrição', 'NCM', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
+      'idncm|Descricao', 'NCM|Descrição', 'NCM', '', DM.conServer, 'FrameNCM', DM.cdsNCM);
   end;
 end;
 
@@ -174,7 +174,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDSubGrupo, edtSubGrupo, 'Selecione o sub-grupo.', 'idsubgrupoprodutos|nome', 'nome',
-      'idsubgrupoprodutos|nome', 'ID|Sub-Grupo', 'ProdutoSubGrupo', '', DM.conServer, 'FrameProduto', DM.cdsProdutoSubGrupo);
+      'idsubgrupoprodutos|nome', 'ID|Sub-Grupo', 'ProdutoSubGrupo', '', DM.conServer, 'FrameProdutoSubGrupo', DM.cdsProdutoSubGrupo);
   end;
 end;
 

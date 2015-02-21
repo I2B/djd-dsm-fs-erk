@@ -3746,12 +3746,6 @@ object DM: TDM
     object cdsRegraFiscalidregrafiscalobservacao: TIntegerField
       FieldName = 'idregrafiscalobservacao'
     end
-    object cdsRegraFiscalidcstpis: TIntegerField
-      FieldName = 'idcstpis'
-    end
-    object cdsRegraFiscalidcstipi: TIntegerField
-      FieldName = 'idcstipi'
-    end
     object cdsRegraFiscalidtipooperacao: TIntegerField
       FieldName = 'idtipooperacao'
     end
@@ -3769,80 +3763,167 @@ object DM: TDM
     object cdsRegraFiscalidunidadenegocio: TIntegerField
       FieldName = 'idunidadenegocio'
     end
-    object cdsRegraFiscalidcfop: TIntegerField
-      FieldName = 'idcfop'
-    end
     object cdsRegraFiscalidncm: TIntegerField
       FieldName = 'idncm'
     end
-    object cdsRegraFiscalidcstcofins: TIntegerField
-      FieldName = 'idcstcofins'
+    object cdsRegraFiscalpficmscst: TIntegerField
+      FieldName = 'pficmscst'
     end
-    object cdsRegraFiscalreducaoipi: TFloatField
-      FieldName = 'reducaoipi'
+    object cdsRegraFiscalpficmsaliquota: TFloatField
+      FieldName = 'pficmsaliquota'
     end
-    object cdsRegraFiscalipi: TSmallintField
-      FieldName = 'ipi'
+    object cdsRegraFiscalpficmspercentualreducao: TFloatField
+      FieldName = 'pficmspercentualreducao'
     end
-    object cdsRegraFiscalreducaoicms: TFloatField
-      FieldName = 'reducaoicms'
+    object cdsRegraFiscalpfcsosn: TIntegerField
+      FieldName = 'pfcsosn'
     end
-    object cdsRegraFiscalicms: TSmallintField
-      FieldName = 'icms'
+    object cdsRegraFiscalpfipicst: TIntegerField
+      FieldName = 'pfipicst'
     end
-    object cdsRegraFiscalpis: TFloatField
-      FieldName = 'pis'
+    object cdsRegraFiscalpfipiclasseenquadramento: TIntegerField
+      FieldName = 'pfipiclasseenquadramento'
     end
-    object cdsRegraFiscalretencaopis: TFloatField
-      FieldName = 'retencaopis'
+    object cdsRegraFiscalpfipicodigoenquadramento: TIntegerField
+      FieldName = 'pfipicodigoenquadramento'
     end
-    object cdsRegraFiscalcofins: TFloatField
-      FieldName = 'cofins'
+    object cdsRegraFiscalpfipialiquota: TFloatField
+      FieldName = 'pfipialiquota'
     end
-    object cdsRegraFiscalretencaocofins: TIntegerField
-      FieldName = 'retencaocofins'
+    object cdsRegraFiscalpfpiscst: TIntegerField
+      FieldName = 'pfpiscst'
     end
-    object cdsRegraFiscalativo: TBooleanField
-      FieldName = 'ativo'
+    object cdsRegraFiscalpfpisaliquota: TFloatField
+      FieldName = 'pfpisaliquota'
     end
-    object cdsRegraFiscalmva: TFloatField
-      FieldName = 'mva'
+    object cdsRegraFiscalpfcofinscst: TIntegerField
+      FieldName = 'pfcofinscst'
     end
-    object cdsRegraFiscalst: TFloatField
-      FieldName = 'st'
+    object cdsRegraFiscalpfcofinsaliquota: TFloatField
+      FieldName = 'pfcofinsaliquota'
     end
-    object cdsRegraFiscalreducaost: TFloatField
-      FieldName = 'reducaost'
+    object cdsRegraFiscalpfissaliquota: TIntegerField
+      FieldName = 'pfissaliquota'
     end
-    object cdsRegraFiscaliss: TFloatField
-      FieldName = 'iss'
+    object cdsRegraFiscalpfisspercentualreducao: TFloatField
+      FieldName = 'pfisspercentualreducao'
     end
-    object cdsRegraFiscalreducaoiss: TFloatField
-      FieldName = 'reducaoiss'
+    object cdsRegraFiscalpfmovimentaestoque: TBooleanField
+      FieldName = 'pfmovimentaestoque'
     end
-    object cdsRegraFiscalcsosn: TSmallintField
-      FieldName = 'csosn'
+    object cdsRegraFiscalpfcontrolaparcelas: TBooleanField
+      FieldName = 'pfcontrolaparcelas'
     end
-    object cdsRegraFiscalcssl: TFloatField
-      FieldName = 'cssl'
+    object cdsRegraFiscalpfadicionaipibcicms: TBooleanField
+      FieldName = 'pfadicionaipibcicms'
     end
-    object cdsRegraFiscalinss: TFloatField
-      FieldName = 'inss'
+    object cdsRegraFiscalpfadicionafretebcicms: TBooleanField
+      FieldName = 'pfadicionafretebcicms'
     end
-    object cdsRegraFiscalir: TSmallintField
-      FieldName = 'ir'
+    object cdsRegraFiscalpfadicionasegurobcicms: TBooleanField
+      FieldName = 'pfadicionasegurobcicms'
     end
-    object cdsRegraFiscalfunrural: TFloatField
-      FieldName = 'funrural'
+    object cdsRegraFiscalpfadicionaoutrasdespesasbcicms: TBooleanField
+      FieldName = 'pfadicionaoutrasdespesasbcicms'
     end
-    object cdsRegraFiscalie: TFloatField
-      FieldName = 'ie'
+    object cdsRegraFiscalpjicmscst: TIntegerField
+      FieldName = 'pjicmscst'
     end
-    object cdsRegraFiscalii: TFloatField
-      FieldName = 'ii'
+    object cdsRegraFiscalpjicmsaliquota: TFloatField
+      FieldName = 'pjicmsaliquota'
     end
-    object cdsRegraFiscalcfopdevolucao: TSmallintField
-      FieldName = 'cfopdevolucao'
+    object cdsRegraFiscalpjicmspercentualreducao: TFloatField
+      FieldName = 'pjicmspercentualreducao'
+    end
+    object cdsRegraFiscalpjicmsstaliquota: TFloatField
+      FieldName = 'pjicmsstaliquota'
+    end
+    object cdsRegraFiscalpjicmsstmva: TFloatField
+      FieldName = 'pjicmsstmva'
+    end
+    object cdsRegraFiscalpjicmsstpercentualreducao: TFloatField
+      FieldName = 'pjicmsstpercentualreducao'
+    end
+    object cdsRegraFiscalpjcsosn: TIntegerField
+      FieldName = 'pjcsosn'
+    end
+    object cdsRegraFiscalpjipicst: TIntegerField
+      FieldName = 'pjipicst'
+    end
+    object cdsRegraFiscalpjipiclasseenquadramento: TIntegerField
+      FieldName = 'pjipiclasseenquadramento'
+    end
+    object cdsRegraFiscalpjipicodigoenquadramento: TIntegerField
+      FieldName = 'pjipicodigoenquadramento'
+    end
+    object cdsRegraFiscalpjipialiquota: TFloatField
+      FieldName = 'pjipialiquota'
+    end
+    object cdsRegraFiscalpjpiscst: TIntegerField
+      FieldName = 'pjpiscst'
+    end
+    object cdsRegraFiscalpjpisaliquota: TFloatField
+      FieldName = 'pjpisaliquota'
+    end
+    object cdsRegraFiscalpjpisaliquotast: TFloatField
+      FieldName = 'pjpisaliquotast'
+    end
+    object cdsRegraFiscalpjcofinscst: TIntegerField
+      FieldName = 'pjcofinscst'
+    end
+    object cdsRegraFiscalpjcofinsaliquota: TFloatField
+      FieldName = 'pjcofinsaliquota'
+    end
+    object cdsRegraFiscalpjcofinsaliquotast: TFloatField
+      FieldName = 'pjcofinsaliquotast'
+    end
+    object cdsRegraFiscalpjissaliquota: TFloatField
+      FieldName = 'pjissaliquota'
+    end
+    object cdsRegraFiscalpjissreducaobc: TFloatField
+      FieldName = 'pjissreducaobc'
+    end
+    object cdsRegraFiscalpjissretencao: TFloatField
+      FieldName = 'pjissretencao'
+    end
+    object cdsRegraFiscalpjirretencao: TFloatField
+      FieldName = 'pjirretencao'
+    end
+    object cdsRegraFiscalpjpisretencao: TFloatField
+      FieldName = 'pjpisretencao'
+    end
+    object cdsRegraFiscalpjcofinsretencao: TFloatField
+      FieldName = 'pjcofinsretencao'
+    end
+    object cdsRegraFiscalpjcsllretencao: TFloatField
+      FieldName = 'pjcsllretencao'
+    end
+    object cdsRegraFiscalpjinssretencao: TFloatField
+      FieldName = 'pjinssretencao'
+    end
+    object cdsRegraFiscalpjmovimentaestoque: TBooleanField
+      FieldName = 'pjmovimentaestoque'
+    end
+    object cdsRegraFiscalpjcontrolaparcelas: TBooleanField
+      FieldName = 'pjcontrolaparcelas'
+    end
+    object cdsRegraFiscalpjadicionaipibcicms: TBooleanField
+      FieldName = 'pjadicionaipibcicms'
+    end
+    object cdsRegraFiscalpjadicionafretebcicms: TBooleanField
+      FieldName = 'pjadicionafretebcicms'
+    end
+    object cdsRegraFiscalpjadicionasegurobcicms: TBooleanField
+      FieldName = 'pjadicionasegurobcicms'
+    end
+    object cdsRegraFiscalpjadicionaoutrasdespesasbcicms: TBooleanField
+      FieldName = 'pjadicionaoutrasdespesasbcicms'
+    end
+    object cdsRegraFiscalinativo: TBooleanField
+      FieldName = 'inativo'
+    end
+    object cdsRegraFiscalidcfop: TIntegerField
+      FieldName = 'idcfop'
     end
     object cdsRegraFiscalpessoanome: TWideStringField
       FieldName = 'pessoanome'
@@ -3877,6 +3958,16 @@ object DM: TDM
       FieldName = 'observacao'
       ProviderFlags = []
       BlobType = ftWideMemo
+    end
+    object cdsRegraFiscalestadonome: TWideStringField
+      FieldName = 'estadonome'
+      ProviderFlags = []
+      Size = 100
+    end
+    object cdsRegraFiscalncmdescricao: TWideStringField
+      FieldName = 'ncmdescricao'
+      ProviderFlags = []
+      Size = 300
     end
   end
   object cdsRegraFiscalObservacao: TClientDataSet

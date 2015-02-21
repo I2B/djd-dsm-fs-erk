@@ -26,7 +26,7 @@ type
     dxLayoutControl1: TdxLayoutControl;
     dxLayoutControl2Group_Root: TdxLayoutGroup;
     dxLayoutControl2: TdxLayoutControl;
-    edtEstadp: TcxDBTextEdit;
+    edtIDEstado: TcxDBTextEdit;
     dxLayoutControl2Item11: TdxLayoutItem;
     edtNCM: TcxDBTextEdit;
     dxLayoutControl2Item16: TdxLayoutItem;
@@ -202,8 +202,10 @@ type
     dxLayoutControl2Item14: TdxLayoutItem;
     edtUnidadeNegócio: TcxDBTextEdit;
     dxLayoutControl2Item15: TdxLayoutItem;
-    cxDBTextEdit1: TcxDBTextEdit;
+    edtEstado: TcxDBTextEdit;
     dxLayoutControl2Item2: TdxLayoutItem;
+    edtIDNCM: TcxDBCurrencyEdit;
+    dxLayoutControl2Item3: TdxLayoutItem;
     procedure edtIDUnidadeNegocioExit(Sender: TObject);
     procedure edtIDTipoOperacaoExit(Sender: TObject);
     procedure edtIDPaisExit(Sender: TObject);
@@ -216,6 +218,12 @@ type
     procedure edtIDMunicipioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtIDPessoaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtIDObservacaoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDEstadoExit(Sender: TObject);
+    procedure edtIDNCMExit(Sender: TObject);
+    procedure edtIDEstadoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtIDNCMKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPFICMSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPFICMSCSTExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -230,6 +238,30 @@ implementation
 {$R *.dfm}
 
 uses unDM, unI2BBD, unI2BFuncoes;
+
+procedure TFrameRegraFiscal.edtIDEstadoExit(Sender: TObject);
+begin
+  inherited;
+if edtIDEstado.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalestadonome.AsString:= i2bGetValor('estado', 'idestado', edtIDEstado.Text, 'nome', DM.dspConnection);
+	if DM.cdsRegraFiscalestadonome.AsString='' then
+    begin
+      MessageDlg('O estado não pode ser encontrado.', mtError, [mbOK], 0);
+      edtIDEstado.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDEstadoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+if Key = VK_F2 then
+  begin
+    i2bF2(edtIDestado, edtestado, 'Selecione o estado.', 'idestado|nome', 'nome',
+      'idestado|nome', 'ID|Estado', 'Estado', '', DM.conServer, 'FrameEstado', DM.cdsEstado);
+  end;
+end;
 
 procedure TFrameRegraFiscal.edtIDMunicipioExit(Sender: TObject);
 begin
@@ -251,7 +283,31 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDMunicipio, edtMunicipio, 'Selecione o município.', 'idmunicipio|nome', 'nome',
-      'idmunicipio|nome', 'ID|Município', 'Tabela', '', DM.conServer, 'NomeDoFrame', DM.cdsRegraFiscal);
+      'idmunicipio|nome', 'ID|Município', 'Tabela', '', DM.conServer, 'FrameMunicipio', DM.cdsMunicipio);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDNCMExit(Sender: TObject);
+begin
+  inherited;
+if edtIDNCM.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalncmdescricao.AsString:= i2bGetValor('ncm', 'idncm', edtIDNCM.Text, 'descricao', DM.dspConnection);
+	if DM.cdsRegraFiscalncmdescricao.AsString='' then
+    begin
+      MessageDlg('A ncm não pode ser encontrada.', mtError, [mbOK], 0);
+      edtIDNCM.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtIDNCMKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+if Key = VK_F2 then
+  begin
+    i2bF2(edtIDNCM, edtNCM, 'Selecione a ncm.', 'idncm|descricao', 'idncm',
+      'idncm|Descricao', 'ID|Descrição', 'ncm', '', DM.conServer, 'FrameNCM', DM.cdsNCM);
   end;
 end;
 
@@ -275,7 +331,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDObservacao, nil, 'Selecione a observacao.', 'idobservacao', 'idobservacao',
-      'idobservacao|observacao', 'ID|Observação', 'regrafiscalobservacao', '', DM.conServer, 'FrameRegraFiscalObservacao', DM.cdsRegraFiscal);
+      'idobservacao|observacao', 'ID|Observação', 'regrafiscalobservacao', '', DM.conServer, 'FrameRegraFiscalObservacao', DM.cdsRegraFiscalObservacao);
   end;
 end;
 
@@ -299,7 +355,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDPais, edtPais, 'Selecione o país.', 'idpais|nome', 'idpais',
-      'idpais|nome', 'ID|País', 'pais', '', DM.conServer, 'FramePais', DM.cdsRegraFiscal);
+      'idpais|nome', 'ID|País', 'pais', '', DM.conServer, 'FramePais', DM.cdsPais);
   end;
 end;
 
@@ -323,7 +379,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDPessoa, edtPessoa, 'Selecione a pessoa.', 'idpessoa|nome', 'nome',
-      'idpessoa|nome', 'ID|Nome', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsRegraFiscal);
+      'idpessoa|nome', 'ID|Nome', 'Pessoa', '', DM.conServer, 'FramePessoa', DM.cdsPessoa);
   end;
 end;
 
@@ -347,7 +403,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDTipoOperacao, edtTipoOperacao, 'Selecione o tipo de operação.', 'idtipooperacao|descricao', 'descricao',
-      'idtipooperacao|descricao', 'ID|Descrição', 'tipooperacao', '', DM.conServer, 'FrameTipoOperacao', DM.cdsRegraFiscal);
+      'idtipooperacao|descricao', 'ID|Descrição', 'tipooperacao', '', DM.conServer, 'FrameTipoOperacao', DM.cdsTipoOperacao);
   end;
 end;
 
@@ -372,7 +428,31 @@ inherited;
   if Key = VK_F2 then
   begin
     i2bF2(edtIDUnidadeNegocio, edtUnidadeNegócio, 'Selecione a unidade de negócio.', 'idunidadenegocio', 'nomefantasia',
-      'idunidaddenegocio|nomefantasia', 'ID|Nome Fantasia', 'unidadenegocio', '', DM.conServer, 'FrameUnidadeNegocio', DM.cdsRegraFiscal);
+      'idunidaddenegocio|nomefantasia', 'ID|Nome Fantasia', 'unidadenegocio', '', DM.conServer, 'FrameUnidadeNegocio', DM.cdsUnidadeNegocio);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFICMSCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPFICMSCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpficmscst.AsString:= i2bGetValor('csticms', 'idcsticms', edtPFICMSCST.Text, 'idcsticms', DM.dspConnection);
+	if DM.cdsRegraFiscalpficmscst.AsString='' then
+    begin
+      MessageDlg('A cast icms da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPFICMSCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFICMSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPFICMSCST, nil, 'Selecione o cst ICMS para pessoa física.', 'idcsticms', 'idcsticms',
+      'idcsticms|Descricao|observacao', 'ID|Descrição|Observação', 'csticms', '', DM.conServer, 'FrameCstIcms', DM.cdsCSTICMS);
   end;
 end;
 

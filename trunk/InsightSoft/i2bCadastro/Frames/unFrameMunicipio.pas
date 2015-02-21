@@ -59,7 +59,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtUF, edtUFDescricao, 'Selecione o Estado.', 'idEstado|Nome', 'Nome',
-      'idEstado|Nome', 'UF|Estado', 'Estado', '', DM.conServer, 'FrameMunicipio', DM.cdsMunicipio);
+      'idEstado|Nome', 'UF|Estado', 'Estado', '', DM.conServer, 'FrameEstado', DM.cdsEstado);
   end;
 end;
 

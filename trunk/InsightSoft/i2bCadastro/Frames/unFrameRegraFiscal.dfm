@@ -18,7 +18,7 @@
       ParentBiDiMode = False
       ParentColor = False
       TabOrder = 0
-      Properties.ActivePage = cxTabSheet1
+      Properties.ActivePage = cxTabSheet2
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 433
       ClientRectLeft = 4
@@ -27,6 +27,10 @@
       object cxTabSheet1: TcxTabSheet
         Caption = 'Regra Fiscal'
         ImageIndex = 0
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object dxLayoutControl2: TdxLayoutControl
           Left = 0
           Top = 0
@@ -35,24 +39,19 @@
           Align = alClient
           ParentBackground = True
           TabOrder = 0
-          object edtEstadp: TcxDBTextEdit
-            Left = 855
+          object edtIDEstado: TcxDBTextEdit
+            Left = 752
             Top = 135
+            DataBinding.DataField = 'idestado'
             DataBinding.DataSource = DataSource
+            Properties.MaxLength = 2
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 6
+            OnExit = edtIDEstadoExit
+            OnKeyDown = edtIDEstadoKeyDown
             Width = 95
-          end
-          object edtNCM: TcxDBTextEdit
-            Left = 979
-            Top = 237
-            Style.BorderColor = clWindowFrame
-            Style.BorderStyle = ebs3D
-            Style.HotTrack = False
-            TabOrder = 12
-            Width = 99
           end
           object memObservacao: TcxDBMemo
             Left = 159
@@ -63,7 +62,7 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 15
+            TabOrder = 16
             Height = 81
             Width = 866
           end
@@ -72,6 +71,8 @@
             Top = 33
             DataBinding.DataField = 'idunidadenegocio'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -85,6 +86,8 @@
             Top = 84
             DataBinding.DataField = 'idtipooperacao'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -98,6 +101,8 @@
             Top = 135
             DataBinding.DataField = 'idpais'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -111,6 +116,8 @@
             Top = 186
             DataBinding.DataField = 'idmunicipio'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
@@ -124,10 +131,12 @@
             Top = 237
             DataBinding.DataField = 'idpessoa'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 10
+            TabOrder = 12
             OnExit = edtIDPessoaExit
             OnKeyDown = edtIDPessoaKeyDown
             Width = 140
@@ -137,10 +146,12 @@
             Top = 288
             DataBinding.DataField = 'idregrafiscalobservacao'
             DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 13
+            TabOrder = 14
             OnExit = edtIDObservacaoExit
             OnKeyDown = edtIDObservacaoKeyDown
             Width = 140
@@ -155,7 +166,7 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 14
+            TabOrder = 15
             Width = 140
           end
           object edtUnidadeNegócio: TcxDBTextEdit
@@ -204,7 +215,7 @@
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 9
-            Width = 121
+            Width = 586
           end
           object edtPessoa: TcxDBTextEdit
             Left = 159
@@ -215,17 +226,45 @@
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
-            TabOrder = 11
+            TabOrder = 13
             Width = 121
           end
-          object cxDBTextEdit1: TcxDBTextEdit
-            Left = 957
+          object edtEstado: TcxDBTextEdit
+            Left = 854
             Top = 135
+            DataBinding.DataField = 'estadonome'
+            DataBinding.DataSource = DataSource
             Style.BorderColor = clWindowFrame
             Style.BorderStyle = ebs3D
             Style.HotTrack = False
             TabOrder = 7
-            Width = 121
+            Width = 224
+          end
+          object edtNCM: TcxDBTextEdit
+            Left = 854
+            Top = 186
+            DataBinding.DataField = 'ncmdescricao'
+            DataBinding.DataSource = DataSource
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 11
+            Width = 224
+          end
+          object edtIDNCM: TcxDBCurrencyEdit
+            Left = 752
+            Top = 186
+            DataBinding.DataField = 'idncm'
+            DataBinding.DataSource = DataSource
+            Properties.DecimalPlaces = 0
+            Properties.DisplayFormat = '0'
+            Style.BorderColor = clWindowFrame
+            Style.BorderStyle = ebs3D
+            Style.HotTrack = False
+            TabOrder = 10
+            OnExit = edtIDNCMExit
+            OnKeyDown = edtIDNCMKeyDown
+            Width = 42
           end
           object dxLayoutControl2Group_Root: TdxLayoutGroup
             AlignHorz = ahClient
@@ -257,9 +296,9 @@
           object dxLayoutControl2Item11: TdxLayoutItem
             Parent = dxLayoutControl2Group5
             AlignHorz = ahRight
-            CaptionOptions.Text = 'Estado'
+            CaptionOptions.Text = 'ID [F2]'
             CaptionOptions.Layout = clTop
-            Control = edtEstadp
+            Control = edtIDEstado
             ControlOptions.ShowBorder = False
             Index = 2
           end
@@ -298,16 +337,6 @@
             LayoutDirection = ldHorizontal
             ShowBorder = False
             Index = 1
-          end
-          object dxLayoutControl2Item16: TdxLayoutItem
-            Parent = dxLayoutControl2Group6
-            AlignHorz = ahRight
-            AlignVert = avBottom
-            CaptionOptions.Text = 'NCM'
-            CaptionOptions.Layout = clTop
-            Control = edtNCM
-            ControlOptions.ShowBorder = False
-            Index = 2
           end
           object dxLayoutControl2Group1: TdxLayoutGroup
             Parent = dxLayoutControl2Group_Root
@@ -425,7 +454,7 @@
           end
           object dxLayoutControl2Item12: TdxLayoutItem
             Parent = dxLayoutControl2Group3
-            AlignHorz = ahClient
+            AlignHorz = ahLeft
             AlignVert = avBottom
             CaptionOptions.Text = 'Munic'#237'pio'
             CaptionOptions.Layout = clTop
@@ -446,17 +475,41 @@
           object dxLayoutControl2Item2: TdxLayoutItem
             Parent = dxLayoutControl2Group5
             AlignHorz = ahRight
-            CaptionOptions.Text = 'cxDBTextEdit1'
+            CaptionOptions.Text = 'Estado'
             CaptionOptions.Layout = clTop
-            Control = cxDBTextEdit1
+            Control = edtEstado
             ControlOptions.ShowBorder = False
             Index = 3
+          end
+          object dxLayoutControl2Item16: TdxLayoutItem
+            Parent = dxLayoutControl2Group3
+            AlignHorz = ahRight
+            AlignVert = avBottom
+            CaptionOptions.Text = 'NCM'
+            CaptionOptions.Layout = clTop
+            Control = edtNCM
+            ControlOptions.ShowBorder = False
+            Index = 3
+          end
+          object dxLayoutControl2Item3: TdxLayoutItem
+            Parent = dxLayoutControl2Group3
+            AlignHorz = ahClient
+            AlignVert = avBottom
+            CaptionOptions.Text = 'ID [F2]'
+            CaptionOptions.Layout = clTop
+            Control = edtIDNCM
+            ControlOptions.ShowBorder = False
+            Index = 2
           end
         end
       end
       object cxTabSheet2: TcxTabSheet
         Caption = 'Al'#237'quotas'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
@@ -480,6 +533,10 @@
             object cxTabSheet3: TcxTabSheet
               Caption = 'Pessoa F'#237'sica'
               ImageIndex = 0
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object dxLayoutControl4: TdxLayoutControl
                 Left = 0
                 Top = 0
@@ -497,6 +554,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 0
+                  OnExit = edtPFICMSCSTExit
+                  OnKeyDown = edtPFICMSCSTKeyDown
                   Width = 69
                 end
                 object edtPFICMSAliquota: TcxDBTextEdit
@@ -592,59 +651,7 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 17
-                  Width = 135
-                end
-                object cxDBCheckBox3: TcxDBCheckBox
-                  Left = 168
-                  Top = 291
-                  Caption = 'Controla Parcelas'
-                  DataBinding.DataField = 'pfcontrolaparcelas'
-                  DataBinding.DataSource = DataSource
-                  Properties.NullStyle = nssUnchecked
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 18
-                  Width = 121
-                end
-                object cxDBCheckBox4: TcxDBCheckBox
-                  Left = 296
-                  Top = 291
-                  Caption = 'Adiciona IPI na BC ICMS'
-                  DataBinding.DataField = 'pfadicionaipibcicms'
-                  DataBinding.DataSource = DataSource
-                  Properties.NullStyle = nssUnchecked
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 19
-                  Width = 153
-                end
-                object cxDBCheckBox8: TcxDBCheckBox
-                  Left = 456
-                  Top = 291
-                  Caption = 'Adiciona Frete na BC ICMS'
-                  DataBinding.DataField = 'pfadicionafretebcicms'
-                  DataBinding.DataSource = DataSource
-                  Properties.NullStyle = nssUnchecked
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 20
-                  Width = 161
-                end
-                object cxDBCheckBox9: TcxDBCheckBox
-                  Left = 624
-                  Top = 291
-                  Caption = 'Adiciona Seguro na BC ICMS'
-                  DataBinding.DataField = 'pfadicionasegurobcicms'
-                  DataBinding.DataSource = DataSource
-                  Properties.NullStyle = nssUnchecked
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 21
-                  Width = 174
+                  Width = 149
                 end
                 object ectPFIPIClasseEnquadramento: TcxDBTextEdit
                   Left = 102
@@ -734,8 +741,60 @@
                   TabOrder = 6
                   Width = 117
                 end
+                object cxDBCheckBox3: TcxDBCheckBox
+                  Left = 175
+                  Top = 291
+                  Caption = 'Controla Parcelas'
+                  DataBinding.DataField = 'pfcontrolaparcelas'
+                  DataBinding.DataSource = DataSource
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 18
+                  Width = 114
+                end
+                object cxDBCheckBox4: TcxDBCheckBox
+                  Left = 289
+                  Top = 291
+                  Caption = 'Adiciona IPI na BC ICMS'
+                  DataBinding.DataField = 'pfadicionaipibcicms'
+                  DataBinding.DataSource = DataSource
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 19
+                  Width = 153
+                end
+                object cxDBCheckBox8: TcxDBCheckBox
+                  Left = 442
+                  Top = 291
+                  Caption = 'Adiciona Frete na BC ICMS'
+                  DataBinding.DataField = 'pfadicionafretebcicms'
+                  DataBinding.DataSource = DataSource
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 20
+                  Width = 149
+                end
+                object cxDBCheckBox9: TcxDBCheckBox
+                  Left = 591
+                  Top = 291
+                  Caption = 'Adiciona Seguro na BC ICMS'
+                  DataBinding.DataField = 'pfadicionasegurobcicms'
+                  DataBinding.DataSource = DataSource
+                  Properties.NullStyle = nssUnchecked
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 21
+                  Width = 174
+                end
                 object cxDBCheckBox13: TcxDBCheckBox
-                  Left = 805
+                  Left = 765
                   Top = 291
                   Caption = 'Adiciona Outras Despesas na BC ICMS'
                   DataBinding.DataField = 'pfadicionaoutrasdespesasbcicms'
@@ -875,51 +934,20 @@
                 end
                 object dxLayoutControl1Group11: TdxLayoutGroup
                   Parent = dxLayoutControl4Group_Root
+                  AlignHorz = ahClient
                   CaptionOptions.Text = 'Controles'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
+                  UseIndent = False
                   Index = 3
                 end
                 object dxLayoutControl1Item13: TdxLayoutItem
                   Parent = dxLayoutControl1Group11
-                  AlignHorz = ahLeft
                   CaptionOptions.Text = 'cxDBCheckBox2'
                   CaptionOptions.Visible = False
                   Control = cxDBCheckBox2
                   ControlOptions.ShowBorder = False
                   Index = 0
-                end
-                object dxLayoutControl1Item14: TdxLayoutItem
-                  Parent = dxLayoutControl1Group11
-                  CaptionOptions.Text = 'cxDBCheckBox3'
-                  CaptionOptions.Visible = False
-                  Control = cxDBCheckBox3
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl1Item17: TdxLayoutItem
-                  Parent = dxLayoutControl1Group11
-                  CaptionOptions.Text = 'cxDBCheckBox4'
-                  CaptionOptions.Visible = False
-                  Control = cxDBCheckBox4
-                  ControlOptions.ShowBorder = False
-                  Index = 2
-                end
-                object dxLayoutControl4Item2: TdxLayoutItem
-                  Parent = dxLayoutControl1Group11
-                  CaptionOptions.Text = 'cxDBCheckBox8'
-                  CaptionOptions.Visible = False
-                  Control = cxDBCheckBox8
-                  ControlOptions.ShowBorder = False
-                  Index = 3
-                end
-                object dxLayoutControl4Item3: TdxLayoutItem
-                  Parent = dxLayoutControl1Group11
-                  CaptionOptions.Text = 'cxDBCheckBox9'
-                  CaptionOptions.Visible = False
-                  Control = cxDBCheckBox9
-                  ControlOptions.ShowBorder = False
-                  Index = 4
                 end
                 object dxLayoutControl4Item4: TdxLayoutItem
                   Parent = dxLayoutControl1Group1
@@ -1018,6 +1046,38 @@
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
+                object dxLayoutControl1Item14: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox3'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox3
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl1Item17: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox4'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox4
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl4Item2: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox8'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox8
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl4Item3: TdxLayoutItem
+                  Parent = dxLayoutControl1Group11
+                  CaptionOptions.Text = 'cxDBCheckBox9'
+                  CaptionOptions.Visible = False
+                  Control = cxDBCheckBox9
+                  ControlOptions.ShowBorder = False
+                  Index = 4
+                end
                 object dxLayoutControl4Item6: TdxLayoutItem
                   Parent = dxLayoutControl1Group11
                   CaptionOptions.Text = 'cxDBCheckBox13'
@@ -1031,6 +1091,10 @@
             object cxTabSheet4: TcxTabSheet
               Caption = 'Pessoa Jur'#237'dica'
               ImageIndex = 1
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object dxLayoutControl3: TdxLayoutControl
                 Left = 0
                 Top = 0

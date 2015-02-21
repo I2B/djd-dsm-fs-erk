@@ -61,7 +61,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDIndicadorEconomico, edtIndicadorEconomico, 'Selecione o Indicador Econômico.', 'idIndicadorEconomico|descricao',
-      'descricao', 'idIndicadorEconomico|Descricao', 'ID|Descrição', 'IndicadorEconomico', '', DM.conServer, 'FrameIndice', DM.cdsIndice);
+      'descricao', 'idIndicadorEconomico|Descricao', 'ID|Descrição', 'IndicadorEconomico', '', DM.conServer, 'FrameIndicadorEconomico', DM.cdsIndicadorEconomico);
   end;
 end;
 

@@ -64,7 +64,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDTipoOperacao, edtTipoOperacao, 'Selecione o Tipo de Operação', 'idtipooperacao|descricao', 'descricao',
-      'idtipooperacao|descricao', 'ID|Tipo Operação', 'TipoOperacao', '', DM.conServer, 'FrameCFOP', DM.cdsMunicipio);
+      'idtipooperacao|descricao', 'ID|Tipo Operação', 'TipoOperacao', '', DM.conServer, 'FrameTipoOperacao', DM.cdsTipoOperacao);
   end;
 end;
 

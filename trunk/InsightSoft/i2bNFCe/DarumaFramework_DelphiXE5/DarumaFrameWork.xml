@@ -5,7 +5,7 @@
     <LogTamMaxMB>5</LogTamMaxMB>
     <ModoObserver>0</ModoObserver>
     <PathBibliotecasAuxiliares>.\</PathBibliotecasAuxiliares>
-    <Produto>FISCAL</Produto>
+    <Produto>DUAL</Produto>
     <ThreadAoIniciar>0</ThreadAoIniciar>
     <TipoRegistro>2</TipoRegistro>
     <TokenEncurtadorUrl>0</TokenEncurtadorUrl>

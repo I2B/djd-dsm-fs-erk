@@ -76,7 +76,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDProduto, nil, 'Selecione o produto.', 'idProduto|nome', 'nome',
-      'idProduto|nome', 'Produto|Nome', 'produto', '', DM.conServer, 'FrameProdutoGrade', DM.cdsProduto);
+      'idProduto|nome', 'Produto|Nome', 'produto', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
     edtProdutoNome.Text := i2bGetValor('produto', 'idProduto', edtIDProduto.Text, 'nome', DM.dspConnection);
   end;
 end;

@@ -67,7 +67,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDMoeda, edtMoeda, 'Selecione a moeda referente ao país.', 'idIndicadorEconomico|descricao', 'descricao',
-      'idIndicadorEconomico|Descricao', 'ID|Descrição', 'IndicadorEconomico', 'ativo=true', DM.conServer, 'FramePais', DM.cdsIndicadorEconomico);
+      'idIndicadorEconomico|Descricao', 'ID|Descrição', 'IndicadorEconomico', 'ativo=true', DM.conServer, 'FrameIndicadorEconomico', DM.cdsIndicadorEconomico);
   end;
 end;
 

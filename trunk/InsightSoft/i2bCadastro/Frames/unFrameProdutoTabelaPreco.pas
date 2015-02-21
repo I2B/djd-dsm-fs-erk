@@ -69,7 +69,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDProduto, edtProduto, 'Selecione o produto.', 'idProduto|nome', 'nome',
-      'idProduto|nome', 'ID|Produto', 'Produto', '', DM.conServer, 'FrameProduto', DM.cdsProdutoTabelaPreco);
+      'idProduto|nome', 'ID|Produto', 'Produto', '', DM.conServer, 'FrameProduto', DM.cdsProduto);
   end;
 end;
 
@@ -93,7 +93,7 @@ begin
   if Key = VK_F2 then
   begin
     i2bF2(edtIDTabela, edtTabelaNome, 'Selecione a tabela de preço.', 'idtabelapreco|nome', 'nome',
-      'idtabelapreco|nome', 'ID|Tabela de Preço', 'tabelapreco', '', DM.conServer, 'frameTabelaPreco', DM.cdsProdutoTabelaPreco);
+      'idtabelapreco|nome', 'ID|Tabela de Preço', 'tabelapreco', '', DM.conServer, 'frameTabelaPreco', DM.cdsTabelaPreco);
   end;
 end;
 
