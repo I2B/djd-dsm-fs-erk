@@ -18,7 +18,7 @@
       ParentBiDiMode = False
       ParentColor = False
       TabOrder = 0
-      Properties.ActivePage = cxTabSheet2
+      Properties.ActivePage = cxTabSheet1
       Properties.CustomButtons.Buttons = <>
       ClientRectBottom = 433
       ClientRectLeft = 4
@@ -27,10 +27,6 @@
       object cxTabSheet1: TcxTabSheet
         Caption = 'Regra Fiscal'
         ImageIndex = 0
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object dxLayoutControl2: TdxLayoutControl
           Left = 0
           Top = 0
@@ -506,10 +502,6 @@
       object cxTabSheet2: TcxTabSheet
         Caption = 'Al'#237'quotas'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
@@ -533,10 +525,6 @@
             object cxTabSheet3: TcxTabSheet
               Caption = 'Pessoa F'#237'sica'
               ImageIndex = 0
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object dxLayoutControl4: TdxLayoutControl
                 Left = 0
                 Top = 0
@@ -567,10 +555,10 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 1
-                  Width = 73
+                  Width = 74
                 end
                 object edtPFICMSPercentualReducao: TcxDBTextEdit
-                  Left = 182
+                  Left = 183
                   Top = 54
                   DataBinding.DataField = 'pficmspercentualreducao'
                   DataBinding.DataSource = DataSource
@@ -579,35 +567,6 @@
                   Style.HotTrack = False
                   TabOrder = 2
                   Width = 117
-                end
-                object edtPFICMSSTMVA: TcxDBTextEdit
-                  Left = 522
-                  Top = 54
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 4
-                  Width = 73
-                end
-                object edtPFICMSSTPercentualReducao: TcxDBTextEdit
-                  Left = 602
-                  Top = 54
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 5
-                  Width = 117
-                end
-                object edtPFIPICST: TcxDBTextEdit
-                  Left = 26
-                  Top = 140
-                  DataBinding.DataField = 'pfipicst'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 7
-                  Width = 69
                 end
                 object edtPFISSAliquota: TcxDBTextEdit
                   Left = 26
@@ -631,15 +590,6 @@
                   TabOrder = 16
                   Width = 117
                 end
-                object edtPFICMSSTAliquota: TcxDBTextEdit
-                  Left = 442
-                  Top = 54
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 3
-                  Width = 73
-                end
                 object cxDBCheckBox2: TcxDBCheckBox
                   Left = 26
                   Top = 291
@@ -652,94 +602,6 @@
                   Style.HotTrack = False
                   TabOrder = 17
                   Width = 149
-                end
-                object ectPFIPIClasseEnquadramento: TcxDBTextEdit
-                  Left = 102
-                  Top = 140
-                  DataBinding.DataField = 'pfipiclasseenquadramento'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 8
-                  Width = 121
-                end
-                object edtPFIPICodigoEnquadramento: TcxDBTextEdit
-                  Left = 241
-                  Top = 140
-                  DataBinding.DataField = 'pfipicodigoenquadramento'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 9
-                  Width = 121
-                end
-                object edtPFIPIAliquota: TcxDBTextEdit
-                  Left = 387
-                  Top = 140
-                  DataBinding.DataField = 'pfipialiquota'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 10
-                  Width = 73
-                end
-                object edtPFPISCST: TcxDBTextEdit
-                  Left = 595
-                  Top = 140
-                  DataBinding.DataField = 'pfpiscst'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 11
-                  Width = 69
-                end
-                object edtPFPISAliquotaNormal: TcxDBTextEdit
-                  Left = 671
-                  Top = 140
-                  DataBinding.DataField = 'pfpisaliquota'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 12
-                  Width = 73
-                end
-                object edtPFCOFINSCST: TcxDBTextEdit
-                  Left = 831
-                  Top = 140
-                  DataBinding.DataField = 'pfcofinscst'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 13
-                  Width = 69
-                end
-                object edtPFCOFINSAliquota: TcxDBTextEdit
-                  Left = 907
-                  Top = 140
-                  DataBinding.DataField = 'pfcofinsaliquota'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 14
-                  Width = 73
-                end
-                object edtPFCSOSN: TcxDBTextEdit
-                  Left = 863
-                  Top = 54
-                  DataBinding.DataField = 'pfcsosn'
-                  DataBinding.DataSource = DataSource
-                  Style.BorderColor = clWindowFrame
-                  Style.BorderStyle = ebs3D
-                  Style.HotTrack = False
-                  TabOrder = 6
-                  Width = 117
                 end
                 object cxDBCheckBox3: TcxDBCheckBox
                   Left = 175
@@ -806,6 +668,140 @@
                   TabOrder = 22
                   Width = 220
                 end
+                object edtPFIPICST: TcxDBTextEdit
+                  Left = 26
+                  Top = 140
+                  DataBinding.DataField = 'pfipicst'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 7
+                  OnExit = edtPFIPICSTExit
+                  OnKeyDown = edtPFIPICSTKeyDown
+                  Width = 69
+                end
+                object ectPFIPIClasseEnquadramento: TcxDBTextEdit
+                  Left = 102
+                  Top = 140
+                  DataBinding.DataField = 'pfipiclasseenquadramento'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 8
+                  Width = 121
+                end
+                object edtPFIPICodigoEnquadramento: TcxDBTextEdit
+                  Left = 241
+                  Top = 140
+                  DataBinding.DataField = 'pfipicodigoenquadramento'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 9
+                  Width = 121
+                end
+                object edtPFIPIAliquota: TcxDBTextEdit
+                  Left = 387
+                  Top = 140
+                  DataBinding.DataField = 'pfipialiquota'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 10
+                  Width = 73
+                end
+                object edtPFPISCST: TcxDBTextEdit
+                  Left = 495
+                  Top = 140
+                  DataBinding.DataField = 'pfpiscst'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 11
+                  OnExit = edtPFPISCSTExit
+                  OnKeyDown = edtPFPISCSTKeyDown
+                  Width = 69
+                end
+                object edtPFPISAliquotaNormal: TcxDBTextEdit
+                  Left = 571
+                  Top = 140
+                  DataBinding.DataField = 'pfpisaliquota'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 12
+                  Width = 73
+                end
+                object edtPFCOFINSCST: TcxDBTextEdit
+                  Left = 690
+                  Top = 140
+                  DataBinding.DataField = 'pfcofinscst'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 13
+                  OnExit = edtPFCOFINSCSTExit
+                  OnKeyDown = edtPFCOFINSCSTKeyDown
+                  Width = 69
+                end
+                object edtPFCOFINSAliquota: TcxDBTextEdit
+                  Left = 766
+                  Top = 140
+                  DataBinding.DataField = 'pfcofinsaliquota'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 14
+                  Width = 73
+                end
+                object edtPFICMSSTAliquota: TcxDBTextEdit
+                  Left = 335
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 3
+                  Width = 73
+                end
+                object edtPFICMSSTMVA: TcxDBTextEdit
+                  Left = 415
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 4
+                  Width = 73
+                end
+                object edtPFICMSSTPercentualReducao: TcxDBTextEdit
+                  Left = 495
+                  Top = 54
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 5
+                  Width = 117
+                end
+                object edtPFCSOSN: TcxDBTextEdit
+                  Left = 647
+                  Top = 54
+                  DataBinding.DataField = 'pfcsosn'
+                  DataBinding.DataSource = DataSource
+                  Style.BorderColor = clWindowFrame
+                  Style.BorderStyle = ebs3D
+                  Style.HotTrack = False
+                  TabOrder = 6
+                  OnExit = edtPFCSOSNExit
+                  OnKeyDown = edtPFCSOSNKeyDown
+                  Width = 117
+                end
                 object dxLayoutControl4Group_Root: TdxLayoutGroup
                   AlignHorz = ahClient
                   AlignVert = avClient
@@ -815,8 +811,7 @@
                   Index = -1
                 end
                 object dxLayoutControl1Group8: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group1
-                  AlignHorz = ahClient
+                  Parent = dxLayoutControl4Group4
                   AlignVert = avTop
                   CaptionOptions.Text = 'ICMS'
                   ButtonOptions.Buttons = <>
@@ -825,7 +820,7 @@
                 end
                 object dxLayoutControl1Item1: TdxLayoutItem
                   Parent = dxLayoutControl1Group8
-                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Text = 'CST [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPFICMSCST
                   ControlOptions.ShowBorder = False
@@ -847,65 +842,13 @@
                   ControlOptions.ShowBorder = False
                   Index = 2
                 end
-                object dxLayoutControl1Group2: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group1
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'ICMS ST'
-                  Visible = False
-                  SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-                  SizeOptions.SizableHorz = True
-                  SizeOptions.SizableVert = True
-                  SizeOptions.Width = 255
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                end
-                object dxLayoutControl1Item16: TdxLayoutItem
-                  Parent = dxLayoutControl1Group2
-                  CaptionOptions.Text = 'MVA'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFICMSSTMVA
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl1Item15: TdxLayoutItem
-                  Parent = dxLayoutControl1Group2
-                  CaptionOptions.Text = 'Percentual Redu'#231#227'o'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFICMSSTPercentualReducao
-                  ControlOptions.ShowBorder = False
-                  Index = 2
-                end
-                object dxLayoutControl4Group1: TdxLayoutAutoCreatedGroup
-                  Parent = dxLayoutControl4Group_Root
-                  LayoutDirection = ldHorizontal
-                  Index = 0
-                  AutoCreated = True
-                end
-                object dxLayoutControl1Group1: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group2
-                  AlignHorz = ahClient
-                  AlignVert = avTop
-                  CaptionOptions.Text = 'IPI'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 0
-                end
-                object dxLayoutControl1Item5: TdxLayoutItem
-                  Parent = dxLayoutControl1Group1
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFIPICST
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
                 object dxLayoutControl1Group7: TdxLayoutGroup
                   Parent = dxLayoutControl4Group_Root
                   AlignHorz = ahClient
                   CaptionOptions.Text = 'ISSQN'
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
-                  Index = 2
+                  Index = 1
                 end
                 object dxLayoutControl1Item2: TdxLayoutItem
                   Parent = dxLayoutControl1Group7
@@ -924,14 +867,6 @@
                   ControlOptions.ShowBorder = False
                   Index = 1
                 end
-                object dxLayoutControl4Item1: TdxLayoutItem
-                  Parent = dxLayoutControl1Group2
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFICMSSTAliquota
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
                 object dxLayoutControl1Group11: TdxLayoutGroup
                   Parent = dxLayoutControl4Group_Root
                   AlignHorz = ahClient
@@ -939,110 +874,13 @@
                   ButtonOptions.Buttons = <>
                   LayoutDirection = ldHorizontal
                   UseIndent = False
-                  Index = 3
+                  Index = 2
                 end
                 object dxLayoutControl1Item13: TdxLayoutItem
                   Parent = dxLayoutControl1Group11
                   CaptionOptions.Text = 'cxDBCheckBox2'
                   CaptionOptions.Visible = False
                   Control = cxDBCheckBox2
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl4Item4: TdxLayoutItem
-                  Parent = dxLayoutControl1Group1
-                  CaptionOptions.Text = 'Classe de Enquadramento'
-                  CaptionOptions.Layout = clTop
-                  Control = ectPFIPIClasseEnquadramento
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl4Item5: TdxLayoutItem
-                  Parent = dxLayoutControl1Group1
-                  CaptionOptions.Text = 'C'#243'digo do Enquadramento'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFIPICodigoEnquadramento
-                  ControlOptions.ShowBorder = False
-                  Index = 2
-                end
-                object dxLayoutControl1Item8: TdxLayoutItem
-                  Parent = dxLayoutControl1Group1
-                  CaptionOptions.Text = 'Al'#237'quota'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFIPIAliquota
-                  ControlOptions.ShowBorder = False
-                  Index = 3
-                end
-                object dxLayoutControl1Group3: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group2
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'PIS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                end
-                object dxLayoutControl1Item7: TdxLayoutItem
-                  Parent = dxLayoutControl1Group3
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFPISCST
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl1Item6: TdxLayoutItem
-                  Parent = dxLayoutControl1Group3
-                  CaptionOptions.Text = 'Al'#237'quota Normal'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFPISAliquotaNormal
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
-                  Parent = dxLayoutControl4Group_Root
-                  AlignVert = avTop
-                  LayoutDirection = ldHorizontal
-                  Index = 1
-                  AutoCreated = True
-                end
-                object dxLayoutControl1Group4: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group2
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'COFINS'
-                  ButtonOptions.Buttons = <>
-                  LayoutDirection = ldHorizontal
-                  Index = 2
-                end
-                object dxLayoutControl1Item9: TdxLayoutItem
-                  Parent = dxLayoutControl1Group4
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFCOFINSCST
-                  ControlOptions.ShowBorder = False
-                  Index = 0
-                end
-                object dxLayoutControl1Item10: TdxLayoutItem
-                  Parent = dxLayoutControl1Group4
-                  CaptionOptions.Text = 'Al'#237'quota Normal'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFCOFINSAliquota
-                  ControlOptions.ShowBorder = False
-                  Index = 1
-                end
-                object dxLayoutControl1Group9: TdxLayoutGroup
-                  Parent = dxLayoutControl4Group1
-                  AlignHorz = ahClient
-                  CaptionOptions.Text = 'Simples Nacional'
-                  ButtonOptions.Buttons = <>
-                  Index = 2
-                end
-                object dxLayoutControl1Item12: TdxLayoutItem
-                  Parent = dxLayoutControl1Group9
-                  AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CSOSN'
-                  CaptionOptions.Layout = clTop
-                  Control = edtPFCSOSN
                   ControlOptions.ShowBorder = False
                   Index = 0
                 end
@@ -1086,15 +924,171 @@
                   ControlOptions.ShowBorder = False
                   Index = 5
                 end
+                object dxLayoutControl1Group1: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group2
+                  AlignVert = avTop
+                  CaptionOptions.Text = 'IPI'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 0
+                end
+                object dxLayoutControl1Item5: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'CST [F2]'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFIPICST
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl4Item4: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'Classe de Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = ectPFIPIClasseEnquadramento
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl4Item5: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'C'#243'digo do Enquadramento'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFIPICodigoEnquadramento
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl1Item8: TdxLayoutItem
+                  Parent = dxLayoutControl1Group1
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFIPIAliquota
+                  ControlOptions.ShowBorder = False
+                  Index = 3
+                end
+                object dxLayoutControl4Group3: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl4Group_Root
+                  AlignHorz = ahLeft
+                  Index = 0
+                  AutoCreated = True
+                end
+                object dxLayoutControl1Group3: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group2
+                  CaptionOptions.Text = 'PIS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                end
+                object dxLayoutControl1Item7: TdxLayoutItem
+                  Parent = dxLayoutControl1Group3
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST [F2]'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFPISCST
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl1Item6: TdxLayoutItem
+                  Parent = dxLayoutControl1Group3
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFPISAliquotaNormal
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl4Group3
+                  AlignVert = avTop
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                  AutoCreated = True
+                end
+                object dxLayoutControl1Group4: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group2
+                  CaptionOptions.Text = 'COFINS'
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 2
+                end
+                object dxLayoutControl1Item9: TdxLayoutItem
+                  Parent = dxLayoutControl1Group4
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CST [F2]'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFCOFINSCST
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl1Item10: TdxLayoutItem
+                  Parent = dxLayoutControl1Group4
+                  CaptionOptions.Text = 'Al'#237'quota Normal'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFCOFINSAliquota
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl1Group2: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group4
+                  CaptionOptions.Text = 'ICMS ST'
+                  Visible = False
+                  SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+                  SizeOptions.SizableHorz = True
+                  SizeOptions.SizableVert = True
+                  SizeOptions.Width = 255
+                  ButtonOptions.Buttons = <>
+                  LayoutDirection = ldHorizontal
+                  Index = 1
+                end
+                object dxLayoutControl4Item1: TdxLayoutItem
+                  Parent = dxLayoutControl1Group2
+                  CaptionOptions.Text = 'Al'#237'quota'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFICMSSTAliquota
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
+                object dxLayoutControl1Item16: TdxLayoutItem
+                  Parent = dxLayoutControl1Group2
+                  CaptionOptions.Text = 'MVA'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFICMSSTMVA
+                  ControlOptions.ShowBorder = False
+                  Index = 1
+                end
+                object dxLayoutControl1Item15: TdxLayoutItem
+                  Parent = dxLayoutControl1Group2
+                  CaptionOptions.Text = 'Percentual Redu'#231#227'o'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFICMSSTPercentualReducao
+                  ControlOptions.ShowBorder = False
+                  Index = 2
+                end
+                object dxLayoutControl4Group4: TdxLayoutAutoCreatedGroup
+                  Parent = dxLayoutControl4Group3
+                  AlignVert = avTop
+                  LayoutDirection = ldHorizontal
+                  Index = 0
+                  AutoCreated = True
+                end
+                object dxLayoutControl1Group9: TdxLayoutGroup
+                  Parent = dxLayoutControl4Group4
+                  CaptionOptions.Text = 'Simples Nacional'
+                  ButtonOptions.Buttons = <>
+                  Index = 2
+                end
+                object dxLayoutControl1Item12: TdxLayoutItem
+                  Parent = dxLayoutControl1Group9
+                  AlignHorz = ahLeft
+                  CaptionOptions.Text = 'CSOSN [F2]'
+                  CaptionOptions.Layout = clTop
+                  Control = edtPFCSOSN
+                  ControlOptions.ShowBorder = False
+                  Index = 0
+                end
               end
             end
             object cxTabSheet4: TcxTabSheet
               Caption = 'Pessoa Jur'#237'dica'
               ImageIndex = 1
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
+              ExplicitWidth = 1058
               object dxLayoutControl3: TdxLayoutControl
                 Left = 0
                 Top = 0
@@ -1103,6 +1097,7 @@
                 Align = alClient
                 ParentBackground = True
                 TabOrder = 0
+                ExplicitWidth = 1058
                 object edtPJICMSCST: TcxDBTextEdit
                   Left = 26
                   Top = 54
@@ -1112,6 +1107,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 0
+                  OnExit = edtPJICMSCSTExit
+                  OnKeyDown = edtPJICMSCSTKeyDown
                   Width = 69
                 end
                 object edtPJICMSSTMVA: TcxDBTextEdit
@@ -1134,6 +1131,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 7
+                  OnExit = edtPJIPICSTExit
+                  OnKeyDown = edtPJIPICSTKeyDown
                   Width = 69
                 end
                 object edtPJICMSAliquota: TcxDBTextEdit
@@ -1289,6 +1288,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 11
+                  OnExit = edtPJPISCSTExit
+                  OnKeyDown = edtPJPISCSTKeyDown
                   Width = 69
                 end
                 object edtPJPISAliquota: TcxDBTextEdit
@@ -1322,6 +1323,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 14
+                  OnExit = edtPJCOFINSCSTExit
+                  OnKeyDown = edtPJCOFINSCSTKeyDown
                   Width = 69
                 end
                 object edtPJCOFINSAliquota: TcxDBTextEdit
@@ -1355,6 +1358,8 @@
                   Style.BorderStyle = ebs3D
                   Style.HotTrack = False
                   TabOrder = 6
+                  OnExit = edtPJCSOSNExit
+                  OnKeyDown = edtPJCSOSNKeyDown
                   Width = 117
                 end
                 object edtPJISSAliquota: TcxDBTextEdit
@@ -1508,7 +1513,7 @@
                 object dxLayoutControl3Item3: TdxLayoutItem
                   Parent = dxLayoutControl3Group1
                   AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Text = 'CST [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPJICMSCST
                   ControlOptions.ShowBorder = False
@@ -1526,7 +1531,7 @@
                 object dxLayoutControl3Item7: TdxLayoutItem
                   Parent = dxLayoutControl3Group3
                   AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Text = 'CST [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPJIPICST
                   ControlOptions.ShowBorder = False
@@ -1641,7 +1646,7 @@
                 object dxLayoutControl3Item8: TdxLayoutItem
                   Parent = dxLayoutControl3Group4
                   AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Text = 'CST [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPJPISCST
                   ControlOptions.ShowBorder = False
@@ -1681,7 +1686,7 @@
                 object dxLayoutControl3Item10: TdxLayoutItem
                   Parent = dxLayoutControl3Group5
                   AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CST'
+                  CaptionOptions.Text = 'CST [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPJCOFINSCST
                   ControlOptions.ShowBorder = False
@@ -1713,7 +1718,7 @@
                 object dxLayoutControl3Item14: TdxLayoutItem
                   Parent = dxLayoutControl3Group7
                   AlignHorz = ahLeft
-                  CaptionOptions.Text = 'CSOSN'
+                  CaptionOptions.Text = 'CSOSN [F2]'
                   CaptionOptions.Layout = clTop
                   Control = edtPJCSOSN
                   ControlOptions.ShowBorder = False

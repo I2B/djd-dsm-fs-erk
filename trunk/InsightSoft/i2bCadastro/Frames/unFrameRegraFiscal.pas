@@ -89,7 +89,6 @@ type
     dxLayoutControl3: TdxLayoutControl;
     dxLayoutControl4Group_Root: TdxLayoutGroup;
     dxLayoutControl4: TdxLayoutControl;
-    dxLayoutControl4Group1: TdxLayoutAutoCreatedGroup;
     dxLayoutControl3Group1: TdxLayoutGroup;
     dxLayoutControl3Group2: TdxLayoutGroup;
     dxLayoutControl3Group3: TdxLayoutGroup;
@@ -157,7 +156,6 @@ type
     dxLayoutControl3Item23: TdxLayoutItem;
     edtPJCOFINSAliquotaST: TcxDBTextEdit;
     dxLayoutControl3Item24: TdxLayoutItem;
-    dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup;
     dxLayoutControl3Group10: TdxLayoutAutoCreatedGroup;
     edtPJIRRetencao: TcxDBTextEdit;
     dxLayoutControl3Item25: TdxLayoutItem;
@@ -206,6 +204,9 @@ type
     dxLayoutControl2Item2: TdxLayoutItem;
     edtIDNCM: TcxDBCurrencyEdit;
     dxLayoutControl2Item3: TdxLayoutItem;
+    dxLayoutControl4Group3: TdxLayoutAutoCreatedGroup;
+    dxLayoutControl4Group2: TdxLayoutAutoCreatedGroup;
+    dxLayoutControl4Group4: TdxLayoutAutoCreatedGroup;
     procedure edtIDUnidadeNegocioExit(Sender: TObject);
     procedure edtIDTipoOperacaoExit(Sender: TObject);
     procedure edtIDPaisExit(Sender: TObject);
@@ -224,6 +225,24 @@ type
     procedure edtIDNCMKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtPFICMSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtPFICMSCSTExit(Sender: TObject);
+    procedure edtPFIPICSTExit(Sender: TObject);
+    procedure edtPFIPICSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPFPISCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPFPISCSTExit(Sender: TObject);
+    procedure edtPFCOFINSCSTExit(Sender: TObject);
+    procedure edtPFCOFINSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPFCSOSNExit(Sender: TObject);
+    procedure edtPFCSOSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPJICMSCSTExit(Sender: TObject);
+    procedure edtPJICMSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPJIPICSTExit(Sender: TObject);
+    procedure edtPJIPICSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPJCSOSNExit(Sender: TObject);
+    procedure edtPJCSOSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPJPISCSTExit(Sender: TObject);
+    procedure edtPJPISCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPJCOFINSCSTExit(Sender: TObject);
+    procedure edtPJCOFINSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -432,6 +451,54 @@ inherited;
   end;
 end;
 
+procedure TFrameRegraFiscal.edtPFCOFINSCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPFCOFINSCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpfcofinscst.AsString:= i2bGetValor('cstcofins', 'idcstcofins', edtPFCOFINSCST.Text, 'idcstcofins', DM.dspConnection);
+	if DM.cdsRegraFiscalpfcofinscst.AsString='' then
+    begin
+      MessageDlg('A cofins ipi da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPFCOFINSCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFCOFINSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPFCOFINSCST, nil, 'Selecione o cst COFINS para pessoa física.', 'idcstcofins', 'idcstcofins',
+      'idcstcofins|Descricao|observacao', 'ID|Descrição|Observação', 'cstcofins', '', DM.conServer, 'FrameCstcofins', DM.cdsCSTCOFINS);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFCSOSNExit(Sender: TObject);
+begin
+  inherited;
+  if edtPFCSOSN.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpfcsosn.AsString:= i2bGetValor('cstcsosn', 'idcstcsosn', edtPFCSOSN.Text, 'idcstcsosn', DM.dspConnection);
+	if DM.cdsRegraFiscalpfcsosn.AsString='' then
+    begin
+      MessageDlg('A csosn da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPFCSOSN.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFCSOSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPFCSOSN, nil, 'Selecione a csosn para pessoa física.', 'idcstcsosn', 'idcstcsosn',
+      'idcstcsosn|Descricao|observacao', 'ID|Descrição|Observação', 'cstcsosn', '', DM.conServer, 'FrameCstcsosn', DM.CDSCSTCSOSN);
+  end;
+end;
+
 procedure TFrameRegraFiscal.edtPFICMSCSTExit(Sender: TObject);
 begin
   inherited;
@@ -440,7 +507,7 @@ begin
     DM.cdsRegraFiscalpficmscst.AsString:= i2bGetValor('csticms', 'idcsticms', edtPFICMSCST.Text, 'idcsticms', DM.dspConnection);
 	if DM.cdsRegraFiscalpficmscst.AsString='' then
     begin
-      MessageDlg('A cast icms da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      MessageDlg('A cst icms da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
       edtPFICMSCST.SetFocus;
     end;
   end;
@@ -453,6 +520,174 @@ begin
   begin
     i2bF2(edtPFICMSCST, nil, 'Selecione o cst ICMS para pessoa física.', 'idcsticms', 'idcsticms',
       'idcsticms|Descricao|observacao', 'ID|Descrição|Observação', 'csticms', '', DM.conServer, 'FrameCstIcms', DM.cdsCSTICMS);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFIPICSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPFIPICST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpfipicst.AsString:= i2bGetValor('cstipi', 'idcstipi', edtPFIPICST.Text, 'idcstipi', DM.dspConnection);
+	if DM.cdsRegraFiscalpfipicst.AsString='' then
+    begin
+      MessageDlg('A cst ipi da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPFIPICST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFIPICSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPFIPICST, nil, 'Selecione o cst IPI para pessoa física.', 'idcstipi', 'idcstipi',
+      'idcstipi|Descricao|observacao', 'ID|Descrição|Observação', 'cstipi', '', DM.conServer, 'FrameCstIPI', DM.cdsCSTIPI);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFPISCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPFPISCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpfpiscst.AsString:= i2bGetValor('cstpis', 'idcstpis', edtPFPISCST.Text, 'idcstpis', DM.dspConnection);
+	if DM.cdsRegraFiscalpfpiscst.AsString='' then
+    begin
+      MessageDlg('A cst pis da pessoa física não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPFPISCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPFPISCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPFPISCST, nil, 'Selecione o cst PIS para pessoa física.', 'idcstPIS', 'idcstPIS',
+      'idcstPIS|Descricao', 'ID|Descrição', 'cstPIS', '', DM.conServer, 'FrameCstPIS', DM.cdsCSTPIS);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJCOFINSCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPJCOFINSCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpjcofinscst.AsString:= i2bGetValor('cstcofins', 'idcstcofins', edtPJCOFINSCST.Text, 'idcstcofins', DM.dspConnection);
+	if DM.cdsRegraFiscalpjcofinscst.AsString='' then
+    begin
+      MessageDlg('A cofins ipi da pessoa jurídica não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPJCOFINSCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJCOFINSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPJCOFINSCST, nil, 'Selecione o cst COFINS para pessoa jurídica.', 'idcstcofins', 'idcstcofins',
+      'idcstcofins|Descricao|observacao', 'ID|Descrição|Observação', 'cstcofins', '', DM.conServer, 'FrameCstcofins', DM.cdsCSTCOFINS);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJCSOSNExit(Sender: TObject);
+begin
+  inherited;
+  if edtPJCSOSN.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpjcsosn.AsString:= i2bGetValor('cstcsosn', 'idcstcsosn', edtPJCSOSN.Text, 'idcstcsosn', DM.dspConnection);
+	if DM.cdsRegraFiscalpjcsosn.AsString='' then
+    begin
+      MessageDlg('A csosn da pessoa jurídica não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPJCSOSN.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJCSOSNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPJCSOSN, nil, 'Selecione a csosn para pessoa jurídica.', 'idcstcsosn', 'idcstcsosn',
+      'idcstcsosn|Descricao|observacao', 'ID|Descrição|Observação', 'cstcsosn', '', DM.conServer, 'FrameCstcsosn', DM.CDSCSTCSOSN);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJICMSCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPJICMSCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpjicmscst.AsString:= i2bGetValor('csticms', 'idcsticms', edtPJICMSCST.Text, 'idcsticms', DM.dspConnection);
+	if DM.cdsRegraFiscalpjicmscst.AsString='' then
+    begin
+      MessageDlg('A cst icms da pessoa jurídica não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPJICMSCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJICMSCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPJICMSCST, nil, 'Selecione a cst ICMS para pessoa jurídica.', 'idcsticms', 'idcsticms',
+      'idcsticms|Descricao|observacao', 'ID|Descrição|Observação', 'csticms', '', DM.conServer, 'FrameCstIcms', DM.cdsCSTICMS);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJIPICSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPJIPICST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpjipicst.AsString:= i2bGetValor('cstipi', 'idcstipi', edtPJIPICST.Text, 'idcstipi', DM.dspConnection);
+	if DM.cdsRegraFiscalpjipicst.AsString='' then
+    begin
+      MessageDlg('A cst ipi da pessoa jurídica não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPJIPICST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJIPICSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPJIPICST, nil, 'Selecione a cst IPI para pessoa jurídica.', 'idcstipi', 'idcstipi',
+      'idcstipi|Descricao|observacao', 'ID|Descrição|Observação', 'cstipi', '', DM.conServer, 'FrameCstIPI', DM.cdsCSTIPI);
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJPISCSTExit(Sender: TObject);
+begin
+  inherited;
+  if edtPJPISCST.EditValue>0 then
+  begin
+    DM.cdsRegraFiscalpjpiscst.AsString:= i2bGetValor('cstpis', 'idcstpis', edtPJPISCST.Text, 'idcstpis', DM.dspConnection);
+	if DM.cdsRegraFiscalpjpiscst.AsString='' then
+    begin
+      MessageDlg('A cst pis da pessoa jurídica não pode ser encontrada.', mtError, [mbOK], 0);
+      edtPJPISCST.SetFocus;
+    end;
+  end;
+end;
+
+procedure TFrameRegraFiscal.edtPJPISCSTKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_F2 then
+  begin
+    i2bF2(edtPJPISCST, nil, 'Selecione o cst PIS para pessoa jurídica.', 'idcstPIS', 'idcstPIS',
+      'idcstPIS|Descricao', 'ID|Descrição', 'cstPIS', '', DM.conServer, 'FrameCstPIS', DM.cdsCSTPIS);
   end;
 end;
 
