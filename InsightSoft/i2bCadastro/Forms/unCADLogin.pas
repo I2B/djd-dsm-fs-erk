@@ -10,14 +10,12 @@ uses
 
 type
   TfrmCADLogin = class(TForm)
-    lblUsuario: TcxLabel;
-    lblSenha: TcxLabel;
     edtUsuario: TcxTextEdit;
     edtSenha: TcxTextEdit;
     imgFundo: TImage;
-    Shape1: TShape;
-    btnLogin: TcxButton;
     Image1: TImage;
+    lblVersao: TcxLabel;
+    imgLogin: TImage;
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -40,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unI2BString;
+uses unDM, unI2BString, unI2BFuncoes;
 
 procedure TfrmCADLogin.btnLoginClick(Sender: TObject);
 var
@@ -126,6 +124,8 @@ var
   vlLinha: String;
   vlArquivo : String;
 begin
+  lblVersao.Caption := VersaoDoExecutavel;
+
   //Caso o conServer.i2b não exista, então cria o arquivo junto ao executável - DJD
   if not(FileExists(ExtractFilePath(Application.ExeName)+'conServer.i2b')) then
   begin
