@@ -106,5 +106,6 @@ begin
 
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   frmPrincipal.VGUSUARIO := frmCADLogin.VGUSUARIOLOGADO;
+  frmPrincipal.Caption := 'InsightSoft  |  Módulo Cadastros  |  Versão '+frmCADLogin.lblVersao.Caption;
   Application.Run;
 end.

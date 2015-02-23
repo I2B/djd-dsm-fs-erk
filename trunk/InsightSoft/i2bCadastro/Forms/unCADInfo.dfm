@@ -1037,7 +1037,6 @@ inherited frmCADInfo: TfrmCADInfo
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
-  ExplicitTop = -18
   ExplicitWidth = 1040
   ExplicitHeight = 604
   PixelsPerInch = 96
@@ -1363,6 +1362,7 @@ inherited frmCADInfo: TfrmCADInfo
       Text4.AssignedValues = []
     end
     object tileInfoWEB: TdxTileControlItem
+      AnimationInterval = 10000
       AnimationMode = amSegmentedFade
       GroupIndex = 0
       IndexInGroup = 3
