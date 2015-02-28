@@ -1416,7 +1416,7 @@ inherited frmCADInfo: TfrmCADInfo
         DataController.DataSource = dtsComposicao
         DiagramPie.Active = True
         DiagramPie.SeriesCaptions = False
-        DiagramPie.Styles.ValueCaptions = frmPrincipal.cxStyle1
+        DiagramPie.Styles.ValueCaptions = frmCADPrincipal.cxStyle1
         DiagramPie.Values.AngleOfFirstSlice = 10
         DiagramPie.Values.CaptionPosition = pdvcpOutsideEnd
         DiagramPie.Values.CaptionItems = [pdvciPercentage]
@@ -1642,7 +1642,7 @@ inherited frmCADInfo: TfrmCADInfo
         DiagramBar.Active = True
         DiagramBar.Values.VaryColorsByCategory = True
         DiagramPie.SeriesCaptions = False
-        DiagramPie.Styles.ValueCaptions = frmPrincipal.cxStyle1
+        DiagramPie.Styles.ValueCaptions = frmCADPrincipal.cxStyle1
         DiagramPie.Values.AngleOfFirstSlice = 10
         DiagramPie.Values.CaptionPosition = pdvcpOutsideEnd
         DiagramPie.Values.CaptionItems = [pdvciPercentage]

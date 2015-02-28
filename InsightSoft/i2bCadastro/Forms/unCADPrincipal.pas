@@ -1,4 +1,4 @@
-unit unPrincipal;
+unit unCADPrincipal;
 
 interface
 
@@ -21,7 +21,7 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxGridCustomView, cxGridChartView, cxGridDBChartView, cxGridLevel, cxGrid;
 
 type
-  TfrmPrincipal = class(TForm)
+  TfrmCADPrincipal = class(TForm)
     dxBarManager: TdxBarManager;
     dxRibbonPopupMenu: TdxRibbonPopupMenu;
     dxSkinController: TdxSkinController;
@@ -136,7 +136,7 @@ type
   end;
 
 var
-  frmPrincipal: TfrmPrincipal;
+  frmCADPrincipal: TfrmCADPrincipal;
 
 implementation
 
@@ -149,7 +149,7 @@ uses unCADSerie, unDM, unIndicadorEconomico, unCADAuditoria, unCADBanco, unCADPo
   unCADModelo, unCADMunicipio, unCADNCM, unCADProdutoSubGrupo, unCADPais, unCADProdutoGrupo, unCADProdutoFornecedor,
   unCADPessoa, unCADProduto, unI2BBD, unCADProdutoGrade, unCADInfo;
 
-procedure TfrmPrincipal.btnSerieClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnSerieClick(Sender: TObject);
 begin
   if abaExiste(frmCADSerie) then
   begin
@@ -164,7 +164,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnSubGrupoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnSubGrupoClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoSubGrupo) then
   begin
@@ -179,7 +179,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnTamanhoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnTamanhoClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoTamanho) then
   begin
@@ -194,7 +194,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCBOClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCBOClick(Sender: TObject);
 begin
   if abaExiste(frmCADCBO) then
   begin
@@ -209,7 +209,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCepClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCepClick(Sender: TObject);
 begin
   if abaExiste(frmCADCEP) then
   begin
@@ -224,7 +224,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCFOPClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCFOPClick(Sender: TObject);
 begin
   if abaExiste(frmCADCFOP) then
   begin
@@ -239,7 +239,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnUnidadeConversaoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnUnidadeConversaoClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoUnidadeConversao) then
   begin
@@ -254,7 +254,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnUnidadeNegocioClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnUnidadeNegocioClick(Sender: TObject);
 begin
   if abaExiste(frmCADUnidadeNegocio) then
   begin
@@ -269,7 +269,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.dxBarLargeButton1Click(Sender: TObject);
+procedure TfrmCADPrincipal.dxBarLargeButton1Click(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoFornecedor) then
   begin
@@ -284,7 +284,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.dxBarLargeButton2Click(Sender: TObject);
+procedure TfrmCADPrincipal.dxBarLargeButton2Click(Sender: TObject);
 begin
   if abaExiste(frmCADProduto) then
   begin
@@ -299,7 +299,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.dxBarLargeButton3Click(Sender: TObject);
+procedure TfrmCADPrincipal.dxBarLargeButton3Click(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoGrade) then
   begin
@@ -315,12 +315,12 @@ begin
 
 end;
 
-procedure TfrmPrincipal.FormShow(Sender: TObject);
+procedure TfrmCADPrincipal.FormShow(Sender: TObject);
 begin
   frmCADInfo := TfrmCADInfo.Create(Application);
 end;
 
-procedure TfrmPrincipal.btnICMSClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnICMSClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTICMS) then
   begin
@@ -335,7 +335,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCNAEClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCNAEClick(Sender: TObject);
 begin
   if abaExiste(frmCADCNAE) then
   begin
@@ -350,7 +350,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCSOSNClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCSOSNClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTCSOSN) then
   begin
@@ -365,7 +365,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnEmpresaClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnEmpresaClick(Sender: TObject);
 begin
   if abaExiste(frmCADEmpresa) then
   begin
@@ -380,7 +380,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnEstadoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnEstadoClick(Sender: TObject);
 begin
   if abaExiste(frmCADEstado) then
   begin
@@ -395,7 +395,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnGrupoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnGrupoClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoGrupo) then
   begin
@@ -410,7 +410,7 @@ begin
   end;
 end;
 
-function TfrmPrincipal.abaExiste(Formulario: TForm): boolean;
+function TfrmCADPrincipal.abaExiste(Formulario: TForm): boolean;
 var
   I: Integer;
 begin
@@ -425,7 +425,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.barProdutoUnidadeClick(Sender: TObject);
+procedure TfrmCADPrincipal.barProdutoUnidadeClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoUnidade) then
   begin
@@ -440,7 +440,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.barSetorClick(Sender: TObject);
+procedure TfrmCADPrincipal.barSetorClick(Sender: TObject);
 begin
   if abaExiste(frmCADSetor) then
   begin
@@ -455,7 +455,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.barTelefoneClick(Sender: TObject);
+procedure TfrmCADPrincipal.barTelefoneClick(Sender: TObject);
 begin
   if abaExiste(frmCADTelefone) then
   begin
@@ -470,7 +470,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnAuditoriaClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnAuditoriaClick(Sender: TObject);
 begin
   if abaExiste(frmCADAuditoria) then
   begin
@@ -485,7 +485,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnBancoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnBancoClick(Sender: TObject);
 begin
   if abaExiste(frmCADBanco) then
   begin
@@ -500,7 +500,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnClienteClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnClienteClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTCSOSN) then
   begin
@@ -515,7 +515,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCofinsClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCofinsClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTCofins) then
   begin
@@ -530,7 +530,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnCorClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnCorClick(Sender: TObject);
 begin
   if abaExiste(frmCADProdutoCor) then
   begin
@@ -545,7 +545,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnIndicadorEconomicoClick(Sender: TObject);
 begin
   if abaExiste(frmCADIndicadorEconomico) then
   begin
@@ -560,7 +560,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnIndiceClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnIndiceClick(Sender: TObject);
 begin
   if abaExiste(frmCADIndice) then
   begin
@@ -575,7 +575,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnIPIClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnIPIClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTIPI) then
   begin
@@ -590,7 +590,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnModeloClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnModeloClick(Sender: TObject);
 begin
   if abaExiste(frmCADModelo) then
   begin
@@ -605,7 +605,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnMunicipioClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnMunicipioClick(Sender: TObject);
 begin
   if abaExiste(frmCADMunicipio) then
   begin
@@ -620,7 +620,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnNCMClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnNCMClick(Sender: TObject);
 begin
   if abaExiste(frmCADNCM) then
   begin
@@ -635,7 +635,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnObservacaoClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnObservacaoClick(Sender: TObject);
 begin
   if abaExiste(frmCADRegraFiscalObservacao) then
   begin
@@ -650,7 +650,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnPaisClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnPaisClick(Sender: TObject);
 begin
   if abaExiste(frmCADPAIS) then
   begin
@@ -665,7 +665,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnPessoaClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnPessoaClick(Sender: TObject);
 begin
   DM.cdsPessoa.Open;
   if frmCADPessoa = nil then
@@ -680,7 +680,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnPISClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnPISClick(Sender: TObject);
 begin
   if abaExiste(frmCADCSTPIS) then
   begin
@@ -695,7 +695,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnPortadorClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnPortadorClick(Sender: TObject);
 begin
   if abaExiste(frmCadPortador) then
   begin
@@ -710,7 +710,7 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.btnRegraFiscalClick(Sender: TObject);
+procedure TfrmCADPrincipal.btnRegraFiscalClick(Sender: TObject);
 begin
   if abaExiste(frmCADRegraFiscal) then
   begin

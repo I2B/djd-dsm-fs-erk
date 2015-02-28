@@ -1,9 +1,9 @@
 object frmNFCPrincipal: TfrmNFCPrincipal
   Left = 0
   Top = 0
-  Caption = 'frmNFCPrincipal'
-  ClientHeight = 201
-  ClientWidth = 447
+  Caption = 'Insight To Business'
+  ClientHeight = 740
+  ClientWidth = 1024
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

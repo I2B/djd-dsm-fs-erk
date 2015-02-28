@@ -115,8 +115,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Forms\unPrincipal.pas">
-            <Form>frmPrincipal</Form>
+        <DCCReference Include="Forms\unCADPrincipal.pas">
+            <Form>frmCADPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Forms\unDM.pas">

@@ -1,4 +1,4 @@
-object frmPrincipal: TfrmPrincipal
+object frmCADPrincipal: TfrmCADPrincipal
   Left = 0
   Top = 0
   Caption = 'Insight To Business'

@@ -2,7 +2,7 @@ program i2bCadastro;
 
 uses
   Vcl.Forms,
-  unPrincipal in 'Forms\unPrincipal.pas' {frmPrincipal},
+  unCADPrincipal in 'Forms\unCADPrincipal.pas' {frmCADPrincipal},
   unDM in 'Forms\unDM.pas' {DM: TDataModule},
   unBase in '..\Framework\HerancaVisual\unBase.pas' {frmBase},
   unGrid in '..\Framework\HerancaVisual\unGrid.pas' {frmGrid},

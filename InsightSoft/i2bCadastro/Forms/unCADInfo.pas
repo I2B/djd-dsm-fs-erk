@@ -93,7 +93,7 @@ implementation
 
 {$R *.dfm}
 
-uses unPrincipal, unDM, unI2BBD, unThreadFTP;
+uses unCADPrincipal, unDM, unI2BBD, unThreadFTP;
 
 procedure TfrmCADInfo.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -109,7 +109,7 @@ begin
     try
       if DM.conServer.Connected then
       begin
-        VGUSUARIOLOGADO := frmPrincipal.VGUSUARIO;
+        VGUSUARIOLOGADO := frmCADPrincipal.VGUSUARIO;
 
         memComposicao.CreateDataSet;
         //Clientes
