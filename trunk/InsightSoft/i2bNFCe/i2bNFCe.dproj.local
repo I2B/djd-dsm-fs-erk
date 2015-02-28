@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-  <Transactions>
-    <Transaction>2015/02/28 08:57:38.448,=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2015/02/28 08:59:48.679,C:\DAPPER\I2Bsoft\InsightSoft\i2bNFCe\Forms\unNFCPrincipal.pas=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2015/02/28 08:59:48.679,C:\DAPPER\I2Bsoft\InsightSoft\i2bNFCe\Forms\unNFCPrincipal.dfm=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2015/02/28 09:00:51.097,C:\DAPPER\I2Bsoft\InsightSoft\i2bNFCe\i2bNFCe.dproj=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
