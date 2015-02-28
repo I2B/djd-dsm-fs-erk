@@ -9,6 +9,9 @@
         <Projects Include="i2bCadastro\i2bCadastro.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="i2bNFCe\i2bNFCe.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="i2bCadastro:Make">
         <MSBuild Projects="i2bCadastro\i2bCadastro.dproj" Targets="Make"/>
     </Target>
+    <Target Name="i2bNFCe">
+        <MSBuild Projects="i2bNFCe\i2bNFCe.dproj"/>
+    </Target>
+    <Target Name="i2bNFCe:Clean">
+        <MSBuild Projects="i2bNFCe\i2bNFCe.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="i2bNFCe:Make">
+        <MSBuild Projects="i2bNFCe\i2bNFCe.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="i2bServer;i2bCadastro"/>
+        <CallTarget Targets="i2bServer;i2bCadastro;i2bNFCe"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="i2bServer:Clean;i2bCadastro:Clean"/>
+        <CallTarget Targets="i2bServer:Clean;i2bCadastro:Clean;i2bNFCe:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="i2bServer:Make;i2bCadastro:Make"/>
+        <CallTarget Targets="i2bServer:Make;i2bCadastro:Make;i2bNFCe:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
