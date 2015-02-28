@@ -104,8 +104,8 @@ begin
   frmCADLogin := TfrmCADLogin.Create(Application);
   frmCADLogin.ShowModal;
 
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  frmPrincipal.VGUSUARIO := frmCADLogin.VGUSUARIOLOGADO;
-  frmPrincipal.Caption := 'InsightSoft  |  Módulo Cadastros  |  Versão '+frmCADLogin.lblVersao.Caption;
+  Application.CreateForm(TfrmCADPrincipal, frmCADPrincipal);
+  frmCADPrincipal.VGUSUARIO := frmCADLogin.VGUSUARIOLOGADO;
+  frmCADPrincipal.Caption := 'InsightSoft  |  Módulo Cadastros  |  Versão '+frmCADLogin.lblVersao.Caption;
   Application.Run;
 end.
