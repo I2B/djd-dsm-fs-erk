@@ -16,9 +16,41 @@ function i2bGetValor(Tabela, CampoComparacao, DadoComparacao, CampoRetorno: Stri
 
 function i2bGetValores(Tabela, CampoComparacao, DadoComparacao, CamposRetorno: String; ServidorRemoto: TCustomRemoteServer ): TStringList;
 
+function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
+//function i2bBaixaReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
+//function i2bConsultaEstoqueLiquido(idProduto: integer; ServidorRemoto: TCustomRemoteServer):Double;
+
 implementation
 
 uses unI2BString;
+
+function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer;
+var
+  SQL: string;
+  CDS: TClientDataSet;
+  idProdutoEstoqueReservado: string;
+begin
+  CDS:= i2bgetclient('select idproduto, quantidade from prevendaitem where idprevendaitem='+idPreVendaItem, ServidorRemoto);
+  idProdutoEstoqueReservado:= i2bGetValor('produtoestoquereservado', 'idprevendaitem', idprevendaitem,
+    'idprodutoestoquereservado', ServidorRemoto);
+
+  if idProdutoEstoqueReservado <> '' then
+  begin
+    SQL:= 'Update produtosestoque set ativo=true, quantidade=' + cds.FieldByName('quantidade').AsString +
+      ' where idprodutoreservado=' + idProdutoEstoqueReservado ;
+    i2bExecutaSQL(SQL, ServidorRemoto);
+  end
+  else
+  begin
+    SQL:= 'Insert into produtosestoque (idproduto, idprevendaitem, quantidade, ativo) ' +
+      'values (' + CDS.FieldByName('idproduto').AsString + ', ' + idPreVendaItem +
+      ', ' + CDS.FieldByName('quantidade').AsString + ', true)';
+    i2bExecutaSQL(SQL, ServidorRemoto);
+    idProdutoEstoqueReservado:= i2bGetValor('produtoestoquereservado', 'idprevendaitem', idprevendaitem,
+      'idprodutoestoquereservado', ServidorRemoto);
+  end;
+  Result:= idProdutoEstoqueReservado;
+end;
 
 function i2bGetClient(SQL: String; ServidorRemoto: TCustomRemoteServer): TClientDataSet;
 var
