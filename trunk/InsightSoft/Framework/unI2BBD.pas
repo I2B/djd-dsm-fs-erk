@@ -17,8 +17,8 @@ function i2bGetValor(Tabela, CampoComparacao, DadoComparacao, CampoRetorno: Stri
 function i2bGetValores(Tabela, CampoComparacao, DadoComparacao, CamposRetorno: String; ServidorRemoto: TCustomRemoteServer ): TStringList;
 
 function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
-//function i2bBaixaReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
-//function i2bConsultaEstoqueLiquido(idProduto: integer; ServidorRemoto: TCustomRemoteServer):Double;
+function i2bBaixaReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
+function i2bConsultaEstoqueLiquido(idProduto: string; ServidorRemoto: TCustomRemoteServer):Double;
 
 implementation
 
@@ -49,7 +49,39 @@ begin
     idProdutoEstoqueReservado:= i2bGetValor('produtoestoquereservado', 'idprevendaitem', idprevendaitem,
       'idprodutoestoquereservado', ServidorRemoto);
   end;
-  Result:= idProdutoEstoqueReservado;
+  Result:= StrToInt(idProdutoEstoqueReservado);
+end;
+
+function i2bBaixaReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer;
+var
+  idProdutoEstoqueReservado: string;
+  SQL: string;
+begin
+  idProdutoEstoqueReservado:= i2bGetValor('produtoestoquereservado', 'idprevendaitem', idprevendaitem,
+    'idprodutoestoquereservado', ServidorRemoto);
+
+  if idProdutoEstoqueReservado <> '' then
+  begin
+    SQL:= 'Update produtosestoque set ativo=false where idprodutoreservado=' + idProdutoEstoqueReservado;
+    i2bExecutaSQL(SQL, ServidorRemoto);
+  end
+  else
+  begin
+    idProdutoEstoqueReservado:= '0';
+  end;
+  Result:= StrToInt(idProdutoEstoqueReservado);
+end;
+
+function i2bConsultaEstoqueLiquido(idProduto: string; ServidorRemoto: TCustomRemoteServer):Double;
+var
+  SQL: string;
+  CDS: TClientDataSet;
+  Estoque: double;
+begin
+  Estoque:= strtofloat(i2bgetvalor('produto', 'idproduto', idProduto, 'quantidadeestoque', ServidorRemoto));
+  SQL:= 'select sum(quantidade) as quantidade from produtoestoquereservado where ativo=true and idproduto='+idProduto;
+  CDS:= i2bgetclient(SQL, ServidorRemoto);
+  Result:= Estoque - CDS.FieldByName('quantidade').AsFloat;
 end;
 
 function i2bGetClient(SQL: String; ServidorRemoto: TCustomRemoteServer): TClientDataSet;
