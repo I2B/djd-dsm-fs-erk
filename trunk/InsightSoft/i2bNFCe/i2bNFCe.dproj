@@ -91,6 +91,8 @@
             <Form>frmNFCPreVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Framework\unI2BBD.pas"/>
+        <DCCReference Include="..\Framework\unI2BFuncoes.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

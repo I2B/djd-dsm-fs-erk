@@ -7,22 +7,56 @@ uses
   Datasnap.DSConnect, Data.DB, Data.SqlExpr, Data.FMTBcd;
 
 function i2bGetClient(SQL: String; ServidorRemoto: TCustomRemoteServer): TClientDataSet;
-
 function i2bExecutaSQL(SQL: String; ServidorRemoto: TCustomRemoteServer):Boolean; overload;
-
 function i2bExecutaSQL(SQL: String; ServidorRemoto: TCustomRemoteServer; var Retorno: String):Boolean; overload;
-
 function i2bGetValor(Tabela, CampoComparacao, DadoComparacao, CampoRetorno: String; ServidorRemoto: TCustomRemoteServer ): String;
-
 function i2bGetValores(Tabela, CampoComparacao, DadoComparacao, CamposRetorno: String; ServidorRemoto: TCustomRemoteServer ): TStringList;
-
+/// <summary>
+///  Reserva estoque para atender a Pré Venda
+/// </summary>
+/// <param name="idPreVendaItem">ID do item da pré venda</param>
+/// <param name="ServidorRemoto">Conexão ao banco de dados</param>
+/// <returns>[Integer] idProdutoEstoqueReservado</returns>
 function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
+/// <summary>
+///  Baixa reserva do estoque
+/// </summary>
+/// <param name="idPreVendaItem">ID do item da pré venda</param>
+/// <param name="ServidorRemoto">Conexão ao banco de dados</param>
+/// <returns>[Integer] idProdutoEstoqueReservado</returns>
 function i2bBaixaReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
+/// <summary>
+///  Consulta estoque líquido (estoque - reservas)
+/// </summary>
+/// <param name="idProduto">ID do produto a ser consultado</param>
+/// <param name="ServidorRemoto">Conexão ao banco de dados</param>
+/// <returns>[Double] Saldo líquido</returns>
 function i2bConsultaEstoqueLiquido(idProduto: string; ServidorRemoto: TCustomRemoteServer):Double;
+/// <summary>
+///  Muda o status da Pré Venda
+/// </summary>
+/// <param name="idPreVendaCabecalho">ID da Pré Venda</param>
+/// <param name="status">Status para o qual será alterado, -1 Cancelada, 0 Aberta, 1 Liberada, 2 Faturada</param>
+/// <param name="ServidorRemoto">Conexão ao banco de dados</param>
+/// <returns>[Boolean] True: sucesso, False: falha</returns>
+Function i2bAlteraStatusPreVenda(idPreVendaCabecalho, status: string; ServidorRemoto: TCustomRemoteServer):Boolean;
 
 implementation
 
 uses unI2BString;
+
+Function i2bAlteraStatusPreVenda(idPreVendaCabecalho, status: string; ServidorRemoto: TCustomRemoteServer):Boolean;
+var
+  SQL: string;
+begin
+  try
+    SQL:= 'Update prevendacabecalho set status=' + status + ' where idPreVendaCabecalho=' + idPreVendaCabecalho;
+    i2bexecutasql(SQL, ServidorRemoto);
+    Result:= True;
+  except
+    Result:= False;
+  end;
+end;
 
 function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer;
 var
