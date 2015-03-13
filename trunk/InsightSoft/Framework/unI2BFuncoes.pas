@@ -4,7 +4,7 @@ interface
 
 uses
   cxTextEdit, cxDBEdit, Data.DBXFirebird, Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider, Data.DB, Data.SqlExpr,
-  System.SysUtils, System.Classes, Vcl.Dialogs, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, fileCtrl, unframepai,
+  System.SysUtils, System.Classes, Vcl.Dialogs, Vcl.Forms, Vcl.DBCtrls, Winapi.Windows, fileCtrl,
   Data.DBXCommon, Datasnap.DSConnect;
 
 function i2bF2(edtID, edtDetalhe: TcxDBTextEdit; titulo, campoRetorno, campoPadraoBusca, camposVisiveis, NomeDosCampos,
