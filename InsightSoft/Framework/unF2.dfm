@@ -41,6 +41,9 @@ object frmF2: TfrmF2
     object cxTabSheet: TcxTabSheet
       Caption = 'titulo'
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlClient: TPanel
         Left = 0
         Top = 57
@@ -85,10 +88,10 @@ object frmF2: TfrmF2
           TabOrder = 2
           object lblCadastro: TLabel
             AlignWithMargins = True
-            Left = 3
+            Left = 426
             Top = 3
-            Width = 826
-            Height = 18
+            Width = 403
+            Height = 15
             Align = alClient
             Alignment = taRightJustify
             Caption = 
@@ -100,9 +103,6 @@ object frmF2: TfrmF2
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
-            ExplicitLeft = 426
-            ExplicitWidth = 403
-            ExplicitHeight = 15
           end
         end
         object cxGrid: TcxGrid
