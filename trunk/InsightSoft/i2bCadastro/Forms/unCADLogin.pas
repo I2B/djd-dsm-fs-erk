@@ -130,7 +130,7 @@ begin
   if not(FileExists(ExtractFilePath(Application.ExeName)+'conServer.i2b')) then
   begin
     try
-      vlArquivo := ExtractFilePath((Application.ExeName)+'conServer.i2b');
+      vlArquivo := ExtractFilePath(Application.ExeName)+'conServer.i2b';
       AssignFile(vlConServer,vlArquivo);
       Rewrite(vlConServer);
       Writeln(vlConServer,'127.0.0.1:211');
