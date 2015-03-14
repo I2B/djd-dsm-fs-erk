@@ -18975,6 +18975,7 @@ object frmCADLogin: TfrmCADLogin
     Top = 264
     ParentFont = False
     Properties.Alignment.Horz = taCenter
+    Properties.UseLeftAlignmentOnEditing = False
     Style.BorderColor = clWindow
     Style.BorderStyle = ebsUltraFlat
     Style.Edges = [bLeft, bTop, bRight, bBottom]
@@ -18998,6 +18999,7 @@ object frmCADLogin: TfrmCADLogin
     ParentFont = False
     Properties.Alignment.Horz = taCenter
     Properties.EchoMode = eemPassword
+    Properties.UseLeftAlignmentOnEditing = False
     Style.BorderColor = clWindow
     Style.BorderStyle = ebsUltraFlat
     Style.Edges = [bLeft, bTop, bRight, bBottom]

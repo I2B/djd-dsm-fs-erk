@@ -15,6 +15,7 @@ object frmNFCPrincipal: TfrmNFCPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object dxRibbon: TdxRibbon
@@ -29,8 +30,6 @@ object frmNFCPrincipal: TfrmNFCPrincipal
     Contexts = <>
     TabOrder = 0
     TabStop = False
-    ExplicitLeft = 8
-    ExplicitTop = -8
     object tabPrincipal: TdxRibbonTab
       Active = True
       Caption = 'I2B - Insight To Business'
@@ -91,8 +90,8 @@ object frmNFCPrincipal: TfrmNFCPrincipal
           Visible = True
           ItemName = 'btnPVAprovar'
         end>
-      OneOnRow = True
-      Row = 2
+      OneOnRow = False
+      Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -111,8 +110,8 @@ object frmNFCPrincipal: TfrmNFCPrincipal
           Visible = True
           ItemName = 'dxBarLargeButton4'
         end>
-      OneOnRow = True
-      Row = 1
+      OneOnRow = False
+      Row = 0
       UseOwnFont = False
       Visible = True
       WholeRow = False
@@ -135,7 +134,7 @@ object frmNFCPrincipal: TfrmNFCPrincipal
           Visible = True
           ItemName = 'btnCliente'
         end>
-      OneOnRow = True
+      OneOnRow = False
       Row = 0
       UseOwnFont = False
       Visible = True
@@ -1021,6 +1020,35 @@ object frmNFCPrincipal: TfrmNFCPrincipal
       Font.Name = 'Segoe UI Light'
       Font.Style = []
       TextColor = clWindowText
+    end
+  end
+  object ActionList: TActionList
+    Left = 360
+    Top = 168
+    object acBuscar: TAction
+      Caption = 'acBuscar'
+      ShortCut = 113
+    end
+    object acInserir: TAction
+      Caption = 'acInserir'
+      ShortCut = 114
+    end
+    object acAprovar: TAction
+      Caption = 'acAprovar'
+      ShortCut = 115
+    end
+    object acMetas: TAction
+      Caption = 'acMetas'
+      ShortCut = 116
+      OnExecute = acMetasExecute
+    end
+    object acConsultaProduto: TAction
+      Caption = 'acConsultaProduto'
+      ShortCut = 117
+    end
+    object acConsultaCliente: TAction
+      Caption = 'acConsultaCliente'
+      ShortCut = 118
     end
   end
 end
