@@ -12,14 +12,14 @@ function i2bExecutaSQL(SQL: String; ServidorRemoto: TCustomRemoteServer; var Ret
 function i2bGetValor(Tabela, CampoComparacao, DadoComparacao, CampoRetorno: String; ServidorRemoto: TCustomRemoteServer ): String;
 function i2bGetValores(Tabela, CampoComparacao, DadoComparacao, CamposRetorno: String; ServidorRemoto: TCustomRemoteServer ): TStringList;
 /// <summary>
-///  Reserva estoque para atender a Pré Venda
+///  Reserva estoque para atender a Pré Venda - {Está no banco}
 /// </summary>
 /// <param name="idPreVendaItem">ID do item da pré venda</param>
 /// <param name="ServidorRemoto">Conexão ao banco de dados</param>
 /// <returns>[Integer] idProdutoEstoqueReservado</returns>
 function i2bGeraReservaEstoque(idPreVendaItem: string; ServidorRemoto: TCustomRemoteServer):Integer; // retorna idprodutoreservado
 /// <summary>
-///  Baixa reserva do estoque
+///  Baixa reserva do estoque - {Está no banco}
 /// </summary>
 /// <param name="idPreVendaItem">ID do item da pré venda</param>
 /// <param name="ServidorRemoto">Conexão ao banco de dados</param>

@@ -3,7 +3,7 @@ object frmNFCPreVenda: TfrmNFCPreVenda
   Top = 0
   Caption = 'Pr'#233' Venda'
   ClientHeight = 515
-  ClientWidth = 841
+  ClientWidth = 689
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,14 +16,10 @@ object frmNFCPreVenda: TfrmNFCPreVenda
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 841
+    Width = 689
     Height = 515
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 336
-    ExplicitTop = 128
-    ExplicitWidth = 300
-    ExplicitHeight = 250
     object edtProduto: TcxDBTextEdit
       Left = 22
       Top = 46
@@ -33,14 +29,15 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 0
+      OnKeyPress = edtProdutoKeyPress
       Width = 121
     end
     object grdItem: TcxGrid
       Left = 22
       Top = 148
-      Width = 723
+      Width = 643
       Height = 200
-      TabOrder = 7
+      TabOrder = 8
       object grdItemDBtable: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dtsItem
@@ -59,7 +56,7 @@ object frmNFCPreVenda: TfrmNFCPreVenda
         OptionsView.GroupByBox = False
         object grdItemDBtabledescricao: TcxGridDBColumn
           DataBinding.FieldName = 'descricao'
-          Width = 300
+          Width = 220
         end
         object grdItemDBtablequantidade: TcxGridDBColumn
           DataBinding.FieldName = 'quantidade'
@@ -107,7 +104,7 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 2
+      TabOrder = 3
       Width = 121
     end
     object edtValor: TcxDBCurrencyEdit
@@ -117,12 +114,13 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 3
+      TabOrder = 4
       Width = 121
     end
     object edtDescricao: TcxDBTextEdit
       Left = 149
       Top = 46
+      TabStop = False
       DataBinding.DataField = 'descricao'
       DataBinding.DataSource = dtsItem
       Properties.ReadOnly = True
@@ -130,7 +128,7 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
       TabOrder = 1
-      Width = 300
+      Width = 375
     end
     object edtDesconto: TcxDBCurrencyEdit
       Left = 276
@@ -139,28 +137,40 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 4
+      TabOrder = 5
       Width = 121
     end
     object edtValorDesconto: TcxDBCurrencyEdit
       Left = 403
       Top = 91
       DataBinding.DataSource = dtsItem
+      Properties.AssignedValues.MinValue = True
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 5
+      TabOrder = 6
       Width = 121
     end
     object edtTotal: TcxDBCurrencyEdit
       Left = 530
       Top = 91
+      TabStop = False
       DataBinding.DataSource = dtsItem
       Properties.ReadOnly = True
       Style.BorderColor = clWindowFrame
       Style.BorderStyle = ebs3D
       Style.HotTrack = False
-      TabOrder = 6
+      TabOrder = 7
+      Width = 121
+    end
+    object cxCheckBox1: TcxCheckBox
+      Left = 530
+      Top = 46
+      Caption = 'Reservar Estoque'
+      Style.BorderColor = clWindowFrame
+      Style.BorderStyle = ebs3D
+      Style.HotTrack = False
+      TabOrder = 2
       Width = 121
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
@@ -279,36 +289,19 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       ControlOptions.ShowBorder = False
       Index = 4
     end
+    object dxLayoutControl1Item9: TdxLayoutItem
+      Parent = dxLayoutControl1Group7
+      AlignVert = avBottom
+      CaptionOptions.Text = 'cxCheckBox1'
+      CaptionOptions.Visible = False
+      Control = cxCheckBox1
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
   end
   object tblItem: TFDMemTable
-    Active = True
     OnCalcFields = tblItemCalcFields
-    FieldDefs = <
-      item
-        Name = 'idProduto'
-        DataType = ftInteger
-      end
-      item
-        Name = 'descricao'
-        DataType = ftString
-        Size = 100
-      end
-      item
-        Name = 'quantidade'
-        DataType = ftFloat
-      end
-      item
-        Name = 'valorunitario'
-        DataType = ftFloat
-      end
-      item
-        Name = 'taxadesconto'
-        DataType = ftFloat
-      end
-      item
-        Name = 'valordesconto'
-        DataType = ftFloat
-      end>
+    FieldDefs = <>
     IndexDefs = <>
     FetchOptions.AssignedValues = [evMode]
     FetchOptions.Mode = fmAll
@@ -364,8 +357,13 @@ object frmNFCPreVenda: TfrmNFCPreVenda
       Active = True
       currency = True
       DisplayName = ''
-      DisplayFormat = '#.###,##0.00'
       Expression = 'sum(valortotal)'
+    end
+    object tblItemDesconto: TAggregateField
+      FieldName = 'Desconto'
+      currency = True
+      DisplayName = ''
+      Expression = 'sum(valordescontol)'
     end
   end
   object dtsItem: TDataSource
