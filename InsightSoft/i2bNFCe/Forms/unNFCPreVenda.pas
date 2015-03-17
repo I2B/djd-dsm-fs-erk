@@ -10,7 +10,7 @@ uses
   dxLayoutcxEditAdapters, cxContainer, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxTextEdit, cxDBEdit,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
-  dxLayoutControl, cxCalc, cxButtonEdit, cxCurrencyEdit;
+  dxLayoutControl, cxCalc, cxButtonEdit, cxCurrencyEdit, cxCheckBox;
 
 type
   TfrmNFCPreVenda = class(TForm)
@@ -57,8 +57,12 @@ type
     dxLayoutControl1Group5: TdxLayoutAutoCreatedGroup;
     dxLayoutControl1Group6: TdxLayoutAutoCreatedGroup;
     dxLayoutControl1Group7: TdxLayoutAutoCreatedGroup;
+    cxCheckBox1: TcxCheckBox;
+    dxLayoutControl1Item9: TdxLayoutItem;
+    tblItemDesconto: TAggregateField;
     procedure tblItemCalcFields(DataSet: TDataSet);
     procedure grdItemDBtableCancelarPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+    procedure edtProdutoKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -72,6 +76,21 @@ implementation
 
 {$R *.dfm}
 
+uses unI2BFuncoes;
+
+procedure TfrmNFCPreVenda.edtProdutoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = VK_F2 then
+  begin
+    if dtsItem.State in [dsBrowse] then
+    begin
+      tblItem.Insert;
+    end;
+    i2bF2('', edtDescricao, 'Selecione o campo.', 'id|descricao', 'descricao',
+      'id|Descricao|OutroCampo', 'ID|Descrição|NomeOutroCampo', 'Tabela', '', DM.conServer, 'NomeDoFrame', DM.cds);
+  end;
+end;
+
 procedure TfrmNFCPreVenda.grdItemDBtableCancelarPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
 begin
   tblItem.Delete;
@@ -81,12 +100,8 @@ procedure TfrmNFCPreVenda.tblItemCalcFields(DataSet: TDataSet);
 begin
   if tblItemtaxadesconto.AsFloat>0 then
   begin
-    tblItemvalordesconto.AsFloat:= (tblItemvalorunitario.AsFloat * tblItemquantidade.AsFloat) * tblItemtaxadesconto.AsFloat/100;
-
-  end
-  else
-  begin
-    tblItemvalordesconto.AsFloat:= 0;
+    tblItemvalordesconto.AsFloat:= (tblItemvalorunitario.AsFloat * tblItemquantidade.AsFloat) *
+      (tblItemtaxadesconto.AsFloat/100);
   end;
   tblItemvalortotal.AsFloat:= (tblItemvalorunitario.AsFloat * tblItemquantidade.AsFloat) - tblItemvalordesconto.AsFloat;
 end;
